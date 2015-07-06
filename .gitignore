@@ -1,0 +1,46 @@
+# Patch/diff artifacts.
+*.patch
+*.diff
+*.orig
+*.rej
+interdiff*.txt
+
+# emacs artifacts.
+*~
+\#*\#
+
+# VI swap file
+*.swp
+
+# PHPStorm
+.idea
+.idea/*
+
+# Hidden files.
+.DS*
+.project
+
+# Windows links.
+*.lnk
+
+# Temporary files.
+tmp*
+
+# For symfony composer.lock
+
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+sites/*/default.settings.php
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+
+# Ignore ADD specific files
+sites/*.local
+
+# Ignore SimpleTest multi-site environment.
+sites/simpletest
+
+/modules/*
+/reinstall.php

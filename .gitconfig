@@ -1,0 +1,77 @@
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red bold
+
+[branch]
+    autosetupmerge = true
+
+[alias]
+    aa = add --all
+    ap = add --patch
+    br = branch
+    c = commit -v
+    ca = commit --amend
+    cb = create-branch
+    cl = clone
+    co = checkout
+    db = delete-branch
+    f = fetch
+    g = grep --break --heading --line-number
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    log5 = log -n 5
+    log10 = log -n 10
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    pop = stash pop
+    prb = pull --rebase
+    ra = rebase --abort
+    rc = rebase --continue
+    st = status -s
+    undo = reset --hard
+    unstage = reset HEAD --
+    wipe = clean -f -d
+
+[core]
+    excludesFile = ~/.gitignore-global
+
+[case]
+    ignorecase = true
+
+[grep]
+    lineNumber = true
+    patternType = extended
+
+[fetch]
+    prune = true
+
+[help]
+    autocorrect = 1
+
+[gitsh]
+    nogreeting = true
+
+# Moved this into .gitconfig-local as this can be different depending on the version of Git.
+# [push]
+#     default = simple
+
+[diff]
+    tool = vimdiff
+
+[include]
+    path = ~/.gitconfig-local
