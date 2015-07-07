@@ -15,4 +15,5 @@
 *.diff
 *.rej
 *.orig
+*.sublime-*
 interdiff*.txt
