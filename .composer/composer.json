@@ -1,6 +1,6 @@
 {
     "require": {
-        "drush/drush": "7.x",
+        "drush/drush": "7.x@dev",
         "platformsh/cli": "@stable",
 
         "sculpin/sculpin": "~2.0",
