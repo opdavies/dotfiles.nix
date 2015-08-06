@@ -27,6 +27,7 @@
     br = branch
     c = commit -v
     ca = commit --amend
+    caa = commit --ammend -a -C HEAD
     cb = create-branch
     cl = clone
     co = checkout
@@ -34,10 +35,10 @@
     f = fetch
     g = grep --break --heading --line-number
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    log5 = log -n 5
-    log10 = log -n 10
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    # lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    # lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ls = log --oneline --decorate
+    ll = log --numstat --decorate
     pop = stash pop
     prb = pull --rebase
     ra = rebase --abort
@@ -45,7 +46,7 @@
     st = status -s
     undo = reset --hard
     unstage = reset HEAD --
-    wipe = clean -f -d
+    wipe = clean -fd
 
 [core]
     excludesFile = ~/.gitignore-global
