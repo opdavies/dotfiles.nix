@@ -27,7 +27,7 @@
     br = branch
     c = commit -v
     ca = commit --amend
-    caa = commit --ammend -a -C HEAD
+    caa = commit --amend -a -C HEAD
     cb = create-branch
     cl = clone
     co = checkout
