@@ -50,6 +50,7 @@
 
 [core]
     excludesFile = ~/.gitignore-global
+    whitespace = trailing-space
 
 [case]
     ignorecase = true
