@@ -28,18 +28,11 @@
     c = commit -v
     ca = commit --amend
     caa = commit --amend -a -C HEAD
-    cb = create-branch
     cl = clone
     co = checkout
-    db = delete-branch
     f = fetch
     g = grep --break --heading --line-number
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    # lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    # lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    ls = log --oneline --decorate
-    ll = log --numstat --decorate
-    pop = stash pop
+    lg = log --oneline --all --graph --decorate
     prb = pull --rebase
     ra = rebase --abort
     rc = rebase --continue
