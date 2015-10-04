@@ -1,3 +1,6 @@
+[include]
+    path = ~/.gitconfig-local
+
 [color]
     ui = true
 
@@ -20,53 +23,71 @@
 
 [branch]
     autosetupmerge = true
+    autosetuprebase = always
 
 [alias]
     aa = add --all
     ap = add --patch
     br = branch
     c = commit -v
-    ca = commit --amend
-    caa = commit --amend -a -C HEAD
+    ca = !git c --amend
+    caa = !git ca -a -C HEAD
+    cam = !git c -am
     cl = clone
+    cm = !git c -m
     co = checkout
+    cp = checkout -p
     f = fetch
     g = grep --break --heading --line-number
-    lg = log --oneline --all --graph --decorate
+    l = log --oneline --graph --decorate
+    la = !git l --all
+    noff = merge --no-ff
     prb = pull --rebase
     ra = rebase --abort
     rc = rebase --continue
-    st = status -s
+    s = status --short --branch
+    staged = diff --staged
     undo = reset --hard
     unstage = reset HEAD --
     wipe = clean -fd
+    word-diff = diff --word-diff
+    # Print the name of the current branch.
+    current-branch = symbolic-ref --short HEAD
+    # Print the name of the current upstream tracking branch.
+    upstream = !git config --get branch.$(git current-branch).remote \
+        || echo origin
+    # Checkout the latest develop branch and update it.
+    pull-develop = !git checkout develop && git pull --rebase
+    # Checkout the latest master branch and update it.
+    pull-master = !git checkout develop && git pull --rebase
+    # Update the develop, master and current branches.
+    pull-develop-master-current-branch = !BRANCH=$(git current-branch) && \
+        git fetch --all && git pull-develop && git pull-master && \
+        git checkout $BRANCH && git pull
 
 [core]
+    # A global .gitignore file.
     excludesFile = ~/.gitignore-global
-    whitespace = trailing-space
-
-[case]
-    ignorecase = true
 
 [grep]
+    # Show the line numbers in the output.
     lineNumber = true
+    #
     patternType = extended
 
 [fetch]
-    prune = true
+    # Always prune when fetching (and pulling).
+    prune = 1
 
 [help]
     autocorrect = 1
 
+[rerere]
+    # Store and re-use manual conflict resolution changes.
+    enabled = 1
+
 [gitsh]
     nogreeting = true
 
-# Moved this into .gitconfig-local as this can be different depending on the version of Git.
-# [push]
-#     default = simple
-
 [diff]
     tool = vimdiff
-
-[include]
-    path = ~/.gitconfig-local
