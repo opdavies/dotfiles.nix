@@ -28,7 +28,7 @@
 [alias]
     aa = add --all
     ap = add --patch
-    br = branch
+    br = branch -v
     c = commit -v
     ca = !git c --amend
     caa = !git ca -a -C HEAD
