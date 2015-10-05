@@ -64,6 +64,21 @@
     pull-develop-master-current-branch = !BRANCH=$(git current-branch) && \
         git fetch --all && git pull-develop && git pull-master && \
         git checkout $BRANCH && git pull
+    # Fetch and merge the latest changes from the develop branch.
+    merge-origin-develop = !git fetch origin && git merge origin/develop
+    # Fetch and merge the latest changes from the master branch.
+    merge-origin-master = !git fetch origin && git merge origin/master
+    # Assume the specified file is unchanged to stop changes
+    # being seen by Git
+    assume = update-index --assume-unchanged
+    # No longer assume a specified file remains unchanged
+    unassume = update-index --no-assume-unchanged
+    # List all files that are assumed to be unchanged
+    assumed = !git ls-files -v | grep '^[hsmrck?]' | cut -c 3-
+
+    # Shorter commands.
+    mod = !git merge-origin-develop
+    mom = !git merge-origin-master
 
 [core]
     # A global .gitignore file.
