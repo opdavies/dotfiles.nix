@@ -36,7 +36,7 @@
     cl = clone
     cm = !git c -m
     co = checkout
-    cp = checkout -p
+    cop = checkout -p
     f = fetch
     g = grep --break --heading --line-number
     l = log --oneline --graph --decorate
