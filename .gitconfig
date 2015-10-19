@@ -59,7 +59,7 @@
     # Checkout the latest develop branch and update it.
     pull-develop = !git checkout develop && git pull --rebase
     # Checkout the latest master branch and update it.
-    pull-master = !git checkout develop && git pull --rebase
+    pull-master = !git checkout master && git pull --rebase
     # Update the develop, master and current branches.
     pull-develop-master-current-branch = !BRANCH=$(git current-branch) && \
         git fetch --all && git pull-develop && git pull-master && \
