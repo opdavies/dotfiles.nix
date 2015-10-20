@@ -11,6 +11,7 @@
 !.htaccess
 !.gitignore
 !.gitkeep
+!.nojekyll
 *.patch
 *.diff
 *.rej
