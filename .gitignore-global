@@ -9,8 +9,7 @@
 *.sql
 .*
 !.htaccess
-!.gitignore
-!.gitkeep
+!.git*
 !.nojekyll
 *.patch
 *.diff
