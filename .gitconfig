@@ -37,13 +37,16 @@
     cm = !git c -m
     co = checkout
     cop = checkout -p
+    ds = diff --stat
     f = fetch
     g = grep --break --heading --line-number
+    create-initial-commit = !git commit -m 'Initial commit' --allow-empty
     l = log --oneline --graph --decorate
     la = !git l --all
     noff = merge --no-ff
     prb = pull --rebase
     ra = rebase --abort
+    ri = rebase --interactive
     rc = rebase --continue
     s = status --short --branch
     staged = diff --staged
@@ -75,8 +78,10 @@
     unassume = update-index --no-assume-unchanged
     # List all files that are assumed to be unchanged
     assumed = !git ls-files -v | grep '^[hsmrck?]' | cut -c 3-
+    push-current-branch = !git push -u $(git upstream) $(git current-branch)
 
     # Shorter commands.
+    cic = !git create-initial-commit
     mod = !git merge-origin-develop
     mom = !git merge-origin-master
 
