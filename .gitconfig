@@ -113,4 +113,5 @@
     tool = vimdiff
 
 [rebase]
+    autosquash = true
     autostash = true
