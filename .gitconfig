@@ -1,30 +1,3 @@
-[include]
-	path = ~/.gitconfig-local
-
-[color]
-	ui = true
-
-[color "branch"]
-	current = yellow bold
-	local = green bold
-	remote = cyan bold
-
-[color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-
-[color "status"]
-	added = green bold
-	changed = yellow bold
-	untracked = red bold
-
-[branch]
-	autosetupmerge = true
-	autosetuprebase = always
-
 [alias]
 	aa = add --all
 	ap = add --patch
@@ -88,35 +61,43 @@
 	mod = !git merge-origin-develop
 	mom = !git merge-origin-master
 
+[branch]
+  autosetupmerge = true
+  autosetuprebase = always
+
+[color]
+  ui = true
+
 [core]
 	# A global .gitignore file.
 	excludesFile = ~/.gitignore-global
 
-[grep]
-	# Show the line numbers in the output.
-	lineNumber = true
-	#
-	patternType = extended
+[diff]
+  tool = vimdiff
 
 [fetch]
 	# Always prune when fetching (and pulling).
 	prune = 1
+
+[gitsh]
+  nogreeting = true
+
+[grep]
+  # Show the line numbers in the output.
+  lineNumber = true
 
 [help]
 	autocorrect = 1
 	# Open Git help pages in a browser as HTML.
 	format = web
 
-[rerere]
-	# Store and re-use manual conflict resolution changes.
-	enabled = 1
-
-[gitsh]
-	nogreeting = true
-
-[diff]
-	tool = vimdiff
+[include]
+  path = ~/.gitconfig-local
 
 [rebase]
-	autosquash = true
-	autostash = true
+  autosquash = true
+  autostash = true
+
+[rerere]
+  # Store and re-use manual conflict resolution changes.
+  enabled = 1
