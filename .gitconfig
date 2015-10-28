@@ -104,6 +104,8 @@
 
 [help]
     autocorrect = 1
+    # Open Git help pages in a browser as HTML.
+    format = web
 
 [rerere]
     # Store and re-use manual conflict resolution changes.
