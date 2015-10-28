@@ -77,10 +77,10 @@
 
 [fetch]
 	# Always prune when fetching (and pulling).
-	prune = 1
+	prune = true
 
 [gitsh]
-  nogreeting = true
+	nogreeting = true
 
 [grep]
   # Show the line numbers in the output.
@@ -100,4 +100,4 @@
 
 [rerere]
   # Store and re-use manual conflict resolution changes.
-  enabled = 1
+  enabled = true
