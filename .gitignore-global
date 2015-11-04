@@ -1,4 +1,4 @@
-.vagrant
+# Ignore archive files.
 *.7z
 *.dmg
 *.gz
@@ -6,14 +6,26 @@
 *.rar
 *.tar
 *.zip
+
+# Ignore database exports.
 *.sql
+
+# Ignore (most) dotfiles.
 .*
 !.htaccess
 !.git*
 !.nojekyll
+
+# Ignore patch files and interdiffs.
 *.patch
 *.diff
 *.rej
 *.orig
-*.sublime-*
 interdiff*.txt
+
+# Ignore Vagrant files.
+.vagrant
+
+# Ignore IDE and text editor files.
+.idea/
+*.sublime-*
