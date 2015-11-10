@@ -39,7 +39,10 @@
 	git fetch --all && git pull-develop && git pull-master && \
 		git checkout $BRANCH && git pull
 
-	push-current-branch = !git push -u $(git upstream) $(git current-branch)
+	# Push the current branch upstream to origin using the same branch
+	# name for the remote branch.
+	upstream-current-branch = !git push --set-upstream origin \
+		$(git current-branch)
 
 	rebase-against-master = !git fetch --all \
 		&& git rebase $(git upstream)/master
