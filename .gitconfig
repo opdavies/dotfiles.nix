@@ -1,89 +1,89 @@
 [alias]
-	## 'New' commands.
-	create-initial-commit = !git commit -m 'Initial commit' --allow-empty
-	hard-reset = !git reset --hard $(git upstream)/$(git current-branch)
-	# Assume the specified file is unchanged to stop changes
-	# being seen by Git
-	assume = update-index --assume-unchanged
-	# No longer assume a specified file remains unchanged
-	unassume = update-index --no-assume-unchanged
-	# List all files that are assumed to be unchanged
-	assumed = !git ls-files -v | grep '^[hsmrck?]' | cut -c 3-
-	work-in-progress = commit -a -m 'WIP'
-	# Create a new branch.
-	create-new-branch = checkout -b
-	# Add a commit that fixes another (to be used with `rebase -i`).
-	fixup = commit --fixup
-	noff = merge --no-ff
-	staged = diff --staged
-	undo = reset --hard
-	unstage = reset HEAD --
-	wipe = clean -fd
-	word-diff = diff --word-diff
+  ## 'New' commands.
+  create-initial-commit = !git commit -m 'Initial commit' --allow-empty
+  hard-reset = !git reset --hard $(git upstream)/$(git current-branch)
+  # Assume the specified file is unchanged to stop changes
+  # being seen by Git
+  assume = update-index --assume-unchanged
+  # No longer assume a specified file remains unchanged
+  unassume = update-index --no-assume-unchanged
+  # List all files that are assumed to be unchanged
+  assumed = !git ls-files -v | grep '^[hsmrck?]' | cut -c 3-
+  work-in-progress = commit -a -m 'WIP'
+  # Create a new branch.
+  create-new-branch = checkout -b
+  # Add a commit that fixes another (to be used with `rebase -i`).
+  fixup = commit --fixup
+  noff = merge --no-ff
+  staged = diff --staged
+  undo = reset --hard
+  unstage = reset HEAD --
+  wipe = clean -fd
+  word-diff = diff --word-diff
 
-	# Print the name of the current branch.
-	current-branch = symbolic-ref --short HEAD
+  # Print the name of the current branch.
+  current-branch = symbolic-ref --short HEAD
 
-	# Print the name of the current upstream tracking branch.
-	upstream = !git config --get branch.$(git current-branch).remote \
-		|| echo origin
+  # Print the name of the current upstream tracking branch.
+  upstream = !git config --get branch.$(git current-branch).remote \
+    || echo origin
 
-	# Checkout the latest develop branch and update it.
-	pull-develop = !git checkout develop && git pull --rebase
+  # Checkout the latest develop branch and update it.
+  pull-develop = !git checkout develop && git pull --rebase
 
-	# Checkout the latest master branch and update it.
-	pull-master = !git checkout master && git pull --rebase
+  # Checkout the latest master branch and update it.
+  pull-master = !git checkout master && git pull --rebase
 
-	# Update the develop, master and current branches.
-	pull-develop-master-current-branch = !BRANCH=$(git current-branch) && \
-	git fetch --all && git pull-develop && git pull-master && \
-		git checkout $BRANCH && git pull
+  # Update the develop, master and current branches.
+  pull-develop-master-current-branch = !BRANCH=$(git current-branch) && \
+  git fetch --all && git pull-develop && git pull-master && \
+    git checkout $BRANCH && git pull
 
-	# Push the current branch upstream to origin using the same branch
-	# name for the remote branch.
-	upstream-current-branch = !git push --set-upstream origin \
-		$(git current-branch)
+  # Push the current branch upstream to origin using the same branch
+  # name for the remote branch.
+  upstream-current-branch = !git push --set-upstream origin \
+    $(git current-branch)
 
-	rebase-against-master = !git fetch --all \
-		&& git rebase $(git upstream)/master
+  rebase-against-master = !git fetch --all \
+    && git rebase $(git upstream)/master
 
-	rebase-against-develop = !git fetch --all \
-		&& git rebase $(git upstream)/master
+  rebase-against-develop = !git fetch --all \
+    && git rebase $(git upstream)/master
 
-	## Shorterned 'New' commands.
-	cic = !git create-initial-commit
-	red = !git rebase-against-develop
-	rem = !git rebase-against-master
-	w = !git word-diff
-	wip = !git work-in-progress
+  ## Shorterned 'New' commands.
+  cic = !git create-initial-commit
+  red = !git rebase-against-develop
+  rem = !git rebase-against-master
+  w = !git word-diff
+  wip = !git work-in-progress
 
-	# Shorterned existing commands.
-    a = add
-	aa = add --all --intent-to-add
-	ap = add --patch
-    au = add -u
-	b = branch
-	bd = branch --delete
-	c = commit -v
-	ca = commit --amend
-	caa = commit --amend -C HEAD
-	cl = clone --recursive
-	co = checkout
-	cop = checkout -p
-    d = diff
-	f = fetch --all
-	g = grep --break --heading
-	l = !git log --oneline --graph --decorate -20 || true
-    m = merge --ff-only
-	nb = !git create-new-branch
-    p = push
-    rb = rebase
-    rba = rebase --abort
-    rbc = rebase --continue
-    rbi = rebase --interactive
-	s = status --short --branch
-	sb = show-branch -a
-    dt = diftool
+  # Shorterned existing commands.
+  a = add
+  aa = add --all --intent-to-add
+  ap = add --patch
+  au = add -u
+  b = branchs
+  bd = branch --delete
+  c = commit -v
+  ca = commit --amend
+  caa = commit --amend -C HEAD
+  cl = clone --recursive
+  co = checkout
+  cop = checkout -p
+  d = diff
+  f = fetch --all
+  g = grep --break --heading
+  l = !git log --oneline --graph --decorate -20 || true
+  m = merge --ff-only
+  nb = !git create-new-branch
+  p = push
+  rb = rebase
+  rba = rebase --abort
+  rbc = rebase --continue
+  rbi = rebase --interactive
+  s = status --short --branch
+  sb = show-branch -a
+  dt = diftool
 
 [branch]
   autosetupmerge = true
@@ -93,27 +93,27 @@
   ui = true
 
 [core]
-	# A global .gitignore file.
-	excludesFile = ~/.gitignore-global
+  # A global .gitignore file.
+  excludesFile = ~/.gitignore-global
 
 [diff]
   tool = vimdiff
 
 [fetch]
-	# Always prune when fetching (and pulling).
-	prune = true
+  # Always prune when fetching (and pulling).
+  prune = true
 
 [gitsh]
-	nogreeting = true
+  nogreeting = true
 
 [grep]
   # Show the line numbers in the output.
   lineNumber = true
 
 [help]
-	autocorrect = 1
-	# Open Git help pages in a browser as HTML.
-	format = web
+  autocorrect = 1
+  # Open Git help pages in a browser as HTML.
+  format = web
 
 [include]
   path = ~/.gitconfig-local
