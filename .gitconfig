@@ -58,23 +58,32 @@
 	wip = !git work-in-progress
 
 	# Shorterned existing commands.
-	aa = add --all
+    a = add
+	aa = add --all --intent-to-add
 	ap = add --patch
-	b = branch -v
-	bv = branch -vv
-	bd = branch -d
+    au = add -u
+	b = branch
+	bd = branch --delete
 	c = commit -v
 	ca = commit --amend
 	caa = commit --amend -C HEAD
 	cl = clone --recursive
 	co = checkout
 	cop = checkout -p
-	f = fetch
-	fa = fetch --all
-	g = grep --break --heading --line-number
+    d = diff
+	f = fetch --all
+	g = grep --break --heading
 	l = !git log --oneline --graph --decorate -20 || true
+    m = merge --ff-only
 	nb = !git create-new-branch
+    p = push
+    rb = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = rebase --interactive
 	s = status --short --branch
+	sb = show-branch -a
+    dt = diftool
 
 [branch]
   autosetupmerge = true
