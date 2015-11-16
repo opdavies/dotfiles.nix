@@ -1,0 +1,14 @@
+# Set standby delay to 24 hours (default is 1 hour)
+sudo pmset -a standbydelay 86400
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+# Remove the dock delay.
+defaults write com.apple.Dock autohide-delay -float 0
+
+# Disable transparency in the menu bar and elsewhere on Yosemite.
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
+# Change the default screenshot location.
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
