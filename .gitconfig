@@ -125,3 +125,6 @@
 [rerere]
   # Store and re-use manual conflict resolution changes.
   enabled = true
+
+[push]
+  default = simple
