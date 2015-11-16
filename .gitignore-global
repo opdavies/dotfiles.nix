@@ -26,6 +26,9 @@ interdiff*.txt
 # Ignore Vagrant files.
 .vagrant
 
+# Ignore logs.
+*.log
+
 # Ignore IDE and text editor files.
 .idea/
 *.sublime-*
