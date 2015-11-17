@@ -62,7 +62,7 @@
   aa = add --all --intent-to-add
   ap = add --patch
   au = add -u
-  b = branchs
+  b = branch
   bd = branch --delete
   c = commit -v
   ca = commit --amend
