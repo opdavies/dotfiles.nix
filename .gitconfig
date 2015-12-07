@@ -14,6 +14,8 @@
   create-new-branch = checkout -b
   # Add a commit that fixes another (to be used with `rebase -i`).
   fixup = commit --fixup
+  ll = log --oneline --stat
+  ls = log --oneline --decorate
   noff = merge --no-ff
   staged = diff --staged
   undo = reset --hard
