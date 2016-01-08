@@ -17,11 +17,15 @@
   ll = log --oneline --stat
   ls = log --oneline --decorate
   noff = merge --no-ff
+  rebase-my-fork = !git fetch upstream && git rebase upstream/master
+  remotes = remote -v
   staged = diff --staged
   undo = reset --hard
   unstage = reset HEAD --
   wipe = clean -fd
   word-diff = diff --word-diff
+  ls = log --oneline --decorate
+  ll = log --oneline --stat
 
   # Print the name of the current branch.
   current-branch = symbolic-ref --short HEAD
