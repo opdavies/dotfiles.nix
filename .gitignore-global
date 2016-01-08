@@ -33,3 +33,6 @@ interdiff*.txt
 # Ignore IDE and text editor files.
 .idea/
 *.sublime-*
+
+# Ignore temporary directories.
+tmp/
