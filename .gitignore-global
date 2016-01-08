@@ -12,6 +12,7 @@
 
 # Ignore (most) dotfiles.
 .*
+!.bowerrc
 !.htaccess
 !.git*
 !.nojekyll
