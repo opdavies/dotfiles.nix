@@ -141,3 +141,6 @@
 
 [url "https://bitbucket.org/"]
   insteadOf = bb:
+
+[pull]
+  rebase = true
