@@ -131,7 +131,9 @@
   enabled = true
 
 [push]
-  default = simple
+  # Push the current branch to update a branch with the same name on the
+  # receiving end.
+  default = current
 
 [url "https://github.com/"]
   insteadOf = gh:
