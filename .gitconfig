@@ -145,8 +145,10 @@
   insteadOf = bb:
 
 [url "https://git.drupal.org/project/"]
-  # Clone from drupal.org using "git clone do:{name}".
+  # Clone from drupal.org using "git clone do:{name}"
+  # or "git clone drupal:{name}".
   insteadOf = do:
+  insteadOf = drupal:
 
 [pull]
   rebase = true
