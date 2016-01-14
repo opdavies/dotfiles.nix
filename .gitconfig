@@ -118,8 +118,6 @@
 
 [help]
   autocorrect = 1
-  # Open Git help pages in a browser as HTML.
-  format = web
 
 [include]
   path = ~/.gitconfig-local
