@@ -144,3 +144,6 @@
 
 [pull]
   rebase = true
+
+[merge]
+  defaultToUpstream = true
