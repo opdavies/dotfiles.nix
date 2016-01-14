@@ -144,6 +144,10 @@
 [url "https://bitbucket.org/"]
   insteadOf = bb:
 
+[url "https://git.drupal.org/project/"]
+  # Clone from drupal.org using "git clone do:{name}".
+  insteadOf = do:
+
 [pull]
   rebase = true
 
