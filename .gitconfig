@@ -89,7 +89,7 @@
   rbi = rebase --interactive
   s = status --short --branch
   sb = show-branch -a
-  dt = diftool
+  dt = difftool
 
 [branch]
   autosetupmerge = true
