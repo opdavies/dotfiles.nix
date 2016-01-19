@@ -1,6 +1,6 @@
 {
     "require": {
         "drush/drush": "8.x@dev",
-        "drupal/console": "*"
+        "drupal/console": "^0.10.5"
     }
 }
