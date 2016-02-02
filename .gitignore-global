@@ -3,6 +3,7 @@
 *.dmg
 *.gz
 *.iso
+*.phar
 *.rar
 *.tar
 *.zip
