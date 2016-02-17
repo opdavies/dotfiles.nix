@@ -1,6 +1,7 @@
 {
     "require": {
         "drush/drush": "dev-master",
-        "drupal/console": "dev-master"
+        "drupal/console": "dev-master",
+        "codegyre/robo": "dev-master"
     }
 }
