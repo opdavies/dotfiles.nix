@@ -36,5 +36,4 @@ interdiff*.txt
 *.sublime-*
 
 # Ignore temporary directories.
-cache/
 tmp/
