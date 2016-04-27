@@ -38,3 +38,6 @@ interdiff*.txt
 # Ignore temporary directories.
 cache/
 tmp/
+
+# Ignore Ansible Playbook retrys.
+*.retry
