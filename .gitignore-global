@@ -36,7 +36,6 @@ interdiff*.txt
 *.sublime-*
 
 # Ignore temporary directories.
-cache/
 tmp/
 
 # Ignore Ansible Playbook retrys.
