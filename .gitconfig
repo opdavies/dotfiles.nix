@@ -79,7 +79,7 @@
   d = diff
   f = fetch --all
   g = grep --break --heading
-  l = !git log --oneline --graph --decorate -20 || true
+  l = !git log --oneline --graph --decorate --all -20 || true
   m = merge --ff-only
   nb = !git create-new-branch
   p = push
