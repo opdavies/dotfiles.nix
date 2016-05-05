@@ -4,6 +4,7 @@
 *.gz
 *.iso
 *.phar
+*.phar.version
 *.rar
 *.tar
 *.zip
