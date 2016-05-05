@@ -14,8 +14,6 @@
   create-new-branch = checkout -b
   # Add a commit that fixes another (to be used with `rebase -i`).
   fixup = commit --fixup
-  ll = log --oneline --stat
-  ls = log --oneline --decorate
   noff = merge --no-ff
   rebase-my-fork = !git fetch upstream && git rebase upstream/master
   remotes = remote -v
@@ -24,8 +22,8 @@
   unstage = reset HEAD --
   wipe = clean -fd
   word-diff = diff --word-diff
-  ls = log --oneline --decorate
-  ll = log --oneline --stat
+  ls = log --oneline --decorate -20
+  ll = log --oneline --stat -10
 
   # Print the name of the current branch.
   current-branch = symbolic-ref --short HEAD
@@ -79,7 +77,6 @@
   d = diff
   f = fetch --all
   g = grep --break --heading
-  l = !git log --oneline --graph --decorate --all -20 || true
   m = merge --ff-only
   nb = !git create-new-branch
   p = push
