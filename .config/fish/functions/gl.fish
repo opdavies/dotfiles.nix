@@ -1,3 +1,3 @@
 function gl
-  git log --online --graph --decorate --all $argv;
+  git log --oneline --graph --decorate --all $argv;
 end
