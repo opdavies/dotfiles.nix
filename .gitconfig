@@ -95,6 +95,9 @@
 [color]
   ui = true
 
+[commit]
+  verbose = true
+
 [core]
   # A global .gitignore file.
   excludesFile = ~/.gitignore-global
