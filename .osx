@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
@@ -7,8 +9,77 @@ sudo nvram SystemAudioVolume=" "
 # Remove the dock delay.
 defaults write com.apple.Dock autohide-delay -float 0
 
-# Disable transparency in the menu bar and elsewhere on Yosemite.
+# Change the size of Dock icons.
+defaults write com.apple.dock tilesize -int 25
+
+# Reduce transparency.
 defaults write com.apple.universalaccess reduceTransparency -bool true
 
-# Change the default screenshot location.
-defaults write com.apple.screencapture location ~/Pictures/Screenshots
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+defaults write com.apple.TextEdit RichText -int 0
+
+# Change the location for screenshots.
+defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
+
+# Disable smart dashes.
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Enable full keyboard access for all controls
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 0
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Set a blazingly fast keyboard repeat rate, and make it happen more quickly.
+defaults write NSGlobalDomain InitialKeyRepeat -int 20
+defaults write NSGlobalDomain KeyRepeat -int 1
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Finder: hide status bar
+defaults write com.apple.finder ShowStatusBar -bool false
+
+# Finder: hide path bar
+defaults write com.apple.finder ShowPathbar -bool false
+
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+  General -bool true \
+  OpenWith -bool true \
+  Preview -bool false \
+  Privileges -bool true
+
+# Trackpad: enable tap on click.
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+# Keyboard: Use F1, F2 as function keys.
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+
+# Restart affected applications if `--no-restart` flag is not present.
+if [[ ! ($* == *--no-restart*) ]]; then
+  for app in "cfprefsd" "Dock" "Finder" "SystemUIServer"; do
+    killall "${app}" > /dev/null 2>&1
+  done
+fi
+
+printf "Please log out and log back in to make all settings take effect.\n"
