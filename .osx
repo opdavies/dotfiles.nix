@@ -10,7 +10,7 @@ sudo nvram SystemAudioVolume=" "
 defaults write com.apple.Dock autohide-delay -float 0
 
 # Change the size of Dock icons.
-defaults write com.apple.dock tilesize -int 25
+defaults write com.apple.dock tilesize -int 30
 
 # Reduce transparency.
 defaults write com.apple.universalaccess reduceTransparency -bool true
