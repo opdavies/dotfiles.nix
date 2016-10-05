@@ -86,7 +86,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-alias ga"git add -p"
+alias ga="git add -p"
 alias gc="git commit"
 alias gl="git log --oneline --graph --decorate"
 alias gs="git status -sb"
