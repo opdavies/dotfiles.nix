@@ -90,5 +90,10 @@ alias ga="git add -p"
 alias gc="git commit"
 alias gl="git log --oneline --graph --decorate"
 alias gs="git status -sb"
+
 alias l="ls -lah"
 alias v="vagrant"
+
+alias grunt="./node_modules/.bin/grunt"
+alias gulp="./node_modules/.bin/gulp"
+alias sculpin="./vendor/bin/sculpin"
