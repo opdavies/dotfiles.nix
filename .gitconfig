@@ -9,21 +9,19 @@
   unassume = update-index --no-assume-unchanged
   # List all files that are assumed to be unchanged
   assumed = !git ls-files -v | grep '^[hsmrck?]' | cut -c 3-
-  work-in-progress = commit -a -m 'WIP'
   # Create a new branch.
   create-new-branch = checkout -b
   # Add a commit that fixes another (to be used with `rebase -i`).
   fixup = commit --fixup
   noff = merge --no-ff
-  rebase-my-fork = !git fetch upstream && git rebase upstream/master
   remotes = remote -v
   staged = diff --staged
   undo = reset --hard
   unstage = reset HEAD --
   wipe = clean -fd
   word-diff = diff --word-diff
-  ls = log --oneline --decorate -20
-  ll = log --oneline --stat -10
+  ls = log --oneline --decorate
+  ll = log --oneline --numstat
 
   # Print the name of the current branch.
   current-branch = symbolic-ref --short HEAD
