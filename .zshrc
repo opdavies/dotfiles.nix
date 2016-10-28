@@ -97,3 +97,7 @@ alias v="vagrant"
 alias grunt="./node_modules/.bin/grunt"
 alias gulp="./node_modules/.bin/gulp"
 alias sculpin="./vendor/bin/sculpin"
+
+if [ -f /usr/local/share/liquidprompt ]; then
+  . /usr/local/share/liquidprompt
+fi
