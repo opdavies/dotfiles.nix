@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/opdavies/.oh-my-zsh
@@ -81,23 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-alias ga="git add -p"
-alias gc="git commit"
-alias gl="git log --oneline --graph --decorate"
-alias gs="git status -sb"
-
-alias l="ls -lah"
-alias v="vagrant"
-
-alias grunt="./node_modules/.bin/grunt"
-alias gulp="./node_modules/.bin/gulp"
-alias sculpin="./vendor/bin/sculpin"
-
-if [ -f /usr/local/share/liquidprompt ]; then
-  . /usr/local/share/liquidprompt
-fi
+source ~/.aliases
