@@ -20,6 +20,7 @@
 !.htaccess
 !.git*
 !.nojekyll
+!.travis.yml
 
 # Ignore patch files and interdiffs.
 *.patch
