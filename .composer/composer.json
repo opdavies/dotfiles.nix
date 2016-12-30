@@ -1,5 +1,13 @@
 {
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "drush/drush": "dev-master"
+        "friendsofphp/php-cs-fixer": "^1.12",
+        "opdavies/drupal-vm-generator": "^2.9",
+        "pantheon-systems/terminus": "^0.13.1",
+        "squizlabs/php_codesniffer": "^2.7",
+        "deployer/deployer": "^4.0",
+        "hirak/prestissimo": "^0.3.5",
+        "drush/drush": "^8.0"
     }
 }
