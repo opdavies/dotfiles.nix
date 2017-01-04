@@ -91,7 +91,27 @@
   autosetuprebase = always
 
 [color]
+  branch = auto
+  diff = auto
+  status = auto
   ui = true
+
+[color "branch"]
+  current = red reverse
+  local = blue
+  remote = green
+
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red bold
+  new = green
+  plain = white
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
 
 [commit]
   verbose = true
