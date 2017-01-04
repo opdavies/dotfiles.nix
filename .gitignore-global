@@ -45,3 +45,5 @@ tmp/
 
 # Ignore Ansible Playbook retrys.
 *.retry
+
+fabfile.pyc
