@@ -16,6 +16,7 @@
 .*
 !.docker/
 !.bowerrc
+!.docker/
 !.editorconfig
 !.htaccess
 !.git*
