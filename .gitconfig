@@ -20,8 +20,8 @@
   unstage = reset HEAD --
   wipe = clean -fd
   word-diff = diff --word-diff
-  ls = log --oneline --decorate
-  ll = log --oneline --numstat
+  ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 
   # Print the name of the current branch.
   current-branch = symbolic-ref --short HEAD
