@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:node_modules/.bin:vendor/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/opdavies/.oh-my-zsh
