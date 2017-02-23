@@ -1,12 +1,11 @@
+alias code="cd ~/Code"
 alias ga="git add -p"
 alias gc="git commit"
+alias gcm="git commit -m"
 alias gl="git log --oneline --graph --decorate"
 alias gs="git status -sb"
-
-alias code="cd ~/Code"
 alias l="ls -lah"
-
+alias nah="git reset --hard && git clean -fd"
 alias st="subl"
 alias stt="subl ."
-
 alias v="vagrant"
