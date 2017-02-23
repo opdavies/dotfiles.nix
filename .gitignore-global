@@ -18,6 +18,7 @@
 !.bowerrc
 !.docker/
 !.editorconfig
+!.env.example
 !.htaccess
 !.git*
 !.nojekyll
