@@ -1,7 +1,3 @@
-alias bower="./node_modules/.bin/bower"
-alias grunt="./node_modules/.bin/grunt"
-alias gulp="./node_modules/.bin/gulp"
-
 alias ga="git add -p"
 alias gc="git commit"
 alias gl="git log --oneline --graph --decorate"
