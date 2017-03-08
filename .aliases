@@ -9,3 +9,6 @@ alias nah="git reset --hard && git clean -fd"
 alias st="subl"
 alias stt="subl ."
 alias v="vagrant"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
