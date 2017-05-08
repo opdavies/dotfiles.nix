@@ -12,18 +12,6 @@
 # Ignore database exports.
 *.*sql
 
-# Ignore (most) dotfiles.
-.*
-!.docker/
-!.bowerrc
-!.docker/
-!.editorconfig
-!.env.example
-!.htaccess
-!.git*
-!.nojekyll
-!.travis.yml
-
 # Ignore patch files and interdiffs.
 *.patch
 *.diff
@@ -48,3 +36,7 @@ tmp/
 *.retry
 
 fabfile.pyc
+
+.DS*
+
+*.unison.*
