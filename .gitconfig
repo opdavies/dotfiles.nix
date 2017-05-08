@@ -14,6 +14,7 @@
   # Add a commit that fixes another (to be used with `rebase -i`).
   fixup = commit --fixup
   noff = merge --no-ff
+  prune = remote prune origin
   remotes = remote -v
   staged = diff --staged
   undo = reset --hard
@@ -82,9 +83,11 @@
   rba = rebase --abort
   rbc = rebase --continue
   rbi = rebase --interactive
-  s = status --short --branch
+  s = status
   sb = show-branch -a
   dt = difftool
+	unmerged = branch --no-merged
+	unmerged-remote = branch --remote --no-merged
 
 [branch]
   autosetupmerge = true
@@ -170,6 +173,8 @@
 
 [pull]
   rebase = true
+	ff = only
 
 [merge]
   defaultToUpstream = true
+	ff = false
