@@ -1,3 +1,4 @@
+alias docker-composer="docker-compose"
 alias code="cd ~/Code"
 alias ga="git add -p"
 alias gc="git commit"
