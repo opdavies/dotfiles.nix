@@ -1,5 +1,6 @@
 alias docker-composer="docker-compose"
 alias code="cd ~/Code"
+alias f="fin"
 alias fd="fin drush"
 alias fv="fin vm"
 alias ga="git add -p"
