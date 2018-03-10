@@ -17,7 +17,7 @@ alias pf="phpunit --filter "
 alias phps="phpstorm"
 alias st="subl"
 alias stt="subl ."
-alias website="cd ~/Code/Personal/website && subl . && composer watch"
+alias website="cd ~/Code/Personal/website && subl . && open http://localhost:8000 && composer watch"
 alias wip="git add . && git commit -m 'wip'"
 
 # Print each PATH entry on a separate line
