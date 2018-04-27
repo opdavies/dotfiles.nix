@@ -1,93 +1,19 @@
 [alias]
-	## 'New' commands.
-	create-initial-commit = !git commit -m 'Initial commit' --allow-empty
-	hard-reset = !git reset --hard $(git upstream)/$(git current-branch)
-	# Assume the specified file is unchanged to stop changes
-	# being seen by Git
+	amend = commit --amend --no-edit --reset-author
 	assume = update-index --assume-unchanged
-	# No longer assume a specified file remains unchanged
-	unassume = update-index --no-assume-unchanged
-	# List all files that are assumed to be unchanged
 	assumed = !git ls-files -v | grep '^[hsmrck?]' | cut -c 3-
-	# Create a new branch.
-	create-new-branch = checkout -b
-	# Add a commit that fixes another (to be used with `rebase -i`).
 	fixup = commit --fixup
-	noff = merge --no-ff
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 	prune = remote prune origin
 	remotes = remote -v
 	staged = diff --staged
+	unassume = update-index --no-assume-unchanged
 	undo = reset --hard
-	unstage = reset HEAD --
-	wipe = clean -fd
-	word-diff = diff --word-diff
-	ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-
-	# Print the name of the current branch.
-	current-branch = symbolic-ref --short HEAD
-
-	# Print the name of the current upstream tracking branch.
-	upstream = !git config --get branch.$(git current-branch).remote \
-	| echo origin
-
-	# Checkout the latest develop branch and update it.
-	pull-develop = !git checkout develop && git pull --rebase
-
-	# Checkout the latest master branch and update it.
-	pull-master = !git checkout master && git pull --rebase
-
-	# Update the develop, master and current branches.
-	pull-develop-master-current-branch = !BRANCH=$(git current-branch) && \
-	git fetch --all && git pull-develop && git pull-master && \
-	it checkout $BRANCH && git pull
-
-	# Push the current branch upstream to origin using the same branch
-	# name for the remote branch.
-	upstream-current-branch = !git push --set-upstream origin \
-	(git current-branch)
-
-	rebase-against-master = !git fetch --all \
-	& git rebase $(git upstream)/master
-
-	rebase-against-develop = !git fetch --all \
-	& git rebase $(git upstream)/master
-
-	## Shorterned 'New' commands.
-	cic = !git create-initial-commit
-	red = !git rebase-against-develop
-	rem = !git rebase-against-master
-	w = !git word-diff
-	wip = !git work-in-progress
-
-	# Shorterned existing commands.
-	a = add
-	aa = add --all --intent-to-add
-	ap = add --patch
-	au = add -u
-	b = branch
-	bd = branch --delete
-	c = commit -v
-	ca = commit --amend
-	caa = commit --amend -C HEAD
-	cl = clone --recursive
-	co = checkout
-	cop = checkout -p
-	d = diff
-	f = fetch --all
-	g = grep --break --heading
-	m = merge --ff-only
-	nb = !git create-new-branch
-	p = push
-	rb = rebase
-	rba = rebase --abort
-	rbc = rebase --continue
-	rbi = rebase --interactive
-	s = status
-	sb = show-branch -a
-	dt = difftool
 	unmerged = branch --no-merged
 	unmerged-remote = branch --remote --no-merged
+	unstage = reset HEAD --
+	word-diff = diff --word-diff
 
 [branch]
 	autosetupmerge = true
