@@ -4,12 +4,16 @@ alias gca="git commit --amend --no-edit --reset-author"
 alias gcm="git commit -m"
 alias gl="git log"
 alias gs="git status"
-alias l="ls -lah"
+
+alias gh="github"
 alias nah="git reset --hard && git clean -fd"
+alias wip="git add . && git commit -m 'wip'"
+
+alias l="ls -lah"
+
 alias p="phpunit"
 alias pf="phpunit --filter "
 alias pstorm="phpstorm"
 alias st="subl"
 alias stt="subl ."
 alias web="cd ~/Code"
-alias wip="git add . && git commit -m 'wip'"
