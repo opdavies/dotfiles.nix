@@ -17,3 +17,8 @@ alias pstorm="phpstorm"
 alias st="subl"
 alias stt="subl ."
 alias web="cd ~/Code"
+
+alias yd="yarn dev"
+alias yp="yarn prod"
+alias ys="yarn serve"
+alias yw="yarn watch"
