@@ -22,3 +22,6 @@ alias yd="yarn dev"
 alias yp="yarn prod"
 alias ys="yarn serve"
 alias yw="yarn watch"
+
+# Docksal
+alias f="fin"
