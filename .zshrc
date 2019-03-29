@@ -90,5 +90,6 @@ alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.aliases
+source ~/.functions
 
 . /usr/local/etc/profile.d/z.sh
