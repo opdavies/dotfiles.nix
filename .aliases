@@ -11,6 +11,9 @@ alias wip="git add . && git commit -m 'wip'"
 
 alias l="ls -lah"
 
+# Fast open
+alias o="open ."
+
 alias p="phpunit"
 alias pf="phpunit --filter "
 alias pstorm="phpstorm"
