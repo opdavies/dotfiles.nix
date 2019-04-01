@@ -34,3 +34,5 @@ alias commit='git commit'
 alias pull='git pull'
 alias push='git push'
 alias rebase='git rebase'
+
+alias sshconfig='vim ~/.ssh/config'
