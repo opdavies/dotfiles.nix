@@ -25,3 +25,12 @@ alias yw="yarn watch"
 
 # Docksal
 alias f="fin"
+
+# Shorter Git commands.
+alias add='git add'
+alias amend='git commit --amend'
+alias clone='git clone'
+alias commit='git commit'
+alias pull='git pull'
+alias push='git push'
+alias rebase='git rebase'
