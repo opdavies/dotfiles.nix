@@ -38,4 +38,9 @@ alias pull='git pull'
 alias push='git push'
 alias rebase='git rebase'
 
+alias hosts="sudo vim /etc/hosts"
 alias sshconfig='vim ~/.ssh/config'
+alias zshconfig='vim ~/.zshrc'
+
+# PhpStorm
+alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
