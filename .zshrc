@@ -93,3 +93,7 @@ source ~/.aliases
 source ~/.functions
 
 . /usr/local/etc/profile.d/z.sh
+
+# Stop zsh from eating space before pipe symbol
+# https://superuser.com/questions/613685/how-stop-zsh-from-eating-space-before-pipe-symbol
+ZLE_REMOVE_SUFFIX_CHARS=""
