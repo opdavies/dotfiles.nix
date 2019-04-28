@@ -45,4 +45,7 @@ alias sshconfig='vim ~/.ssh/config'
 alias zshconfig='vim ~/.zshrc'
 
 # PhpStorm
-alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
+alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
+
+# Sublime Text
+alias sublime='open -a /Applications/Sublime\ Text.app "`pwd`"'
