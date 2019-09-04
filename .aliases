@@ -23,6 +23,8 @@ alias stt="subl ."
 # Quickly go to the Code directory
 alias web="cd ~/Code"
 
+alias y=yarn
+alias ya='yarn add'
 alias yd="yarn dev"
 alias yp="yarn prod"
 alias ys="yarn serve"
