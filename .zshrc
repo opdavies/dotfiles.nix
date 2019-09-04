@@ -92,6 +92,10 @@ alias zshconfig="vim ~/.zshrc"
 source ~/.aliases
 source ~/.functions
 
+if [ -f ~/.aliases-private ]; then
+  source ~/.aliases-private
+fi
+
 . /usr/local/etc/profile.d/z.sh
 
 # Stop zsh from eating space before pipe symbol
