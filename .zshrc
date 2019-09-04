@@ -101,3 +101,7 @@ fi
 # Stop zsh from eating space before pipe symbol
 # https://superuser.com/questions/613685/how-stop-zsh-from-eating-space-before-pipe-symbol
 ZLE_REMOVE_SUFFIX_CHARS=""
+
+for zsh_source in $HOME/.zsh_profile.d/*.zsh; do
+  source $zsh_source
+done
