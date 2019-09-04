@@ -1,9 +1,9 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:$HOME/.composer/vendor/bin
-export PATH=$PATH:node_modules/.bin
 export PATH=$PATH:bin
+export PATH=$PATH:node_modules/.bin
 export PATH=$PATH:vendor/bin
+export PATH=$PATH:$HOME/.composer/vendor/bin
+export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:"$HOME/.platformsh/bin"
 
 # Path to your oh-my-zsh installation.
