@@ -1,2 +1,2 @@
-SYLINK_DIRS="zsh_profile.d"
+SYMLINK_DIRS="zsh_profile.d"
 TAGS="git npm php vim zsh"
