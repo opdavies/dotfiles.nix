@@ -1,4 +1,4 @@
-alias ga="git add -p"
+alias ga="git add"
 alias gc="git commit"
 alias gca="git commit --amend --no-edit --reset-author"
 alias gcm="git commit -m"
