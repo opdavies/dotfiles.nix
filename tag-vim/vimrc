@@ -1,3 +1,5 @@
 syntax on
 colo slate
+
 set relativenumber
+set number relativenumber

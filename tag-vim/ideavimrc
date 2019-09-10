@@ -1,3 +1,4 @@
 imap jj <Esc>
 
 set relativenumber
+set number relativenumber
