@@ -1,2 +1,3 @@
+DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
 SYMLINK_DIRS="composer zsh_profile.d"
 TAGS="git npm php vim zsh"
