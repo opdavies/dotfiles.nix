@@ -1,3 +1,43 @@
-!.*
-.composer/cache/
-.composer/vendor/
+# Ignore archive files.
+*.7z
+*.dmg
+*.gz
+*.iso
+*.phar
+*.phar.version
+*.rar
+*.tar
+*.zip
+
+# Ignore database exports.
+*.*sql
+
+# Ignore patch files and interdiffs.
+*.patch
+*.diff
+*.rej
+*.orig
+interdiff*.txt
+
+# Ignore Vagrant directories.
+.vagrant/
+
+# Ignore logs.
+*.log
+
+# Ignore IDE and text editor files.
+.idea/
+*.sublime-*
+
+# Ignore temporary directories.
+.php_cs.cache
+tmp/
+
+# Ignore Ansible Playbook retrys.
+*.retry
+
+fabfile.pyc
+
+.DS*
+
+*.unison.*

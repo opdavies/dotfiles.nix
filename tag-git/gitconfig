@@ -49,8 +49,7 @@
 	verbose = true
 
 [core]
-	# A global .gitignore file.
-	excludesFile = ~/.gitignore.global
+	excludesFile = ~/.gitignore
 
 [diff]
 	tool = vimdiff
