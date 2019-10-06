@@ -41,6 +41,7 @@ alias commit='git commit'
 alias pull='git pull'
 alias push='git push'
 alias rebase='git rebase'
+alias reset='git reset'
 
 alias hosts="sudo vim /etc/hosts"
 alias sshconfig='vim ~/.ssh/config'
