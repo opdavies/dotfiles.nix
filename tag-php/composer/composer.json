@@ -4,9 +4,9 @@
     "require": {
         "deployer/deployer": "^4.0",
         "drush/drush": "^8.0",
-        "friendsofphp/php-cs-fixer": "^1.12",
         "hirak/prestissimo": "^0.3.5",
-        "opdavies/drupal-vm-generator": "^2.9",
+        "laravel/installer": "^2.1",
+        "laravel/valet": "^2.4",
         "pantheon-systems/terminus": "^0.13.1",
         "squizlabs/php_codesniffer": "^2.7"
     },
