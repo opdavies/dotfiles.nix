@@ -45,6 +45,8 @@ alias rebase='git rebase'
 alias hosts="sudo vim /etc/hosts"
 alias sshconfig='vim ~/.ssh/config'
 alias zshconfig='vim ~/.zshrc'
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
 
 # PhpStorm
 alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
