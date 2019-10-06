@@ -53,3 +53,5 @@ alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 
 # Sublime Text
 alias sublime='open -a /Applications/Sublime\ Text.app "`pwd`"'
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
