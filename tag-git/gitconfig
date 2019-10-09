@@ -46,6 +46,7 @@
 	untracked = cyan
 
 [commit]
+	template = ~/.gitmessage
 	verbose = true
 
 [core]
