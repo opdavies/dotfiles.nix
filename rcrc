@@ -1,4 +1,4 @@
 DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
 EXCLUDES="install.sh README.md"
-SYMLINK_DIRS="composer zsh_profile.d"
+SYMLINK_DIRS="composer functions zsh_profile.d"
 TAGS="git npm php tmux vim zsh"
