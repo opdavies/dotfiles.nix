@@ -1,0 +1,9 @@
+# No arguments: `fin ps`
+# With arguments: acts like `fin`
+f() {
+  if [[ $# > 0 ]]; then
+    fin $@
+  else
+    fin ps
+  fi
+}

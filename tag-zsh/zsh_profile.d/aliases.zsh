@@ -30,9 +30,6 @@ alias yp="yarn prod"
 alias ys="yarn serve"
 alias yw="yarn watch"
 
-# Docksal
-alias f="fin"
-
 # Shorter Git commands.
 alias add='git add'
 alias amend='git commit --amend'
