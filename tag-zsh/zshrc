@@ -5,6 +5,7 @@ export PATH=$PATH:vendor/bin
 export PATH=$PATH:$HOME/.composer/vendor/bin
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:"$HOME/.platformsh/bin"
+export PATH="$HOME/.bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/opdavies/.oh-my-zsh

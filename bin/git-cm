@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ $# > 0 ]]; then
+  git commit -m "$@"
+else
+  git commit -v
+fi
