@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+$currentBranch = exec('git rev-parse --abbrev-ref HEAD');
+
+if (in_array($currentBranch,  ['master', 'develop', 'staging'])) {
+  print "Currently on ${currentBranch}. Aborting.";
+  exit(1);
+}
+
+exec("git push -u origin ${currentBranch}:${currentBranch}");
