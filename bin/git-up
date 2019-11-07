@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Usage: git up {branch} {remote}
+
+set -e
+
+if [[ $# < 1 ]]; then
+  echo "You must specify a branch name to update"
+  exit 1
+fi
+
+BRANCH=$1
+REMOTE=${2:-origin}
+
+git checkout ${BRANCH} && \
+  git fetch ${REMOTE} && \
+  echo && \
+  git sl ${BRANCH}..${REMOTE}/${BRANCH} && \
+  echo && \
+  git pull --quiet && \
+  git checkout -  
