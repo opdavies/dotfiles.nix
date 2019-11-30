@@ -4,6 +4,6 @@ f() {
   if [[ $# > 0 ]]; then
     fin $@
   else
-    fin ps
+    fin start
   fi
 }
