@@ -1,2 +1,7 @@
 setopt auto_cd
-cdpath=($HOME $HOME/Code $HOME/Code/clients $HOME/Code/os)
+cdpath=(
+  $HOME/Code \
+  $HOME/Code/clients \
+  $HOME/Code/os \
+  $HOME
+)
