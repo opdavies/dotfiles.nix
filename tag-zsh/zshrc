@@ -98,7 +98,7 @@ for function in $HOME/.zsh/functions/*; do
   source $function
 done
 
-for zsh_source in $HOME/.zsh_profile.d/*.zsh; do
+for zsh_source in $HOME/.zsh/configs/*.zsh; do
   source $zsh_source
 done
 
