@@ -6,14 +6,29 @@ sudo pmset -a standbydelay 86400
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
-# Remove the dock delay.
+# Dock: Remove all items.
+dockutil --remove all --no-restart
+
+# Dock: Remove the delay.
 defaults write com.apple.Dock autohide-delay -float 0
 
-# Change the size of Dock icons.
-defaults write com.apple.dock tilesize -int 30
+# Dock: Disable launch animation
+defaults write com.apple.dock launchanim -bool false
 
-# Reduce transparency.
-defaults write com.apple.universalaccess reduceTransparency -bool true
+# Dock: Hide open indicators
+defaults write com.apple.Dock show-process-indicators -bool false
+
+# Dock: Hide recent apps
+defaults write com.apple.Dock show-recents -bool false
+
+# Dock: Hide by default
+defaults write com.apple.Dock autohide -bool true
+
+# Dock: Change the size of icons.
+defaults write com.apple.Dock tilesize -int 35
+
+# Hide the menu bar.
+defaults write 'Apple Global Domain' _HIHideMenuBar -bool true
 
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 defaults write com.apple.TextEdit RichText -int 0
@@ -37,12 +52,9 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -58,7 +70,6 @@ defaults write com.apple.finder CreateDesktop -bool false
 
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
@@ -76,6 +87,12 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 
 # Keyboard: Use F1, F2 as function keys.
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+
+# Accessibility: enable reduce motion
+defaults write com.apple.universalaccess reduceMotion -bool true
+
+# Accessibility: enable reduce transparency
+defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # Restart affected applications if `--no-restart` flag is not present.
 if [[ ! ($* == *--no-restart*) ]]; then
