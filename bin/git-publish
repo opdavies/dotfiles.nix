@@ -1,11 +1,19 @@
 #!/usr/bin/env php
 <?php
 
-$currentBranch = exec('git rev-parse --abbrev-ref HEAD');
+$branchesToIgnore = ['develop', 'master', 'staging', 'production'];
+$localBranch = exec('git rev-parse --abbrev-ref HEAD');
 
-if (in_array($currentBranch,  ['master', 'production', 'develop', 'staging'])) {
-  print "Currently on ${currentBranch}. Aborting.";
-  exit(1);
+if (in_array($localBranch, $branchesToIgnore)) {
+    print "Currently on ${localBranch}. Aborting.";
+
+    exit(1);
 }
 
-exec("git push -u origin ${currentBranch}:${currentBranch}");
+if ($prefix = getenv('BRANCH_PREFIX')) {
+    $remoteBranch = "{$prefix}-{$localBranch}";
+} else {
+    $remoteBranch = $localBranch;
+}
+
+exec("git push -u origin ${localBranch}:${remoteBranch}");
