@@ -1,33 +1,22 @@
 alias l="ls -lah"
 
-# Fast open
+# Open the current directory in Finder.
 alias o="open ."
-
-alias p="phpunit"
-alias pf="phpunit --filter "
-alias pstorm="phpstorm"
-alias st="subl"
-alias stt="subl ."
-
-alias y=yarn
-alias ya='yarn add'
-alias yd="yarn dev"
-alias yp="yarn prod"
-alias ys="yarn serve"
-alias yw="yarn watch"
 
 alias hosts="sudo vim /etc/hosts"
 alias sshconfig='vim ~/.ssh/config'
-alias zshconfig='vim ~/.zshrc'
 
-# Pretty print the path
+# Pretty print the path.
 alias path='echo $PATH | tr -s ":" "\n"'
 
-# PhpStorm
+# Open the current directory in PhpStorm.
 alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 
-# Sublime Text
+# Open the current directory in Sublime Text.
 alias sublime='open -a /Applications/Sublime\ Text.app "`pwd`"'
+
+# Allow for pasting lines of code that start with a dollar sign.
+alias \$=''
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
