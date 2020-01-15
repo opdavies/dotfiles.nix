@@ -6,6 +6,7 @@
 	browse = !hub browse
 	ca = commit --amend --verbose
 	car = commit --amend --no-edit
+	cl = !hub clone
 	co = checkout
 	compare = !hub compare
 	dc = diff --color --word-diff --cached
