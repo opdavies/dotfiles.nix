@@ -7,12 +7,12 @@ export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:"$HOME/.platformsh/bin"
 export PATH="$HOME/.bin:$PATH"
 
-for function in $HOME/.zsh/functions/*; do
-  source $function
-done
-
 for zsh_source in $HOME/.zsh/configs/*.zsh; do
   source $zsh_source
+done
+
+for function in $HOME/.zsh/functions/*; do
+  source $function
 done
 
 # Local config
