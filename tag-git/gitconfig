@@ -42,7 +42,7 @@
 	autosetuprebase = always
 
 [checkout]
-        defaultRemote = origin
+	defaultRemote = origin
 
 [color]
 	branch = auto
@@ -78,14 +78,12 @@
 	tool = vimdiff
 
 [fetch]
-	# Always prune when fetching (and pulling).
 	prune = true
 
 [gitsh]
 	nogreeting = true
 
 [grep]
-	# Show the line numbers in the output.
 	lineNumber = true
 
 [help]
@@ -99,7 +97,6 @@
 	autostash = true
 
 [rerere]
-	# Store and re-use manual conflict resolution changes.
 	enabled = true
 
 [push]
