@@ -37,6 +37,7 @@
 	upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
 	ureset = !git reset --hard $(git upstream)
 	wip = !git add . && git commit -m 'wip'
+	cl = !hub clone
 
 [branch]
 	autosetupmerge = true
