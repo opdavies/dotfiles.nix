@@ -85,18 +85,8 @@
 	# receiving end.
 	default = current
 
-[url "https://github.com/"]
-	insteadOf = gh:
-
-[url "https://gist.github.com/"]
-	insteadOf = gist:
-
-[url "https://bitbucket.org/"]
-	insteadOf = bb:
 
 [url "https://git.drupal.org/project/"]
-	# Clone from drupal.org using "git clone do:{name}"
-	# or "git clone drupal:{name}".
 	insteadOf = do:
 	insteadOf = drupal:
 
