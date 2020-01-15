@@ -1,19 +1,41 @@
 [alias]
-	amend = commit --amend --no-edit --reset-author
+	aa = add --all
 	assume = update-index --assume-unchanged
 	assumed = !git ls-files -v | grep '^[hsmrck?]' | cut -c 3-
+	b = branch
+	browse = !hub browse
+	ca = commit --amend --verbose
+	car = commit --amend --no-edit
+	co = checkout
+	compare = !hub compare
+	dc = diff --color --word-diff --cached
+	df = diff --color --word-diff
 	fixup = commit --fixup
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	issues = !hub browse -- issues
+	nah = !git reset --hard && git clean -fd
+	no-ff = merge --no-ff
+	pl = pull
 	prune = remote prune origin
+	ps = push
+	pulls = !hub browse -- pulls
+	rbc = rebase --continue
 	remotes = remote -v
+	repush = !git pull --rebase && git push
+	ri = rebase --interactive
+	rid = !git rebase -i $(git merge-base develop HEAD)
+	rim = !git rebase -i $(git merge-base master HEAD)
+	riu = !git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
+	sl = log --oneline --decorate -20
+	sla = log --oneline --decorate --graph --all -20
+	slap = log --oneline --decorate --graph --all
+	slp = log --oneline --decorate
 	staged = diff --staged
 	unassume = update-index --no-assume-unchanged
-	undo = reset --hard
-	unmerged = branch --no-merged
-	unmerged-remote = branch --remote --no-merged
-	unstage = reset HEAD --
-	word-diff = diff --word-diff
+	uncommit = reset --soft HEAD^
+	unstage = reset
+	upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
+	ureset = !git reset --hard $(git upstream)
+	wip = !git add . && git commit -m 'wip'
 
 [branch]
 	autosetupmerge = true
