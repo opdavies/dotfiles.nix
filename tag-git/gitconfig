@@ -81,10 +81,7 @@
 	enabled = true
 
 [push]
-	# Push the current branch to update a branch with the same name on the
-	# receiving end.
-	default = current
-
+	default = upstream
 
 [url "https://git.drupal.org/project/"]
 	insteadOf = do:
