@@ -9,6 +9,7 @@
 	cl = !hub clone
 	co = checkout
 	compare = !hub compare
+	current-branch = rev-parse --abbrev-ref HEAD
 	dc = diff --color --word-diff --cached
 	df = diff --color --word-diff
 	fixup = commit --fixup
