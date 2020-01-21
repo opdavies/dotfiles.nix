@@ -15,5 +15,7 @@ for function in $HOME/.zsh/functions/*; do
   source $function
 done
 
+ensure_tmux_is_running
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
