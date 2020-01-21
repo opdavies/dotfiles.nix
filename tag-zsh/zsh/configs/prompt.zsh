@@ -1,7 +1,25 @@
+git_current_branch() {
+  echo $(git rev-parse --abbrev-ref HEAD)
+}
+
+git_repo_is_dirty() {
+  if [[ -z $(git status --short) ]]; then
+    return 1;
+  fi
+
+  return 0;
+}
+
 git_prompt_info() {
-  current_branch=$(git current-branch 2> /dev/null)
-  if [[ -n $current_branch ]]; then
-    echo " %{$fg_bold[green]%}$current_branch%{$reset_color%}"
+  current_branch=$(git_current_branch 2> /dev/null)
+  suffix=''
+
+  if git_repo_is_dirty; then
+    suffix=" %{$fg_bold[red]%}*%{$reset_color%}"
+  fi
+
+  if [[ -n git_current_branch ]]; then
+    echo " %{$fg_bold[green]%}${current_branch}${suffix}%{$reset_color%}"
   fi
 }
 
