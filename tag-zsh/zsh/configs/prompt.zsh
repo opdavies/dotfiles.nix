@@ -1,3 +1,11 @@
+git_is_repo() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == "true" ]]; then
+    return 1
+  fi
+
+  return 0
+}
+
 git_current_branch() {
   echo $(git rev-parse --abbrev-ref HEAD)
 }
@@ -11,6 +19,8 @@ git_repo_is_dirty() {
 }
 
 git_prompt_info() {
+  ! git_is_repo || return
+
   current_branch=$(git_current_branch 2> /dev/null)
   suffix=''
 
