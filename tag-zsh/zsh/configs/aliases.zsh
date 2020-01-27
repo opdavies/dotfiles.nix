@@ -19,4 +19,6 @@ alias sublime='open -a /Applications/Sublime\ Text.app "`pwd`"'
 alias \$=''
 
 # Include custom aliases
-[[ -f ~/.aliases.local ]] && source ~/.aliases.local
+if [[ -f ~/.aliases.local ]]; then
+  source ~/.aliases.local
+fi
