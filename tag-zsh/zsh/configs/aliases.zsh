@@ -1,5 +1,6 @@
 alias l="ls -lah"
 alias mkdir="mkdir -p"
+alias v=vagrant
 
 # Open the current directory in Finder.
 alias o="open ."
