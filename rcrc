@@ -1,4 +1,4 @@
 DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
 EXCLUDES="install.sh README.md"
-SYMLINK_DIRS="composer bin functions configs"
+SYMLINK_DIRS="completion-scripts composer bin functions configs"
 TAGS="git npm php tmux vim zsh"
