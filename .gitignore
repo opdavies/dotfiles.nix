@@ -2,3 +2,4 @@
 /tag-php/composer/keys.*
 /tag-php/composer/vendor/
 /tag-zsh/zsh_profile.d/aliases-private.zsh
+/**/*.zwc
