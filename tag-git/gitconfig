@@ -12,8 +12,10 @@
 	current-branch = rev-parse --abbrev-ref HEAD
 	dc = diff --color --word-diff --cached
 	df = diff --color --word-diff
+	dup = !git checkout develop && git fetch origin && echo && git sl develop..origin/develop && echo && git pull --quiet && git checkout -
 	fixup = commit --fixup
 	issues = !hub browse -- issues
+	mup = !git checkout master && git fetch origin && echo && git sl master..origin/master && echo && git pull --quiet && git checkout -
 	nah = !git reset --hard && git clean -fd
 	no-ff = merge --no-ff
 	pl = pull
@@ -21,8 +23,10 @@
 	ps = push
 	pulls = !hub browse -- pulls
 	rbc = rebase --continue
+	rdup = !git dup && git rebase develop
 	remotes = remote -v
 	repush = !git pull --rebase && git push
+	rmup = !git mup && git rebase master
 	ri = rebase --interactive
 	rid = !git rebase -i $(git merge-base develop HEAD)
 	rim = !git rebase -i $(git merge-base master HEAD)
