@@ -2,29 +2,14 @@
 <?php
 
 /**
- * Usage: git publish <remote-branch-name>
- *
- * Open the pull request page for <branch>, or the current branch if not
- * specified. Lands on the new pull request page when no PR exists yet.
- * The local branch must be tracking the remote branch.
- *
- * Use the `BRANCH_PREFIX` environment variable to add a prefix to the
- * remote branch name.
+ * Usage: git publish
  */
 
-$branchesToIgnore = ['develop', 'master', 'staging', 'production'];
-$localBranch = exec('git rev-parse --abbrev-ref HEAD');
+$currentBranch = exec('git rev-parse --abbrev-ref HEAD');
 
-if (in_array($localBranch, $branchesToIgnore)) {
-    print "Currently on ${localBranch}. Aborting.";
-
+if (in_array($currentBranch, ['develop', 'master', 'staging', 'production'])) {
+    print "Currently on ${currentBranch}. Aborting.";
     exit(1);
 }
 
-if ($prefix = getenv('BRANCH_PREFIX')) {
-    $remoteBranch = "{$prefix}-{$localBranch}";
-} else {
-    $remoteBranch = $localBranch;
-}
-
-exec("git push -u origin ${localBranch}:${remoteBranch}");
+exec("git push -u origin $currentBranch:opd-{$currentBranch}");
