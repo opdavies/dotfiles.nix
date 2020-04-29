@@ -3,3 +3,11 @@ colo slate
 
 set relativenumber
 set number relativenumber
+
+au FileType gitcommit setlocal colorcolumn=50,72
+au FileType gitcommit setlocal textwidth=72
+
+au FileType gitcommit highlight ColorColumn ctermbg=8
+
+set complete+=kspell
+au FileType gitcommit setlocal spell
