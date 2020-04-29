@@ -79,6 +79,7 @@
 	verbose = true
 
 [core]
+	editor = vim
 	excludesFile = ~/.gitignore
 
 [diff]
