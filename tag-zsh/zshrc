@@ -6,6 +6,7 @@ export PATH=$PATH:$HOME/.composer/vendor/bin
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:"$HOME/.platformsh/bin"
 export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
 # these are loaded first, second, and third, respectively.
