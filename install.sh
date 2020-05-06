@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-RCRC=rcrc rcup -v
+RCRC=./rcrc rcup -v
