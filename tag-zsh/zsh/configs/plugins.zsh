@@ -1,4 +1,4 @@
-source /usr/local/share/antigen/antigen.zsh
+source "$HOME/.antigen.zsh"
 
 antigen bundle mollifier/cd-gitroot
 antigen bundle zsh-users/zsh-autosuggestions
