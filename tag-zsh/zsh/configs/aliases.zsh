@@ -1,3 +1,4 @@
+alias c="clear"
 alias l="ls -lah"
 alias mkdir="mkdir -p"
 alias v=vagrant
