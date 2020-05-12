@@ -27,9 +27,8 @@ _load_settings() {
     fi
   fi
 }
-_load_settings "$HOME/.zsh/configs"
 
-ensure_tmux_is_running
+_load_settings "$HOME/.zsh/configs"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
