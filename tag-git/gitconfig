@@ -111,7 +111,7 @@
 	enabled = true
 
 [push]
-	default = current
+	default = upstream
 
 [url "https://git.drupal.org/project/"]
 	insteadOf = do:
