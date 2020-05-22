@@ -20,6 +20,7 @@ class ClosesPullRequests
     private $localBranch;
     private $remoteBranch;
 
+    private const CI_ERROR = 'error';
     private const CI_PENDING = 'pending';
     private const CI_SUCCESS = 'success';
 
@@ -37,6 +38,7 @@ class ClosesPullRequests
 
         // TODO: Check for failures, or skip if there is no CI.
         $errors = [
+            self::CI_ERROR => 'Aborting: CI error',
             self::CI_PENDING => 'Aborting: CI pending',
         ];
 
