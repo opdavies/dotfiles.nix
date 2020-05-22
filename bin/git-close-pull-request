@@ -36,9 +36,12 @@ class ClosesPullRequests
         echo 'Confirming ci-status on PR is green...' . PHP_EOL;
 
         // TODO: Check for failures, or skip if there is no CI.
-        switch (exec('hub ci-status')) {
-            case self::CI_PENDING:
-                die('Aborting: CI pending');
+        $errors = [
+            self::CI_PENDING => 'Aborting: CI pending',
+        ];
+
+        if (array_key_exists($status = exec('hub ci-status'), $errors)) {
+            die($errors[$status]);
         }
     }
 
