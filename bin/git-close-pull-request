@@ -20,12 +20,27 @@ class ClosesPullRequests
     private $localBranch;
     private $remoteBranch;
 
+    private const CI_PENDING = 'pending';
+    private const CI_SUCCESS = 'success';
+
     public function __construct()
     {
         $this->localBranch = exec('git rev-parse --abbrev-ref HEAD');
 
         $this->remoteBranch = exec('git rev-parse --abbrev-ref --symbolic-full-name @{u}');
         $this->remoteBranch = str_replace('origin/', '', $this->remoteBranch);
+    }
+
+    function confirmCiStatusIsPassing(): void
+    {
+        echo 'Confirming ci-status on PR is green...' . PHP_EOL;
+
+        // TODO: Check for failures, or skip if there is no CI.
+        switch (exec('hub ci-status')) {
+            case self::CI_PENDING:
+                die('CI pending');
+                break;
+        }
     }
 
     function fetchOrigin(): void
@@ -72,7 +87,7 @@ class ClosesPullRequests
 
     public function __invoke(): void
     {
-        // TODO: Check the CI status of the branch. Don't merge if it's failing.
+        $this->confirmCiStatusIsPassing();
         // TODO: Check that the current branch has a tracking branch.
         $this->fetchOrigin();
         // TODO: Ensure both branches are up to date.
