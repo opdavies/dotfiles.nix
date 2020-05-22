@@ -1,0 +1,87 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Usage: git close-pull-request
+ *
+ * Run this from a branch which has an upstream remote branch, and an associated
+ * pull request.
+ *
+ * The script will merge the branch into master, push master (which will
+ * automatically close the pull request), and delete both the local and remote
+ * branches.
+ *
+ * Based on a script by @christoomey. Translated into PHP.
+ */
+
+class ClosesPullRequests
+{
+    private $targetBranch = 'master';
+    private $localBranch;
+    private $remoteBranch;
+
+    public function __construct()
+    {
+        $this->localBranch = exec('git rev-parse --abbrev-ref HEAD');
+
+        $this->remoteBranch = exec('git rev-parse --abbrev-ref --symbolic-full-name @{u}');
+        $this->remoteBranch = str_replace('origin/', '', $this->remoteBranch);
+    }
+
+    function fetchOrigin(): void
+    {
+        print 'Fetching origin to confirm local and remote in sync...'
+            . PHP_EOL;
+        exec("git fetch origin");
+    }
+
+    function checkoutTargetBranch(): void
+    {
+        print sprintf('Checking out %s...' . PHP_EOL, $this->targetBranch);
+        exec(sprintf('git checkout %s', $this->targetBranch));
+    }
+
+    function mergeLocalBranch(): void
+    {
+        echo sprintf(
+            'Merging %s into %s...' . PHP_EOL,
+            $this->localBranch,
+            $this->targetBranch
+        );
+
+        exec(sprintf('git merge --ff-only %s', $this->localBranch));
+    }
+
+    public function pushTargetBranch(): void
+    {
+        print(sprintf('Pushing updated %s branch...', $this->targetBranch));
+        exec(sprintf('git push origin %s', $this->targetBranch));
+    }
+
+    public function deleteRemoteBranch(): void
+    {
+        echo 'Deleting remote branch...' . PHP_EOL;
+        exec(sprintf('git push origin :%s', $this->remoteBranch));
+    }
+
+    public function deleteLocalBranch(): void
+    {
+        echo 'Deleting local branch...' . PHP_EOL;
+        exec(sprintf('git branch -d %s', $this->localBranch));
+    }
+
+    public function __invoke(): void
+    {
+        // TODO: Check the CI status of the branch. Don't merge if it's failing.
+        // TODO: Check that the current branch has a tracking branch.
+        $this->fetchOrigin();
+        // TODO: Ensure both branches are up to date.
+        $this->checkoutTargetBranch();
+        $this->mergeLocalBranch();
+        $this->pushTargetBranch();
+        $this->deleteRemoteBranch();
+        $this->deleteLocalBranch();
+    }
+}
+
+(new ClosesPullRequests())->__invoke();
