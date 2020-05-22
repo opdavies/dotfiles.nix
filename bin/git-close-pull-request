@@ -38,8 +38,7 @@ class ClosesPullRequests
         // TODO: Check for failures, or skip if there is no CI.
         switch (exec('hub ci-status')) {
             case self::CI_PENDING:
-                die('CI pending');
-                break;
+                die('Aborting: CI pending');
         }
     }
 
