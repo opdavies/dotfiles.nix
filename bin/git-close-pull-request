@@ -50,7 +50,7 @@ class ClosesPullRequests
         $this->deleteLocalBranch();
     }
 
-    function confirmCiStatusIsPassing(): void
+    private function confirmCiStatusIsPassing(): void
     {
         echo 'Confirming ci-status on PR is green...' . PHP_EOL;
 
@@ -65,20 +65,20 @@ class ClosesPullRequests
         }
     }
 
-    function fetchOrigin(): void
+    private function fetchOrigin(): void
     {
         print 'Fetching origin to confirm local and remote in sync...'
             . PHP_EOL;
         exec("git fetch origin");
     }
 
-    function checkoutTargetBranch(): void
+    private function checkoutTargetBranch(): void
     {
         print sprintf('Checking out %s...' . PHP_EOL, $this->targetBranch);
         exec(sprintf('git checkout %s', $this->targetBranch));
     }
 
-    function mergeLocalBranch(): void
+    private function mergeLocalBranch(): void
     {
         echo sprintf(
             'Merging %s into %s...' . PHP_EOL,
