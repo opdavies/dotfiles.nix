@@ -29,7 +29,6 @@ class ClosesPullRequests
     public function __construct()
     {
         $this->localBranch = exec('git rev-parse --abbrev-ref HEAD');
-
         $this->targetBranch = $this->getTargetBranchFromArgs();
 
         $this->remoteBranch = exec('git rev-parse --abbrev-ref --symbolic-full-name @{u}');
@@ -52,7 +51,7 @@ class ClosesPullRequests
 
     private function getTargetBranchFromArgs(): string
     {
-        if (!$targetBranchName = $this->getArg(['-t', '--target'])) {
+        if (!$targetBranchName = $this->getArg('t:', ['target:'])) {
             die('Invalid target branch specified. Aborting.');
         }
 
@@ -160,34 +159,13 @@ class ClosesPullRequests
         exec(sprintf('git branch -d %s', $this->localBranch));
     }
 
-    private function getArg(array $flags): ?string
+    private function getArg(string $shortOpts, array $longOpts = []): ?string
     {
-        $args = $_SERVER['argv'];
-
-        if (!$this->hasArg($flags)) {
-            return null;
+        if (!$values = getopt($shortOpts, $longOpts)) {
+            return NULL;
         }
 
-        $foundArgs = array_intersect($args, $flags);
-        
-        // Find the position of the first matching argument within the arguments
-        // array.
-        $position = array_search(current($foundArgs), $args);
-
-        // Return the value by finding the next value. For example:
-        // [2 => '-t', 3 => 'master']
-        if (!array_key_exists($position + 1, $args)) {
-            return null;
-        }
-
-        return $args[$position + 1];
-    }
-
-    private function hasArg(array $flags): bool
-    {
-        $args = $_SERVER['argv'];
-
-        return !empty(array_intersect($args, $flags));
+        return current($values);
     }
 }
 
