@@ -1,8 +1,10 @@
 #!/usr/bin/env php
 <?php
 
+declare(strict_types=1);
+
 /**
- * Usage: git close-pull-request
+ * Usage: git close-pull-request -t <target>
  *
  * Run this from a branch which has an upstream remote branch, and an associated
  * pull request.
@@ -28,10 +30,7 @@ class ClosesPullRequests
     {
         $this->localBranch = exec('git rev-parse --abbrev-ref HEAD');
 
-        $this->targetBranch = getenv('TARGET_BRANCH');
-        if (!$this->targetBranch) {
-            die('No target branch specified. Aborting.');
-        }
+        $this->targetBranch = $this->getTargetBranchFromArgs();
 
         $this->remoteBranch = exec('git rev-parse --abbrev-ref --symbolic-full-name @{u}');
         $this->remoteBranch = str_replace('origin/', '', $this->remoteBranch);
@@ -49,6 +48,15 @@ class ClosesPullRequests
         $this->pushTargetBranch();
         $this->deleteRemoteBranch();
         $this->deleteLocalBranch();
+    }
+
+    private function getTargetBranchFromArgs(): string
+    {
+        if (!$targetBranchName = $this->getArg(['-t', '--target'])) {
+            die('Invalid target branch specified. Aborting.');
+        }
+
+        return $targetBranchName;
     }
 
     private function confirmCiStatusIsPassing(): void
@@ -150,6 +158,36 @@ class ClosesPullRequests
     {
         echo 'Deleting local branch...' . PHP_EOL;
         exec(sprintf('git branch -d %s', $this->localBranch));
+    }
+
+    private function getArg(array $flags): ?string
+    {
+        $args = $_SERVER['argv'];
+
+        if (!$this->hasArg($flags)) {
+            return null;
+        }
+
+        $foundArgs = array_intersect($args, $flags);
+        
+        // Find the position of the first matching argument within the arguments
+        // array.
+        $position = array_search(current($foundArgs), $args);
+
+        // Return the value by finding the next value. For example:
+        // [2 => '-t', 3 => 'master']
+        if (!array_key_exists($position + 1, $args)) {
+            return null;
+        }
+
+        return $args[$position + 1];
+    }
+
+    private function hasArg(array $flags): bool
+    {
+        $args = $_SERVER['argv'];
+
+        return !empty(array_intersect($args, $flags));
     }
 }
 
