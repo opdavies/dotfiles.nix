@@ -61,7 +61,7 @@ class ClosesPullRequests
     private function getTargetBranchFromArgs(): string
     {
         if (!$targetBranchName = $this->getArg('t:', ['target:'])) {
-            die('Invalid target branch specified. Aborting.');
+            $this->dieWithMessage('Invalid target branch specified. Aborting.');
         }
 
         return $targetBranchName;
@@ -77,8 +77,14 @@ class ClosesPullRequests
             self::CI_PENDING => 'Aborting: CI pending',
         ];
 
-        if (array_key_exists($status = exec('hub ci-status'), $errors)) {
-            die($errors[$status]);
+        $ciStatus = $this->run('hub ci-status', self::RUN_TYPE_QUERY);
+
+        switch ($ciStatus) {
+            case self::CI_PENDING:
+                $this->exitWithWarning($errors[$ciStatus]);
+
+            case self::CI_ERROR:
+                $this->dieWithMessage($errors[$ciStatus]);
         }
     }
 
@@ -122,7 +128,7 @@ class ClosesPullRequests
         ));
 
         if ($localCommitTip != $remoteCommitTip) {
-            die(sprintf(
+            $this->dieWithMessage(sprintf(
                 'Branch %s was out of date, needs rebasing. Aborting.',
                 $localBranch
             ));
@@ -160,7 +166,7 @@ class ClosesPullRequests
             // Switch back to the previous branch.
             $this->run('git checkout -', self::RUN_TYPE_COMMAND);
 
-            die(sprintf(
+            $this->dieWithMessage(sprintf(
                 'Branch %s is not fast-forwardable.',
                 $this->localBranch
             ));
@@ -230,6 +236,20 @@ class ClosesPullRequests
                 // Perform the command and return the output.
                 return exec($command, $output);
         }
+    }
+
+    private function dieWithMessage(string $message): void
+    {
+        echo sprintf("\e[31m%s\e[0m", $message);
+
+        exit(1);
+    }
+
+    private function exitWithWarning(string $message): void
+    {
+        echo sprintf("\e[33m%s\e[0m", $message);
+
+        exit(2);
     }
 }
 
