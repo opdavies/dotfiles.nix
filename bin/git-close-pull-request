@@ -32,6 +32,19 @@ class ClosesPullRequests
         $this->remoteBranch = str_replace('origin/', '', $this->remoteBranch);
     }
 
+    public function __invoke(): void
+    {
+        $this->confirmCiStatusIsPassing();
+        // TODO: Check that the current branch has a tracking branch.
+        $this->fetchOrigin();
+        // TODO: Ensure both branches are up to date.
+        $this->checkoutTargetBranch();
+        $this->mergeLocalBranch();
+        $this->pushTargetBranch();
+        $this->deleteRemoteBranch();
+        $this->deleteLocalBranch();
+    }
+
     function confirmCiStatusIsPassing(): void
     {
         echo 'Confirming ci-status on PR is green...' . PHP_EOL;
@@ -87,19 +100,6 @@ class ClosesPullRequests
     {
         echo 'Deleting local branch...' . PHP_EOL;
         exec(sprintf('git branch -d %s', $this->localBranch));
-    }
-
-    public function __invoke(): void
-    {
-        $this->confirmCiStatusIsPassing();
-        // TODO: Check that the current branch has a tracking branch.
-        $this->fetchOrigin();
-        // TODO: Ensure both branches are up to date.
-        $this->checkoutTargetBranch();
-        $this->mergeLocalBranch();
-        $this->pushTargetBranch();
-        $this->deleteRemoteBranch();
-        $this->deleteLocalBranch();
     }
 }
 
