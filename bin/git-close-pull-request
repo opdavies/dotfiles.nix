@@ -16,7 +16,7 @@
 
 class ClosesPullRequests
 {
-    private $targetBranch = 'master';
+    private $targetBranch;
     private $localBranch;
     private $remoteBranch;
 
@@ -27,6 +27,11 @@ class ClosesPullRequests
     public function __construct()
     {
         $this->localBranch = exec('git rev-parse --abbrev-ref HEAD');
+
+        $this->targetBranch = getenv('TARGET_BRANCH');
+        if (!$this->targetBranch) {
+            die('No target branch specified. Aborting.');
+        }
 
         $this->remoteBranch = exec('git rev-parse --abbrev-ref --symbolic-full-name @{u}');
         $this->remoteBranch = str_replace('origin/', '', $this->remoteBranch);
