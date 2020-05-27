@@ -26,12 +26,21 @@ class ClosesPullRequests
     private const CI_PENDING = 'pending';
     private const CI_SUCCESS = 'success';
 
+    private const RUN_TYPE_COMMAND = 'command';
+    private const RUN_TYPE_QUERY = 'query';
+
     public function __construct()
     {
-        $this->localBranch = exec('git rev-parse --abbrev-ref HEAD');
+        $this->localBranch = $this->run(
+            'git rev-parse --abbrev-ref HEAD',
+            self::RUN_TYPE_QUERY
+        );
         $this->targetBranch = $this->getTargetBranchFromArgs();
 
-        $this->remoteBranch = exec('git rev-parse --abbrev-ref --symbolic-full-name @{u}');
+        $this->remoteBranch = $this->run(
+            'git rev-parse --abbrev-ref --symbolic-full-name @{u}',
+            self::RUN_TYPE_QUERY
+        );
         $this->remoteBranch = str_replace('origin/', '', $this->remoteBranch);
     }
 
@@ -77,7 +86,8 @@ class ClosesPullRequests
     {
         print 'Fetching origin to confirm local and remote in sync...'
             . PHP_EOL;
-        exec("git fetch origin");
+
+        $this->run('git fetch origin', self::RUN_TYPE_COMMAND);
     }
 
     private function ensureTargetBranchInSync(): void
@@ -121,13 +131,20 @@ class ClosesPullRequests
 
     private function tipCommitOfBranch(string $branchName): string
     {
-        return exec(sprintf('git rev-parse %s', $branchName));
+        return $this->run(
+            sprintf('git rev-parse %s', $branchName),
+            self::RUN_TYPE_QUERY
+        );
     }
 
     private function checkoutTargetBranch(): void
     {
-        print sprintf('Checking out %s...' . PHP_EOL, $this->targetBranch);
-        exec(sprintf('git checkout %s', $this->targetBranch));
+        echo sprintf('Checking out %s...' . PHP_EOL, $this->targetBranch);
+
+        $this->run(
+            sprintf('git checkout %s', $this->targetBranch),
+            self::RUN_TYPE_COMMAND
+        );
     }
 
     private function mergeLocalBranch(): void
@@ -138,25 +155,46 @@ class ClosesPullRequests
             $this->targetBranch
         );
 
-        exec(sprintf('git merge --ff-only %s', $this->localBranch));
+        $mergeCommand = sprintf('git merge --ff-only %s', $this->localBranch);
+        if (!$this->run($mergeCommand, self::RUN_TYPE_COMMAND)) {
+            // Switch back to the previous branch.
+            $this->run('git checkout -', self::RUN_TYPE_COMMAND);
+
+            die(sprintf(
+                'Branch %s is not fast-forwardable.',
+                $this->localBranch
+            ));
+        }
     }
 
     public function pushTargetBranch(): void
     {
         print(sprintf('Pushing updated %s branch...', $this->targetBranch));
-        exec(sprintf('git push origin %s', $this->targetBranch));
+
+        $this->run(
+            sprintf('git push origin %s', $this->targetBranch),
+            self::RUN_TYPE_COMMAND
+        );
     }
 
     public function deleteRemoteBranch(): void
     {
         echo 'Deleting remote branch...' . PHP_EOL;
-        exec(sprintf('git push origin :%s', $this->remoteBranch));
+
+        $this->run(
+            sprintf('git push origin :%s', $this->remoteBranch),
+            self::RUN_TYPE_COMMAND
+        );
     }
 
     public function deleteLocalBranch(): void
     {
         echo 'Deleting local branch...' . PHP_EOL;
-        exec(sprintf('git branch -d %s', $this->localBranch));
+
+        $this->run(
+            sprintf('git branch -d %s', $this->localBranch),
+            self::RUN_TYPE_COMMAND
+        );
     }
 
     private function getArg(string $shortOpts, array $longOpts = []): ?string
@@ -166,6 +204,32 @@ class ClosesPullRequests
         }
 
         return current($values);
+    }
+
+    /**
+     * Run the command.
+     *
+     * @return bool|string
+     *   If the type is 'command', the method will return if there were any
+     *   errors when running the command based on its return code.
+     *
+     *   If the type is 'query', then the output of the command will be returned
+     *   as a string.
+     */
+    private function run(string $command, string $type)
+    {
+        switch ($type) {
+            case self::RUN_TYPE_COMMAND:
+                // Perform the command, hiding the original output and return
+                // whether or not there were errors.
+                @exec("$command", $output, $return);
+
+                return $return == 0;
+
+            case self::RUN_TYPE_QUERY:
+                // Perform the command and return the output.
+                return exec($command, $output);
+        }
     }
 }
 
