@@ -42,7 +42,8 @@ class ClosesPullRequests
         $this->confirmCiStatusIsPassing();
         // TODO: Check that the current branch has a tracking branch.
         $this->fetchOrigin();
-        // TODO: Ensure both branches are up to date.
+        $this->ensureFeatureBranchInSync();
+        $this->ensureTargetBranchInSync();
         $this->checkoutTargetBranch();
         $this->mergeLocalBranch();
         $this->pushTargetBranch();
@@ -70,6 +71,50 @@ class ClosesPullRequests
         print 'Fetching origin to confirm local and remote in sync...'
             . PHP_EOL;
         exec("git fetch origin");
+    }
+
+    private function ensureTargetBranchInSync(): void
+    {
+        $this->ensureBranchInSyncWithUpstream(
+            $this->targetBranch,
+            $this->targetBranch
+        );
+    }
+
+    private function ensureFeatureBranchInSync(): void
+    {
+        $this->ensureBranchInSyncWithUpstream(
+            $this->localBranch,
+            $this->remoteBranch
+        );
+    }
+
+    private function ensureBranchInSyncWithUpstream(
+        string $localBranch,
+        string $remoteBranch
+    ): void {
+        echo sprintf(
+            'Ensuring that %s is in sync with its upstream...',
+            $localBranch
+        ) . PHP_EOL;
+
+        $localCommitTip = $this->tipCommitOfBranch($localBranch);
+        $remoteCommitTip = $this->tipCommitOfBranch(sprintf(
+            'origin/%s',
+            $remoteBranch
+        ));
+
+        if ($localCommitTip != $remoteCommitTip) {
+            die(sprintf(
+                'Branch %s was out of date, needs rebasing. Aborting.',
+                $localBranch
+            ));
+        }
+    }
+
+    private function tipCommitOfBranch(string $branchName): string
+    {
+        return exec(sprintf('git rev-parse %s', $branchName));
     }
 
     private function checkoutTargetBranch(): void
