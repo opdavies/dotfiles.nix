@@ -69,6 +69,11 @@ class ClosesPullRequests
 
     private function confirmCiStatusIsPassing(): void
     {
+        if ($this->isForce()) {
+            echo 'Forced. Skipping ci-status check...' . PHP_EOL;
+            return;
+        }
+
         echo 'Confirming ci-status on PR is green...' . PHP_EOL;
 
         // TODO: Check for failures, or skip if there is no CI.
@@ -210,6 +215,16 @@ class ClosesPullRequests
         }
 
         return current($values);
+    }
+
+    private function hasArg(string $shortOpts, array $longOpts = []): bool
+    {
+        return !empty(getopt($shortOpts, $longOpts));
+    }
+
+    private function isForce(): bool
+    {
+        return $this->hasArg('f::', ['force::']);
     }
 
     /**
