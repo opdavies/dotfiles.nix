@@ -48,6 +48,7 @@ class ClosesPullRequests
     {
         $this->confirmCiStatusIsPassing();
         // TODO: Check that the current branch has a tracking branch.
+        $this->ensureWorkingDirectoryAndIndexAreClean();
         $this->fetchOrigin();
         $this->ensureFeatureBranchInSync();
         $this->ensureTargetBranchInSync();
@@ -56,6 +57,18 @@ class ClosesPullRequests
         $this->pushTargetBranch();
         $this->deleteRemoteBranch();
         $this->deleteLocalBranch();
+    }
+
+    private function ensureWorkingDirectoryAndIndexAreClean(): void
+    {
+        echo 'Ensuring that index and working directory are clean...' . PHP_EOL;
+
+        $isIndexClean = $this->run('git diff --cached --exit-code', self::RUN_TYPE_COMMAND);
+        $isWorkingDirClean = $this->run('git diff --exit-code', self::RUN_TYPE_COMMAND);
+
+        if (!$isIndexClean || !$isWorkingDirClean) {
+            $this->dieWithMessage('Index or working dir not clean. Aborting.');
+        }
     }
 
     private function getTargetBranchFromArgs(): string
