@@ -4,6 +4,9 @@ _not_inside_tmux() {
 
 _not_inside_phpstorm() {
   if is_macos; then
+    # VS Code returns "vscode".
+    # iTerm returns "iTerm.app".
+    # PhpStorm returns nothing.
     [[ "$TERM_PROGRAM" != "" ]]
   elif is_linux; then
     [[ "$TERMINAL_EMULATOR" != "JetBrains"* ]]
