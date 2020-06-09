@@ -18,3 +18,6 @@ function db {
     mysql -uroot -e "drop database $2"
   fi
 }
+
+is_linux() { [[ "$(uname)" == 'Linux'  ]] }
+is_macos() { [[ "$(uname)" == "Darwin" ]] }
