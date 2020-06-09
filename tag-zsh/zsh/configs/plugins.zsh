@@ -1,4 +1,8 @@
-source "$HOME/.antigen.zsh"
+if is_macos; then
+  source /usr/local/share/antigen/antigen.zsh
+elif is_linux; then
+  source /usr/share/zsh-antigen/antigen.zsh
+fi
 
 antigen bundle mollifier/cd-gitroot
 antigen bundle zsh-users/zsh-autosuggestions
