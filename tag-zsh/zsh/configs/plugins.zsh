@@ -1,7 +1,9 @@
 if is_macos; then
   source /usr/local/share/antigen/antigen.zsh
 elif is_linux; then
-  source /usr/share/zsh-antigen/antigen.zsh
+  # antigen.zsh has been downloaded manually for now,
+  # see https://github.com/zsh-users/antigen/issues/659.
+  source $HOME/.antigen.zsh
 fi
 
 antigen bundle mollifier/cd-gitroot
