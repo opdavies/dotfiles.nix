@@ -1,6 +1,9 @@
 alias c="clear"
 alias l="ls -lah"
 alias mkdir="mkdir -p"
+alias p=phpunit
+alias pf=phpunit --filter
+alias s=symfony
 alias v=vagrant
 
 # Open the current directory in Finder.
