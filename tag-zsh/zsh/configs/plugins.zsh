@@ -1,5 +1,5 @@
 if is_macos; then
-  source /usr/local/share/antigen/antigen.zsh
+  source $_ANTIGEN_INSTALL_DIR/antigen.zsh
 elif is_linux; then
   # antigen.zsh has been downloaded manually for now,
   # see https://github.com/zsh-users/antigen/issues/659.
