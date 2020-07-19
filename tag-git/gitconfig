@@ -15,7 +15,7 @@
 	dup = !git checkout develop && git fetch origin && echo && git sl develop..origin/develop && echo && git pull --quiet && git checkout -
 	fixup = commit --fixup
 	issues = !hub browse -- issues
-	mup = !git checkout master && git fetch origin && echo && git sl master..origin/master && echo && git pull --quiet && git checkout -
+	mup = !git master-to-main-wrapper checkout %BRANCH% && git fetch origin && echo && git sl %BRANCH%..origin/%BRANCH% && echo && git pull --quiet && git checkout -
 	nah = !git reset --hard && git clean -fd
 	no-ff = merge --no-ff
 	pl = pull
@@ -26,10 +26,10 @@
 	rdup = !git dup && git rebase develop
 	remotes = remote -v
 	repush = !git pull --rebase && git push
-	rmup = !git mup && git rebase master
+	rmup = !git mup && git master-to-main-wrapper rebase %BRANCH%
 	ri = rebase --interactive
 	rid = !git rebase -i $(git merge-base develop HEAD)
-	rim = !git rebase -i $(git merge-base master HEAD)
+	rim = !git rebase -i $(git master-to-main-wrapper merge-base %BRANCH% HEAD)
 	riu = !git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
 	sl = log --oneline --decorate -20
 	sla = log --oneline --decorate --graph --all -20
