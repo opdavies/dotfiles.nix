@@ -1,5 +1,6 @@
 alias c="clear"
 alias l="ls -lah"
+alias m=make
 alias mkdir="mkdir -p"
 alias p=phpunit
 alias pf=phpunit --filter
