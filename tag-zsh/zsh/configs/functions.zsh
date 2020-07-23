@@ -1,10 +1,3 @@
-shorten() {
-  pushd ~/Code/opdavi.es
-  git pull --rebase
-  npm run shorten $1 $2
-  popd
-}
-
 function mkd() {
    mkdir -p "$@" && cd "$@"
 }
