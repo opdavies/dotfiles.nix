@@ -21,3 +21,11 @@ function db {
 
 is_linux() { [[ "$(uname)" == 'Linux'  ]] }
 is_macos() { [[ "$(uname)" == "Darwin" ]] }
+
+# Run 'phpunit' or 'pest' depending on the project.
+function p () {
+  vendor/bin/$(phpunit-or-pest) $*;
+}
+function pf () {
+  vendor/bin/$(phpunit-or-pest) --filter $*
+}
