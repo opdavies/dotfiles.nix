@@ -22,10 +22,15 @@ git_prompt_info() {
   ! git_is_repo || return
 
   current_branch=$(git_current_branch 2> /dev/null)
+  current_commit=$(git rev-parse --short HEAD 2> /dev/null)
   suffix=''
 
+  if [[ ! -z ${current_commit} ]]; then
+    suffix="${suffix} %{$fg_bold[yellow]%}[${current_commit}]%{$reset_color%}"
+  fi
+
   if git_repo_is_dirty; then
-    suffix=" %{$fg_bold[red]%}*%{$reset_color%}"
+    suffix="${suffix} %{$fg_bold[red]%}*%{$reset_color%}"
   fi
 
   if [[ -n git_current_branch ]]; then
