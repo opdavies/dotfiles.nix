@@ -26,7 +26,7 @@ git_prompt_info() {
   suffix=''
 
   if [[ ! -z ${current_commit} ]]; then
-    suffix="${suffix} %{$fg_bold[yellow]%}[${current_commit}]%{$reset_color%}"
+    suffix="${suffix} [%{$fg_bold[yellow]%}${current_commit}%{$reset_color%}]"
   fi
 
   if git_repo_is_dirty; then
@@ -34,7 +34,7 @@ git_prompt_info() {
   fi
 
   if [[ -n git_current_branch ]]; then
-    echo " %{$fg_bold[green]%}${current_branch}${suffix}%{$reset_color%}"
+    echo " %{$fg_bold[green]%}${current_branch}%{$reset_color%}${suffix}"
   fi
 }
 
