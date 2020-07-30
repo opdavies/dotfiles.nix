@@ -30,9 +30,12 @@
 	ri = rebase --interactive
 	rid = !git rebase -i $(git merge-base develop HEAD)
 	rim = !git rebase -i $(git master-to-main-wrapper merge-base %BRANCH% HEAD)
+	rip = !git rebase -i $(git merge-base production HEAD)
+	ris = !git rebase -i $(git merge-base staging HEAD)
 	riu = !git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
 	sl = log --oneline --decorate -20
 	sla = log --oneline --decorate --graph --all -20
+
 	slap = log --oneline --decorate --graph --all
 	slp = log --oneline --decorate
 	staged = diff --staged
