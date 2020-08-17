@@ -35,9 +35,3 @@ tmp/
 
 # Ignore Ansible Playbook retrys.
 *.retry
-
-fabfile.pyc
-
-.DS*
-
-*.unison.*
