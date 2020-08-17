@@ -35,3 +35,6 @@ tmp/
 
 # Ignore Ansible Playbook retrys.
 *.retry
+
+# Ignore notes within projects.
+.notes/
