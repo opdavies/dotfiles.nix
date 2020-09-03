@@ -1,0 +1,2 @@
+#compdef m
+compdef m=make
