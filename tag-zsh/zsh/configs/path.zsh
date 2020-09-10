@@ -7,6 +7,7 @@ $HOME/.composer/vendor/bin:\
 $HOME/.local/bin:\
 $HOME/.platformsh/bin:\
 $HOME/bin:\
+$HOME/snap/bin:\
 bin:\
 node_modules/.bin:\
 vendor/bin
