@@ -83,7 +83,7 @@
 
 [core]
 	editor = vim
-	excludesFile = ~/.gitignore
+	excludesFile = ~/.gitignore-global
 
 [diff]
 	tool = vimdiff
