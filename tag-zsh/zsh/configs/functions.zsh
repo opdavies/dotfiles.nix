@@ -1,3 +1,12 @@
+function m() {
+ if [[ -f .notes/Makefile ]];
+ then
+  make -f .notes/Makefile "$@"
+ else
+  make "$@"
+ fi
+}
+
 function mkd() {
    mkdir -p "$@" && cd "$@"
 }

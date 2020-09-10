@@ -1,6 +1,5 @@
 alias c="clear"
 alias l="ls -lah"
-alias m="if [[ -f .notes/Makefile ]]; then make -f .notes/Makefile; else make; fi"
 alias mkdir="mkdir -p"
 alias s=symfony
 alias v=vagrant
