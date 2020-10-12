@@ -7,7 +7,7 @@
 
 $currentBranch = exec('git rev-parse --abbrev-ref HEAD');
 
-if (in_array($currentBranch, ['develop', 'master', 'staging', 'production'])) {
+if (in_array($currentBranch, ['develop', 'main', 'master', 'staging', 'production'])) {
     print "Currently on ${currentBranch}. Aborting.";
     exit(1);
 }
