@@ -1,3 +1,5 @@
+source /usr/lib/git-core/git-sh-prompt
+
 git_is_repo() {
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == "true" ]]; then
     return 1
@@ -34,7 +36,7 @@ git_prompt_info() {
   fi
 
   if [[ -n git_current_branch ]]; then
-    echo " %{$fg_bold[green]%}${current_branch}%{$reset_color%}${suffix}"
+    echo " %{$fg_bold[green]%}$(__git_ps1 %s)%{$reset_color%}${suffix}"
   fi
 }
 
