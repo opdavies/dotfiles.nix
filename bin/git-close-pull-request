@@ -22,10 +22,6 @@ class ClosesPullRequests
     private $localBranch;
     private $remoteBranch;
 
-    private const CI_ERROR = 'error';
-    private const CI_PENDING = 'pending';
-    private const CI_SUCCESS = 'success';
-
     private const RUN_TYPE_COMMAND = 'command';
     private const RUN_TYPE_QUERY = 'query';
 
@@ -89,20 +85,11 @@ class ClosesPullRequests
 
         echo 'Confirming ci-status on PR is green...' . PHP_EOL;
 
-        // TODO: Check for failures, or skip if there is no CI.
-        $errors = [
-            self::CI_ERROR => 'Aborting: CI error',
-            self::CI_PENDING => 'Aborting: CI pending',
-        ];
+        $passedCi = $this->run('gh pr checks', self::RUN_TYPE_COMMAND);
 
-        $ciStatus = $this->run('hub ci-status', self::RUN_TYPE_QUERY);
-
-        switch ($ciStatus) {
-            case self::CI_PENDING:
-                $this->exitWithWarning($errors[$ciStatus]);
-
-            case self::CI_ERROR:
-                $this->dieWithMessage($errors[$ciStatus]);
+        // TODO: Check if there are no CI checks. Does this return `true` as well?
+        if (!$passedCi) {
+            $this->dieWithMessage('CI pending or failed.');
         }
     }
 
