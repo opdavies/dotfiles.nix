@@ -22,6 +22,10 @@ alias sublime='open -a /Applications/Sublime\ Text.app "`pwd`"'
 # Allow for pasting lines of code that start with a dollar sign.
 alias \$=''
 
+# Re-implement pbcopy and pbpaste from macOS.
+alias pbcopy="xclip -selection clipboard"
+alias pbpaste="xclip -selection clipboard -o"
+
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then
   source ~/.aliases.local
