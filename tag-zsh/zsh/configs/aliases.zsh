@@ -30,3 +30,8 @@ alias pbpaste="xclip -selection clipboard -o"
 if [[ -f ~/.aliases.local ]]; then
   source ~/.aliases.local
 fi
+
+# Open directory aliases
+if [[ -f $(pwd)/.aliases ]]; then
+  source $(pwd)/.aliases
+fi
