@@ -12,4 +12,4 @@ if (in_array($currentBranch, ['develop', 'main', 'master', 'staging', 'productio
     exit(1);
 }
 
-exec("git push -u origin $currentBranch:opdavies-{$currentBranch}");
+exec("git push -u origin $currentBranch:opd-{$currentBranch}");
