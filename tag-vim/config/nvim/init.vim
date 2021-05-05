@@ -48,13 +48,21 @@ filetype plugin on
 
 colorscheme nord
 
-" Nerdtree
-let g:NERDTreeShowHidden=1
-let g:NERDTreeWinPos = "right"
-nnoremap <leader>ne :NERDTreeToggle<CR>
-
 " Remaps
 let mapleader = " "
 nnoremap <leader>pv :Vex<CR>
 nnoremap <Leader>so :so ~/.config/nvim/init.vim<CR>
 nnoremap <C-p> :GFiles<CR>
+
+" Ctrl+C should write the file
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+
+" Nerdtree
+let g:NERDTreeShowHidden=1
+let g:NERDTreeWinPos = "right"
+nnoremap <leader>ne :NERDTreeToggle<CR>
+
+let g:NERDTreeShowHidden=1
+let g:NERDTreeWinPos = "right"
+nnoremap <leader>ne :NERDTreeToggle<CR>
