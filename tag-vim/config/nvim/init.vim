@@ -49,7 +49,6 @@ filetype plugin on
 colorscheme nord
 
 " Nerdtree
-
 let g:NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
 nnoremap <leader>ne :NERDTreeToggle<CR>
@@ -59,4 +58,3 @@ let mapleader = " "
 nnoremap <leader>pv :Vex<CR>
 nnoremap <Leader>so :so ~/.config/nvim/init.vim<CR>
 nnoremap <C-p> :GFiles<CR>
-
