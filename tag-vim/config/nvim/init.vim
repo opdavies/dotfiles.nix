@@ -54,6 +54,12 @@ nnoremap <leader>pv :Vex<CR>
 nnoremap <Leader>so :so ~/.config/nvim/init.vim<CR>
 nnoremap <C-p> :GFiles<CR>
 
+" Remove arrow keys
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+
 " Ctrl+C should write the file
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
