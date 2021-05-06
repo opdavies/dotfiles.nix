@@ -1,3 +1,14 @@
 {
-  "diagnostic.virtualText": true
+  "diagnostic.virtualText": true,
+
+  "languageserver": {
+    "intelephense": {
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      }
+    }
+  }
 }
