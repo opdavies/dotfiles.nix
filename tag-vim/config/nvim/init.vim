@@ -1,13 +1,3 @@
-nmap 0 a
-
-syntax on
-
-au FileType gitcommit highlight ColorColumn ctermbg=8
-au FileType gitcommit setlocal colorcolumn=50,72
-au FileType gitcommit setlocal textwidth=72
-au FileType gitcommit setlocal spell
-
-" Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -25,6 +15,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 
+syntax on
+filetype on
+filetype indent on
+filetype plugin on
+
 set complete+=kspell
 set expandtab
 set foldlevelstart=99 " Start unfolded
@@ -37,9 +32,6 @@ set shiftwidth=2
 set smartindent
 set tabstop=2 softtabstop=2
 set termguicolors
-
-" Enable filetype plugins
-filetype plugin on
 
 colorscheme nord
 
@@ -55,16 +47,12 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 
-" Ctrl+C should write the file
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-
 " Nerdtree
 let g:NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
 nnoremap <leader>ne :NERDTreeToggle<CR>
 
-let g:NERDTreeShowHidden=1
-let g:NERDTreeWinPos = "right"
-nnoremap <leader>ne :NERDTreeToggle<CR>
-
+autocmd FileType gitcommit highlight ColorColumn ctermbg=8
+autocmd FileType gitcommit setlocal colorcolumn=50,72
+autocmd FileType gitcommit setlocal textwidth=72
+autocmd FileType gitcommit setlocal spell
