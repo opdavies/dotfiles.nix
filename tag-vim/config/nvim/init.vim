@@ -5,25 +5,7 @@ syntax on
 au FileType gitcommit highlight ColorColumn ctermbg=8
 au FileType gitcommit setlocal colorcolumn=50,72
 au FileType gitcommit setlocal textwidth=72
-
-set complete+=kspell
 au FileType gitcommit setlocal spell
-
-" folding
-set foldlevelstart=99 " Start unfolded
-set foldmethod=indent
-
-set noswapfile
-set nowrap
-set number relativenumber
-
-" Automatically scroll
-set scrolloff=10
-
-set tabstop=2 softtabstop=2
-set shiftwidth=2
-set expandtab
-set smartindent
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -42,6 +24,19 @@ Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 call plug#end()
+
+set complete+=kspell
+set expandtab
+set foldlevelstart=99 " Start unfolded
+set foldmethod=indent
+set noswapfile
+set nowrap
+set number relativenumber
+set scrolloff=10 " Automatically scroll
+set shiftwidth=2
+set smartindent
+set tabstop=2 softtabstop=2
+set termguicolors
 
 " Enable filetype plugins
 filetype plugin on
