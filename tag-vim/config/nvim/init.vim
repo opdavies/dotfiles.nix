@@ -52,6 +52,9 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
 nnoremap <leader>ne :NERDTreeToggle<CR>
 
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
 autocmd FileType gitcommit highlight ColorColumn ctermbg=8
 autocmd FileType gitcommit setlocal colorcolumn=50,72
 autocmd FileType gitcommit setlocal textwidth=72
