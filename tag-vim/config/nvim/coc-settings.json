@@ -1,14 +1,15 @@
 {
+  "diagnostic.messageTarget": "echo",
   "diagnostic.virtualText": true,
 
-  "languageserver": {
-    "intelephense": {
-      "command": "intelephense",
-      "args": ["--stdio"],
-      "filetypes": ["php"],
-      "initializationOptions": {
-        "storagePath": "/tmp/intelephense"
-      }
-    }
-  }
+  "intelephense.files.associations": [
+    "*.inc",
+    "*.module",
+    "*.php",
+    "*.profile",
+    "*.test",
+    "*.theme"
+  ],
+  "intelephense.progress.enable": false,
+  "intelephense.telemetry.enabled": false
 }
