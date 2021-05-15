@@ -7,4 +7,5 @@ My personal dotfiles, originally for macOS only but currently being adapted for 
 - [Chris Toomey](https://github.com/christoomey/dotfiles)
 - [Gabe Berke-Williams](https://github.com/gabebw/dotfiles)
 - [Jeff Geerling](https://github.com/geerlingguy/dotfiles)
+- [Robin Malfait](https://github.com/RobinMalfait/dotfiles)
 - [Thoughtbot](https://github.com/thoughtbot/dotfiles)
