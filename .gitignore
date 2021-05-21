@@ -2,3 +2,9 @@
 !*/
 !/bin/**
 !/tag-*/**
+/tag-php/composer/.env
+/tag-php/composer/auth.json
+/tag-php/composer/bin/
+/tag-php/composer/config/
+/tag-php/composer/keys.*.pub
+/**/*.zwc
