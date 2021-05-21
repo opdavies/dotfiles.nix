@@ -1,8 +1,5 @@
 alias c="clear"
 alias l="ls -lah"
-alias mkdir="mkdir -p"
-alias s=symfony
-alias v=vagrant
 
 # Open the current directory in Finder.
 alias o="open ."
@@ -14,8 +11,6 @@ alias sshconfig='vim ~/.ssh/config'
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Open the current directory in PhpStorm.
-alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
-
 # Open the current directory in Sublime Text.
 alias sublime='open -a /Applications/Sublime\ Text.app "`pwd`"'
 
