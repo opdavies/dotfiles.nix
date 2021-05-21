@@ -39,7 +39,7 @@ colorscheme nord
 let mapleader = " "
 nnoremap <leader>pv :Vex<CR>
 nnoremap <Leader>so :so ~/.config/nvim/init.vim<CR>
-nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :Files<CR>
 
 " Remove arrow keys
 noremap <up> <nop>
