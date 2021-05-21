@@ -1,3 +1,14 @@
+let mapleader = " "
+
+function! s:SourceConfigFilesIn(directory)
+  let directory_splat = '~/.config/nvim/' . a:directory . '/*'
+  for config_file in split(glob(directory_splat), '\n')
+    if filereadable(config_file)
+      execute 'source' config_file
+    endif
+  endfor
+endfunction
+
 call plug#begin('~/.config/nvim/plugged')
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-sort-motion'
@@ -38,7 +49,6 @@ set termguicolors
 colorscheme nord
 
 " Remaps
-let mapleader = " "
 nnoremap <leader>pv :Vex<CR>
 nnoremap <Leader>so :so ~/.config/nvim/init.vim<CR>
 nnoremap <C-p> :Files<CR>
