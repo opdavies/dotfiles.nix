@@ -10,6 +10,7 @@ function! s:SourceConfigFilesIn(directory)
 endfunction
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
