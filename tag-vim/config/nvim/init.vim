@@ -10,6 +10,7 @@ function! s:SourceConfigFilesIn(directory)
 endfunction
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'APZelos/blamer.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-sort-motion'
@@ -78,3 +79,6 @@ autocmd FileType gitcommit setlocal spell
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
+
+let g:blamer_delay = 500
+let g:blamer_enabled = 1
