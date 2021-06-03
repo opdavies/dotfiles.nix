@@ -1,5 +1,11 @@
 let mapleader = " "
 
+function! s:LoadPlugins()
+  call plug#begin('~/.config/nvim/plugged')
+  source ~/.config/nvim/plugins.vim
+  call plug#end()
+endfunction
+
 function! s:SourceConfigFilesIn(directory)
   let directory_splat = '~/.config/nvim/' . a:directory . '/*'
   for config_file in split(glob(directory_splat), '\n')
@@ -9,26 +15,7 @@ function! s:SourceConfigFilesIn(directory)
   endfor
 endfunction
 
-call plug#begin('~/.config/nvim/plugged')
-Plug 'APZelos/blamer.nvim'
-Plug 'airblade/vim-gitgutter'
-Plug 'arcticicestudio/nord-vim'
-Plug 'christoomey/vim-sort-motion'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
-Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-call plug#end()
+call s:LoadPlugins()
 
 syntax on
 filetype on
