@@ -1,0 +1,66 @@
+window:
+  background_opacity: 1
+  decorations: full
+  dyanmic_title: false
+  padding:
+    x: 6
+    y: 6
+
+font:
+  italic:
+    family: 'Source Code Pro'
+    style: Regular
+  normal:
+    family: 'Source Code Pro'
+    style: Regular
+  size: 15
+
+# Nord
+colors:
+  primary:
+    background: '0x2e3440'
+    dim_foreground: '0xa5abb6'
+    foreground: '0xd8dee9'
+  cursor:
+    cursor: '0xd8dee9'
+    text: '0x2e3440'
+  vi_mode_cursor:
+    cursor: '0xd8dee9'
+    text: '0x2e3440'
+  selection:
+    background: '0x4c566a'
+    text: CellForeground
+  search:
+    matches:
+      background: '0x88c0d0'
+      foreground: CellBackground
+    bar:
+      background: '0x434c5e'
+      foreground: '0xd8dee9'
+  normal:
+    black: '0x3b4252'
+    blue: '0x81a1c1'
+    cyan: '0x88c0d0'
+    green: '0xa3be8c'
+    magenta: '0xb48ead'
+    red: '0xbf616a'
+    white: '0xe5e9f0'
+    yellow: '0xebcb8b'
+  bright:
+    black: '0x4c566a'
+    blue: '0x81a1c1'
+    cyan: '0x8fbcbb'
+    green: '0xa3be8c'
+    magenta: '0xb48ead'
+    red: '0xbf616a'
+    white: '0xeceff4'
+    yellow: '0xebcb8b'
+  dim:
+    black: '0x373e4d'
+    blue: '0x68809a'
+    cyan: '0x6d96a5'
+    green: '0x809575'
+    magenta: '0x8c738c'
+    red: '0x94545d'
+    white: '0xaeb3bb'
+    yellow: '0xb29e75'
