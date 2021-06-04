@@ -35,8 +35,7 @@ set smartindent
 set tabstop=2 softtabstop=2
 set termguicolors
 
-let g:nord_bold_vertical_split_line = 1
-let g:nord_cursor_line_number_background = 1
+call s:SourceConfigFilesIn('plugins')
 
 colorscheme nord
 
@@ -50,21 +49,6 @@ noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
-
-" Nerdtree
-let g:NERDTreeShowHidden=1
-let g:NERDTreeWinPos = "right"
-nnoremap <leader>ne :NERDTreeToggle<CR>
-
-" Symbol renaming.
-nmap <Leader>a <Plug>(coc-codeaction)
-nmap <Leader>gd <Plug>(coc-definition)
-nmap <Leader>gr <Plug>(coc-references)
-nmap <Leader>gi <Plug>(coc-implementation)
-nmap <Leader>gt <Plug>(coc-type-definition)
-nmap <Leader>sr <Plug>(coc-rename)
-nmap <Leader>rf <Plug>(coc-refactor)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 autocmd FileType gitcommit highlight ColorColumn ctermbg=8
 autocmd FileType gitcommit setlocal colorcolumn=50,72
