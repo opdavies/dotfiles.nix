@@ -1,4 +1,5 @@
 Plug 'APZelos/blamer.nvim'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-sort-motion'
