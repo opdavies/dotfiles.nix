@@ -1,10 +1,6 @@
-if is_macos; then
-  source /usr/local/share/antigen/antigen.zsh
-elif is_linux; then
-  # antigen.zsh has been downloaded manually for now,
-  # see https://github.com/zsh-users/antigen/issues/659.
-  source $HOME/.antigen.zsh
-fi
+# antigen.zsh has been downloaded manually for now,
+# see https://github.com/zsh-users/antigen/issues/659.
+source $HOME/.antigen.zsh
 
 antigen bundle mollifier/cd-gitroot
 antigen bundle zsh-users/zsh-autosuggestions
