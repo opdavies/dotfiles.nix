@@ -1,6 +1,0 @@
-COPY_ALWAYS="git_template/HEAD"
-DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
-EXCLUDES="install.sh README.md"
-SYMLINK_DIRS="completion-scripts composer bin functions configs plugins"
-TAGS="alacritty git npm php tmux vim zsh"
-UNDOTTED="bin"
