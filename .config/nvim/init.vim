@@ -57,6 +57,3 @@ autocmd FileType gitcommit setlocal spell
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
-
-let g:blamer_delay = 500
-let g:blamer_enabled = 1
