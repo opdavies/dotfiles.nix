@@ -1,3 +1,5 @@
+let g:coc_global_extensions = ['coc-angular', 'coc-css', 'coc-emmet', 'coc-esbonio', 'coc-git', 'coc-go', 'coc-html', 'coc-json', 'coc-markdownlint', 'coc-php-cs-fixer', 'coc-phpls', 'coc-sh', 'coc-svg', 'coc-tailwindcss', 'coc-tsserver', 'coc-vetur', 'coc-vimlsp', 'coc-yaml', 'coc-yank']
+
 nmap <Leader>a <Plug>(coc-codeaction)
 nmap <Leader>gd <Plug>(coc-definition)
 nmap <Leader>gr <Plug>(coc-references)
