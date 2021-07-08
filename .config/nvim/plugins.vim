@@ -1,4 +1,3 @@
-Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
@@ -14,7 +13,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
