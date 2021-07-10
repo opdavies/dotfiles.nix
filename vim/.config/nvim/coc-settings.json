@@ -11,10 +11,5 @@
     "*.theme"
   ],
   "intelephense.progress.enable": false,
-  "intelephense.telemetry.enabled": false,
-
-  "markdownlint.config": {
-    "default": true,
-    "line_length": false
-  }
+  "intelephense.telemetry.enabled": false
 }

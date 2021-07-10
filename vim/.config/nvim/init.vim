@@ -26,22 +26,18 @@ set complete+=kspell
 set expandtab
 set foldlevelstart=99 " Start unfolded
 set foldmethod=indent
-set hlsearch
-set ignorecase
-set incsearch
 set noswapfile
 set nowrap
 set number relativenumber
 set scrolloff=10 " Automatically scroll
 set shiftwidth=2
-set smartcase
 set smartindent
 set tabstop=2 softtabstop=2
 set termguicolors
 
 call s:SourceConfigFilesIn('plugins')
 
-colorscheme jellybeans
+colorscheme nord
 
 " Remaps
 nnoremap <leader>pv :Vex<CR>

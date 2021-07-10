@@ -135,3 +135,6 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[user]
+	name = Oliver Davies
+	email = oliver@oliverdavies.uk
