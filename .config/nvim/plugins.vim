@@ -1,3 +1,4 @@
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
