@@ -4,4 +4,8 @@ ensure_tmux_is_running() {
   fi
 }
 
+_not_inside_tmux() {
+  [[ -z "$TMUX" ]]
+}
+
 ensure_tmux_is_running
