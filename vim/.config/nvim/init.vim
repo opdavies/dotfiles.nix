@@ -57,3 +57,5 @@ autocmd FileType gitcommit setlocal spell
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
+
+lua require("opdavies")
