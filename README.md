@@ -5,7 +5,7 @@ My personal dotfiles, originally for macOS only but currently being adapted for 
 ## Installation
 
 ```
-stow alactritty bin composer dconf git tmux vim zsh
+stow alacritty bin composer dconf git tmux vim zsh
 ```
 
 ## Inspiration
