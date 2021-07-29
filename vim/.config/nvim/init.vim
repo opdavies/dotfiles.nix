@@ -37,7 +37,7 @@ set termguicolors
 
 call s:SourceConfigFilesIn('plugins')
 
-colorscheme nord
+colorscheme jellybeans
 
 " Remaps
 nnoremap <leader>pv :Vex<CR>
