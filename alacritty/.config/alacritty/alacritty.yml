@@ -1,7 +1,7 @@
 window:
-  background_opacity: 1
+  background_opacity: 0.5
   decorations: full
-  dyanmic_title: false
+  dynamic_title: false
   padding:
     x: 6
     y: 6
@@ -9,7 +9,7 @@ window:
 font:
   italic:
     family: 'Dank Mono'
-    style: Regular
+    style: Italic
   normal:
     family: 'Dank Mono'
     style: Regular
