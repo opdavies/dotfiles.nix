@@ -25,7 +25,6 @@ local default_config = {
 
 lspconfig.intelephense.setup{
   filetypes = { "install", "inc", "module", "php", "test", "theme" },
-  on_attach = custom_on_attach,
 }
 
 lspconfig.tsserver.setup(default_config)
