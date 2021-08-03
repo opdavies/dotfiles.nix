@@ -22,6 +22,7 @@ filetype on
 filetype indent on
 filetype plugin on
 
+set autoindent
 set complete+=kspell
 set expandtab
 set foldlevelstart=99 " Start unfolded
