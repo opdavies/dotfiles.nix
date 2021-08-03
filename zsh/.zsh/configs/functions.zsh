@@ -27,3 +27,12 @@ function p () {
 function pf () {
   vendor/bin/$(phpunit-or-pest) --filter $*
 }
+
+nv() {
+  if [[ $# > 0 ]];
+  then
+    nvim $@
+  else
+    nvim .
+  fi
+}
