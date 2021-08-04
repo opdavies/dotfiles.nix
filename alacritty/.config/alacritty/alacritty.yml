@@ -8,10 +8,10 @@ window:
 
 font:
   italic:
-    family: 'Dank Mono'
+    family: 'JetBrains Mono'
     style: Italic
   normal:
-    family: 'Dank Mono'
+    family: 'JetBrains Mono'
     style: Regular
   size: 12
 
