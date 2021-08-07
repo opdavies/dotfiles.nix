@@ -6,6 +6,7 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hrsh7th/nvim-compe'
+Plug 'icatalina/vim-case-change'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
