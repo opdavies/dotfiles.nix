@@ -82,7 +82,7 @@
 	verbose = true
 
 [core]
-	editor = vim
+	editor = nvim
 	excludesFile = ~/.gitignore-global
 
 [diff]
