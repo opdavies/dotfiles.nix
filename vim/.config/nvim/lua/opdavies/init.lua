@@ -1,3 +1,5 @@
+require('colorbuddy').colorscheme('gruvbuddy')
+
 -- TreeSitter
 
 local configs = require'nvim-treesitter.configs'

@@ -38,8 +38,6 @@ set termguicolors
 
 call s:SourceConfigFilesIn('plugins')
 
-colorscheme jellybeans
-
 " Remaps
 nnoremap <leader>pv :Vex<CR>
 nnoremap <Leader>so :so ~/.config/nvim/init.vim<CR>
