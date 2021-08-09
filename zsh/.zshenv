@@ -1,4 +1,3 @@
 PROMPT_EOL_MARK=''
-
+TERM=xterm-256color
 ZLE_REMOVE_SUFFIX_CHARS=''
-
