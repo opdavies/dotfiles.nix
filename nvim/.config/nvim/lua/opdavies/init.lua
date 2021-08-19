@@ -29,7 +29,11 @@ lspconfig.intelephense.setup{
   filetypes = { "install", "inc", "module", "php", "test", "theme" },
 }
 
-lspconfig.tsserver.setup(default_config)
+lspconfig.tsserver.setup{
+  filetypes = { "js", "jsx", "vue" },
+}
+
+require'lspconfig'.vuels.setup{}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
