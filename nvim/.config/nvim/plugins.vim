@@ -1,4 +1,5 @@
 Plug 'APZelos/blamer.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
