@@ -9,6 +9,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'icatalina/vim-case-change'
 Plug 'jiangmiao/auto-pairs'
+Plug 'kabouzeid/nvim-lspinstall'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'nanotech/jellybeans.vim'
