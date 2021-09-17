@@ -17,16 +17,16 @@ configs.setup {
 -- LSP
 
 local lspconfig = require'lspconfig'
-local completion = require'completion'
+--local completion = require'completion'
 
-local function custom_on_attach(client)
-  print('Attaching to ' .. client.name)
-  completion.on_attach(client)
-end
+--local function custom_on_attach(client)
+  --print('Attaching to ' .. client.name)
+  --completion.on_attach(client)
+--end
 
-local default_config = {
-  on_attach = custom_on_attach,
-}
+--local default_config = {
+  --on_attach = custom_on_attach,
+--}
 
 lspconfig.intelephense.setup{
   filetypes = { "install", "inc", "module", "php", "test", "theme" },
