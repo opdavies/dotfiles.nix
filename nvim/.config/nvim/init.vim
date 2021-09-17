@@ -40,6 +40,7 @@ call s:SourceConfigFilesIn('plugins')
 
 " Remaps
 nnoremap <Leader>so :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>x :!chmod +x %<CR>
 
 " Remove arrow keys
 noremap <up> <nop>
