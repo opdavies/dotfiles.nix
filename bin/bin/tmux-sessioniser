@@ -14,10 +14,16 @@ else
   selected=$(find ~/ ~/Code ~/Code/clients ~/Code/os ~/Code/Personal ~/Documents/Talks/ -mindepth 1 -maxdepth 1 -type d -not -name ".*" | sort | fzf)
 fi
 
-selected_name=$(basename "$selected" | tr . -)
-
 if [[ -z $selected ]]; then
   exit 0
+fi
+
+is_tmux_running=$(pgrep tmux)
+selected_name=$(basename "$selected" | tr . -)
+
+if [[ -z $TMUX ]] && [[ -z $is_tmux_running ]]; then
+    tmux new-session -s $selected_name -c $selected
+    exit 0
 fi
 
 # Create a new session if tmux does not already have a session matching the
@@ -26,4 +32,8 @@ if ! tmux has-session -t $selected_name 2> /dev/null; then
   tmux new-session -s $selected_name -c $selected -d
 fi
 
-tmux switch-client -t $selected_name
+if [[ -z $TMUX ]]; then
+  tmux attach-session -t $selected_name
+else
+  tmux switch-client -t $selected_name
+fi
