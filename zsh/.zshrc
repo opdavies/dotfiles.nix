@@ -33,5 +33,7 @@ _load_settings() {
 
 _load_settings "$HOME/.zsh/configs"
 
+bindkey -s "^f" "tmux-sessioniser\n"
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

@@ -55,4 +55,6 @@ autocmd FileType gitcommit setlocal spell
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
 
+nnoremap <silent> <C-f> :silent !tmux neww tmux-sessioniser<CR>
+
 lua require("opdavies")
