@@ -23,10 +23,13 @@ filetype indent on
 filetype plugin on
 
 set autoindent
+set breakindent
 set complete+=kspell
 set expandtab
 set foldlevelstart=99 " Start unfolded
 set foldmethod=indent
+set formatoptions=l
+set linebreak
 set noswapfile
 set nowrap
 set number relativenumber
