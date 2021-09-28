@@ -73,7 +73,6 @@ key_mapper('n', '<leader>dn', ':lua vim.lsp.diagnostic.goto_next()<CR>')
 key_mapper('n', '<leader>dp', ':lua vim.lsp.diagnostic.goto_prev()<CR>')
 key_mapper('n', '<leader>ds', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
 
-key_mapper('n', '<C-p>', ':lua require"telescope.builtin".find_files()<CR>')
 key_mapper('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
 key_mapper('n', '<leader>fh', ':lua require"telescope.builtin".help_tags()<CR>')
 key_mapper('n', '<leader>fs', ':lua require"telescope.builtin".live_grep()<CR>')
