@@ -11,6 +11,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'mattn/emmet-vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'nanotech/jellybeans.vim'
 Plug 'neovim/nvim-lspconfig'
