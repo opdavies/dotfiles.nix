@@ -4,6 +4,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'icatalina/vim-case-change'
