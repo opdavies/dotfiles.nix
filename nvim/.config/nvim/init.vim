@@ -1,7 +1,7 @@
 let mapleader = " "
 
 function! s:LoadPlugins()
-  call plug#begin('~/.config/nvim/plugged')
+  call plug#begin('~/.local/share/nvim/plugins')
   source ~/.config/nvim/plugins.vim
   call plug#end()
 endfunction
