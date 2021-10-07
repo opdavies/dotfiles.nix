@@ -141,10 +141,8 @@ vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })
 vim.opt.list = true
 vim.opt.listchars = {
   eol = "↴",
-  space = "⋅",
 }
 
 require("indent_blankline").setup {
   show_end_of_line = true,
-  space_char_blankline = " ",
 }
