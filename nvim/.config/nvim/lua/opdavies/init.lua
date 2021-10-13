@@ -28,7 +28,7 @@ local servers = {
   },
 
   tsserver = {
-    filetypes = { "js", "jsx", "ts", "vue" }
+    filetypes = { "js", "jsx", "typescript", "vue" }
   },
 
   yamlls = true,
