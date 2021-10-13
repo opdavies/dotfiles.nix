@@ -15,29 +15,40 @@ configs.setup {
 }
 
 -- LSP
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
+local has_lsp, lspconfig = pcall(require, "lspconfig")
+
+local servers = {
+  ansiblels = true,
+  bashls = true,
+  cssls = true,
+  html = true,
+
+  intelephense = {
+    filetypes = { "install", "inc", "module", "php", "test", "theme" }
+  },
+
+  tsserver = {
+    filetypes = { "js", "jsx", "ts", "vue" }
+  },
+
+  yamlls = true,
+}
+
+local setup_server = function(server, config)
+  if not config then
+    return
   end
+
+  if type(config) ~= "table" then
+    config = {}
+  end
+
+  lspconfig[server].setup(config)
 end
 
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers()
-  vim.cmd("bufdo e")
+for server, config in pairs(servers) do
+  setup_server(server, config)
 end
-
---lspconfig.intelephense.setup{
-  --filetypes = { "install", "inc", "module", "php", "test", "theme" },
---}
-
---lspconfig.tsserver.setup{
-  --filetypes = { "js", "jsx", "ts", "vue" },
---}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
