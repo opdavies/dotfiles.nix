@@ -24,6 +24,7 @@ filetype plugin on
 
 set autoindent
 set breakindent
+set clipboard+=unnamedplus
 set complete+=kspell
 set expandtab
 set foldlevelstart=99 " Start unfolded
