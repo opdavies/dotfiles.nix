@@ -31,6 +31,7 @@ set foldlevelstart=99 " Start unfolded
 set foldmethod=indent
 set formatoptions=l
 set linebreak
+set mouse=n
 set noswapfile
 set nowrap
 set number relativenumber
