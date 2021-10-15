@@ -1,5 +1,4 @@
-require("colorbuddy").colorscheme("gruvbuddy")
-
+require "opdavies.plugins.colours"
 require "opdavies.plugins.completion"
 require "opdavies.plugins.floaterm"
 require "opdavies.plugins.indent-blankline"
