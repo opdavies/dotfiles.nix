@@ -23,4 +23,7 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 
+" Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
+nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
+
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessioniser<CR>
