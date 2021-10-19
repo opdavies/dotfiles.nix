@@ -32,4 +32,14 @@ cmp.setup {
     { name = "luasnip" },
     { name = "cmp_tabnine" },
   },
+
+  formatting = {
+    format = require("lspkind").cmp_format({with_text = true, menu = ({
+      buffer = "[buf]",
+      luasnip = "[snip]",
+      nvim_lsp = "[lsp]",
+      nvim_lua = "[lua]",
+      path = "[path]",
+    })}),
+  },
 }
