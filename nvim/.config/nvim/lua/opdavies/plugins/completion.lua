@@ -42,4 +42,8 @@ cmp.setup {
       path = "[path]",
     })}),
   },
+
+  experimental = {
+    ghost_text = true
+  },
 }
