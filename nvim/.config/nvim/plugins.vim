@@ -10,6 +10,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'mattn/emmet-vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'miyakogi/seiya.vim'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'preservim/nerdcommenter'
