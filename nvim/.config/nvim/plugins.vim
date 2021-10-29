@@ -26,6 +26,9 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'tjdevries/colorbuddy.vim'
 Plug 'tjdevries/gruvbuddy.nvim'
 
+" Navigation
+Plug 'ThePrimeagen/harpoon'
+
 " Treesitter
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
