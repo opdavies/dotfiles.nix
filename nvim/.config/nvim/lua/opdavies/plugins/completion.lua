@@ -36,6 +36,7 @@ cmp.setup {
   formatting = {
     format = require("lspkind").cmp_format({with_text = true, menu = ({
       buffer = "[buf]",
+      cmp_tabnine = "[tn]",
       luasnip = "[snip]",
       nvim_lsp = "[lsp]",
       nvim_lua = "[lua]",
