@@ -1,37 +1,28 @@
-local has_lsp, lspconfig = pcall(require, "lspconfig")
+--local has_lsp, lspconfig = pcall(require, "lspconfig")
 
-local servers = {
-  ansiblels = true,
-  bashls = true,
-  cssls = true,
-  html = true,
-
-  intelephense = {
-    filetypes = { "install", "inc", "module", "php", "test", "theme" }
-  },
-
-  tsserver = {
-    filetypes = { "js", "jsx", "typescript", "vue" }
-  },
-
-  yamlls = true,
-}
-
-local setup_server = function(server, config)
-  if not config then
-    return
-  end
-
-  if type(config) ~= "table" then
-    config = {}
-  end
-
-  lspconfig[server].setup(config)
+local function config(_config)
+  return vim.tbl_deep_extend("force", {
+      capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }, _config or {})
 end
 
-for server, config in pairs(servers) do
-  setup_server(server, config)
-end
+require'lspconfig'.ansiblels.setup(config())
+
+require'lspconfig'.bashls.setup(config())
+
+require'lspconfig'.cssls.setup(config())
+
+require'lspconfig'.html.setup(config())
+
+require'lspconfig'.intelephense.setup(config({
+  filetypes = { "php", "test", "theme" }
+}))
+
+require'lspconfig'.tsserver.setup(config({
+  filetypes = { "javascript", "typescript", "vue" }
+}))
+
+require'lspconfig'.yamlls.setup(config())
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
