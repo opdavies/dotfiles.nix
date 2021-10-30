@@ -16,13 +16,5 @@ endfunction
 call s:LoadPlugins()
 call s:SourceConfigFilesIn('plugins')
 
-autocmd FileType gitcommit highlight ColorColumn ctermbg=8
-autocmd FileType gitcommit setlocal colorcolumn=50,72
-autocmd FileType gitcommit setlocal textwidth=72
-autocmd FileType gitcommit setlocal spell
-
 lua require("opdavies")
 
-highlight Comment cterm=italic gui=italic
-
-autocmd BufRead,BufNewFile *.test set filetype=php
