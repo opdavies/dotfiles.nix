@@ -36,27 +36,29 @@ vim.o.wrap = true
 
 vim.opt.clipboard:append 'unnamedplus'
 
+local map = vim.api.nvim_set_keymap
+
 local options = { noremap = true }
 
-vim.api.nvim_set_keymap('n', '<Leader>so', ':so ~/.config/nvim/init.vim<Cr>', options)
+map('n', '<Leader>so', ':so ~/.config/nvim/init.vim<Cr>', options)
 
 -- Make the current file executable
-vim.api.nvim_set_keymap('n', '<Leader>x', ':!chmod +x %<Cr>', options)
+map('n', '<Leader>x', ':!chmod +x %<Cr>', options)
 
 -- Yank from the current column to the end of the line
-vim.api.nvim_set_keymap('n', 'Y', 'yg$', options)
+map('n', 'Y', 'yg$', options)
 
 -- Keep things centred
-vim.api.nvim_set_keymap('n', 'n', 'nzzzv', options)
-vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', options)
+map('n', 'n', 'nzzzv', options)
+map('n', 'N', 'Nzzzv', options)
 
 -- Remove arrow keys
-vim.api.nvim_set_keymap('v', '<down>', '<nop>', options)
-vim.api.nvim_set_keymap('v', '<left>', '<nop>', options)
-vim.api.nvim_set_keymap('v', '<right>', '<nop>', options)
-vim.api.nvim_set_keymap('v', '<up>', '<nop>', options)
+map('v', '<down>', '<nop>', options)
+map('v', '<left>', '<nop>', options)
+map('v', '<right>', '<nop>', options)
+map('v', '<up>', '<nop>', options)
 
-vim.api.nvim_set_keymap('n', '<Leader>k', ':nohlsearch', options)
+map('n', '<Leader>k', ':nohlsearch', options)
 
 require('packer').startup(function()
   -- Utilities
