@@ -17,6 +17,7 @@ vim.cmd 'syntax on'
 vim.o.autoindent = true
 vim.o.breakindent = true
 vim.o.expandtab = true
+vim.o.foldlevelstart = 99
 vim.o.foldmethod = 'indent'
 vim.o.formatoptions = 'lm'
 vim.o.linebreak = true
