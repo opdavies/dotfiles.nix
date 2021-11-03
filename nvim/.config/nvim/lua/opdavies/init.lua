@@ -61,6 +61,8 @@ map('v', '<up>', '<nop>', options)
 map('n', '<Leader>k', ':nohlsearch', options)
 
 require('packer').startup(function()
+  use 'wbthomason/packer.nvim'
+
   -- Utilities
   use 'cakebaker/scss-syntax.vim'
   use 'christoomey/vim-sort-motion'
