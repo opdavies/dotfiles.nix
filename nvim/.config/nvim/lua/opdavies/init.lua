@@ -72,7 +72,6 @@ require('packer').startup(function()
   use 'lewis6991/gitsigns.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'machakann/vim-highlightedyank'
-  use 'mattn/emmet-vim'
   use 'miyakogi/seiya.vim'
   use 'norcalli/nvim-colorizer.lua'
   use 'nvim-lua/plenary.nvim'

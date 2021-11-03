@@ -101,10 +101,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/opdavies/.local/share/nvim/site/pack/packer/start/editorconfig-vim"
   },
-  ["emmet-vim"] = {
-    loaded = true,
-    path = "/home/opdavies/.local/share/nvim/site/pack/packer/start/emmet-vim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/opdavies/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
