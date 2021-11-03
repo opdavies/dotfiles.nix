@@ -58,7 +58,8 @@ map('v', '<left>', '<nop>', options)
 map('v', '<right>', '<nop>', options)
 map('v', '<up>', '<nop>', options)
 
-map('n', '<Leader>k', ':nohlsearch', options)
+-- Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
+vim.cmd[[ nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}() ]]
 
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
