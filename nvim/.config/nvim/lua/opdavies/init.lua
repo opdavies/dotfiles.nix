@@ -1,18 +1,20 @@
 vim.g.mapleader = ' '
 
-vim.cmd 'autocmd BufRead,BufNewFile *.test set filetype=php'
-vim.cmd 'autocmd FileType gitcommit highlight ColorColumn ctermbg=8'
-vim.cmd 'autocmd FileType gitcommit setlocal colorcolumn=50,72'
-vim.cmd 'autocmd FileType gitcommit setlocal spell'
-vim.cmd 'autocmd FileType gitcommit setlocal textwidth=72'
+vim.cmd[[
+  syntax on
 
-vim.cmd 'filetype indent on'
-vim.cmd 'filetype on'
-vim.cmd 'filetype plugin on'
+  filetype indent on
+  filetype on
+  filetype plugin on
 
-vim.cmd 'highlight Comment cterm=italic gui=italic'
+  autocmd BufRead,BufNewFile *.test set filetype=php
+  autocmd FileType gitcommit highlight ColorColumn ctermbg=8
+  autocmd FileType gitcommit setlocal colorcolumn=50,72
+  autocmd FileType gitcommit setlocal spell
+  autocmd FileType gitcommit setlocal textwidth=72
 
-vim.cmd 'syntax on'
+  highlight Comment cterm=italic gui=italic
+]]
 
 vim.o.autoindent = true
 vim.o.breakindent = true
