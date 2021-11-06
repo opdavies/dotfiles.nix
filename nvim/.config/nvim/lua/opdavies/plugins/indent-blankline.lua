@@ -1,13 +1,19 @@
-vim.opt.list = true
-vim.opt.listchars = {
-  eol = "↴",
-}
+local function init()
+  vim.opt.list = true
+  vim.opt.listchars = {
+    eol = "↴",
+  }
 
-vim.cmd [[highlight IndentBlanklineIndent1 guifg=#555555 gui=nocombine]]
+  vim.cmd [[highlight IndentBlanklineIndent1 guifg=#555555 gui=nocombine]]
 
-require("indent_blankline").setup {
-  char_highlight_list = {
-    "IndentBlanklineIndent1",
-  },
-  show_end_of_line = true,
+  require "indent_blankline".setup {
+    char_highlight_list = {
+      "IndentBlanklineIndent1",
+    },
+    show_end_of_line = true,
+  }
+end
+
+return {
+  init = init
 }

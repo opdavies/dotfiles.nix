@@ -1,50 +1,56 @@
 local cmp = require "cmp"
 
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end
-  },
-
-  mapping = {
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-e>"] = cmp.mapping.close(),
-    ["<c-y>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
+local function init()
+  cmp.setup {
+    snippet = {
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+      end
     },
-  },
 
-  sources = {
-    { name = "buffer", priority = 2, keyword_length = 5, max_item_count = 5 },
-    { name = "calc" },
-    { name = "path" },
-    { name = "spell" },
-    { name = "treesitter" },
+    mapping = {
+      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-e>"] = cmp.mapping.close(),
+      ["<c-y>"] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      },
+    },
 
-    -- Neovim
-    { name = "nvim_lsp", priority = 10 },
-    { name = "nvim_lua" },
+    sources = {
+      { name = "buffer", priority = 2, keyword_length = 5, max_item_count = 5 },
+      { name = "calc" },
+      { name = "path" },
+      { name = "spell" },
+      { name = "treesitter" },
 
-    -- Plugins
-    { name = "luasnip" },
-    { name = "cmp_tabnine" },
-  },
+      -- Neovim
+      { name = "nvim_lsp", priority = 10 },
+      { name = "nvim_lua" },
 
-  formatting = {
-    format = require("lspkind").cmp_format({with_text = true, menu = ({
-      buffer = "[buf]",
-      cmp_tabnine = "[tn]",
-      luasnip = "[snip]",
-      nvim_lsp = "[lsp]",
-      nvim_lua = "[lua]",
-      path = "[path]",
-    })}),
-  },
+      -- Plugins
+      { name = "luasnip" },
+      { name = "cmp_tabnine" },
+    },
 
-  experimental = {
-    ghost_text = true
-  },
+    formatting = {
+      format = require("lspkind").cmp_format({with_text = true, menu = ({
+        buffer = "[buf]",
+        cmp_tabnine = "[tn]",
+        luasnip = "[snip]",
+        nvim_lsp = "[lsp]",
+        nvim_lua = "[lua]",
+        path = "[path]",
+      })}),
+    },
+
+    experimental = {
+      ghost_text = true
+    },
+  }
+end
+
+return {
+  init = init
 }

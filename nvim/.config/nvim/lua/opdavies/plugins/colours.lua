@@ -1,3 +1,9 @@
-require("colorbuddy").colorscheme("gruvbuddy")
+local function init()
+  require("colorbuddy").colorscheme("gruvbuddy")
 
-require'colorizer'.setup()
+  require'colorizer'.setup()
+end
+
+return {
+  init = init
+}
