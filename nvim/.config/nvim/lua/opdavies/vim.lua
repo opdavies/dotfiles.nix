@@ -69,6 +69,7 @@ local function set_vim_o()
     linebreak = true,
     mouse = 'n',
     number = true,
+    pumblend = 10,
     relativenumber = true,
     scrolloff = 10,
     shiftwidth = 2,
