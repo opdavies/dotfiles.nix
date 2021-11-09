@@ -19,9 +19,7 @@ local function lsp_setup()
     filetypes = { "php", "test", "theme" }
   }))
 
-  require'lspconfig'.tsserver.setup(config({
-    filetypes = { "javascript", "typescript", "vue" }
-  }))
+  require'lspconfig'.tsserver.setup(config())
 
   require'lspconfig'.vuels.setup(config())
 
