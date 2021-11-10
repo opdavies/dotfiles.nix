@@ -7,6 +7,7 @@
 	ca = commit --amend --verbose
 	car = commit --amend --no-edit
 	cl = !hub clone
+	cl = !hub clone
 	co = checkout
 	compare = !hub compare
 	current-branch = rev-parse --abbrev-ref HEAD
@@ -26,13 +27,13 @@
 	rdup = !git dup && git rebase develop
 	remotes = remote -v
 	repush = !git pull --rebase && git push
-	rmup = !git mup && git master-to-main-wrapper rebase %BRANCH%
 	ri = rebase --interactive
 	rid = !git rebase -i $(git merge-base develop HEAD)
 	rim = !git rebase -i $(git master-to-main-wrapper merge-base %BRANCH% HEAD)
 	rip = !git rebase -i $(git merge-base production HEAD)
 	ris = !git rebase -i $(git merge-base staging HEAD)
 	riu = !git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
+	rmup = !git mup && git master-to-main-wrapper rebase %BRANCH%
 	sl = log --oneline --decorate -20
 	sla = log --oneline --decorate --graph --all -20
 	slap = log --oneline --decorate --graph --all
@@ -44,7 +45,6 @@
 	upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
 	ureset = !git reset --hard $(git upstream)
 	wip = !git add . && git commit -m 'wip'
-	cl = !hub clone
 
 [branch]
 	autosetupmerge = true
