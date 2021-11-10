@@ -103,9 +103,6 @@
 [include]
 	path = ~/.gitconfig.local
 
-[includeIf "gitdir:~/Code/Inviqa/"]
-	path = ~/.gitconfig-inviqa
-
 [init]
 	templatedir = ~/.git_template
 
