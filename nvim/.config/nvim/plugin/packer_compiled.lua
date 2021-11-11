@@ -253,6 +253,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/opdavies/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
     url = "https://github.com/mg979/vim-visual-multi"
+  },
+  vimwiki = {
+    loaded = true,
+    path = "/home/opdavies/.local/share/nvim/site/pack/packer/start/vimwiki",
+    url = "https://github.com/vimwiki/vimwiki"
   }
 }
 

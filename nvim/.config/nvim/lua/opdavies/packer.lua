@@ -107,6 +107,8 @@ local function packer_startup()
       end
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+    use 'vimwiki/vimwiki'
   end)
 end
 
