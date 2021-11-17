@@ -1,6 +1,9 @@
 local function set_autocmd()
   vim.cmd[[
     autocmd BufRead,BufNewFile *.test set filetype=php
+
+    autocmd BufWritePost packer.lua luafile %<CR>PackerCompile
+
     autocmd FileType gitcommit highlight ColorColumn ctermbg=8
     autocmd FileType gitcommit setlocal colorcolumn=50,72
     autocmd FileType gitcommit setlocal spell
