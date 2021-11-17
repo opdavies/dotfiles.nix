@@ -21,7 +21,7 @@ local function set_key_mappings()
 
   local options = { noremap = true }
 
-  map('n', '<Leader>so', ':so ~/.config/nvim/init.vim<Cr>', options)
+  map('n', '<Leader>so', ':luafile ~/.config/nvim/init.lua<Cr>', options)
 
   -- Make the current file executable
   map('n', '<Leader>x', ':!chmod +x %<Cr>', options)
