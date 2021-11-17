@@ -38,6 +38,7 @@ local options = {
 }
 
 -- Builtin
+map('n', '<leader>df', '<CMD>lua require("telescope.builtin").find_files{ cwd="~/dotfiles", hidden=true }<CR>', options)
 map('n', '<leader>fb', '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
 map('n', '<leader>fc', '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>', options)
 map('n', '<leader>fd', '<CMD>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>', options)
