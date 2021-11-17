@@ -8,43 +8,18 @@ local function packer_startup()
     use 'christoomey/vim-tmux-navigator'
     use 'editorconfig/editorconfig-vim'
     use 'icatalina/vim-case-change'
-    use {
-      'lewis6991/gitsigns.nvim',
-      config = function()
-        require 'opdavies.plugins.gitsigns'.init()
-      end
-    }
-    use {
-      'lukas-reineke/indent-blankline.nvim',
-      config = function()
-        require 'opdavies.plugins.indent-blankline'.init()
-      end
-    }
+    use 'lewis6991/gitsigns.nvim'
+    use 'lukas-reineke/indent-blankline.nvim'
     use 'machakann/vim-highlightedyank'
-    use {
-      'miyakogi/seiya.vim',
-      config = function()
-        require 'opdavies.plugins.seiya'.init()
-      end
-    }
+    use 'miyakogi/seiya.vim'
     use 'norcalli/nvim-colorizer.lua'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
     use 'preservim/nerdcommenter'
     use 'sheerun/vim-polyglot'
     use 'tpope/vim-surround'
-    use {
-      'vim-test/vim-test',
-      config = function ()
-        require 'opdavies.plugins.vim-test'.init()
-      end
-    }
-    use {
-      'voldikss/vim-floaterm',
-      config = function()
-        require 'opdavies.plugins.floaterm'.init()
-      end
-    }
+    use 'vim-test/vim-test'
+    use 'voldikss/vim-floaterm'
     use { 'mg979/vim-visual-multi', branch = 'master' }
 
     -- Themes
@@ -53,9 +28,6 @@ local function packer_startup()
       requires = {
         'tjdevries/colorbuddy.vim'
       },
-      config = function()
-        require 'opdavies.plugins.colours'.init()
-      end
     }
 
     -- Navigation
@@ -66,9 +38,6 @@ local function packer_startup()
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
-      config = function()
-        require 'opdavies.plugins.treesitter'.init()
-      end
     }
 
     -- Completion
@@ -85,27 +54,14 @@ local function packer_startup()
           'tzachar/cmp-tabnine',
           run = './install.sh'
         }
-      },
-      config = {
-        require 'opdavies.plugins.completion'.init()
       }
     }
 
     -- LSP
-    use {
-      'neovim/nvim-lspconfig',
-      config = function()
-        require 'opdavies.plugins.lspconfig'.init()
-      end
-    }
+    use 'neovim/nvim-lspconfig'
 
     -- Telescope
-    use {
-      'nvim-telescope/telescope.nvim',
-      config = function ()
-        require 'opdavies.plugins.telescope'.init()
-      end
-    }
+    use 'nvim-telescope/telescope.nvim'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     use 'vimwiki/vimwiki'
