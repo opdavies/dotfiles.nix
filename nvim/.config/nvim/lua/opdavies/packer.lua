@@ -8,6 +8,7 @@ local function packer_startup()
     use 'christoomey/vim-tmux-navigator'
     use 'editorconfig/editorconfig-vim'
     use 'icatalina/vim-case-change'
+    use 'kyazdani42/nvim-web-devicons'
     use 'lewis6991/gitsigns.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'machakann/vim-highlightedyank'
