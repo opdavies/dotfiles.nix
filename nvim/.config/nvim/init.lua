@@ -1,1 +1,3 @@
-require 'opdavies'.init()
+require "opdavies.vim"
+
+require "opdavies.packer"

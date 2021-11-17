@@ -94,14 +94,12 @@ local function set_vim_o()
 end
 
 local function init()
+  set_vim_g()
+  set_vim_o()
+  set_key_mappings()
   set_autocmd()
   set_filetypes()
   set_highlights()
-  set_key_mappings()
-  set_vim_g()
-  set_vim_o()
 end
 
-return {
-  init = init
-}
+init()
