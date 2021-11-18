@@ -8,8 +8,9 @@ function M.edit_neovim()
 
     layout_strategy = "flex",
     layout_config = {
-      width = 0.9,
       height = 0.8,
+      prompt_position = "top",
+      width = 0.9,
 
       horizontal = {
         width = { padding = 0.15 },
