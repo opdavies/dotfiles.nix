@@ -13,9 +13,9 @@ require('packer').startup(function()
   use 'machakann/vim-highlightedyank'
   use 'miyakogi/seiya.vim'
   use 'norcalli/nvim-colorizer.lua'
+  use 'numToStr/Comment.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
-  use 'preservim/nerdcommenter'
   use 'sheerun/vim-polyglot'
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
@@ -34,7 +34,6 @@ require('packer').startup(function()
   use 'ThePrimeagen/harpoon'
 
   -- Treesitter
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
