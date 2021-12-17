@@ -67,6 +67,7 @@ local function set_vim_o()
     autoindent = true,
     breakindent = true,
     expandtab = true,
+    foldlevel = 1,
     foldlevelstart = 99,
     foldmethod = 'indent',
     formatoptions = 'lm',
