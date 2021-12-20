@@ -1,3 +1,5 @@
+setopt histignoredups
+
 setopt inc_append_history
 
 HISTSIZE=10000
