@@ -1,4 +1,14 @@
-require('packer').startup(function()
+local packer = require('packer')
+
+packer.init {
+  display = {
+    open_fn = function()
+      return require'packer.util'.float {}
+    end,
+  },
+}
+
+return packer.startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Utilities
