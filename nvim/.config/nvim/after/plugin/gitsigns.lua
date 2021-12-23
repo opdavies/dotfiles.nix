@@ -1,4 +1,12 @@
-require "colorbuddy"
+local colorbuddy_status_ok, colorbuddy = pcall(require, "colorbuddy")
+if not colorbuddy_status_ok then
+  return
+end
+
+local gitsigns_status_ok, gitsigns = pcall(require, "gitsigns")
+if not gitsigns_status_ok then
+  return
+end
 
 local c = require("colorbuddy.color").colors
 local Group = require("colorbuddy.group").Group
@@ -7,7 +15,7 @@ Group.new("GitSignsAdd", c.green)
 Group.new("GitSignsChange", c.yellow)
 Group.new("GitSignsDelete", c.red)
 
-require 'gitsigns'.setup {
+gitsigns.setup {
   linehl = false,
   numhl = true,
 

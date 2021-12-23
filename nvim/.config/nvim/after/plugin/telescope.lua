@@ -1,3 +1,8 @@
+local status_ok, telescope = pcall(require, "telescope")
+if not status_ok then
+  return
+end
+
 local previewers = require('telescope.previewers')
 local Job = require('plenary.job')
 
@@ -21,15 +26,15 @@ local new_maker = function(filepath, bufnr, opts)
   }):sync()
 end
 
-require "telescope".setup{
+telescope.setup{
   defaults = {
     buffer_previewer_maker = new_maker,
     prompt_prefix = "$ "
   }
 }
 
-require "telescope".load_extension("fzf")
 
+telescope.load_extension("fzf")
 local map = vim.api.nvim_set_keymap
 
 local options = {

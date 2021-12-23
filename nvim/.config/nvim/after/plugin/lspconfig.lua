@@ -1,4 +1,7 @@
---local has_lsp, lspconfig = pcall(require, "lspconfig")
+local status_ok, lspconfig = pcall(require, "lspconfig")
+if not status_ok then
+  return
+end
 
 local function config(_config)
   return vim.tbl_deep_extend("force", {
@@ -6,23 +9,23 @@ local function config(_config)
   }, _config or {})
 end
 
-require'lspconfig'.ansiblels.setup(config())
+lspconfig.ansiblels.setup(config())
 
-require'lspconfig'.bashls.setup(config())
+lspconfig.bashls.setup(config())
 
-require'lspconfig'.cssls.setup(config())
+lspconfig.cssls.setup(config())
 
-require'lspconfig'.html.setup(config())
+lspconfig.html.setup(config())
 
-require'lspconfig'.intelephense.setup(config({
+lspconfig.intelephense.setup(config({
   filetypes = { "php", "test", "theme" }
 }))
 
-require'lspconfig'.tsserver.setup(config())
+lspconfig.tsserver.setup(config())
 
-require'lspconfig'.vuels.setup(config())
+lspconfig.vuels.setup(config())
 
-require'lspconfig'.yamlls.setup(config())
+lspconfig.yamlls.setup(config())
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {

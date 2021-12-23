@@ -1,4 +1,7 @@
-local packer = require('packer')
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
 
 packer.init {
   display = {
