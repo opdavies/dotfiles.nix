@@ -72,6 +72,4 @@ return packer.startup(function()
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-  use 'vimwiki/vimwiki'
 end)
