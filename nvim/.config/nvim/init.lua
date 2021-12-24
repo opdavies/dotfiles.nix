@@ -1,3 +1,13 @@
-require "opdavies.vim"
-
-require "opdavies.packer"
+require("opdavies.colours")
+require("opdavies.comment")
+require("opdavies.completion")
+require("opdavies.floaterm")
+require("opdavies.gitsigns")
+require("opdavies.indent-blankline")
+require("opdavies.lspconfig")
+require("opdavies.options")
+require("opdavies.plugins")
+require("opdavies.seiya")
+require("opdavies.telescope")
+require("opdavies.treesitter")
+require("opdavies.vim-test")
