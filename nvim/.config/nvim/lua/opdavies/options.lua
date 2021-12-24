@@ -66,7 +66,6 @@ local function set_vim_o()
   local settings = {
     autoindent = true,
     breakindent = true,
-    cmdheight = 2,
     conceallevel = 0,
     expandtab = true,
     foldlevel = 1,
