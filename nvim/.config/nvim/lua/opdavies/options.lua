@@ -1,3 +1,5 @@
+local M = {}
+
 local function set_autocmd()
   vim.cmd[[
     autocmd BufRead,BufNewFile *.test set filetype=php
@@ -100,7 +102,7 @@ local function set_vim_o()
   vim.opt.clipboard:append 'unnamedplus'
 end
 
-local function init()
+M.setup = function()
   set_vim_g()
   set_vim_o()
   set_key_mappings()
@@ -109,4 +111,4 @@ local function init()
   set_highlights()
 end
 
-init()
+return M
