@@ -29,6 +29,10 @@ local function set_key_mappings()
 
   map('n', '<Leader>so', ':luafile ~/.config/nvim/init.lua<Cr>', options)
 
+  -- Format paragraphs to an 80 character line length.
+  map('n', '<Leader>g', 'gqap', options)
+  map('x', '<Leader>g', 'gqa', options)
+
   -- Make the current file executable
   map('n', '<Leader>x', ':!chmod +x %<Cr>', options)
 
@@ -91,6 +95,7 @@ local function set_vim_o()
     syntax = 'on',
     tabstop = 2,
     termguicolors = true,
+    textwidth = 0,
     updatetime = 1000,
     wrap = true,
   }
