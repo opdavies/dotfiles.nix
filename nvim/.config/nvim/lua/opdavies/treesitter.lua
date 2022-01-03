@@ -12,6 +12,7 @@ configs.setup {
     enable = true,
   },
   indent = {
+    disable = { "yaml" },
     enable = true,
   }
 }
