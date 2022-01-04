@@ -25,7 +25,7 @@ if not status_ok then
   return
 end
 
-local function lsp_keymaps()
+local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
 
   local keymap = vim.api.nvim_buf_set_keymap
@@ -38,7 +38,7 @@ local function lsp_keymaps()
   keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 end
 
-M.on_attach = function()
+M.on_attach = function(bufnr)
   lsp_keymaps(bufnr)
 end
 
