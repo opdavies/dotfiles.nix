@@ -1,3 +1,4 @@
+require("opdavies.autopairs")
 require("opdavies.colours")
 require("opdavies.comment")
 require("opdavies.completion")
