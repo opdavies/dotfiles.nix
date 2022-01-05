@@ -1,0 +1,12 @@
+window:
+  decorations: full
+  dynamic_title: false
+
+font:
+  normal:
+    family: Monospace
+  size: 12
+  offset:
+    y: 20
+  glyph_offset:
+    y: 10

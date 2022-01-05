@@ -1,0 +1,19 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - alacritty
+    state: latest
+  become: true
+
+- name: Config folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.config/alacritty"
+    state: directory
+
+- name: Configure
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/alacritty.yml"
+    dest: "{{ ansible_user_dir }}/.config/alacritty/alacritty.yml"
+    state: link

@@ -1,0 +1,5 @@
+---
+- name: Download
+  get_url:
+    dest: ~/.antigen.zsh
+    url: https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh

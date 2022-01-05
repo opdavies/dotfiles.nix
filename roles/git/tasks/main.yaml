@@ -1,0 +1,17 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - git
+    state: latest
+  become: true
+
+- name: Configuration
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "{{ ansible_user_dir }}/{{ item }}"
+    state: link
+  with_items:
+    - .gitconfig
+    - .gitignore-global
+    - .gitmessage

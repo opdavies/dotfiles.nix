@@ -1,0 +1,26 @@
+---
+- name: Add neovim PPA
+  apt_repository:
+    repo: "ppa:neovim-ppa/unstable"
+  become: true
+
+- name: Install Neovim
+  ansible.builtin.package:
+    name:
+      - neovim
+    state: latest
+  become: true
+
+- name: Create .config/nvim directory
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/nvim"
+    state: directory
+
+- name: Configuration files
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "{{ ansible_user_dir }}/.config/nvim/{{ item }}"
+    state: link
+  with_items:
+    - init.lua
+    - lua

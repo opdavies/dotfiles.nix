@@ -1,0 +1,7 @@
+---
+- name: Install
+  community.general.homebrew:
+    name:
+      - lazygit
+    state: latest
+    path: /home/linuxbrew/.linuxbrew/bin

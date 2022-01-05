@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  roles:
+    - alacritty
+    - ctop
+    - dconf
+    - docker
+    - firefox
+    - fzf
+    - git
+    - htop
+    - lazydocker
+    - lazygit
+    - neovim
+    - nnn
+    - pv
+    - rename
+    - ripgrep
+    - tmux
+    - zsh
+    - zsh-antigen

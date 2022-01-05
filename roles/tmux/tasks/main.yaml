@@ -1,0 +1,13 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - tmux
+    state: latest
+  become: true
+
+- name: Link .tmux.conf file
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.tmux.conf"
+    dest: "{{ ansible_user_dir }}/.tmux.conf"
+    state: link

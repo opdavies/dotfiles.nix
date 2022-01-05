@@ -1,0 +1,23 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - zsh
+    state: latest
+  become: true
+
+- name: Set default
+  user:
+    name: "{{ ansible_env['USER'] }}"
+    shell: /usr/bin/zsh
+  become: yes
+
+- name: Configuration
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "{{ ansible_user_dir }}/{{ item }}"
+    state: link
+  with_items:
+    - .zsh
+    - .zshenv
+    - .zshrc

@@ -1,0 +1,7 @@
+---
+- name: Install
+  community.general.homebrew:
+    name:
+      - lazydocker
+    state: latest
+    path: /home/linuxbrew/.linuxbrew/bin
