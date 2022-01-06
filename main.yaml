@@ -1,21 +1,25 @@
 ---
 - hosts: localhost
   roles:
-    - alacritty
-    - ctop
-    - dconf
-    - docker
-    - firefox
-    - fzf
-    - git
-    - htop
-    - lazydocker
-    - lazygit
-    - neovim
-    - nnn
-    - pv
-    - rename
-    - ripgrep
-    - tmux
-    - zsh
-    - zsh-antigen
+    - role: alacritty
+      tags:
+        - "skip-if-wsl"
+    - role: ctop
+    - role: dconf
+    - role: docker
+    - role: firefox
+      tags:
+        - "skip-if-wsl"
+    - role: fzf
+    - role: git
+    - role: htop
+    - role: lazydocker
+    - role: lazygit
+    - role: neovim
+    - role: nnn
+    - role: pv
+    - role: rename
+    - role: ripgrep
+    - role: tmux
+    - role: zsh
+    - role: zsh-antigen
