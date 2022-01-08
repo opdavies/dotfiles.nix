@@ -114,6 +114,8 @@ M.setup = function()
   set_autocmd()
   set_filetypes()
   set_highlights()
+
+  vim.g.snippets = "luasnip"
 end
 
 return M
