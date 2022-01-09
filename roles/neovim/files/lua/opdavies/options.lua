@@ -27,7 +27,7 @@ local function set_key_mappings()
 
   local options = { noremap = true }
 
-  map("n", "<Leader>so", ":luafile ~/.config/nvim/init.lua<Cr>", options)
+  map("n", "<Leader>so", ":call opdavies#save_and_exec()<CR>", options)
 
   -- Format paragraphs to an 80 character line length.
   map("n", "<Leader>g", "gqap", options)
