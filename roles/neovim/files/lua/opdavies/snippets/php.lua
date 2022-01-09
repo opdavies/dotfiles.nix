@@ -1,23 +1,30 @@
 local luasnip = require "luasnip"
-local snippet = luasnip.s
+local fmta = require("luasnip.extras.fmt").fmta
 
 local choice = luasnip.choice_node
 local insert = luasnip.insert_node
+local snippet = luasnip.snippet
 local text = luasnip.text_node
 
 return {
-  snippet({ trig = "test", dscr = "Test block" }, {
-    text { "/* @test **/", "" },
-    text "public function ",
-    choice(1, {
-      text "test",
-      text "it",
-      text "should",
-    }),
-    insert(2), -- The method name.
-    text { "(): void {", "" },
-    text "  ",
-    insert(0), -- The method body.
-    text { "", "}" },
-  }),
+  snippet(
+    "test",
+    fmta(
+      [[
+        /** @test */
+        public function <><>(): void {
+          <>
+        }
+      ]],
+      {
+        choice(1, {
+          text "test",
+          text "it",
+          text "should",
+        }),
+        insert(2),
+        insert(0),
+      }
+    )
+  ),
 }

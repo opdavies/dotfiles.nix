@@ -1,9 +1,9 @@
 local luasnip = require "luasnip"
-local snippet = luasnip.s
+local fmta = require("luasnip.extras.fmt").fmta
 
 local insert = luasnip.insert_node
-local text = luasnip.text_node
+local snippet = luasnip.snippet
 
 return {
-  snippet({ trig = "log", dscr = "console.log" }, { text "console.log(", insert(1, "value"), text ");" }),
+  snippet({ trig = "log", dscr = "console.log" }, fmta("console.log(<>);", { insert(1, "value") })),
 }
