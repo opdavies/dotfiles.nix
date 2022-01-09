@@ -7,45 +7,17 @@ if vim.g.snippets ~= "luasnip" then
   return
 end
 
--- Create a new snippet.
-local s = luasnip.s
+local javascript = require "opdavies.snippets.javascript"
+local markdown = require "opdavies.snippets.markdown"
+local php = require "opdavies.snippets.php"
 
--- Different node types.
-local c = luasnip.choice_node
-local i = luasnip.insert_node
-local t = luasnip.text_node
-
-local snippets = {}
-
--- Snippets for both JavaScript and TypeScript.
-local js_ts = {
-  s({ trig = "log", dscr = "console.log" }, { t "console.log(", i(1, "value"), t ");" }),
+local snippets = {
+  js = javascript,
+  markdown = markdown,
+  php = php,
+  typescript = javascript,
+  vue = javascript,
 }
-
-snippets.js = js_ts
-
-snippets.markdown = {
-  s(
-    { trig = "frontmatter", dscr = "Document frontmatter" },
-    { t { "---", "tags: " }, i(1, "value"), t { "", "---", "" }, i(0) }
-  ),
-}
-
-snippets.php = {
-  s({ trig = "test", dscr = "Test block" }, {
-    t { "/* @test **/", "" },
-    t "public function ",
-    c(1, { t "test", t "it", t "should" }), -- The test method name prefix.
-    i(2), -- The test method name.
-    t { "(): void {", "" },
-    t "  ",
-    i(0), -- The method body.
-    t { "", "}" },
-  }),
-}
-
-snippets.typescript = js_ts
-snippets.vue = js_ts
 
 luasnip.snippets = snippets
 
