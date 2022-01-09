@@ -13,7 +13,7 @@ local php = require "opdavies.snippets.php"
 
 local snippets = {
   js = javascript,
-  markdown = markdown,
+  all = markdown,
   php = php,
   typescript = javascript,
   vue = javascript,
