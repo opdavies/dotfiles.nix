@@ -1,13 +1,13 @@
-local luasnip = require "luasnip"
 local fmta = require("luasnip.extras.fmt").fmta
+local luasnip = require "luasnip"
 
-local choice = luasnip.choice_node
-local insert = luasnip.insert_node
-local snippet = luasnip.snippet
-local text = luasnip.text_node
+local c = luasnip.choice_node
+local i = luasnip.insert_node
+local s = luasnip.snippet
+local t = luasnip.text_node
 
 return {
-  snippet(
+  s(
     "test",
     fmta(
       [[
@@ -17,13 +17,13 @@ return {
         }
       ]],
       {
-        choice(1, {
-          text "test",
-          text "it",
-          text "should",
+        c(1, {
+          t "test",
+          t "it",
+          t "should",
         }),
-        insert(2),
-        insert(0),
+        i(2),
+        i(0),
       }
     )
   ),
