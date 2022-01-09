@@ -1,14 +1,14 @@
-require("opdavies.autopairs")
-require("opdavies.colours")
-require("opdavies.comment")
-require("opdavies.completion")
-require("opdavies.floaterm")
-require("opdavies.gitsigns")
-require("opdavies.indent-blankline")
-require("opdavies.lsp")
+require "opdavies.autopairs"
+require "opdavies.colours"
+require "opdavies.comment"
+require "opdavies.completion"
+require "opdavies.floaterm"
+require "opdavies.gitsigns"
+require "opdavies.indent-blankline"
+require "opdavies.lsp"
 require("opdavies.options").setup()
-require("opdavies.plugins")
-require("opdavies.seiya")
-require("opdavies.telescope")
-require("opdavies.treesitter")
-require("opdavies.vim-test")
+require "opdavies.plugins"
+require "opdavies.seiya"
+require "opdavies.telescope"
+require "opdavies.treesitter"
+require "opdavies.vim-test"

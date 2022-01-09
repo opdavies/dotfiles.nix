@@ -7,8 +7,8 @@ comment.setup {
   padding = true,
 
   opleader = {
-    line = 'gc',
-    block = 'gb',
+    line = "gc",
+    block = "gb",
   },
 
   mappings = {

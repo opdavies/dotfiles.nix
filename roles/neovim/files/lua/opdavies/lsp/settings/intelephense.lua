@@ -1,3 +1,3 @@
 return {
-  filetypes = { "php", "module", "test", "inc" }
+  filetypes = { "php", "module", "test", "inc" },
 }

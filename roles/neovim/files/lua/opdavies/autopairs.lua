@@ -10,7 +10,10 @@ if not cmp_status_ok then
   return
 end
 
-local cmp = require('cmp')
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({
-  map_char = { tex = '' }
-}))
+local cmp = require "cmp"
+cmp.event:on(
+  "confirm_done",
+  cmp_autopairs.on_confirm_done {
+    map_char = { tex = "" },
+  }
+)

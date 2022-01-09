@@ -14,7 +14,7 @@ cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
-    end
+    end,
   },
 
   mapping = {
@@ -44,17 +44,20 @@ cmp.setup {
   },
 
   formatting = {
-    format = require("lspkind").cmp_format({with_text = true, menu = ({
-      buffer = "[buf]",
-      cmp_tabnine = "[tn]",
-      luasnip = "[snip]",
-      nvim_lsp = "[lsp]",
-      nvim_lua = "[lua]",
-      path = "[path]",
-    })}),
+    format = require("lspkind").cmp_format {
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        cmp_tabnine = "[tn]",
+        luasnip = "[snip]",
+        nvim_lsp = "[lsp]",
+        nvim_lua = "[lua]",
+        path = "[path]",
+      },
+    },
   },
 
   experimental = {
-    ghost_text = true
+    ghost_text = true,
   },
 }

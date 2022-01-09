@@ -8,6 +8,6 @@ if not colorizer_status_ok then
   return
 end
 
-colorbuddy.colorscheme("gruvbuddy")
+colorbuddy.colorscheme "gruvbuddy"
 
 colorizer.setup()

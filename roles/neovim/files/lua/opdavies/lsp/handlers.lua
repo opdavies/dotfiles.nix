@@ -12,7 +12,7 @@ M.setup = function()
       source = "always",
       header = "",
       prefix = "",
-    }
+    },
   }
 
   vim.diagnostic.config(config)
@@ -39,7 +39,8 @@ local function lsp_keymaps(--[[ bufnr ]])
 end
 
 M.on_attach = function(--[[ bufnr ]])
-  lsp_keymaps(--[[ bufnr ]])
+  lsp_keymaps(--[[ bufnr ]]
+  )
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)

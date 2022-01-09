@@ -5,7 +5,7 @@ end
 
 configs.setup {
   context_commenting = {
-    enable = true
+    enable = true,
   },
   ensure_installed = "maintained",
   highlight = {
@@ -14,5 +14,5 @@ configs.setup {
   indent = {
     disable = { "yaml" },
     enable = true,
-  }
+  },
 }

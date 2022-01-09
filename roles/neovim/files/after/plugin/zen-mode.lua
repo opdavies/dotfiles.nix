@@ -5,14 +5,14 @@ end
 
 zen_mode.setup {
   window = {
-    backdrop = .95,
+    backdrop = 0.95,
     height = 1,
     width = 120,
     options = {
       relativenumber = false,
       number = false,
       signcolumn = "no",
-    }
+    },
   },
   plugins = {
     options = {
@@ -21,5 +21,5 @@ zen_mode.setup {
     },
     gitsigns = { enabled = true },
     tmux = { enabled = true },
-  }
+  },
 }

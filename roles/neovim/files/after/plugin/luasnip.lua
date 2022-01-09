@@ -19,34 +19,29 @@ local snippets = {}
 
 -- Snippets for both JavaScript and TypeScript.
 local js_ts = {
-  s(
-    { trig = 'log', dscr = 'console.log' },
-    { t('console.log('), i(1, 'value'), t(');') }
-  ),
+  s({ trig = "log", dscr = "console.log" }, { t "console.log(", i(1, "value"), t ");" }),
 }
 
 snippets.js = js_ts
 
 snippets.markdown = {
   s(
-    { trig = 'frontmatter', dscr = 'Document frontmatter' },
-    { t({'---', 'tags: '}), i(1, 'value'), t({'', '---', ''}), i(0) }
-  )
+    { trig = "frontmatter", dscr = "Document frontmatter" },
+    { t { "---", "tags: " }, i(1, "value"), t { "", "---", "" }, i(0) }
+  ),
 }
 
 snippets.php = {
-  s(
-    { trig = 'test', dscr = 'Test block' },
-    {
-      t({ "/* @test **/", "" }),
-      t("public function "),
-      c(1, { t "test", t "it", t "should" }), -- The test method name prefix.
-      i(2), -- The test method name.
-      t({ "(): void {", "" }),
-      t("  "), i(0), -- The method body.
-      t({ "", "}" })
-    }
-  ),
+  s({ trig = "test", dscr = "Test block" }, {
+    t { "/* @test **/", "" },
+    t "public function ",
+    c(1, { t "test", t "it", t "should" }), -- The test method name prefix.
+    i(2), -- The test method name.
+    t { "(): void {", "" },
+    t "  ",
+    i(0), -- The method body.
+    t { "", "}" },
+  }),
 }
 
 snippets.typescript = js_ts

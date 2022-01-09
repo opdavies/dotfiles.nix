@@ -1,3 +1,3 @@
 return {
-  filetypes = { "html", "html.twig", "lua" }
+  filetypes = { "html", "html.twig", "lua" },
 }
