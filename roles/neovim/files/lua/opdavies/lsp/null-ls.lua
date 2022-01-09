@@ -3,11 +3,15 @@ if not status_ok then
   return
 end
 
+local completion = null_ls.builtins.completion
+local diagnostics = null_ls.builtins.diagnostics
+local formatting = null_ls.builtins.formatting
+
 null_ls.setup {
   sources = {
-    null_ls.builtins.formatting.prettier,
-    null_ls.builtins.formatting.stylua,
-    null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.completion.spell,
+    formatting.prettier,
+    formatting.stylua,
+    diagnostics.eslint,
+    completion.spell,
   },
 }
