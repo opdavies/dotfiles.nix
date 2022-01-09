@@ -36,3 +36,5 @@ lspconfig.tailwindcss.setup {
 }
 
 require("opdavies.lsp.handlers").setup()
+
+require "opdavies.lsp.null-ls"
