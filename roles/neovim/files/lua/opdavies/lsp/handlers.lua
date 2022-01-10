@@ -25,10 +25,6 @@ if not status_ok then
   return
 end
 
-local function lsp_keymaps(--[[ bufnr ]])
-  -- local opts = { noremap = true, silent = true }
-
-  -- local keymap = vim.api.nvim_buf_set_keymap
 
   -- keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -36,11 +32,14 @@ local function lsp_keymaps(--[[ bufnr ]])
   -- keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   -- keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   -- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+local function lsp_keymaps(_, bufnr)
+  local opts = { noremap = true, silent = true }
+
+  local keymap = vim.api.nvim_buf_set_keymap
 end
 
-M.on_attach = function(--[[ bufnr ]])
-  lsp_keymaps(--[[ bufnr ]]
-  )
+M.on_attach = function(client, bufnr)
+  lsp_keymaps(client, bufnr)
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
