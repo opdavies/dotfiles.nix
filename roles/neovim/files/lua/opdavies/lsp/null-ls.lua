@@ -11,7 +11,12 @@ null_ls.setup {
   sources = {
     formatting.prettier,
     formatting.stylua,
+
     diagnostics.eslint,
+    diagnostics.php,
+    diagnostics.phpcs,
+    diagnostics.phpstan,
+
     completion.spell,
   },
 
