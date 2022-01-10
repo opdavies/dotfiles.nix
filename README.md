@@ -1,11 +1,30 @@
 # dotfiles
 
-My personal dotfiles, originally for macOS only but currently being adapted for use on Linux based systems (Ubuntu and Pop!_OS in particular) where needed.
+My personal dotfiles, originally for macOS only but currently being adapted for
+use on Linux based systems (Ubuntu and Pop!_OS in particular) where needed.
+
+The repository is powered using Ansible, with each software package and its
+associated configuration within separate roles within the `roles` directory.
+
+The `neovim` role, for example, has its own tasks in `roles/neovim/tasks/main.yaml`
+and files in `roles/neovim/files`.
+
+Files within a role are typically symlinked into their required destination
+so that they will be automatically updated without needing to run the playbook
+again.
+
+For example, the files and directories within the neovim role are symlinked
+into `~/.config/nvim`.
+
+## Requirements
+
+- [Ansible](https://www.ansible.com)
+- [Git](https://git-scm.com)
 
 ## Installation
 
 ```
-stow alacritty bin composer dconf git nvim tmux zsh
+$ ansible-playbook main.yaml --ask-become-pass
 ```
 
 ## Inspiration
