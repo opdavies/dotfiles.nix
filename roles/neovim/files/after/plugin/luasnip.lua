@@ -7,9 +7,9 @@ if vim.g.snippets ~= "luasnip" then
   return
 end
 
-local javascript = require "opdavies.snippets.javascript"
-local markdown = require "opdavies.snippets.markdown"
-local php = require "opdavies.snippets.php"
+local javascript = require "opdavies.snippets.ft.javascript"
+local markdown = require "opdavies.snippets.ft.markdown"
+local php = require "opdavies.snippets.ft.php"
 
 local snippets = {
   js = javascript,
