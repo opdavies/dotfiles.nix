@@ -3,38 +3,28 @@ if not status_ok then
   return
 end
 
-local opts = {
-  on_attach = require("opdavies.lsp.handlers").on_attach,
-  capabilities = require("opdavies.lsp.handlers").capabilities,
-}
+require("opdavies.lsp.handlers").setup()
 
 local servers = {
-  "ansiblels",
-  "bashls",
-  "cssls",
-  "html",
-  "tsserver",
-  "vuels",
-  "yamlls",
+  ansiblels = true,
+  bashls = true,
+  cssls = true,
+  html = true,
+  tsserver = true,
+  vuels = true,
+  yamlls = true,
+
+  intelephense = {
+    filetypes = { "php", "module", "test", "inc" },
+  },
+
+  tailwindcss = {
+    filetypes = { "html", "html.twig" },
+  },
 }
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup(opts)
+for server, config in pairs(servers) do
+  require("opdavies.lsp.handlers").setup_server(server, config, lspconfig)
 end
-
-local intelephense_opts = require "opdavies.lsp.settings.intelephense"
-lspconfig.intelephense.setup {
-  vim.tbl_deep_extend("force", intelephense_opts, opts),
-}
-
-local sumneko_lua_opts = require "opdavies.lsp.settings.sumneko_lua"
-lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", sumneko_lua_opts, opts))
-
-local tailwindcss_opts = require "opdavies.lsp.settings.tailwindcss"
-lspconfig.tailwindcss.setup {
-  vim.tbl_deep_extend("force", tailwindcss_opts, opts),
-}
-
-require("opdavies.lsp.handlers").setup()
 
 require "opdavies.lsp.null-ls"

@@ -18,30 +18,67 @@ M.setup = function()
   vim.diagnostic.config(config)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local function lsp_keymaps(bufnr)
+  local function map(...)
+    vim.api.nvim_buf_set_keymap(bufnr, ...)
+  end
+
+  local opts = { noremap = true, silent = true }
+
+  map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  map("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+  map("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  map("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  map("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+  map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+  map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+  map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
   return
 end
 
+custom_attach = function(client, bufnr)
+  print(client.name, bufnr)
 
-  -- keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  -- keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  -- keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  -- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-local function lsp_keymaps(_, bufnr)
-  local opts = { noremap = true, silent = true }
-
-  local keymap = vim.api.nvim_buf_set_keymap
+  lsp_keymaps(bufnr)
 end
 
-M.on_attach = function(client, bufnr)
-  lsp_keymaps(client, bufnr)
+local custom_init = function(client)
+  client.config.flags = client.config.flags or {}
+  client.config.flags.allow_incremental_sync = true
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.setup_server = function(server, config, lspconfig)
+  if not config then
+    return
+  end
+
+  if type(config) ~= "table" then
+    config = {}
+  end
+
+  config = vim.tbl_deep_extend("force", {
+    on_init = custom_init,
+    on_attach = custom_attach,
+    capabilities = updated_capabilities,
+    flags = {
+      debounce_text_changes = 50,
+    },
+  }, config)
+
+  lspconfig[server].setup(config)
+end
+
+local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
+updated_capabilities = cmp_nvim_lsp.update_capabilities(updated_capabilities)
+
+M.capabilities = updated_capabilities
 
 return M
