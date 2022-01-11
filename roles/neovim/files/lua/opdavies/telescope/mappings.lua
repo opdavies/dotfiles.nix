@@ -1,5 +1,7 @@
 local M = {}
 
+local themes = require "telescope.themes"
+
 function M.edit_neovim()
   local opts = {
     prompt_title = "~ dotfiles ~",
@@ -26,9 +28,9 @@ function M.edit_neovim()
 end
 
 function M.fd()
-  local themes = require "telescope.themes"
+  local opts = themes.get_ivy()
 
-  require("telescope.builtin").find_files(themes.get_ivy())
+  require("telescope.builtin").find_files(opts)
 end
 
 return M
