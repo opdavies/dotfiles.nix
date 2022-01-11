@@ -4,10 +4,10 @@ local themes = require "telescope.themes"
 
 function M.edit_neovim()
   local opts = {
-    prompt_title = "~ dotfiles ~",
-    shorten_path = false,
     cwd = "~/.config/nvim",
     find_command = { "rg", "--no-ignore", "--files", "--follow" },
+    path_display = { "shorten" },
+    prompt_title = "~ dotfiles ~",
 
     layout_strategy = "flex",
     layout_config = {
