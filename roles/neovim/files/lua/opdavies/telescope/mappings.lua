@@ -5,6 +5,7 @@ function M.edit_neovim()
     prompt_title = "~ dotfiles ~",
     shorten_path = false,
     cwd = "~/.config/nvim",
+    find_command = { "rg", "--no-ignore", "--files", "--follow" },
 
     layout_strategy = "flex",
     layout_config = {
