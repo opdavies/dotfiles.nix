@@ -59,5 +59,5 @@ map("n", "<leader>fl", '<CMD>lua require("telescope.builtin").live_grep()<CR>', 
 map("n", "<leader>fr", '<CMD>lua require("telescope.builtin").registers()<CR>', options)
 
 -- Custom
-map("n", "<Leader>en", '<CMD>lua require("opdavies.telescope.mappings").edit_neovim()<Cr>', options)
-map("n", "<Leader>ff", '<CMD>lua require("opdavies.telescope.mappings").fd()<Cr>', options)
+map("n", "<Leader>en", '<CMD>lua R "opdavies.telescope.mappings".edit_neovim()<Cr>', options)
+map("n", "<Leader>ff", '<CMD>lua R "opdavies.telescope.mappings".fd()<Cr>', options)
