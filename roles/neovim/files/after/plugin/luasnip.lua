@@ -7,9 +7,38 @@ if vim.g.snippets ~= "luasnip" then
   return
 end
 
-local javascript = R "opdavies.snippets.ft.javascript"
-local markdown = R "opdavies.snippets.ft.markdown"
-local php = R "opdavies.snippets.ft.php"
+local snippet = luasnip.snippet
+local i = luasnip.insert_node
+local t = luasnip.text_node
+
+local shortcut = function(val)
+  if type(val) == "string" then
+    return { t { val }, i(0) }
+  end
+
+  if type(val) == "table" then
+    for k, v in ipairs(val) do
+      if type(v) == "string" then
+        val[k] = t { v }
+      end
+    end
+  end
+
+  return val
+end
+
+local function make(tbl)
+  local result = {}
+  for k, v in pairs(tbl) do
+    table.insert(result, (snippet({ trig = k, desc = v.desc }, shortcut(v))))
+  end
+
+  return result
+end
+
+local javascript = make(R "opdavies.snippets.ft.javascript")
+local markdown = make(R "opdavies.snippets.ft.markdown")
+local php = make(R "opdavies.snippets.ft.php")
 
 local snippets = {
   js = javascript,

@@ -1,15 +1,14 @@
 local fmta = require("luasnip.extras.fmt").fmta
-local luasnip = require "luasnip"
+local ls = require "luasnip"
 
-local c = luasnip.choice_node
-local i = luasnip.insert_node
-local s = luasnip.snippet
-local t = luasnip.text_node
+local c = ls.choice_node
+local i = ls.insert_node
+local s = ls.snippet
+local t = ls.text_node
 
-return {
+local M = {
   -- TODO: only load if within a Drupal project?
-  s(
-    "drupalclass",
+  drupalclass = {
     fmta(
       [[
       <<?php
@@ -24,12 +23,11 @@ return {
 
       }
       ]],
-      { i(1), c(2, { t '', t 'final ' }), i(3), i(0) }
-    )
-  ),
+      { i(1), c(2, { t "", t "final " }), i(3), i(0) }
+    ),
+  },
 
-  s(
-    "test",
+  test = {
     fmta(
       [[
         /** @test */
@@ -46,6 +44,8 @@ return {
         i(2),
         i(0),
       }
-    )
-  ),
+    ),
+  },
 }
+
+return M

@@ -1,20 +1,18 @@
 local fmt = require("luasnip.extras.fmt").fmt
-local luasnip = require "luasnip"
+local ls = require "luasnip"
 
-local i = luasnip.insert_node
-local s = luasnip.snippet
+local i = ls.insert_node
 
-return {
-  s(
-    { trig = "frontmatter", dscr = "Document frontmatter" },
-    fmt(
-      [[
-      ---
-      title: {}
-      ---
-      {}
-      ]],
-      { i(1), i(0) }
-    )
+local M = {
+  frontmatter = fmt(
+    [[
+    ---
+    title: {}
+    ---
+    {}
+    ]],
+    { i(1), i(0) }
   ),
 }
+
+return M
