@@ -10,6 +10,7 @@ local servers = {
   bashls = true,
   cssls = true,
   html = true,
+  sumneko_lua = true,
   tsserver = true,
   vuels = true,
   yamlls = true,
