@@ -39,11 +39,13 @@ end
 local javascript = make(R "opdavies.snippets.ft.javascript")
 local markdown = make(R "opdavies.snippets.ft.markdown")
 local php = make(R "opdavies.snippets.ft.php")
+local rst = make(R "opdavies.snippets.ft.rst")
 
 local snippets = {
   js = javascript,
   markdown = markdown,
   php = php,
+  rst = rst,
   typescript = javascript,
   vue = javascript,
 }
