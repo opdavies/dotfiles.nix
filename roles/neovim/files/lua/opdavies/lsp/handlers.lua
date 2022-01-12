@@ -45,8 +45,6 @@ if not status_ok then
 end
 
 custom_attach = function(client, bufnr)
-  print(client.name, bufnr)
-
   lsp_keymaps(bufnr)
 end
 
