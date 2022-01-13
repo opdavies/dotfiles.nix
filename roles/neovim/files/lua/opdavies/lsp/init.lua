@@ -16,6 +16,14 @@ local servers = {
 
   intelephense = {
     filetypes = { "php", "module", "test", "inc" },
+
+    on_attach = function(client)
+      -- Disable document formatting as I use different coding styles per
+      -- framework.
+      -- TODO: remove if editorconfig or something can format based on project.
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+    end,
   },
 
   sumneko_lua = {
@@ -23,9 +31,9 @@ local servers = {
       Lua = {
         diagnostics = {
           globals = { "vim" },
-        }
-      }
-    }
+        },
+      },
+    },
   },
 
   tailwindcss = {
