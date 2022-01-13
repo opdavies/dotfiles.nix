@@ -10,13 +10,22 @@ local servers = {
   bashls = true,
   cssls = true,
   html = true,
-  sumneko_lua = true,
   tsserver = true,
   vuels = true,
   yamlls = true,
 
   intelephense = {
     filetypes = { "php", "module", "test", "inc" },
+  },
+
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        }
+      }
+    }
   },
 
   tailwindcss = {
