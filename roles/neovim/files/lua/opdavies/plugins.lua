@@ -32,6 +32,7 @@ return packer.startup(function()
   use "nvim-lua/plenary.nvim"
   use "nvim-lua/popup.nvim"
   use "sheerun/vim-polyglot"
+  use "theprimeagen/refactoring.nvim"
   use "tpope/vim-surround"
   use "vim-test/vim-test"
   use "voldikss/vim-floaterm"

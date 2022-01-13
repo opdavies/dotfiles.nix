@@ -36,6 +36,8 @@ telescope.setup {
 }
 
 telescope.load_extension "fzf"
+telescope.load_extension "refactoring"
+
 local map = vim.api.nvim_set_keymap
 
 local options = {
