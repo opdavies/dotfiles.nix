@@ -1,4 +1,4 @@
-local status_ok, luasnip = pcall(require, "luasnip")
+local status_ok, ls = pcall(require, "luasnip")
 if not status_ok then
   return
 end
@@ -7,9 +7,9 @@ if vim.g.snippets ~= "luasnip" then
   return
 end
 
-local snippet = luasnip.snippet
-local i = luasnip.insert_node
-local t = luasnip.text_node
+local snippet = ls.snippet
+local i = ls.insert_node
+local t = ls.text_node
 
 local shortcut = function(val)
   if type(val) == "string" then
@@ -50,7 +50,7 @@ local snippets = {
   vue = javascript,
 }
 
-luasnip.snippets = snippets
+ls.snippets = snippets
 
 vim.cmd [[
   imap <silent><expr> <c-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : ''
