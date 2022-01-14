@@ -27,6 +27,12 @@ function M.edit_neovim()
   require("telescope.builtin").find_files(opts)
 end
 
+function M.file_browser()
+  local opts = { cwd = vim.fn.expand "%:p:h" }
+
+  require("telescope").extensions.file_browser.file_browser(opts)
+end
+
 function M.fd()
   local opts = themes.get_ivy()
 

@@ -46,16 +46,13 @@ local options = {
   silent = true,
 }
 
+local mappings = R "opdavies.telescope.mappings"
+
 -- Builtin
 map("n", "<leader>fb", '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
 map("n", "<leader>fc", '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>', options)
 map("n", "<leader>fd", '<CMD>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>', options)
-map(
-  "n",
-  "<leader>fe",
-  '<CMD>lua require("telescope.builtin").file_browser{ cwd = vim.fn.expand("%:p:h") }<CR>',
-  options
-)
+map("n", "<leader>fe", '<CMD>lua R "opdavies.telescope.mappings".file_browser()<cr>', options)
 map("n", "<leader>fg", '<CMD>lua require("telescope.builtin").git_files{}<CR>', options)
 map("n", "<leader>fh", '<CMD>lua require("telescope.builtin").help_tags()<CR>', options)
 map("n", "<leader>fl", '<CMD>lua require("telescope.builtin").live_grep({ sorting_strategy="ascending" })<CR>', options)
