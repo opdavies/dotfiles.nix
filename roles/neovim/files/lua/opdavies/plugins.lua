@@ -31,6 +31,7 @@ return packer.startup(function()
   use "numToStr/Comment.nvim"
   use "nvim-lua/plenary.nvim"
   use "nvim-lua/popup.nvim"
+  use "nvim-lualine/lualine.nvim"
   use "sheerun/vim-polyglot"
   use "theprimeagen/refactoring.nvim"
   use "tpope/vim-surround"
