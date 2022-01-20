@@ -81,8 +81,9 @@ return packer.startup(function()
   use "rafamadriz/friendly-snippets"
 
   -- LSP
-  use "neovim/nvim-lspconfig"
   use "jose-elias-alvarez/null-ls.nvim"
+  use "neovim/nvim-lspconfig"
+  use "nvim-lua/lsp-status.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
