@@ -33,6 +33,11 @@ telescope.setup {
     buffer_previewer_maker = new_maker,
     prompt_prefix = "$ ",
   },
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+    },
+  },
 }
 
 telescope.load_extension "file_browser"
