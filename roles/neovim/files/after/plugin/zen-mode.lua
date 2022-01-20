@@ -7,7 +7,7 @@ zen_mode.setup {
   window = {
     backdrop = 0.95,
     height = 1,
-    width = 120,
+    width = 80,
     options = {
       relativenumber = false,
       number = false,
