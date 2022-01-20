@@ -12,6 +12,8 @@ packer.init {
 }
 
 return packer.startup(function()
+  local use = packer.use
+
   use "wbthomason/packer.nvim"
 
   -- Utilities
