@@ -51,8 +51,6 @@ local options = {
   silent = true,
 }
 
-local mappings = R "opdavies.telescope.mappings"
-
 -- Builtin
 map("n", "<leader>fb", '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
 map("n", "<leader>fc", '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>', options)
