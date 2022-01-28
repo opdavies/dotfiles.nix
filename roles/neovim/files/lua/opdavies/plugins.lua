@@ -39,7 +39,6 @@ return packer.startup(function()
   use "tpope/vim-surround"
   use "vim-test/vim-test"
   use "voldikss/vim-floaterm"
-  use "windwp/nvim-autopairs"
   use { "mg979/vim-visual-multi", branch = "master" }
 
   -- Themes
