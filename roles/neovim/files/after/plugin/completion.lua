@@ -8,7 +8,7 @@ if not snip_status_ok then
   return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+vim.opt.shortmess:append "c"
 
 cmp.setup {
   snippet = {
@@ -19,8 +19,8 @@ cmp.setup {
 
   mapping = {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.close(),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<c-y>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
@@ -28,19 +28,24 @@ cmp.setup {
   },
 
   sources = {
-    { name = "buffer", priority = 2, keyword_length = 5, max_item_count = 5 },
-    { name = "calc" },
-    { name = "path" },
-    { name = "spell" },
-    { name = "treesitter" },
-
-    -- Neovim
-    { name = "nvim_lsp", priority = 10 },
+    { name = "nvim_lsp" },
     { name = "nvim_lua" },
-
-    -- Plugins
-    { name = "luasnip" },
     { name = "cmp_tabnine" },
+    { name = "path" },
+    { name = "luasnip" },
+    { name = "buffer", keyword_length = 5, max_item_count = 5 },
+  },
+
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
   },
 
   formatting = {
@@ -58,7 +63,7 @@ cmp.setup {
   },
 
   experimental = {
-    ghost_text = true,
+    ghost_text = false,
     native_menu = false,
   },
 }
