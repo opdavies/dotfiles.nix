@@ -93,7 +93,7 @@ local function set_vim_o()
     termguicolors = true,
     textwidth = 0,
     updatetime = 1000,
-    wrap = true,
+    wrap = false,
   }
 
   for key, value in pairs(settings) do
