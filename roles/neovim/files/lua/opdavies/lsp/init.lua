@@ -5,8 +5,8 @@ end
 
 local nvim_status = require "lsp-status"
 
-local imap = require "opdavies.keymap".imap
-local nmap = require "opdavies.keymap".nmap
+local imap = require("opdavies.keymap").imap
+local nmap = require("opdavies.keymap").nmap
 
 local buf_nnoremap = function(opts)
   opts.buffer = 0
@@ -19,7 +19,7 @@ local buf_inoremap = function(opts)
 end
 
 local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
-updated_capabilities = require('cmp_nvim_lsp').update_capabilities(updated_capabilities)
+updated_capabilities = require("cmp_nvim_lsp").update_capabilities(updated_capabilities)
 
 local custom_init = function(client)
   client.config.flags = client.config.flags or {}
@@ -34,16 +34,25 @@ local custom_attach = function(client)
   -- Keymaps
   buf_inoremap { "<c-s>", vim.lsp.buf.signature_help }
 
-  buf_nnoremap { "<space>cr", vim.lsp.buf.rename }
-  -- telescope_mapper("<space>ca", "lsp_code_actions", nil, true)
+  buf_nnoremap { "<leader>ca", "<cmd>Telescope lsp_code_actions sorting_strategy=ascending theme=dropdown<cr>" }
+  buf_nnoremap { "<leader>dl", "<cmd>Telescope diagnostics<cr>" }
+  buf_nnoremap { "<leader>dn", vim.diagnostic.goto_next }
+  buf_nnoremap { "<leader>dp", vim.diagnostic.goto_prev }
+  buf_nnoremap { "<leader>rn", vim.lsp.buf.rename }
+  buf_nnoremap { "<leader>rr", "<cmd>LspRestart<cr>" }
 
-  buf_nnoremap { "gd", vim.lsp.buf.definition }
+  buf_inoremap { "K", vim.lsp.buf.hover }
   buf_nnoremap { "gD", vim.lsp.buf.declaration }
   buf_nnoremap { "gT", vim.lsp.buf.type_definition }
+  buf_nnoremap { "gd", vim.lsp.buf.definition }
 
   -- buf_nnoremap { "<space>gI", handlers.implementation }
-  buf_nnoremap { "<space>lr", "<cmd>lua R('tj.lsp.codelens').run()<CR>" }
-  buf_nnoremap { "<space>rr", "LspRestart" }
+
+  -- telescope_mapper("<leader>ca", "lsp_code_actions", nil, true)
+  -- telescope_mapper("<leader>wd", "lsp_document_symbols", { ignore_filename = true }, true)
+  -- telescope_mapper("<leader>ww", "lsp_dynamic_workspace_symbols", { ignore_filename = true }, true)
+  -- telescope_mapper("gI", "lsp_implementations", nil, true)
+  -- telescope_mapper("gr", "lsp_references", nil, true)
 
   if filetype ~= "lua" then
     buf_nnoremap { "K", vim.lsp.buf.hover }
@@ -59,13 +68,18 @@ local custom_attach = function(client)
       augroup END
     ]]
   end
+
+  -- Attach any filetype specific options to the client
+  -- filetype_attach[filetype](client)
 end
 
 local servers = {
   ansiblels = true,
   bashls = true,
   cssls = true,
+  gopls = true,
   html = true,
+  -- intelephense = true
   tsserver = true,
   vuels = true,
   yamlls = true,
@@ -79,14 +93,26 @@ local servers = {
       Lua = {
         diagnostics = {
           globals = { "vim" },
-        }
-      }
-    }
+        },
+      },
+    },
   },
 
   tailwindcss = {
     filetypes = { "html", "html.twig" },
-  }
+  },
+
+  -- tsserver = {
+  --   filetypes = {
+  --     "javascript",
+  --     "javascriptreact",
+  --     "javascript.jsx",
+  --     "typescript",
+  --     "typescriptreact",
+  --     "typescript.tsx",
+  --     "vue",
+  --   },
+  -- },
 }
 
 local setup_server = function(server, config)
@@ -113,3 +139,5 @@ end
 for server, config in pairs(servers) do
   setup_server(server, config)
 end
+
+require "opdavies.lsp.null-ls"

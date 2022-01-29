@@ -101,6 +101,7 @@ local function set_vim_o()
   end
 
   vim.opt.clipboard:append "unnamedplus"
+  vim.opt.completeopt = {"menu", "menuone", "noselect"}
 end
 
 M.setup = function()
