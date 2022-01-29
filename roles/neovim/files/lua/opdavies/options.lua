@@ -71,7 +71,7 @@ local function set_vim_o()
     cursorline = true,
     expandtab = true,
     foldlevel = 1,
-    foldlevelstart = 1,
+    foldlevelstart = 99,
     foldmethod = "indent",
     formatoptions = "lm",
     linebreak = true,
