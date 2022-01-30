@@ -52,15 +52,15 @@ local options = {
 }
 
 -- Builtin
-map("n", "<leader>fb", '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
-map("n", "<leader>fc", '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>', options)
-map("n", "<leader>fd", '<CMD>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>', options)
-map("n", "<leader>fe", '<CMD>lua R "opdavies.telescope.mappings".file_browser()<cr>', options)
-map("n", "<leader>fg", '<CMD>lua require("telescope.builtin").git_files{}<CR>', options)
-map("n", "<leader>fh", '<CMD>lua require("telescope.builtin").help_tags()<CR>', options)
-map("n", "<leader>fl", '<CMD>lua require("telescope.builtin").live_grep({ sorting_strategy="ascending" })<CR>', options)
-map("n", "<leader>fr", '<CMD>lua require("telescope.builtin").registers()<CR>', options)
+map("n", "<leader>fb", '<cmd>lua require("telescope.builtin").buffers()<cr>', options)
+map("n", "<leader>fc", '<cmd>lua require("telescope.builtin").lsp_code_actions()<cr>', options)
+map("n", "<leader>fd", '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<cr>', options)
+map("n", "<leader>fe", '<cmd>lua R "opdavies.telescope.mappings".file_browser()<cr>', options)
+map("n", "<leader>fg", '<cmd>lua require("telescope.builtin").git_files{}<cr>', options)
+map("n", "<leader>fh", '<cmd>lua require("telescope.builtin").help_tags()<cr>', options)
+map("n", "<leader>fl", '<cmd>lua require("telescope.builtin").live_grep({ sorting_strategy="ascending" })<cr>', options)
+map("n", "<leader>fr", '<cmd>lua require("telescope.builtin").registers()<cr>', options)
 
 -- Custom
-map("n", "<Leader>en", '<CMD>lua R "opdavies.telescope.mappings".edit_neovim()<Cr>', options)
-map("n", "<Leader>ff", '<CMD>lua R "opdavies.telescope.mappings".fd()<Cr>', options)
+map("n", "<Leader>en", '<cmd>lua R "opdavies.telescope.mappings".edit_neovim()<cr>', options)
+map("n", "<Leader>ff", '<cmd>lua R "opdavies.telescope.mappings".fd()<cr>', options)
