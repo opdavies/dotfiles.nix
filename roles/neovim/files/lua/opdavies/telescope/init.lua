@@ -1,66 +1,68 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-  return
+SHOULD_RELOAD_TELESCOPE = true
+
+local reloader = function()
+  if SHOULD_RELOAD_TELESCOPE then
+    RELOAD "plenary"
+    RELOAD "telescope"
+    RELOAD "opdavies.telescope.setup"
+  end
 end
 
-local previewers = require "telescope.previewers"
-local Job = require "plenary.job"
+local themes = require "telescope.themes"
 
--- Create a new maker that won't preview binary files
--- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#dont-preview-binaries
-local new_maker = function(filepath, bufnr, opts)
-  filepath = vim.fn.expand(filepath)
-  Job
-    :new({
-      command = "file",
-      args = { "--mime-type", "-b", filepath },
-      on_exit = function(j)
-        local mime_type = vim.split(j:result()[1], "/")[1]
-        if mime_type == "text" then
-          previewers.buffer_previewer_maker(filepath, bufnr, opts)
-        else
-          vim.schedule(function()
-            vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" })
-          end)
-        end
-      end,
-    })
-    :sync()
-end
+local M = {}
 
-telescope.setup {
-  defaults = {
-    buffer_previewer_maker = new_maker,
-    prompt_prefix = "$ ",
-  },
-  extensions = {
-    file_browser = {
-      theme = "ivy",
+function M.edit_neovim()
+  local opts = {
+    cwd = "~/.config/nvim",
+    find_command = { "rg", "--no-ignore", "--files", "--follow" },
+    path_display = { "shorten" },
+    prompt_title = "~ dotfiles ~",
+
+    layout_strategy = "flex",
+    layout_config = {
+      height = 0.8,
+      prompt_position = "top",
+      width = 0.9,
+
+      horizontal = {
+        width = { padding = 0.15 },
+      },
+      vertical = {
+        preview_height = 0.75,
+      },
     },
-  },
-}
+  }
 
-telescope.load_extension "file_browser"
-telescope.load_extension "fzf"
-telescope.load_extension "refactoring"
+  require("telescope.builtin").find_files(opts)
+end
 
-local map = vim.api.nvim_set_keymap
+function M.file_browser()
+  local opts = { cwd = vim.fn.expand "%:p:h" }
 
-local options = {
-  noremap = true,
-  silent = true,
-}
+  require("telescope").extensions.file_browser.file_browser(opts)
+end
 
--- Builtin
-map("n", "<leader>fb", '<cmd>lua require("telescope.builtin").buffers()<cr>', options)
-map("n", "<leader>fc", '<cmd>lua require("telescope.builtin").lsp_code_actions()<cr>', options)
-map("n", "<leader>fd", '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<cr>', options)
-map("n", "<leader>fe", '<cmd>lua R "opdavies.telescope.mappings".file_browser()<cr>', options)
-map("n", "<leader>fg", '<cmd>lua require("telescope.builtin").git_files{}<cr>', options)
-map("n", "<leader>fh", '<cmd>lua require("telescope.builtin").help_tags()<cr>', options)
-map("n", "<leader>fl", '<cmd>lua require("telescope.builtin").live_grep({ sorting_strategy="ascending" })<cr>', options)
-map("n", "<leader>fr", '<cmd>lua require("telescope.builtin").registers()<cr>', options)
+function M.fd()
+  local opts = themes.get_ivy()
 
--- Custom
-map("n", "<Leader>en", '<cmd>lua R "opdavies.telescope.mappings".edit_neovim()<cr>', options)
-map("n", "<Leader>ff", '<cmd>lua R "opdavies.telescope.mappings".fd()<cr>', options)
+  require("telescope.builtin").find_files(opts)
+end
+
+function M.live_grep()
+  require("telescope.builtin").live_grep {
+    sorting_strategy = "ascending"
+  }
+end
+
+return setmetatable({}, {
+  __index = function(_, k)
+    reloader()
+
+    if M[k] then
+      return M[k]
+    else
+      return require("telescope.builtin")[k]
+    end
+  end,
+})

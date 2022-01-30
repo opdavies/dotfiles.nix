@@ -1,42 +1,33 @@
-local M = {}
+TelescopeMapArgs = TelescopeMapArgs or {}
 
-local themes = require "telescope.themes"
+local telescope_mapper = function(key, f, options, buffer)
+  local map_key = vim.api.nvim_replace_termcodes(key .. f, true, true, true)
 
-function M.edit_neovim()
-  local opts = {
-    cwd = "~/.config/nvim",
-    find_command = { "rg", "--no-ignore", "--files", "--follow" },
-    path_display = { "shorten" },
-    prompt_title = "~ dotfiles ~",
+  TelescopeMapArgs[map_key] = options or {}
 
-    layout_strategy = "flex",
-    layout_config = {
-      height = 0.8,
-      prompt_position = "top",
-      width = 0.9,
+  local mode = "n"
+  local rhs = string.format("<cmd>lua R('opdavies.telescope')['%s'](TelescopeMapArgs['%s'])<CR>", f, map_key)
 
-      horizontal = {
-        width = { padding = 0.15 },
-      },
-      vertical = {
-        preview_height = 0.75,
-      },
-    },
+  local map_options = {
+    noremap = true,
+    silent = true,
   }
 
-  require("telescope.builtin").find_files(opts)
+  if not buffer then
+    vim.api.nvim_set_keymap(mode, key, rhs, map_options)
+  else
+    vim.api.nvim_buf_set_keymap(0, mode, key, rhs, map_options)
+  end
 end
 
-function M.file_browser()
-  local opts = { cwd = vim.fn.expand "%:p:h" }
+telescope_mapper("<leader>fb", "buffers")
+telescope_mapper("<leader>fe", "file_browser")
+telescope_mapper("<leader>fg", "git_files")
+telescope_mapper("<leader>fh", "help_tags")
+telescope_mapper("<leader>fl", "live_grep")
+telescope_mapper("<leader>ff", "fd")
 
-  require("telescope").extensions.file_browser.file_browser(opts)
-end
+telescope_mapper("<leader>en", "edit_neovim")
+telescope_mapper("<leader>ez", "edit_zsh")
 
-function M.fd()
-  local opts = themes.get_ivy()
-
-  require("telescope.builtin").find_files(opts)
-end
-
-return M
+return telescope_mapper

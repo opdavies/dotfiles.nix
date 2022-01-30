@@ -8,6 +8,8 @@ local nvim_status = require "lsp-status"
 local imap = require("opdavies.keymap").imap
 local nmap = require("opdavies.keymap").nmap
 
+local telescope_mapper = require("opdavies.telescope.mappings")
+
 local buf_nnoremap = function(opts)
   opts.buffer = 0
   nmap(opts)
@@ -34,8 +36,6 @@ local custom_attach = function(client)
   -- Keymaps
   buf_inoremap { "<c-s>", vim.lsp.buf.signature_help }
 
-  buf_nnoremap { "<leader>ca", "<cmd>Telescope lsp_code_actions sorting_strategy=ascending theme=dropdown<cr>" }
-  buf_nnoremap { "<leader>dl", "<cmd>Telescope diagnostics<cr>" }
   buf_nnoremap { "<leader>dn", vim.diagnostic.goto_next }
   buf_nnoremap { "<leader>dp", vim.diagnostic.goto_prev }
   buf_nnoremap { "<leader>rn", vim.lsp.buf.rename }
@@ -46,17 +46,12 @@ local custom_attach = function(client)
   buf_nnoremap { "gT", vim.lsp.buf.type_definition }
   buf_nnoremap { "gd", vim.lsp.buf.definition }
 
-  -- buf_nnoremap { "<space>gI", handlers.implementation }
-
-  -- telescope_mapper("<leader>ca", "lsp_code_actions", nil, true)
-  -- telescope_mapper("<leader>wd", "lsp_document_symbols", { ignore_filename = true }, true)
-  -- telescope_mapper("<leader>ww", "lsp_dynamic_workspace_symbols", { ignore_filename = true }, true)
-  -- telescope_mapper("gI", "lsp_implementations", nil, true)
-  -- telescope_mapper("gr", "lsp_references", nil, true)
-
   if filetype ~= "lua" then
     buf_nnoremap { "K", vim.lsp.buf.hover }
   end
+
+  telescope_mapper("<leader>ca", "lsp_code_actions", nil, true)
+  telescope_mapper("<leader>dl", "diagnostics", nil, true)
 
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
