@@ -7,6 +7,12 @@ if vim.g.snippets ~= "luasnip" then
   return
 end
 
+ls.config.set_config {
+  enable_autosnippets = true,
+  history = true,
+  updateevents = "TextChanged,TextChangedI",
+}
+
 local snippet = ls.snippet
 local i = ls.insert_node
 local t = ls.text_node
@@ -27,7 +33,7 @@ local shortcut = function(val)
   return val
 end
 
-local function make(tbl)
+local make = function(tbl)
   local result = {}
   for k, v in pairs(tbl) do
     table.insert(result, (snippet({ trig = k, desc = v.desc }, shortcut(v))))
@@ -37,12 +43,14 @@ local function make(tbl)
 end
 
 local javascript = make(R "opdavies.snippets.ft.javascript")
+local lua = make(R "opdavies.snippets.ft.lua")
 local markdown = make(R "opdavies.snippets.ft.markdown")
 local php = make(R "opdavies.snippets.ft.php")
 local rst = make(R "opdavies.snippets.ft.rst")
 
-local snippets = {
+ls.snippets = {
   js = javascript,
+  lua = lua,
   markdown = markdown,
   php = php,
   rst = rst,
@@ -50,12 +58,42 @@ local snippets = {
   vue = javascript,
 }
 
-ls.snippets = snippets
+local imap = require("opdavies.keymap").imap
+local map = require("opdavies.keymap").map
+local nmap = require("opdavies.keymap").nmap
 
-vim.cmd [[
-  imap <silent><expr> <c-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : ''
-  inoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
-  imap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-l>'
-  snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(1)<CR>
-  snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
-]]
+local map_opts = { silent = true }
+
+map {
+  { "i", "s" },
+  "<c-j>",
+  function()
+    if ls.jumpable(-1) then
+      ls.jump(-1)
+    end
+  end,
+  map_opts,
+}
+
+map {
+  { "i", "s" },
+  "<c-k>",
+  function()
+    if ls.expand_or_jumpable() then
+      ls.expand_or_jump()
+    end
+  end,
+  map_opts,
+}
+
+imap {
+  "<c-l>",
+  function()
+    if ls.choice_active() then
+      ls.change_choice(1)
+    end
+  end,
+  map_opts,
+}
+
+nmap { "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>", map_opts }
