@@ -35,6 +35,7 @@ return packer.startup(function()
   use "nvim-lua/plenary.nvim"
   use "nvim-lua/popup.nvim"
   use "nvim-lualine/lualine.nvim"
+  use 'rcarriga/nvim-notify'
   use "sheerun/vim-polyglot"
   use "theprimeagen/refactoring.nvim"
   use "tpope/vim-surround"
