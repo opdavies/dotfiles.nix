@@ -90,4 +90,8 @@ return packer.startup(function()
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-file-browser.nvim"
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+
+  -- Git
+  use 'TimUntersberger/neogit'
+
 end)
