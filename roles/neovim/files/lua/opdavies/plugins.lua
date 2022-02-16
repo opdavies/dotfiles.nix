@@ -24,6 +24,7 @@ return packer.startup(function()
   use "folke/twilight.nvim"
   use "folke/zen-mode.nvim"
   use "icatalina/vim-case-change"
+  use 'j-hui/fidget.nvim'
   use "kyazdani42/nvim-web-devicons"
   use "lewis6991/gitsigns.nvim"
   use "lukas-reineke/indent-blankline.nvim"
