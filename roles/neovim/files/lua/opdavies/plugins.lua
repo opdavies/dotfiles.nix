@@ -51,6 +51,8 @@ return packer.startup(function()
 
   -- Navigation
   use "ThePrimeagen/harpoon"
+  use "tamago324/lir-git-status.nvim"
+  use "tamago324/lir.nvim"
 
   -- Treesitter
   use {
