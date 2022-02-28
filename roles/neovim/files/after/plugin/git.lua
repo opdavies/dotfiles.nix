@@ -9,6 +9,7 @@ neogit.setup {
 
 local nmap = require('opdavies.keymap').nmap
 
-nmap({ "<leader>gg", "<cmd>Neogit<cr>" })
-nmap({ "<leader>gl", "<cmd>Neogit log<cr>" })
-nmap({ "<leader>gp", "<cmd>Neogit push<cr>" })
+nmap { "<leader>gc", function() neogit.open { "commit" } end }
+nmap { "<leader>gl", function() neogit.open { "log" } end }
+nmap { "<leader>gp", function() neogit.open { "push" } end }
+nmap { "<leader>gs", neogit.open }
