@@ -74,6 +74,7 @@ local function set_vim_o()
     foldlevelstart = 99,
     foldmethod = "indent",
     formatoptions = "lm",
+    hidden = false,
     linebreak = true,
     mouse = "n",
     number = true,
