@@ -51,7 +51,7 @@ end
 
 function M.live_grep()
   require("telescope.builtin").live_grep {
-    sorting_strategy = "ascending"
+    sorting_strategy = "ascending",
   }
 end
 

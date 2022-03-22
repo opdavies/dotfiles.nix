@@ -8,7 +8,7 @@ local nvim_status = require "lsp-status"
 local imap = require("opdavies.keymap").imap
 local nmap = require("opdavies.keymap").nmap
 
-local telescope_mapper = require("opdavies.telescope.mappings")
+local telescope_mapper = require "opdavies.telescope.mappings"
 
 local buf_nnoremap = function(opts)
   opts.buffer = 0

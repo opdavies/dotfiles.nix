@@ -19,5 +19,5 @@ null_ls.setup {
     diagnostics.phpstan,
 
     completion.spell,
-  }
+  },
 }
