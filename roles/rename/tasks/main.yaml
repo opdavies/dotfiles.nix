@@ -1,7 +1,0 @@
----
-- name: Install
-  ansible.builtin.package:
-    name:
-      - rename
-    state: latest
-  become: true
