@@ -136,3 +136,4 @@ for server, config in pairs(servers) do
 end
 
 require "opdavies.lsp.null-ls"
+require "opdavies.lsp.signature"

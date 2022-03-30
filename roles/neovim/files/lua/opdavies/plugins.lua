@@ -88,6 +88,7 @@ return packer.startup(function()
   use "jose-elias-alvarez/null-ls.nvim"
   use "neovim/nvim-lspconfig"
   use "nvim-lua/lsp-status.nvim"
+  use "ray-x/lsp_signature.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
