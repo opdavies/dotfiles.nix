@@ -1,0 +1,18 @@
+---
+- name: Install
+  community.general.npm:
+    name: "{{ item }}"
+    state: latest
+    global: true
+  with_items:
+    - "@ansible/ansible-language-server"
+    - "@tailwindcss/language-server"
+    - bash-language-server
+    - dockerfile-language-server-nodejs
+    - intelephense
+    - typescript
+    - typescript-language-server
+    - vls
+    - vscode-langservers-extracted
+    - yaml-language-server
+  become: true

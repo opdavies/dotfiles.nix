@@ -17,6 +17,7 @@
     - role: lazygit
     - role: neovim
     - role: nnn
+    - role: neovim-lsp
     - role: pv
     - role: rename
     - role: ripgrep
