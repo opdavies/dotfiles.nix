@@ -53,6 +53,12 @@ local function set_key_mappings()
   vim.cmd [[ nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}() ]]
 
   map("n", "<C-f>", ":silent !tmux neww tmux-sessioniser<CR>", { noremap = true, silent = true })
+  
+  local imap = require "opdavies.keymap".imap
+  
+  -- Easy insertion of a trailing ; or , from insert mode
+  imap({ ",,", "<Esc>A,<Esc>" })
+  imap({ ";;", "<Esc>A;<Esc>" })
 end
 
 local function set_highlights()
