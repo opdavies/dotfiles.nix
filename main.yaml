@@ -11,6 +11,7 @@
       tags:
         - "skip-if-wsl"
     - role: fzf
+    - role: gnome-tweak-tools
     - role: git
     - role: htop
     - role: lazydocker
@@ -18,9 +19,11 @@
     - role: neovim
     - role: nnn
     - role: neovim-lsp
+    - role: npm
     - role: pv
     - role: rename
     - role: ripgrep
+    - role: tldr
     - role: tmux
     - role: zsh
     - role: zsh-antigen
