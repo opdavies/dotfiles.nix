@@ -4,6 +4,8 @@ set -e
 
 CONFIG_DIR="$HOME/.config/dotfiles"
 DOTFILES_DIR="$HOME/.dotfiles"
+# TODO: Determine this automatically based on username or somehow.
+IS_WSL=${IS_WSL:=false}
 
 clone_or_update_dotfiles() {
   git -C $DOTFILES_DIR pull
@@ -18,8 +20,11 @@ install_dependencies() {
 }
 
 run_playbook() {
-  # TODO: automatically skip roles if the playbook is run within WSL.
-  ansible-playbook --diff --extra-vars "@${CONFIG_DIR}/values.yaml" --ask-become-pass "${DOTFILES_DIR}/main.yaml" "${@}"
+  if [[ $IS_WSL ]]; then
+    ansible-playbook --diff --extra-vars "@${CONFIG_DIR}/values.yaml" --ask-become-pass "${DOTFILES_DIR}/main.yaml" --skip-tags skip-if-wsl "${@}"
+  else
+    ansible-playbook --diff --extra-vars "@${CONFIG_DIR}/values.yaml" --ask-become-pass "${DOTFILES_DIR}/main.yaml" "${@}"
+  fi
 }
 
 clone_or_update_dotfiles
