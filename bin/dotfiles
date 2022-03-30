@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+DOTFILES_DIR="$HOME/.dotfiles"
+
+clone_or_update_dotfiles() {
+  git -C $DOTFILES_DIR pull
+}
+
+install_dependencies() {
+  ansible-galaxy install -r "${DOTFILES_DIR}/requirements.yml"
+}
+
+run_playbook() {
+  # TODO: automatically skip roles if the playbook is run within WSL.
+  ansible-playbook --diff --ask-become-pass "${DOTFILES_DIR}/main.yaml" "${@}"
+}
+
+clone_or_update_dotfiles
+install_dependencies
+run_playbook
