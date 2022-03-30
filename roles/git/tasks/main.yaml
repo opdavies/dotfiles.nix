@@ -15,3 +15,8 @@
     - .gitconfig
     - .gitignore-global
     - .gitmessage
+
+- name: Local configuration
+  ansible.builtin.template:
+    src: gitconfig.local.j2
+    dest: "{{ ansible_user_dir }}/.gitconfig.local"

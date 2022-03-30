@@ -2,10 +2,15 @@
 
 set -e
 
+CONFIG_DIR="$HOME/.config/dotfiles"
 DOTFILES_DIR="$HOME/.dotfiles"
 
 clone_or_update_dotfiles() {
   git -C $DOTFILES_DIR pull
+}
+
+create_config_dir() {
+  mkdir -p "${CONFIG_DIR}"
 }
 
 install_dependencies() {
@@ -14,7 +19,7 @@ install_dependencies() {
 
 run_playbook() {
   # TODO: automatically skip roles if the playbook is run within WSL.
-  ansible-playbook --diff --ask-become-pass "${DOTFILES_DIR}/main.yaml" "${@}"
+  ansible-playbook --diff --extra-vars "@${CONFIG_DIR}/values.yaml" --ask-become-pass "${DOTFILES_DIR}/main.yaml" "${@}"
 }
 
 clone_or_update_dotfiles
