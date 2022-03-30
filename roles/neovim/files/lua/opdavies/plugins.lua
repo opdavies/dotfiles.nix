@@ -58,6 +58,7 @@ return packer.startup(function()
   use "tamago324/lir.nvim"
 
   -- Treesitter
+  use "nvim-treesitter/playground"
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
