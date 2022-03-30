@@ -17,6 +17,7 @@
     - role: pv
     - role: ripgrep
     - role: tldr
+    - role: tree
     - role: tmux
     - role: zsh
     - role: zsh-antigen
