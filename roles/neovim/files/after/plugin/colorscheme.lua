@@ -10,4 +10,4 @@ end
 
 colorbuddy.colorscheme "gruvbuddy"
 
-colorizer.setup()
+colorizer.setup {}
