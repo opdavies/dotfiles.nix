@@ -1,3 +1,5 @@
+require "impatient"
+
 require "opdavies.globals"
 
 require("opdavies.options").setup()

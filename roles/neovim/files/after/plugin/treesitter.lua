@@ -15,4 +15,7 @@ configs.setup {
     disable = { "yaml" },
     enable = true,
   },
+  matchup = {
+    enable = true,
+  }
 }
