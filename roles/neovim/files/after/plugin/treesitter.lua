@@ -19,3 +19,8 @@ configs.setup {
     enable = true,
   }
 }
+
+local nmap = require "opdavies.keymap".nmap
+
+nmap({ "<leader>th", "<cmd>TSHighlightCapturesUnderCursor<CR>" })
+nmap({ "<leader>tp", "<cmd>TSPlaygroundToggle<CR>" })
