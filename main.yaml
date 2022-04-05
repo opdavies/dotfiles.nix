@@ -8,6 +8,7 @@
     - role: dconf
     - role: docker
     - role: fzf
+    - role: github-cli
     - role: gnome-tweak-tools
     - role: git
     - role: htop
