@@ -12,4 +12,4 @@ map("n", "t<C-s>", ":TestSuite<CR>", options)
 
 vim.g["test#echo_command"] = 0
 vim.g["test#neovim#start_normal"] = 1
-vim.g["test#strategy"] = "neovim"
+vim.g["test#strategy"] = "vimux"

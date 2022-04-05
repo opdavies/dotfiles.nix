@@ -16,6 +16,9 @@ return packer.startup(function()
 
   use "wbthomason/packer.nvim"
 
+  -- Tmux
+  use "preservim/vimux"
+
   -- Utilities
   use "andymass/vim-matchup"
   use "cakebaker/scss-syntax.vim"
