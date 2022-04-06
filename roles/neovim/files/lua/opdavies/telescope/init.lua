@@ -38,7 +38,10 @@ function M.edit_neovim()
 end
 
 function M.file_browser()
-  local opts = { cwd = vim.fn.expand "%:p:h" }
+  local opts = {
+    cwd = vim.fn.expand "%:p:h",
+    sorting_strategy = "ascending"
+  }
 
   require("telescope").extensions.file_browser.file_browser(opts)
 end
