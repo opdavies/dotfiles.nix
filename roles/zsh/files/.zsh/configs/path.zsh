@@ -5,6 +5,8 @@ $PATH:\
 /usr/bin:\
 $HOME/.cargo/bin:\
 $HOME/.composer/vendor/bin:\
+$HOME/.dotfiles/bin:\
+$HOME/.dotfiles/bin/bin:\
 $HOME/.local/bin:\
 $HOME/.platformsh/bin:\
 $HOME/bin:\
