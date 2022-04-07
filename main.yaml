@@ -16,6 +16,7 @@
     - role: neovim
     - role: neovim-lsp
     - role: npm
+    - role: platformsh-cli
     - role: pv
     - role: ripgrep
     - role: starship-prompt

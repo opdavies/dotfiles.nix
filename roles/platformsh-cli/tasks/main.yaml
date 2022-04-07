@@ -1,0 +1,30 @@
+---
+- name: Install dependencies
+  ansible.builtin.package:
+    name:
+      - php
+    state: latest
+  become: true
+
+- name: Existing install
+  stat:
+    path: "{{ ansible_user_dir }}/.platformsh/bin/platform"
+  register: install
+
+- name: Download installer
+  ansible.builtin.get_url:
+    dest: /tmp/platformsh-install.sh
+    mode: 0755
+    url: https://platform.sh/cli/installer
+  become: true
+  when: not install.stat.exists
+
+- name: Execute installer
+  ansible.builtin.command: php /tmp/platformsh-install.sh
+  when: not install.stat.exists
+
+- name: Remove platformsh-install.sh
+  ansible.builtin.file:
+    path: /tmp/platformsh-install.sh
+    state: absent
+  become: true
