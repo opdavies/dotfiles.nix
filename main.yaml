@@ -15,6 +15,7 @@
     - role: jq
     - role: neovim
     - role: neovim-lsp
+    - role: notion-app
     - role: npm
     - role: platformsh-cli
     - role: pv

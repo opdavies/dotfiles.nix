@@ -1,0 +1,12 @@
+---
+- name: Repository
+  ansible.builtin.apt_repository:
+    repo: "deb [trusted=yes] https://apt.fury.io/notion-repackaged/ /"
+  become: true
+
+- name: Install
+  ansible.builtin.package:
+    name:
+      - notion-app
+    state: latest
+  become: true
