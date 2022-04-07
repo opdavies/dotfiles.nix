@@ -18,6 +18,8 @@
     - role: npm
     - role: pv
     - role: ripgrep
+    - role: starship-prompt
+    - role: stylua
     - role: tldr
     - role: tree
     - role: tmux

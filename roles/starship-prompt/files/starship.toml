@@ -1,0 +1,49 @@
+add_newline = false
+
+[character]
+error_symbol = "[x](bold red)"
+success_symbol = "[>](bold green)"
+vicmd_symbol = "[<](bold green)"
+
+[directory]
+disabled = false
+read_only = " ro"
+truncation_length = 8
+truncate_to_repo = true
+
+[docker_context]
+format = 'via [$symbol]($style)'
+symbol = "docker "
+
+[git_branch]
+symbol = "git "
+
+[git_commit]
+tag_symbol = " tag "
+
+[git_status]
+ahead = ">"
+behind = "<"
+deleted = "x"
+diverged = "<>"
+renamed = "r"
+
+[memory_usage]
+symbol = "memory "
+
+[nodejs]
+format = 'via [$symbol]($style)'
+symbol = "nodejs "
+
+[package]
+symbol = "pkg "
+
+[php]
+format = 'via [$symbol]($style)'
+symbol = "php "
+
+[status]
+disabled=false
+
+[sudo]
+symbol = "sudo "
