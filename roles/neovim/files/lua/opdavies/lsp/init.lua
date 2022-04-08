@@ -93,7 +93,26 @@ local servers = {
   },
 
   tailwindcss = {
-    filetypes = { "html", "html.twig" },
+    filetypes = {
+      -- html
+      "html",
+      "html.twig",
+      "php",
+      "twig",
+
+      -- js
+      "javascript",
+      "typescript",
+
+      -- mixed
+      "vue",
+    },
+
+    init_options = {
+      userLanguages = {
+        ["html.twig"] = "html",
+      },
+    },
   },
 
   -- tsserver = {
