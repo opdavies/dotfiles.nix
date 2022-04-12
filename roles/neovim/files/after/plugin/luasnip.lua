@@ -1,20 +1,13 @@
-local status_ok, ls = pcall(require, "luasnip")
-if not status_ok then
+if not pcall(require, "luasnip") then
   return
 end
 
-if vim.g.snippets ~= "luasnip" then
-  return
-end
+local api = vim.api
+local fn = vim.fn
 
-ls.config.set_config {
-  enable_autosnippets = true,
-  history = true,
-  updateevents = "TextChanged,TextChangedI",
-}
+local ls = require "luasnip"
 
 local snippet = ls.snippet
-local i = ls.insert_node
 local t = ls.text_node
 
 local shortcut = function(val)
@@ -42,39 +35,30 @@ local make = function(tbl)
   return result
 end
 
-local javascript = make(R "opdavies.snippets.ft.javascript")
-local lua = make(R "opdavies.snippets.ft.lua")
-local markdown = make(R "opdavies.snippets.ft.markdown")
-local php = make(R "opdavies.snippets.ft.php")
-local rst = make(R "opdavies.snippets.ft.rst")
+local snippets = {}
 
-ls.snippets = {
-  js = javascript,
-  lua = lua,
-  markdown = markdown,
-  php = php,
-  rst = rst,
-  typescript = javascript,
-  vue = javascript,
+for _, ft_path in ipairs(api.nvim_get_runtime_file("lua/opdavies/snippets/ft/*.lua", true)) do
+  local ft = fn.fnamemodify(ft_path, ":t:r")
+  snippets[ft] = make(loadfile(ft_path)())
+
+  ls.add_snippets(ft, snippets[ft])
+end
+
+ls.add_snippets("js", snippets.javscript)
+ls.add_snippets("typescript", snippets.javscript)
+ls.add_snippets("vue", snippets.javscript)
+
+ls.config.set_config {
+  enable_autosnippets = true,
+  history = true,
+  updateevents = "TextChanged,TextChangedI",
 }
 
 local imap = require("opdavies.keymap").imap
 local map = require("opdavies.keymap").map
 local nmap = require("opdavies.keymap").nmap
 
-local map_opts = { silent = true }
-
-map {
-  { "i", "s" },
-  "<c-j>",
-  function()
-    if ls.jumpable(-1) then
-      ls.jump(-1)
-    end
-  end,
-  map_opts,
-}
-
+-- Expand the current item or just to the next item within the snippet.
 map {
   { "i", "s" },
   "<c-k>",
@@ -83,9 +67,22 @@ map {
       ls.expand_or_jump()
     end
   end,
-  map_opts,
+  { silent = true },
 }
 
+-- Jump backwards.
+map {
+  { "i", "s" },
+  "<c-j>",
+  function()
+    if ls.jumpable(-1) then
+      ls.jump(-1)
+    end
+  end,
+  { silent = true },
+}
+
+-- Select within a list of options.
 imap {
   "<c-l>",
   function()
@@ -93,7 +90,6 @@ imap {
       ls.change_choice(1)
     end
   end,
-  map_opts,
 }
 
-nmap { "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>", map_opts }
+nmap { "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>" }
