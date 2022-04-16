@@ -154,5 +154,12 @@ for server, config in pairs(servers) do
   setup_server(server, config)
 end
 
+vim.diagnostic.config({
+  signs = true,
+  underline = false,
+  update_in_insert = false,
+  virtual_text = { spacing = 2 },
+})
+
 require "opdavies.lsp.null-ls"
 require "opdavies.lsp.signature"
