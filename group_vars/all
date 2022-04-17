@@ -1,0 +1,25 @@
+default_roles:
+  - alacritty
+  - ctop
+  - dconf
+  - docker
+  - fzf
+  - github-cli
+  - gnome-tweak-tools
+  - git
+  - htop
+  - jq
+  - neovim
+  - neovim-lsp
+  - notion-app
+  - npm
+  - platformsh-cli
+  - pv
+  - ripgrep
+  - starship-prompt
+  - stylua
+  - tldr
+  - tree
+  - tmux
+  - zsh
+  - zsh-antigen

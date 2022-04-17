@@ -1,29 +1,14 @@
 ---
 - hosts: localhost
-  roles:
-    - role: alacritty
-      tags:
-        - "skip-if-wsl"
-    - role: ctop
-    - role: dconf
-    - role: docker
-    - role: fzf
-    - role: github-cli
-    - role: gnome-tweak-tools
-    - role: git
-    - role: htop
-    - role: jq
-    - role: neovim
-    - role: neovim-lsp
-    - role: notion-app
-    - role: npm
-    - role: platformsh-cli
-    - role: pv
-    - role: ripgrep
-    - role: starship-prompt
-    - role: stylua
-    - role: tldr
-    - role: tree
-    - role: tmux
-    - role: zsh
-    - role: zsh-antigen
+  tasks:
+    - name: Set roles
+      set_fact:
+        roles: "{{ default_roles | difference(exclude_roles | default([])) }}"
+
+    - name: Display roles
+      debug: "var=roles"
+
+    - name: Run roles
+      include_role:
+        name: "{{ item }}"
+      with_items: "{{ roles }}"
