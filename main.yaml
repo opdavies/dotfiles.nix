@@ -2,13 +2,22 @@
 - hosts: localhost
   tasks:
     - name: Set roles
-      set_fact:
+      ansible.builtin.set_fact:
         roles: "{{ default_roles | difference(exclude_roles | default([])) }}"
+      tags:
+        - always
 
     - name: Display roles
-      debug: "var=roles"
+      ansible.builtin.debug: "var=roles"
+      tags:
+        - always
 
     - name: Run roles
-      include_role:
+      ansible.builtin.include_role:
         name: "{{ item }}"
+        apply:
+          tags:
+            - "{{ item }}"
       with_items: "{{ roles }}"
+      tags:
+        - always
