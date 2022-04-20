@@ -4,9 +4,10 @@ window:
 
 font:
   normal:
-    family: Monospace
+    family: MesloLGM Nerd Font Mono
+    style: Regular
+  bold:
+    style: Regular
+  bold_italic:
+    style: Italic
   size: 12
-  offset:
-    y: 20
-  glyph_offset:
-    y: 10
