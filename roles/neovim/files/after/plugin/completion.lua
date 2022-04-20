@@ -17,14 +17,12 @@ cmp.setup {
     end,
   },
 
-  mapping = {
+  mapping = cmp.mapping.preset.insert {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-e>"] = cmp.mapping.close(),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<c-y>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    },
+    ["<C-y>"] = cmp.mapping.confirm { select = true },
+    ["<tab>"] = cmp.config.disable,
   },
 
   sources = {
