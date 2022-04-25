@@ -44,9 +44,9 @@ for _, ft_path in ipairs(api.nvim_get_runtime_file("lua/opdavies/snippets/ft/*.l
   ls.add_snippets(ft, snippets[ft])
 end
 
-ls.add_snippets("js", snippets.javscript)
-ls.add_snippets("typescript", snippets.javscript)
-ls.add_snippets("vue", snippets.javscript)
+ls.add_snippets("js", snippets.javascript)
+ls.add_snippets("typescript", snippets.javascript)
+ls.add_snippets("vue", snippets.javascript)
 
 ls.config.set_config {
   enable_autosnippets = true,
