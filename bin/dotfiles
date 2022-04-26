@@ -7,7 +7,11 @@ DOTFILES_DIR="$HOME/.dotfiles"
 PATH="${PATH}:${HOME}/.local/bin"
 
 clone_or_update_dotfiles() {
-  git -C $DOTFILES_DIR pull
+  if ! [[ -d "$DOTFILES_DIR" ]]; then
+    git clone "https://github.com/opdavies/dotfiles.git" "$DOTFILES_DIR"
+  else
+    git -C "$DOTFILES_DIR" pull
+  fi
 }
 
 create_config_dir() {
