@@ -9,10 +9,10 @@ default_roles:
   - git
   - htop
   - jq
+  - npm
   - neovim
   - neovim-lsp
   - notion-app
-  - npm
   - platformsh-cli
   - pv
   - ripgrep
