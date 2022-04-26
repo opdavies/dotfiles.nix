@@ -1,9 +1,11 @@
 ---
 - name: Install
   community.general.npm:
-    name: "{{ item }}"
+    name: "{{ npm_install_item }}"
     state: latest
     global: true
+  loop_control:
+    loop_var: npm_install_item
   with_items:
     - "@ansible/ansible-language-server"
     - "@tailwindcss/language-server"

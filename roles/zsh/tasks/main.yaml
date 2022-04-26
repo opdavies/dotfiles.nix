@@ -14,9 +14,11 @@
 
 - name: Configuration
   ansible.builtin.file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ ansible_user_dir }}/{{ item }}"
+    src: "{{ role_path }}/files/{{ zsh_config_item }}"
+    dest: "{{ ansible_user_dir }}/{{ zsh_config_item }}"
     state: link
+  loop_control:
+    loop_var: zsh_config_item
   with_items:
     - .zsh
     - .zshenv

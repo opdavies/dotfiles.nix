@@ -55,9 +55,11 @@
 
 - name: Configuration files
   ansible.builtin.file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ ansible_user_dir }}/.config/nvim/{{ item }}"
+    src: "{{ role_path }}/files/{{ neovim_config_item }}"
+    dest: "{{ ansible_user_dir }}/.config/nvim/{{ neovim_config_item }}"
     state: link
+  loop_control:
+    loop_var: neovim_config_item
   with_items:
     - after
     - autoload

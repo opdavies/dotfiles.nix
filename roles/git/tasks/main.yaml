@@ -8,9 +8,11 @@
 
 - name: Configuration
   ansible.builtin.file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ ansible_user_dir }}/{{ item }}"
+    src: "{{ role_path }}/files/{{ git_config_item }}"
+    dest: "{{ ansible_user_dir }}/{{ git_config_item }}"
     state: link
+  loop_control:
+    loop_var: git_config_item
   with_items:
     - .gitconfig
     - .gitignore-global
