@@ -1,0 +1,10 @@
+---
+- name: Copy SSH keys
+  copy:
+    content: "{{ ssh_key_item.value }}"
+    dest: "{{ ansible_user_dir }}/.ssh/{{ ssh_key_item.key }}"
+    mode: 0400
+  loop_control:
+    loop_var: ssh_key_item
+  no_log: true
+  with_items: "{{ ssh_key | default({}) | dict2items }}"
