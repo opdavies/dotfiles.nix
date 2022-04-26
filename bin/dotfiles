@@ -25,7 +25,7 @@ install_ansible() {
 }
 
 run_playbook() {
-  ansible-playbook --diff --extra-vars "@${CONFIG_DIR}/values.yaml" --ask-become-pass "${DOTFILES_DIR}/main.yaml" "${@}"
+  ansible-playbook --diff --extra-vars "@${CONFIG_DIR}/values.yaml" --vault-password-file=${CONFIG_DIR}/vault-password.txt "${DOTFILES_DIR}/main.yaml" "${@}"
 }
 
 clone_or_update_dotfiles
