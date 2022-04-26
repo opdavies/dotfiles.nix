@@ -4,6 +4,7 @@ set -e
 
 CONFIG_DIR="$HOME/.config/dotfiles"
 DOTFILES_DIR="$HOME/.dotfiles"
+PATH="${PATH}:${HOME}/.local/bin"
 
 clone_or_update_dotfiles() {
   git -C $DOTFILES_DIR pull
@@ -17,10 +18,17 @@ install_dependencies() {
   ansible-galaxy install -r "${DOTFILES_DIR}/requirements.yml"
 }
 
+install_ansible() {
+  sudo apt-get -yqq update 
+  sudo apt-get -yqq install python3-pip
+  pip install ansible --user
+}
+
 run_playbook() {
   ansible-playbook --diff --extra-vars "@${CONFIG_DIR}/values.yaml" --ask-become-pass "${DOTFILES_DIR}/main.yaml" "${@}"
 }
 
 clone_or_update_dotfiles
+install_ansible
 install_dependencies
 run_playbook "${@}"
