@@ -18,3 +18,11 @@
     - vscode-langservers-extracted
     - yaml-language-server
   become: true
+
+- name: Add intelephense licence key
+  ansible.builtin.copy:
+    content: "{{ intelephense_licence }}"
+    dest: "{{ ansible_user_dir }}/intelephense/licence.txt"
+    mode: 0400
+  no_log: true
+  when: intelephense_licence is defined
