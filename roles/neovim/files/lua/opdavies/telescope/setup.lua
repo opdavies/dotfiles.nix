@@ -28,9 +28,21 @@ local new_maker = function(filepath, bufnr, opts)
     :sync()
 end
 
+local action_layout = require 'telescope.actions.layout'
+local actions = require 'telescope.actions'
+
 telescope.setup {
   defaults = {
     buffer_previewer_maker = new_maker,
+    mappings = {
+      i = {
+        ["<C-h>"] = actions.which_key,
+        ["<C-p>"] = action_layout.toggle_preview,
+      },
+      n = {
+        ["<C-p>"] = action_layout.toggle_preview,
+      },
+    },
     no_ignore = true,
     prompt_prefix = "$ ",
   },
