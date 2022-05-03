@@ -21,11 +21,12 @@ local telescope_mapper = function(key, f, options, buffer)
 end
 
 telescope_mapper("<leader>fb", "buffers")
+telescope_mapper("<leader>fd", "fd")
 telescope_mapper("<leader>fe", "file_browser")
+telescope_mapper("<leader>ff", "current_buf")
 telescope_mapper("<leader>fg", "git_files")
 telescope_mapper("<leader>fh", "help_tags")
 telescope_mapper("<leader>fl", "live_grep")
-telescope_mapper("<leader>ff", "fd")
 
 telescope_mapper("<leader>en", "edit_neovim")
 telescope_mapper("<leader>ez", "edit_zsh")

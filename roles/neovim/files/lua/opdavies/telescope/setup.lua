@@ -31,6 +31,7 @@ end
 telescope.setup {
   defaults = {
     buffer_previewer_maker = new_maker,
+    no_ignore = true,
     prompt_prefix = "$ ",
   },
   extensions = {
@@ -43,27 +44,3 @@ telescope.setup {
 telescope.load_extension "file_browser"
 telescope.load_extension "fzf"
 telescope.load_extension "refactoring"
-
--- local map = vim.api.nvim_set_keymap
---
--- local options = {
---   noremap = true,
---   silent = true,
--- }
---
--- local nmap = require "opdavies.keymap".nmap
--- local tele_mappings = R "opdavies.telescope.mappings"
---
--- -- Builtin
--- nmap({ "<leader>fb", '<cmd>lua require("telescope.builtin").buffers()<cr>', opts })
--- nmap({ "<leader>fc", '<cmd>lua require("telescope.builtin").lsp_code_actions()<cr>', opts })
--- nmap({ "<leader>fd", '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<cr>', opts })
--- nmap({ "<leader>fg", '<cmd>lua require("telescope.builtin").git_files{}<cr>', opts })
--- nmap({ "<leader>fh", '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts })
--- nmap({ "<leader>fl", '<cmd>lua require("telescope.builtin").live_grep({ sorting_strategy="ascending" })<cr>', opts })
--- nmap({ "<leader>fr", '<cmd>lua require("telescope.builtin").registers()<cr>', opts })
---
--- -- Custom
--- nmap({ "<leader>fe", tele_mappings.file_browser, opts })
--- nmap({ "<Leader>en", tele_mappings.edit_neovim, opts })
--- nmap({ "<Leader>ff", tele_mappings.fd, opts })

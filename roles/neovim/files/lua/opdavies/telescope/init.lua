@@ -12,12 +12,22 @@ local themes = require "telescope.themes"
 
 local M = {}
 
+function M.current_buf()
+  local opts = {
+    sorting_strategy = "ascending",
+    previewer = false,
+  }
+
+  require "telescope.builtin".current_buffer_fuzzy_find(opts)
+end
+
 function M.edit_neovim()
   local opts = {
     cwd = "~/.config/nvim",
     find_command = { "rg", "--no-ignore", "--files", "--follow" },
     path_display = { "shorten" },
     prompt_title = "~ dotfiles ~",
+    no_ignore = true,
 
     layout_strategy = "flex",
     layout_config = {
@@ -47,13 +57,20 @@ function M.file_browser()
 end
 
 function M.fd()
-  local opts = themes.get_ivy()
+  local opts = themes.get_ivy {
+    file_ignore_patterns = { ".git/" },
+    hidden = true,
+    no_ignore = true,
+  }
 
   require("telescope.builtin").find_files(opts)
 end
 
 function M.live_grep()
   require("telescope.builtin").live_grep {
+    file_ignore_patterns = { ".git/" },
+    hidden = true,
+    no_ignore = true,
     sorting_strategy = "ascending",
   }
 end
