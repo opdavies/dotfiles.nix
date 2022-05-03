@@ -57,8 +57,8 @@ local function set_key_mappings()
   local imap = require "opdavies.keymap".imap
   
   -- Easy insertion of a trailing ; or , from insert mode
-  imap({ ",,", "<Esc>A,<Esc>" })
-  imap({ ";;", "<Esc>A;<Esc>" })
+  imap { ",,", "<Esc>A,<Esc>" }
+  imap { ";;", "<Esc>A;<Esc>" }
 end
 
 local function set_highlights()
