@@ -46,9 +46,14 @@ telescope.setup {
     no_ignore = true,
     prompt_prefix = "$ ",
   },
+
   extensions = {
     file_browser = {
       theme = "ivy",
+    },
+
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {},
     },
   },
 }
@@ -56,3 +61,4 @@ telescope.setup {
 telescope.load_extension "file_browser"
 telescope.load_extension "fzf"
 telescope.load_extension "refactoring"
+telescope.load_extension "ui-select"

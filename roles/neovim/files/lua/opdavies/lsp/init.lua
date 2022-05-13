@@ -36,6 +36,7 @@ local custom_attach = function(client)
   -- Keymaps
   buf_inoremap { "<c-s>", vim.lsp.buf.signature_help }
 
+  buf_nnoremap { "<leader>ca", vim.lsp.buf.code_action }
   buf_nnoremap { "<leader>dn", vim.diagnostic.goto_next }
   buf_nnoremap { "<leader>dp", vim.diagnostic.goto_prev }
   buf_nnoremap { "<leader>gD", vim.lsp.buf.declaration }
@@ -50,7 +51,6 @@ local custom_attach = function(client)
     buf_nnoremap { "K", vim.lsp.buf.hover }
   end
 
-  telescope_mapper("<leader>ca", "lsp_code_actions", nil, true)
   telescope_mapper("<leader>dl", "diagnostics", nil, true)
 
   -- Set autocommands conditional on server_capabilities
