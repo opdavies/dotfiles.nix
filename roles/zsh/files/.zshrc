@@ -12,6 +12,7 @@ sources=(
   'path'
   'platformsh'
   'plugins'
+  'prompt'
   'post/completion'
 )
 
