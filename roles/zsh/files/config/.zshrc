@@ -15,9 +15,8 @@ sources=(
   'prompt'
   'post/completion'
 )
-
 for s in "${sources[@]}"; do
-  source $HOME/.zsh/configs/${s}.zsh
+  source $ZDOTDIR/configs/${s}.zsh
 done
 
 # Local config

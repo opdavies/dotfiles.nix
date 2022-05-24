@@ -14,12 +14,21 @@
 
 - name: Configuration
   ansible.builtin.file:
-    src: "{{ role_path }}/files/{{ zsh_config_item }}"
-    dest: "{{ ansible_user_dir }}/{{ zsh_config_item }}"
+    src: "{{ role_path }}/files/{{ zsh_config_item.src }}"
+    path: "{{ zsh_config_item.path }}"
     state: link
   loop_control:
     loop_var: zsh_config_item
   with_items:
-    - .zsh
-    - .zshenv
-    - .zshrc
+    - { src: config, path: "{{ ansible_user_dir }}/.config/zsh" }
+    - { src: .zshenv, path: "{{ ansible_user_dir }}/.zshenv" }
+
+- name: Delete old files
+  ansible.builtin.file:
+    path: "{{ old_files_item }}"
+    state: absent
+  loop_control:
+    loop_var: old_files_item
+  with_items:
+    - "{{ ansible_user_dir }}/.zsh"
+    - "{{ ansible_user_dir }}/.zshrc"

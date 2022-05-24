@@ -1,3 +1,5 @@
+export ZDOTDIR="$HOME/.config/zsh"
+
 PROMPT_EOL_MARK=''
 TERM=xterm-256color
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
