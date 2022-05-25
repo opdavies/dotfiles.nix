@@ -100,6 +100,7 @@ local function set_vim_o()
     termguicolors = true,
     textwidth = 0,
     updatetime = 1000,
+    winbar = "%=%m %f",
     wrap = false,
   }
 
