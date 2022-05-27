@@ -1,14 +1,15 @@
-source /usr/lib/git-core/git-sh-prompt
+source $ZDOTDIR/oh-my-zsh/git.zsh
 
-setopt promptsubst
+git_prompt_prefix() {
+  local tag="$(git describe --tags 2> /dev/null)"
 
-git_prompt() {
-  local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)"
-  local branch_truncated="${branch:0:30}"
-  if (( ${#branch} > ${#branch_truncated} )); then
-    branch="${branch_truncated}..."
-  fi
-
-  [ -n "${branch}" ] && echo " (${branch})"
+  [ -n "${tag}" ] && echo "%{$fg[yellow]%}${tag}%{$reset_color%} "
 }
-export PS1="in %{$fg[blue]%}%~%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%b "
+
+git_prompt_suffix() {
+  local branch="$(git_current_branch)"
+
+  [ -n "${branch}" ] && echo " on %{$fg[green]%}${branch}%{$reset_color%}"
+}
+
+export PS1="$(git_prompt_prefix)in %{$fg[blue]%}%1d/%{$reset_color%}$(git_prompt_suffix) "
