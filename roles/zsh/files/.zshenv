@@ -1,3 +1,4 @@
+export EDITOR=nvim
 export ZDOTDIR="$HOME/.config/zsh"
 
 PROMPT_EOL_MARK=''
