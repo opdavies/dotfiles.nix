@@ -19,7 +19,6 @@ default_roles:
   - platformsh-cli
   - pv
   - ripgrep
-  - starship-prompt
   - stylua
   - tldr
   - tree
