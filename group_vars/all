@@ -23,5 +23,6 @@ default_roles:
   - tldr
   - tree
   - tmux
+  - tmuxinator
   - zsh
   - zsh-antigen
