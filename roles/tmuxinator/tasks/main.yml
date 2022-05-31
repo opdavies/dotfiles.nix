@@ -1,4 +1,10 @@
 ---
+- name: Dependencies
+  ansible.builtin.package:
+    name: ruby
+    state: latest
+  become: true
+
 - name: Install
   community.general.gem:
     bindir: "{{ ansible_user_dir }}/.local/bin"
