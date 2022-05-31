@@ -3,7 +3,7 @@
 set -e
 
 CONFIG_DIR="$HOME/.config/dotfiles"
-DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
 PATH="${PATH}:${HOME}/.local/bin"
 
 clone_or_update_dotfiles() {
