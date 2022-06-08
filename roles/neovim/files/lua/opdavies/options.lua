@@ -55,10 +55,15 @@ local function set_key_mappings()
   map("n", "<C-f>", ":silent !tmux neww tmux-sessioniser<CR>", { noremap = true, silent = true })
   
   local imap = require "opdavies.keymap".imap
+  local nmap = require "opdavies.keymap".nmap
+  local xmap = require "opdavies.keymap".xmap
   
   -- Easy insertion of a trailing ; or , from insert mode
   imap { ",,", "<Esc>A,<Esc>" }
   imap { ";;", "<Esc>A;<Esc>" }
+
+  nmap { "ga", "<Plug>(EasyAlign)" }
+  xmap { "ga", "<Plug>(EasyAlign)" }
 end
 
 local function set_highlights()

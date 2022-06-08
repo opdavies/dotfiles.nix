@@ -16,4 +16,8 @@ M.vmap = function(tbl)
   vim.keymap.set("v", tbl[1], tbl[2], tbl[3])
 end
 
+M.xmap = function(tbl)
+  vim.keymap.set("x", tbl[1], tbl[2], tbl[3])
+end
+
 return M

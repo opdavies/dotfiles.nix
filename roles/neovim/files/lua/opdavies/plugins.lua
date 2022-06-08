@@ -30,6 +30,7 @@ return packer.startup(function()
   use "folke/zen-mode.nvim"
   use "icatalina/vim-case-change"
   use "j-hui/fidget.nvim"
+  use "junegunn/vim-easy-align"
   use "kazhala/close-buffers.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "lewis6991/gitsigns.nvim"
