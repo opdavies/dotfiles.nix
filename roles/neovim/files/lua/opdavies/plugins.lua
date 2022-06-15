@@ -20,12 +20,13 @@ return packer.startup(function()
   use "preservim/vimux"
 
   -- Utilities
+  use "aca/emmet-ls"
   use "andymass/vim-matchup"
   use "cakebaker/scss-syntax.vim"
   use "christoomey/vim-sort-motion"
   use "christoomey/vim-tmux-navigator"
+  use "dhruvasagar/vim-zoom"
   use "editorconfig/editorconfig-vim"
-  use "folke/todo-comments.nvim"
   use "folke/twilight.nvim"
   use "folke/zen-mode.nvim"
   use "icatalina/vim-case-change"
@@ -99,7 +100,6 @@ return packer.startup(function()
   use "jose-elias-alvarez/null-ls.nvim"
   use "neovim/nvim-lspconfig"
   use "nvim-lua/lsp-status.nvim"
-  use "ray-x/lsp_signature.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
