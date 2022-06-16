@@ -9,6 +9,7 @@ $HOME/.dotfiles/bin:\
 $HOME/.dotfiles/bin/bin:\
 $HOME/.local/bin:\
 $HOME/.platformsh/bin:\
+$HOME/.pulumi/bin:\
 $HOME/bin:\
 $HOME/snap/bin:\
 bin:\
