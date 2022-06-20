@@ -21,7 +21,7 @@
   ansible.builtin.git:
     clone: yes
     depth: 1
-    dest: "{{ ansible_user_dir }}/neovim"
+    dest: "{{ ansible_user_dir }}/build/neovim"
     repo: https://github.com/neovim/neovim.git
     # single_branch: yes
     update: yes
@@ -30,21 +30,21 @@
 
 - name: Build
   make:
-    chdir: "{{ ansible_user_dir }}/neovim"
+    chdir: "{{ ansible_user_dir }}/build/neovim"
     params:
       CMAKE_BUILD_TYPE: RelWithDebInfo
   when: clone.changed
 
 - name: Install
   make:
-    chdir: "{{ ansible_user_dir }}/neovim"
+    chdir: "{{ ansible_user_dir }}/build/neovim"
     target: install
   become: yes
   when: clone.changed
 
 - name: Remove build folder
   ansible.builtin.file:
-    path: "{{ ansible_user_dir }}/neovim/build"
+    path: "{{ ansible_user_dir }}/build/neovim/build"
     state: absent
   become: yes
 
