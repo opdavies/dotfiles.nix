@@ -27,3 +27,4 @@ default_roles:
   - tmuxinator
   - zsh
   - zsh-antigen
+  - debugger

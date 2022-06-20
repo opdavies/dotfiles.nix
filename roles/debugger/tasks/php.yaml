@@ -1,0 +1,20 @@
+---
+- name: Clone
+  ansible.builtin.git:
+    depth: 1
+    dest: "{{ ansible_user_dir }}/build/vscode-php-debug"
+    repo: https://github.com/xdebug/vscode-php-debug.git
+    single_branch: yes
+  register: clone
+  tags:
+    - debugger
+
+- name: Install
+  ansible.builtin.command: |
+    npm install
+    npm run build
+  args:
+    chdir: "{{ ansible_user_dir }}/build/vscode-php-debug"
+  when: clone.changed
+  tags:
+    - debugger
