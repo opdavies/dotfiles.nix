@@ -101,6 +101,10 @@ return packer.startup(function()
   use "neovim/nvim-lspconfig"
   use "nvim-lua/lsp-status.nvim"
 
+  -- Debugging
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
+
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-file-browser.nvim"
