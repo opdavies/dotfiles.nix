@@ -25,7 +25,6 @@ return packer.startup(function()
   use "cakebaker/scss-syntax.vim"
   use "christoomey/vim-sort-motion"
   use "christoomey/vim-tmux-navigator"
-  use "dhruvasagar/vim-zoom"
   use "editorconfig/editorconfig-vim"
   use "folke/twilight.nvim"
   use "folke/zen-mode.nvim"

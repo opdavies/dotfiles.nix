@@ -12,6 +12,12 @@ local function set_autocmd()
     autocmd FileType gitcommit setlocal spell
     autocmd FileType gitcommit setlocal textwidth=72
   ]]
+
+  -- Automatically resize buffers when Vim is resized.
+  vim.api.nvim_create_autocmd(
+    "VimResized *",
+    { command = ":wincmd =" }
+  )
 end
 
 local function set_filetypes()
@@ -54,9 +60,10 @@ local function set_key_mappings()
 
   map("n", "<C-f>", ":silent !tmux neww tmux-sessioniser<CR>", { noremap = true, silent = true })
   
-  local imap = require "opdavies.keymap".imap
-  local nmap = require "opdavies.keymap".nmap
-  local xmap = require "opdavies.keymap".xmap
+  local keymap = require "opdavies.keymap"
+  local imap = keymap.imap
+  local nmap = keymap.nmap
+  local xmap = keymap.xmap
   
   -- Easy insertion of a trailing ; or , from insert mode
   imap { ",,", "<Esc>A,<Esc>" }
@@ -64,6 +71,12 @@ local function set_key_mappings()
 
   nmap { "ga", "<Plug>(EasyAlign)" }
   xmap { "ga", "<Plug>(EasyAlign)" }
+
+  -- Focus on the current buffer.
+  nmap { "<leader>-", ":wincmd _<cr>:wincmd |<cr>", { noremap = true, silent = true }}
+
+  -- Automatically resize buffers.
+  nmap { "<leader>=", ":wincmd =<cr>", { noremap = true, silent = true }}
 end
 
 local function set_highlights()
