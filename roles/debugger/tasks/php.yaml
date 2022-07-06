@@ -15,6 +15,7 @@
     npm run build
   args:
     chdir: "{{ ansible_user_dir }}/build/vscode-php-debug"
+    creates: "{{ ansible_user_dir }}/build/vscode-php-debug/out"
   when: clone.changed
   tags:
     - debugger
