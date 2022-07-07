@@ -1,6 +1,8 @@
 default_roles:
   - ssh
+
   - alacritty
+  - awesome-wm
   - ctop
   - dconf
   - docker
