@@ -3,6 +3,7 @@
   ansible.builtin.git:
     depth: 1
     dest: "{{ ansible_user_dir }}/build/vscode-php-debug"
+    force: yes
     repo: https://github.com/xdebug/vscode-php-debug.git
     single_branch: yes
   register: clone
