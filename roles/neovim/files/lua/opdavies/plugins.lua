@@ -38,6 +38,7 @@ return packer.startup(function()
   use "lukas-reineke/indent-blankline.nvim"
   use "machakann/vim-highlightedyank"
   use "miyakogi/seiya.vim"
+  use "mkitt/tabline.vim"
   use "monaqa/dial.nvim"
   use "norcalli/nvim-colorizer.lua"
   use "numToStr/Comment.nvim"
