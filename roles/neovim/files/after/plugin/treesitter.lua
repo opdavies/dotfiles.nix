@@ -7,7 +7,8 @@ configs.setup {
   context_commenting = {
     enable = true,
   },
-  ensure_installed = "maintained",
+  -- TODO: specify which languages to install.
+  ensure_installed = "all",
   highlight = {
     enable = true,
   },
