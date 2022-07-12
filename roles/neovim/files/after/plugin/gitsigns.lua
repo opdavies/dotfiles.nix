@@ -16,6 +16,7 @@ Group.new("GitSignsChange", c.yellow)
 Group.new("GitSignsDelete", c.red)
 
 gitsigns.setup {
+  current_line_blame = true,
   linehl = false,
   numhl = true,
 
