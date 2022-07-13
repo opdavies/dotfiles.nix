@@ -19,6 +19,12 @@
     - yaml-language-server
   become: true
 
+- name: Create intelephense directory
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/intelephense"
+    state: directory
+  when: intelephense_licence is defined
+
 - name: Add intelephense licence key
   ansible.builtin.copy:
     content: "{{ intelephense_licence }}"
