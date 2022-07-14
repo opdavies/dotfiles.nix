@@ -14,6 +14,7 @@ $HOME/bin:\
 $HOME/snap/bin:\
 bin:\
 node_modules/.bin:\
+tools/php-cs-fixer/vendor/bin:\
 vendor/bin
 
 export CDPATH=\
