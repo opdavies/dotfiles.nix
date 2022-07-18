@@ -1,6 +1,10 @@
 default_roles:
   - ssh
 
+  - cargo
+  - delta
+  - stylua
+
   - alacritty
   - awesome-wm
   - ctop
@@ -12,7 +16,6 @@ default_roles:
   - git
   - htop
   - jq
-  - cargo
   - mysql-client
   - npm
   - neovim
@@ -23,11 +26,11 @@ default_roles:
   - pulumi
   - pv
   - ripgrep
-  - stylua
   - tldr
   - tree
   - tmux
   - tmuxinator
   - zsh
   - zsh-antigen
+
   - debugger

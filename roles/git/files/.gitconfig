@@ -83,6 +83,10 @@
 [core]
 	editor = nvim
 	excludesFile = ~/.gitignore-global
+	pager = delta
+
+[delta]
+	line-numbers = true
 
 [diff]
 	tool = vimdiff

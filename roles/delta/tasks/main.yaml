@@ -1,0 +1,8 @@
+---
+- name: Install
+  community.general.cargo:
+    name:
+      - git-delta
+    path: /usr/local
+    state: latest
+  become: true
