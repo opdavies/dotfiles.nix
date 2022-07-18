@@ -21,5 +21,5 @@ export CDPATH=\
 ./:\
 $HOME/Code:\
 $HOME/Code/clients:\
-$HOME/Code/os:\
+$HOME/Code/open_source:\
 $HOME
