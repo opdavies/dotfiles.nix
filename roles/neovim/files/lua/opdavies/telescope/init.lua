@@ -18,7 +18,23 @@ function M.current_buf()
     previewer = false,
   }
 
-  require "telescope.builtin".current_buffer_fuzzy_find(opts)
+  require("telescope.builtin").current_buffer_fuzzy_find(opts)
+end
+
+M.diagnostics = function()
+  local theme = require("telescope.themes").get_dropdown {
+    previewer = false,
+  }
+
+  require("telescope.builtin").diagnostics(theme)
+end
+
+function M.lsp_document_symbols()
+  local theme = require("telescope.themes").get_dropdown {
+    previewer = false,
+  }
+
+  require("telescope.builtin").lsp_document_symbols(theme)
 end
 
 function M.edit_neovim()
@@ -50,7 +66,7 @@ end
 function M.file_browser()
   local opts = {
     cwd = vim.fn.expand "%:p:h",
-    sorting_strategy = "ascending"
+    sorting_strategy = "ascending",
   }
 
   require("telescope").extensions.file_browser.file_browser(opts)
@@ -64,6 +80,16 @@ function M.fd()
   }
 
   require("telescope.builtin").find_files(opts)
+end
+
+function M.git_files()
+  local opts = themes.get_ivy {
+    file_ignore_patterns = { ".git/", "vendor" },
+    hidden = true,
+    no_ignore = true,
+  }
+
+  require("telescope.builtin").git_files(opts)
 end
 
 function M.live_grep()

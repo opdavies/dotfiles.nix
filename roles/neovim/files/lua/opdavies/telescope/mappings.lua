@@ -28,6 +28,9 @@ telescope_mapper("<leader>fg", "git_files")
 telescope_mapper("<leader>fh", "help_tags")
 telescope_mapper("<leader>fl", "live_grep")
 
+telescope_mapper("<leader>ds", "lsp_document_symbols")
+telescope_mapper("<leader>dl", "diagnostics")
+
 telescope_mapper("<leader>en", "edit_neovim")
 telescope_mapper("<leader>ez", "edit_zsh")
 
