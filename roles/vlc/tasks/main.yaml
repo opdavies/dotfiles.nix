@@ -1,0 +1,7 @@
+---
+- name: Install
+  community.general.flatpak:
+    name:
+      - org.videolan.VLC
+    method: user
+    state: present

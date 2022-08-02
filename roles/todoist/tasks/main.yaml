@@ -1,0 +1,7 @@
+---
+- name: Install
+  community.general.flatpak:
+    name:
+      - com.todoist.Todoist
+    method: user
+    state: present

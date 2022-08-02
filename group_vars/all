@@ -7,6 +7,7 @@ default_roles:
 
   - alacritty
   - awesome-wm
+  - copyq
   - ctop
   - dconf
   - docker
@@ -32,5 +33,25 @@ default_roles:
   - tmuxinator
   - zsh
   - zsh-antigen
+
+  # Flatpaks
+  - discord
+  - flameshot
+  - github-desktop
+  - google-chrome
+  - kdenlive
+  - obs-studio
+  - pdf-arranger
+  - pocketcasts
+  - postman
+  - skype
+  - slack
+  - teams
+  - todoist
+  - vlc
+  - zoom
+
+  - fonts
+  - projects
 
   - debugger

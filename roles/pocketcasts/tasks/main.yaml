@@ -1,0 +1,7 @@
+---
+- name: Install
+  community.general.flatpak:
+    name:
+      - tech.feliciano.pocket-casts
+    method: user
+    state: present

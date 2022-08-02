@@ -1,0 +1,7 @@
+---
+- name: Install
+  community.general.flatpak:
+    name:
+      - com.github.IsmaelMartinez.teams_for_linux
+    method: user
+    state: present

@@ -1,0 +1,7 @@
+---
+- name: Install
+  community.general.flatpak:
+    name:
+      - com.google.Chrome
+    method: user
+    state: present

@@ -1,0 +1,7 @@
+---
+- name: Install
+  community.general.flatpak:
+    name:
+      - com.github.hluk.copyq
+    method: user
+    state: present
