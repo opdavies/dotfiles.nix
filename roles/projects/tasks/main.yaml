@@ -1,0 +1,20 @@
+---
+- name: Create project directories
+  ansible.builtin.file:
+    path: "{{ project_directory_item }}"
+    state: directory
+    recurse: yes
+  loop_control:
+    loop_var: project_directory_item
+  with_items: "{{ project_directories | default([]) }}"
+
+- name: Clone projects
+  ansible.builtin.git:
+    accept_hostkey: yes
+    clone: yes
+    dest: "{{ ansible_user_dir }}/Code/{{ project_item.dest }}"
+    repo: "{{ project_item.repo }}"
+    update: no
+  loop_control:
+    loop_var: project_item
+  with_items: "{{ project_projects | default([]) }}"
