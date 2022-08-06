@@ -10,7 +10,7 @@ local mark_actions = require "lir.mark.actions"
 lir.setup {
   hide_cursor = true,
   show_hidden_files = true,
-  -- devicons_enable = true,
+  devicons_enable = true,
 
   mappings = {
     ["l"] = actions.edit,
@@ -60,4 +60,8 @@ lir.setup {
     -- echo cwd
     vim.api.nvim_echo({ { vim.fn.expand "%:p", "Normal" } }, false, {})
   end,
+}
+
+require("lir.git_status").setup {
+  show_ignored = false,
 }
