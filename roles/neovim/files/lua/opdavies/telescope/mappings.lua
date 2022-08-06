@@ -1,5 +1,7 @@
 TelescopeMapArgs = TelescopeMapArgs or {}
 
+local telescope = require "telescope"
+
 local telescope_mapper = function(key, f, options, buffer)
   local map_key = vim.api.nvim_replace_termcodes(key .. f, true, true, true)
 
@@ -33,5 +35,10 @@ telescope_mapper("<leader>dl", "diagnostics")
 
 telescope_mapper("<leader>en", "edit_neovim")
 telescope_mapper("<leader>ez", "edit_zsh")
+
+local nmap = require "opdavies.keymap".nmap
+
+nmap { "<leader>gm", telescope.extensions.git_worktree.create_git_worktree }
+nmap { "<leader>gw", telescope.extensions.git_worktree.git_worktrees }
 
 return telescope_mapper

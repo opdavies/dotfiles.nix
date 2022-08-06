@@ -46,6 +46,7 @@ return packer.startup(function()
   use "nvim-lua/popup.nvim"
   use "rcarriga/nvim-notify"
   use "sheerun/vim-polyglot"
+  use "theprimeagen/git-worktree.nvim"
   use "theprimeagen/refactoring.nvim"
   use "tjdevries/express_line.nvim"
   use "tpope/vim-repeat"
