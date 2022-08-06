@@ -1,4 +1,4 @@
-pcall(require, "impatient")
+pcall("require", impatient)
 
 require "opdavies.globals"
 

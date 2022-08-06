@@ -121,4 +121,9 @@ return packer.startup(function()
   use "kristijanhusak/vim-dadbod-completion"
   use "kristijanhusak/vim-dadbod-ui"
 
+  -- Text objects
+  use "kana/vim-textobj-indent"
+  use "kana/vim-textobj-user"
+  use "vim-scripts/argtextobj.vim"
+  use "wellle/targets.vim"
 end)
