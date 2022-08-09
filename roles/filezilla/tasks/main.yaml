@@ -1,0 +1,7 @@
+---
+- name: Install
+  community.general.flatpak:
+    name:
+      - org.filezillaproject.Filezilla
+    method: user
+    state: present
