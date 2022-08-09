@@ -79,6 +79,7 @@ local function set_key_mappings()
   local keymap = require "opdavies.keymap"
   local imap = keymap.imap
   local nmap = keymap.nmap
+  local vmap = keymap.vmap
   local xmap = keymap.xmap
   
   -- Easy insertion of a trailing ; or , from insert mode
@@ -93,6 +94,15 @@ local function set_key_mappings()
 
   -- Automatically resize buffers.
   nmap { "<leader>=", ":wincmd =<cr>", { noremap = true, silent = true }}
+
+  -- Move line(s) up and down.
+  local opts = { noremap = true, silent = true }
+  imap { "<M-j>", "<Esc>:m .+1<CR>==gi", opts }
+  imap { "<M-k>", "<Esc>:m .-2<CR>==gi", opts }
+  nmap { "<M-j>", ":m .+1<CR>==", opts }
+  nmap { "<M-k>", ":m .-2<CR>==", opts }
+  vmap { "<M-j>", ":m '>+1<CR>gv=gv", opts }
+  vmap { "<M-k>", ":m '<-2<CR>gv=gv", opts }
 end
 
 local function set_highlights()
