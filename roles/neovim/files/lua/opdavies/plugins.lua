@@ -126,4 +126,14 @@ return packer.startup(function()
   use "kana/vim-textobj-user"
   use "vim-scripts/argtextobj.vim"
   use "wellle/targets.vim"
+
+  -- Markdown
+  use {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  }
 end)
