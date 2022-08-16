@@ -14,10 +14,7 @@ local function set_autocmd()
   ]]
 
   -- Automatically resize buffers when Vim is resized.
-  vim.api.nvim_create_autocmd(
-    "VimResized *",
-    { command = ":wincmd =" }
-  )
+  vim.api.nvim_create_autocmd("VimResized *", { command = ":wincmd =" })
 
   -- Cursorline highlighting control.
   --  Only have it on in the current buffer.
@@ -75,13 +72,13 @@ local function set_key_mappings()
   vim.cmd [[ nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}() ]]
 
   map("n", "<C-f>", ":silent !tmux neww tmux-sessioniser<CR>", { noremap = true, silent = true })
-  
+
   local keymap = require "opdavies.keymap"
   local imap = keymap.imap
   local nmap = keymap.nmap
   local vmap = keymap.vmap
   local xmap = keymap.xmap
-  
+
   -- Easy insertion of a trailing ; or , from insert mode
   imap { ",,", "<Esc>A,<Esc>" }
   imap { ";;", "<Esc>A;<Esc>" }
@@ -90,10 +87,10 @@ local function set_key_mappings()
   xmap { "ga", "<Plug>(EasyAlign)" }
 
   -- Focus on the current buffer.
-  nmap { "<leader>-", ":wincmd _<cr>:wincmd |<cr>", { noremap = true, silent = true }}
+  nmap { "<leader>-", ":wincmd _<cr>:wincmd |<cr>", { noremap = true, silent = true } }
 
   -- Automatically resize buffers.
-  nmap { "<leader>=", ":wincmd =<cr>", { noremap = true, silent = true }}
+  nmap { "<leader>=", ":wincmd =<cr>", { noremap = true, silent = true } }
 
   -- Move line(s) up and down.
   local opts = { noremap = true, silent = true }

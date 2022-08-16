@@ -73,7 +73,7 @@ return packer.startup(function()
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use "nvim-treesitter/nvim-treesitter-textobjects"
 
   -- Completion
   use {
@@ -114,7 +114,7 @@ return packer.startup(function()
   use { "nvim-telescope/telescope-ui-select.nvim" }
 
   -- Git
-  use 'TimUntersberger/neogit'
+  use "TimUntersberger/neogit"
 
   -- Databases
   use "tpope/vim-dadbod"

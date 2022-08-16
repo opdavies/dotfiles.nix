@@ -36,7 +36,7 @@ telescope_mapper("<leader>dl", "diagnostics")
 telescope_mapper("<leader>en", "edit_neovim")
 telescope_mapper("<leader>ez", "edit_zsh")
 
-local nmap = require "opdavies.keymap".nmap
+local nmap = require("opdavies.keymap").nmap
 
 nmap { "<leader>gm", telescope.extensions.git_worktree.create_git_worktree }
 nmap { "<leader>gw", telescope.extensions.git_worktree.git_worktrees }

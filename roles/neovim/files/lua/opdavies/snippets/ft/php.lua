@@ -8,7 +8,8 @@ local t = ls.text_node
 
 local M = {
 
-  drupalclass = fmta([[
+  drupalclass = fmta(
+    [[
     <<?php
 
     declare(strict_types=1);
@@ -22,7 +23,7 @@ local M = {
     }]],
     {
       f(function()
-        local filepath = vim.fn.expand('%:h')
+        local filepath = vim.fn.expand "%:h"
         local filepath_parts = vim.fn.split(filepath, "/")
 
         if not vim.tbl_contains(filepath_parts, "src") then
@@ -54,7 +55,9 @@ local M = {
 
         return table.concat(namespace_parts, "\\")
       end),
-      f(function() return vim.fn.expand("%:t:r"); end),
+      f(function()
+        return vim.fn.expand "%:t:r"
+      end),
       i(0),
     }
   ),
