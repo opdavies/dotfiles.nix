@@ -63,6 +63,31 @@ function M.edit_neovim()
   require("telescope.builtin").find_files(opts)
 end
 
+function M.edit_zsh()
+  local opts = {
+    cwd = "~/.config/zsh",
+    path_display = { "shorten" },
+    prompt_title = "~ zsh ~",
+    no_ignore = true,
+
+    layout_strategy = "flex",
+    layout_config = {
+      height = 0.8,
+      prompt_position = "top",
+      width = 0.9,
+
+      horizontal = {
+        width = { padding = 0.15 },
+      },
+      vertical = {
+        preview_height = 0.75,
+      },
+    },
+  }
+
+  require("telescope.builtin").find_files(opts)
+end
+
 function M.file_browser()
   local opts = {
     cwd = vim.fn.expand "%:p:h",
