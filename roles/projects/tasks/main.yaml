@@ -11,9 +11,11 @@
 - name: Clone projects
   ansible.builtin.git:
     accept_hostkey: yes
+    bare: "{{ project_item.bare | default(true) }}"
     clone: yes
     dest: "{{ ansible_user_dir }}/Code/{{ project_item.dest }}"
     repo: "{{ project_item.repo }}"
+    version: "{{ project_item.version | default('main') }}"
     update: no
   loop_control:
     loop_var: project_item
