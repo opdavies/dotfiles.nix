@@ -121,6 +121,9 @@ return packer.startup(function()
   use "kristijanhusak/vim-dadbod-completion"
   use "kristijanhusak/vim-dadbod-ui"
 
+  -- HTTP client
+  use "rest-nvim/rest.nvim"
+
   -- Text objects
   use "kana/vim-textobj-indent"
   use "kana/vim-textobj-user"
