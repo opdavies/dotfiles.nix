@@ -1,6 +1,5 @@
 alias hosts='sudo vim /etc/hosts'
 alias rebase='git fetch --all --prune --prune-tags && git rebase'
-alias run='./run'
 alias sshconfig='vim ~/.ssh/config'
 alias vim='nvim'
 
