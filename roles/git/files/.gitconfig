@@ -15,7 +15,7 @@
 	df = diff --color --word-diff
 	dup = !git checkout develop && git fetch origin && echo && git sl develop..origin/develop && echo && git pull --quiet && git checkout -
 	fixup = commit --fixup
-	issues = !hub browse -- issues
+	issues = !gh issue list --web
 	mup = !git master-to-main-wrapper checkout %BRANCH% && git fetch origin && echo && git sl %BRANCH%..origin/%BRANCH% && echo && git pull --quiet && git checkout -
 	nah = !git reset --hard && git clean -fd
 	no-ff = merge --no-ff
