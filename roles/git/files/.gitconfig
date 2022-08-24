@@ -45,6 +45,7 @@
 	upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
 	ureset = !git reset --hard $(git upstream)
 	wip = !git add . && git commit -m 'wip'
+	worktrees = "worktree list"
 
 [branch]
 	autosetupmerge = true
