@@ -3,7 +3,7 @@
 	assume = update-index --assume-unchanged
 	assumed = !git ls-files -v | grep '^[hsmrck?]' | cut -c 3-
 	b = branch
-	browse = !hub browse
+	browse = !gh repo view --web
 	ca = commit --amend --verbose
 	car = commit --amend --no-edit
 	cl = !hub clone
