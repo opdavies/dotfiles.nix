@@ -22,7 +22,7 @@
 	pl = pull
 	prune = remote prune origin
 	ps = push
-	pulls = !hub browse -- pulls
+	pulls = !gh pr list --web
 	rbc = rebase --continue
 	rdup = !git dup && git rebase develop
 	remotes = remote -v
