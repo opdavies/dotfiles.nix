@@ -19,19 +19,6 @@ local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
 
 null_ls.setup {
-  on_attach = function(client, bufnr)
-    if client.supports_method "textDocument/formatting" then
-      vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = bufnr,
-        callback = function()
-          lsp_formatting(bufnr)
-        end,
-        group = augroup,
-      })
-    end
-  end,
-
   sources = {
     formatting.phpcbf,
     formatting.markdownlint,
