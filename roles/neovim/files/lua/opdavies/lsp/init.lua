@@ -39,6 +39,7 @@ local custom_attach = function(client)
   buf_nnoremap { "<leader>ca", vim.lsp.buf.code_action }
   buf_nnoremap { "<leader>dn", vim.diagnostic.goto_next }
   buf_nnoremap { "<leader>dp", vim.diagnostic.goto_prev }
+  buf_nnoremap { "<leader>f", vim.lsp.buf.format }
   buf_nnoremap { "<leader>rn", vim.lsp.buf.rename }
   buf_nnoremap { "<leader>rr", "<cmd>LspRestart<cr>" }
   buf_nnoremap { "K", vim.lsp.buf.hover }
