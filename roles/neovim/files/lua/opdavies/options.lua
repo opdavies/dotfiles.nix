@@ -100,6 +100,10 @@ local function set_key_mappings()
   nmap { "<M-k>", ":m .-2<CR>==", opts }
   vmap { "<M-j>", ":m '>+1<CR>gv=gv", opts }
   vmap { "<M-k>", ":m '<-2<CR>gv=gv", opts }
+
+  -- Move half a screen up or down and re-center.
+  nmap { "<C-d>", "<C-d>zz" }
+  nmap { "<C-u>", "<C-u>zz" }
 end
 
 local function set_highlights()
