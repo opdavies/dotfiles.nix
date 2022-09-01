@@ -29,13 +29,11 @@ return packer.startup(function()
   use "folke/twilight.nvim"
   use "folke/zen-mode.nvim"
   use "icatalina/vim-case-change"
-  use "j-hui/fidget.nvim"
   use "junegunn/vim-easy-align"
   use "kazhala/close-buffers.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "lewis6991/gitsigns.nvim"
   use "lewis6991/impatient.nvim"
-  use "lukas-reineke/indent-blankline.nvim"
   use "machakann/vim-highlightedyank"
   use "miyakogi/seiya.vim"
   use "mkitt/tabline.vim"
@@ -44,7 +42,6 @@ return packer.startup(function()
   use "numToStr/Comment.nvim"
   use "nvim-lua/plenary.nvim"
   use "nvim-lua/popup.nvim"
-  use "rcarriga/nvim-notify"
   use "sheerun/vim-polyglot"
   use "theprimeagen/git-worktree.nvim"
   use "theprimeagen/refactoring.nvim"
@@ -86,10 +83,6 @@ return packer.startup(function()
       "hrsh7th/cmp-path",
       "onsails/lspkind-nvim",
       "saadparwaiz1/cmp_luasnip",
-      {
-        "tzachar/cmp-tabnine",
-        run = "./install.sh",
-      },
     },
   }
 
