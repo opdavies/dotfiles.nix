@@ -54,7 +54,7 @@ local custom_attach = function(client)
   telescope_mapper("<leader>dl", "diagnostics", nil, true)
 
   -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     vim.cmd [[
       augroup lsp_document_highlight
         autocmd! * <buffer>
