@@ -1,5 +1,5 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
+local has_configs, configs = pcall(require, "nvim-treesitter.configs")
+if not has_configs then
   return
 end
 
@@ -53,7 +53,14 @@ configs.setup {
   },
 }
 
-local nmap = require "opdavies.keymap".nmap
+local nmap = require("opdavies.keymap").nmap
 
-nmap({ "<leader>th", "<cmd>TSHighlightCapturesUnderCursor<CR>" })
-nmap({ "<leader>tp", "<cmd>TSPlaygroundToggle<CR>" })
+nmap { "<leader>th", "<cmd>TSHighlightCapturesUnderCursor<CR>" }
+nmap { "<leader>tp", "<cmd>TSPlaygroundToggle<CR>" }
+
+local has_context, context = pcall(require, "treesitter-context")
+if not has_context then
+  return
+end
+
+context.setup { enable = true }

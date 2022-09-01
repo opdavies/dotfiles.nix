@@ -69,6 +69,7 @@ return packer.startup(function()
 
   -- Treesitter
   use "nvim-treesitter/playground"
+  use 'nvim-treesitter/nvim-treesitter-context'
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
