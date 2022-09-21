@@ -122,6 +122,7 @@
 
   programs.zsh = {
     enable = true;
+    dotDir = ".config/zsh";
 
     initExtra = ''
       # No arguments: `git status`
