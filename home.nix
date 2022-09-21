@@ -19,6 +19,17 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.git = {
+    enable = true;
+    userName = "Oliver Davies";
+    userEmail = "oliver@oliverdavies.uk";
+
+    aliases = {
+      b = "branch";
+      cm = "commit";
+    };
+  };
+
   programs.zsh = {
     enable = true;
 
