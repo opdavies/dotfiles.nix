@@ -19,5 +19,19 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+
+    zplug = {
+      enable = true;
+
+      plugins = [
+        { name = "mollifier/cd-gitroot"; }
+        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "zsh-users/zsh-completions"; }
+        { name = "zsh-users/zsh-syntax-highlighting"; }
+      ];
+    };
+  };
 }
