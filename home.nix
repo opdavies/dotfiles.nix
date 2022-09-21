@@ -122,6 +122,7 @@
 
   programs.zsh = {
     enable = true;
+    enableCompletion = false;
     dotDir = ".config/zsh";
 
     initExtra = ''
