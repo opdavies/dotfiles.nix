@@ -72,6 +72,40 @@
       wip = "!git add . && git commit -m 'wip'";
       worktrees = "worktree list";
     };
+
+    extraConfig = {
+      branch = {
+        autosetupmerge = true;
+        autosetuprebase = "always";
+      };
+      checkout.defaultRemote = "origin";
+      color.ui = true;
+      commit = {
+        template = "~/.gitmessage";
+        verbose = true;
+      };
+      core = {
+        editor = "nvim";
+        excludesFile = "~/.gitignore-global";
+        pager = "delta";
+      };
+      delta.line-numbers = true;
+      diff.tool = "vimdiff";
+      fetch.prune = true;
+      grep.lineNumber = true;
+      help.autocorrect = "1";
+      init.templatedir = "~/.git_template";
+      merge.ff = "only";
+      rebase = {
+        autosquash = true;
+        autostash = true;
+      };
+      push.default = "upstream";
+      pull = {
+        ff = "only";
+        rebase = true;
+      };
+    };
   };
 
   programs.tmux = {
