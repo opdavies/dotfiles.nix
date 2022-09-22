@@ -112,6 +112,7 @@
 
   programs.tmux = {
     enable = true;
+    terminal = "tmux-256color";
 
     extraConfig = ''
       unbind C-b
@@ -125,8 +126,8 @@
       bind-key -n C-l select-pane -R
 
       set-option -g status-keys "emacs"
-      set-option -g default-terminal "xterm-256color"
       set-option -ga terminal-overrides ",*256col*:Tc"
+      set-option -g default-terminal "xterm-256color"
 
       bind-key h split-window -v  -c '#{pane_current_path}'
       bind-key v split-window -h  -c '#{pane_current_path}'
