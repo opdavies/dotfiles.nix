@@ -189,6 +189,10 @@
     dotDir = ".config/zsh";
 
     initExtra = ''
+      # Case insensitive autocompletion.
+      zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
+      autoload -Uz compinit && compinit
+
       # No arguments: `git status`
       # With arguments: acts like `git`
       g() {
