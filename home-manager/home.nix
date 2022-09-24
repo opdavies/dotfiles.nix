@@ -188,6 +188,13 @@
     enableCompletion = false;
     dotDir = ".config/zsh";
 
+    autocd = true;
+    cdpath = [
+      "$HOME/Code"
+      "$HOME/Code/*"
+      "$HOME"
+    ];
+
     initExtra = ''
       # Case insensitive autocompletion.
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
