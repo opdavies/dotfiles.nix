@@ -46,6 +46,7 @@ return packer.startup(function()
   use "theprimeagen/git-worktree.nvim"
   use "theprimeagen/refactoring.nvim"
   use "tjdevries/express_line.nvim"
+  use "tpope/vim-abolish"
   use "tpope/vim-repeat"
   use "tpope/vim-surround"
   use "vim-test/vim-test"
