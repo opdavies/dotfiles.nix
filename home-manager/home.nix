@@ -188,6 +188,10 @@
     enableCompletion = false;
     dotDir = ".config/zsh";
 
+    shellAliases = {
+      run = "./run";
+    };
+
     autocd = true;
     cdpath = [
       "$HOME/Code"
