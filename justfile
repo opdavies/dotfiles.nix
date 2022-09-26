@@ -1,5 +1,5 @@
 default:
   just --list
 
-update:
-  home-manager switch -f home-manager/home.nix
+pop-os *args:
+  home-manager switch -f home-manager/home.nix --flake .#pop-os {{ args }}

@@ -1,23 +1,24 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
   home.username = "opdavies";
   home.homeDirectory = "/home/opdavies";
 
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
   home.stateVersion = "22.05";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  fonts.fontconfig.enable = true;
+
+  home.packages = with pkgs; [
+    docker
+    docker-compose
+    jetbrains-mono
+    just
+    meslo-lg
+    neovim
+  ];
 
   programs.bat.enable = true;
 
@@ -127,7 +128,7 @@
 
       set-option -g status-keys "emacs"
       set-option -ga terminal-overrides ",*256col*:Tc"
-      set-option -g default-terminal "xterm-256color"
+      set-option -g default-terminal "screen-256color"
 
       bind-key h split-window -v  -c "#{pane_current_path}"
       bind-key v split-window -h  -c "#{pane_current_path}"
