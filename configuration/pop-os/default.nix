@@ -3,6 +3,7 @@
 {
   imports = [
     ../../home-manager/modules/alacritty.nix
+    ../../home-manager/modules/common.nix
     ../../home-manager/modules/git.nix
     ../../home-manager/modules/home-manager.nix
     ../../home-manager/modules/tmux.nix
@@ -15,9 +16,5 @@
     docker
     docker-compose
     jetbrains-mono
-    just
-    neovim
   ];
-
-  programs.bat.enable = true;
 }
