@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ./modules/alacritty.nix
-    ./modules/git.nix
-    ./modules/home-manager.nix
-    ./modules/tmux.nix
-    ./modules/zsh.nix
+    ../../home-manager/modules/alacritty.nix
+    ../../home-manager/modules/git.nix
+    ../../home-manager/modules/home-manager.nix
+    ../../home-manager/modules/tmux.nix
+    ../../home-manager/modules/zsh.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -16,7 +16,6 @@
     docker-compose
     jetbrains-mono
     just
-    meslo-lg
     neovim
   ];
 
