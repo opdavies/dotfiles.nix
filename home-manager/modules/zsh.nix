@@ -21,6 +21,10 @@
     ];
 
     initExtra = ''
+      if [ -f ~/.config/zsh/.p10k.zsh ]; then
+        . ~/.config/zsh/.p10k.zsh
+      fi
+
       # Case insensitive autocompletion.
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
       autoload -Uz compinit && compinit
