@@ -6,7 +6,11 @@
     dotDir = ".config/zsh";
 
     shellAliases = {
+      fetch = "git fetch --all --jobs=4 --progress --prune";
       run = "./run";
+      pull = "git pull --autostash --jobs=4 --summary origin";
+      rebase = "git rebase --autostash --stat";
+      update = "fetch && rebase";
     };
 
     autocd = true;
