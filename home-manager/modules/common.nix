@@ -2,6 +2,9 @@
 {
   home.packages = with pkgs; [
     just
+
+    # LSP
+    nodePackages.markdownlint-cli
   ];
 
   programs.bat.enable = true;
