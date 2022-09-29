@@ -15,7 +15,7 @@
       pop-os = home-manager.lib.homeManagerConfiguration {
         modules = [     
           { nixpkgs.overlays = overlays; }
-          ./configuration/pop-os
+          ./nixpkgs/configuration/pop-os
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
@@ -23,7 +23,7 @@
       wsl2 = home-manager.lib.homeManagerConfiguration {
         modules = [     
           { nixpkgs.overlays = overlays; }
-          ./configuration/wsl2
+          ./nixpkgs/configuration/wsl2
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
