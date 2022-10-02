@@ -11,6 +11,20 @@
   let
     overlays = [ neovim-nightly.overlay ];
   in {
+    nixosConfigurations = {
+      nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixpkgs/nixos/apollo/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.opdavies = import ./nixpkgs/home-manager/apollo.nix;
+          }
+        ];
+      };
+    };
+
     homeConfigurations = {
       pop-os = home-manager.lib.homeManagerConfiguration {
         modules = [     
