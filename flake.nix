@@ -12,7 +12,7 @@
     overlays = [ neovim-nightly.overlay ];
   in {
     nixosConfigurations = {
-      nixpkgs.lib.nixosSystem {
+      apollo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./nixpkgs/nixos/apollo/configuration.nix
