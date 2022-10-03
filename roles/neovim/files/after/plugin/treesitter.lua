@@ -3,6 +3,9 @@ if not has_configs then
   return
 end
 
+
+local parser_install_dir = vim.fn.stdpath('data') .. "/site";
+
 configs.setup {
   context_commenting = {
     enable = true,
@@ -51,7 +54,10 @@ configs.setup {
       },
     },
   },
+  parser_install_dir = parser_install_dir,
 }
+
+vim.opt.runtimepath:append(parser_install_dir)
 
 local nmap = require("opdavies.keymap").nmap
 
