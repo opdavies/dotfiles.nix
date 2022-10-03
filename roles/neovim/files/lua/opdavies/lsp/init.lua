@@ -76,6 +76,7 @@ local servers = {
   gopls = true,
   html = true,
   -- intelephense = true
+  rnix = true,
   tsserver = true,
   vuels = true,
   yamlls = true,

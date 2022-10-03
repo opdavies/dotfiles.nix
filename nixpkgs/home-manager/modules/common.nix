@@ -24,6 +24,7 @@
     php81Packages.phpcbf
     php81Packages.phpcs
     php81Packages.phpstan
+    rnix-lsp
     shellcheck
   ];
 
