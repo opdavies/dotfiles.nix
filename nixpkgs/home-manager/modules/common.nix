@@ -114,4 +114,9 @@
       vimPlugins.nightfox-nvim
     ];
   };
+
+  xdg.configFile.nvim = {
+    source = ../../../config/neovim;
+    recursive = true;
+  };
 }
