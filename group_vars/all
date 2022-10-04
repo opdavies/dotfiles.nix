@@ -22,9 +22,6 @@ default_roles:
   - jq
   - kdenlive
   - mysql-client
-  - neovim
-  - neovim-lsp
-  - neovim-packer
   - notion-app
   - npm
   - obs-studio
