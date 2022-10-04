@@ -85,51 +85,18 @@ in
     extraGroups = [ "docker" "networkmanager" "wheel" ];
     packages = with pkgs; [
       alacritty
-      ansible
-      antibody
-      bat
-      bottom
-      cargo
       chromium
       copyq
-      ctop
-      delta
       discord
-      docker
       firefox
       flameshot
-      fzf
-      gh
       gimp
-      git
-      git-crypt
       github-desktop
-      html-tidy
-      htop
-      jq
-      just
       kdenlive
-      lua
-      neofetch
-      neovim
-      platformsh
-      pv
-      ripgrep
-      shellcheck
       slack
-      stylua
-      sumneko-lua-language-server
       teams
-      tldr
-      tmux
-      tmuxinator
-      tree
-      unzip
       vlc
-      wget
-      yt-dlp
       zoom-us
-      zsh
     ];
   };
 

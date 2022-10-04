@@ -5,10 +5,33 @@
   ];
 
   home.packages = with pkgs; [
+    bottom
+    ctop
+    delta
+    file
+    fzf
+    gcc
+    gh
+    git
+    git-crypt
     just
+    tree-sitter
+    htop
+    jq
+    lua
+    neofetch
+    platformsh
+    pv
+    ripgrep
+    tldr
+    tmuxinator
+    tree
+    unzip
+    wget
 
     # LSP
     # TODO: nodePackages."@ansible/ansible-language-server"
+    html-tidy
     nodePackages."@tailwindcss/language-server"
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
