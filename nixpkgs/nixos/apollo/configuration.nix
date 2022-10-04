@@ -175,13 +175,5 @@ in
   programs.zsh.enable = true;
   programs.zsh.histSize = 5000;
 
-  programs.zsh.shellAliases = {
-    cat = "bat";
-    fetch = "git fetch --all --jobs=4 --progress --prune";
-    pull = "git pull --autostash --jobs=4 --summary origin";
-    rebase = "git rebase --autostash --stat";
-    update = "fetch && rebase";
-  };
-
   users.defaultUserShell = "/etc/profiles/per-user/opdavies/bin/zsh";
 }
