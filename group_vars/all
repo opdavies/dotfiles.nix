@@ -37,7 +37,6 @@ default_roles:
   - slack
   - ssh
   - stylua
-  - teams
   - tldr
   - tmux
   - tmuxinator

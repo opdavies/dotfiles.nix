@@ -96,7 +96,6 @@ in
       github-desktop
       kdenlive
       slack
-      teams
       vlc
       zoom-us
     ];
