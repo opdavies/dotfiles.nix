@@ -13,17 +13,12 @@
       update = "fetch && rebase";
     };
 
-    autocd = true;
-    cdpath = [
-      "$HOME/Code"
-      "$HOME/Code/*"
-      "$HOME"
-    ];
-
     initExtra = ''
       if [ -f ~/.config/zsh/.p10k.zsh ]; then
         . ~/.config/zsh/.p10k.zsh
       fi
+
+      eval "$(zoxide init zsh)"
 
       # Case insensitive autocompletion.
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"

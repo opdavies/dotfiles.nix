@@ -28,6 +28,7 @@
     tree
     unzip
     wget
+    zoxide
 
     # LSP
     # TODO: nodePackages."@ansible/ansible-language-server"
@@ -114,6 +115,15 @@
       # Themes
       vimPlugins.nightfox-nvim
     ];
+  };
+
+  home.sessionPath = [
+    "$HOME/.config/bin"
+  ];
+
+  xdg.configFile.bin = {
+    source = ../../../bin;
+    recursive = true;
   };
 
   xdg.configFile.nvim = {
