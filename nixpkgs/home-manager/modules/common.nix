@@ -73,6 +73,11 @@
       vimPlugins.vim-surround
       vimPlugins.vim-test
 
+      # Debugging
+      vimPlugins.nvim-dap
+      vimPlugins.nvim-dap-ui
+      vimPlugins.nvim-dap-virtual-text
+
       # Treesitter
       vimPlugins.nvim-treesitter
       vimPlugins.nvim-treesitter-context
