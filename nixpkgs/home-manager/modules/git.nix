@@ -63,7 +63,6 @@
       color.ui = true;
       commit = {
         template = "~/.gitmessage";
-        verbose = true;
       };
       core = {
         editor = "nvim";
