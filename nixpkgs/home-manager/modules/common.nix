@@ -31,8 +31,8 @@
     zoxide
 
     # LSP
-    # TODO: nodePackages."@ansible/ansible-language-server"
     html-tidy
+    nodePackages."@ansible/ansible-language-server"
     nodePackages."@tailwindcss/language-server"
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
