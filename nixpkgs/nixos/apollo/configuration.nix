@@ -98,6 +98,8 @@ in
       slack
       vlc
       zoom-us
+
+      gnomeExtensions.caffeine
     ];
   };
 
