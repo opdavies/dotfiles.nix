@@ -103,6 +103,24 @@ in
     ];
   };
 
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    atomix
+    cheese
+    evince
+    geary
+    gedit
+    gnome-characters
+    gnome-music
+    gnome-terminal
+    hitori
+    iagno
+    tali
+    totem
+  ]);
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
