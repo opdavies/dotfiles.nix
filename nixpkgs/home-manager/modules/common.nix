@@ -95,6 +95,7 @@
       vimPlugins.cmp-cmdline
       vimPlugins.cmp-nvim-lsp
       vimPlugins.cmp-path
+      vimPlugins.cmp-tabnine
       vimPlugins.cmp-treesitter
       vimPlugins.cmp-vsnip
       vimPlugins.cmp_luasnip
