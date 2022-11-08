@@ -73,6 +73,7 @@
       vimPlugins.vim-surround
       vimPlugins.vim-test
       vimPlugins.vim-tmux-navigator
+      vimPlugins.vimux
 
       # Debugging
       vimPlugins.nvim-dap
