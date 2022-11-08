@@ -20,8 +20,8 @@ local buf_inoremap = function(opts)
   imap(opts)
 end
 
-local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
-updated_capabilities = require("cmp_nvim_lsp").update_capabilities(updated_capabilities)
+local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+default_capabilities = require("cmp_nvim_lsp").default_capabilities(default_capabilities)
 
 local custom_init = function(client)
   client.config.flags = client.config.flags or {}
@@ -143,7 +143,7 @@ local setup_server = function(server, config)
   config = vim.tbl_deep_extend("force", {
     on_init = custom_init,
     on_attach = custom_attach,
-    capabilities = updated_capabilities,
+    capabilities = default_capabilities,
     flags = {
       debounce_text_changes = nil,
     },
