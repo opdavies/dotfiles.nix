@@ -62,6 +62,7 @@
       vimPlugins.gitsigns-nvim
       vimPlugins.harpoon
       vimPlugins.impatient-nvim
+      vimPlugins.indent-blankline-nvim
       vimPlugins.neogit
       vimPlugins.nvim-web-devicons
       vimPlugins.refactoring-nvim
