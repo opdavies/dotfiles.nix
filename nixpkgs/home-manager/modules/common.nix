@@ -67,6 +67,7 @@
       vimPlugins.nvim-web-devicons
       vimPlugins.refactoring-nvim
       vimPlugins.rest-nvim
+      vimPlugins.splitjoin-vim
       vimPlugins.vim-abolish
       vimPlugins.vim-highlightedyank
       vimPlugins.vim-polyglot
