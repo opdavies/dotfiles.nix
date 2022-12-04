@@ -56,74 +56,84 @@
 
   programs.neovim = {
     enable = true;
-    plugins = with pkgs; [
-      vimPlugins.comment-nvim
-      vimPlugins.git-worktree-nvim
-      vimPlugins.gitsigns-nvim
-      vimPlugins.harpoon
-      vimPlugins.impatient-nvim
-      vimPlugins.indent-blankline-nvim
-      vimPlugins.neogit
-      vimPlugins.nvim-web-devicons
-      vimPlugins.refactoring-nvim
-      vimPlugins.rest-nvim
-      vimPlugins.splitjoin-vim
-      vimPlugins.vim-abolish
-      vimPlugins.vim-highlightedyank
-      vimPlugins.vim-polyglot
-      vimPlugins.vim-repeat
-      vimPlugins.vim-surround
-      vimPlugins.vim-test
-      vimPlugins.vim-tmux-navigator
-      vimPlugins.vimux
+    plugins = let
+      phpactor = pkgs.vimUtils.buildVimPlugin {
+        name = "phpactor";
+        src = pkgs.fetchFromGitHub {
+          owner = "phpactor";
+          repo = "phpactor";
+          rev = "master";
+          sha256 = "j2rGPMiST85feqk5Nj4KrjxyhfbUjYEKAec+bzPEJZQ=";
+        };
+      };
+    in
+    with pkgs.vimPlugins; [
+      comment-nvim
+      git-worktree-nvim
+      gitsigns-nvim
+      harpoon
+      impatient-nvim
+      indent-blankline-nvim
+      neogit
+      nvim-web-devicons
+      refactoring-nvim
+      rest-nvim
+      splitjoin-vim
+      vim-abolish
+      vim-highlightedyank
+      vim-polyglot
+      vim-repeat
+      vim-surround
+      vim-test
+      vim-tmux-navigator
+      vimux
 
       # Debugging
-      vimPlugins.nvim-dap
-      vimPlugins.nvim-dap-ui
-      vimPlugins.nvim-dap-virtual-text
+      nvim-dap
+      nvim-dap-ui
+      nvim-dap-virtual-text
 
       # Treesitter
-      vimPlugins.nvim-treesitter
-      vimPlugins.nvim-treesitter-context
-      vimPlugins.nvim-treesitter-textobjects
+      nvim-treesitter
+      nvim-treesitter-context
+      nvim-treesitter-textobjects
 
       # LSP
-      vimPlugins.null-ls-nvim
-      vimPlugins.nvim-lspconfig
-      vimPlugins.lsp-status-nvim
+      null-ls-nvim
+      nvim-lspconfig
+      lsp-status-nvim
+      phpactor
 
       # Completion
-      vimPlugins.cmp-buffer
-      vimPlugins.cmp-cmdline
-      vimPlugins.cmp-nvim-lsp
-      vimPlugins.cmp-path
-      vimPlugins.cmp-tabnine
-      vimPlugins.cmp-treesitter
-      vimPlugins.cmp-vsnip
-      vimPlugins.cmp_luasnip
-      vimPlugins.lspkind-nvim
-      vimPlugins.nvim-cmp
+      cmp-buffer
+      cmp-cmdline
+      cmp-nvim-lsp
+      cmp-path
+      cmp-tabnine
+      cmp-treesitter
+      cmp-vsnip
+      cmp_luasnip
+      lspkind-nvim
+      nvim-cmp
 
-      vimPlugins.luasnip
+      # Snippets
+      luasnip
 
       # Telescope
-      vimPlugins.plenary-nvim
-      vimPlugins.popup-nvim
-      vimPlugins.telescope-file-browser-nvim
-      vimPlugins.telescope-fzf-native-nvim
-      vimPlugins.telescope-nvim
-      vimPlugins.telescope-ui-select-nvim
-
-      # Git
-      # vimPlugins.neogit
+      plenary-nvim
+      popup-nvim
+      telescope-file-browser-nvim
+      telescope-fzf-native-nvim
+      telescope-nvim
+      telescope-ui-select-nvim
 
       # Databases
-      vimPlugins.vim-dadbod
-      vimPlugins.vim-dadbod-ui
-      vimPlugins.vim-dadbod-completion
+      vim-dadbod
+      vim-dadbod-ui
+      vim-dadbod-completion
 
       # Themes
-      vimPlugins.nightfox-nvim
+      nightfox-nvim
     ];
   };
 
