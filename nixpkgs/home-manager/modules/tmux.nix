@@ -32,8 +32,16 @@
       bind -n C-Down resize-pane -D 5
       bind -n C-Up resize-pane -U 5
 
-      set-option -g status-left-length 50
-      set-option -g status-right ""
+      # Status line customisation
+      set-option -g status-left-length 100
+      set-option -g status-right-length 100
+      set-option -g status-left " #{session_name}  "
+      set-option -g status-right "#{pane_title} "
+      set-option -g status-style "fg=#7C7D83 bg=#242631"
+      set-option -g window-status-format "#{window_index}:#{pane_current_command}#{window_flags} "
+      set-option -g window-status-current-format "#{window_index}:#{pane_current_command}#{window_flags} "
+      set-option -g window-status-current-style "fg=#E9E9EA"
+      set-option -g window-status-activity-style none
 
       bind c new-window -c "#{pane_current_path}"
 
