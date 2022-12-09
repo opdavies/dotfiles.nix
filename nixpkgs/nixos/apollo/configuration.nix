@@ -164,4 +164,8 @@ in
   programs.zsh.histSize = 5000;
 
   users.defaultUserShell = "/etc/profiles/per-user/opdavies/bin/zsh";
+
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  ];
 }

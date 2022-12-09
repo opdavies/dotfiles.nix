@@ -11,11 +11,8 @@
 #    ../../../home-manager/modules/zsh.nix
   ];
 
-  fonts.fontconfig.enable = true;
-
   home.packages = with pkgs; [
     docker
     docker-compose
-    jetbrains-mono
   ];
 }
