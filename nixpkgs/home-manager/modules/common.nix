@@ -20,7 +20,10 @@
     jq
     lua
     neofetch
+    nodejs
+    php81
     platformsh
+    pulumi-bin
     pv
     ripgrep
     tldr
@@ -28,6 +31,7 @@
     tree
     unzip
     wget
+    yarn
     zoxide
 
     # LSP
