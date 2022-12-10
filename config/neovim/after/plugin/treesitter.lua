@@ -11,6 +11,7 @@ configs.setup {
     enable = true,
   },
   ensure_installed = {
+    "astro",
     "bash",
     "comment",
     "css",
