@@ -108,6 +108,7 @@ local servers = {
       "typescript",
 
       -- mixed
+      "astro",
       "vue",
     },
 
