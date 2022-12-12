@@ -1,5 +1,4 @@
 default_roles:
-  - alacritty
   - awesome-wm
   - cargo
   - copyq
