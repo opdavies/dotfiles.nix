@@ -45,6 +45,9 @@ in
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
+  # Enable Bluetooth.
+  services.blueman.enable = true;
+
   # Configure console keymap
   console.keyMap = "uk";
 
