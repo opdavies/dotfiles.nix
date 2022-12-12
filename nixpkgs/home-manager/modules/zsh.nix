@@ -33,6 +33,8 @@
           git status
         fi
       }
+
+      compdef g=git
     '';
 
     zplug = {
