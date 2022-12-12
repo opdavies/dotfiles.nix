@@ -13,4 +13,28 @@
 
   home.username = "opdavies";
   home.homeDirectory = "/home/opdavies";
+
+  programs.alacritty = {
+    enable = true;
+
+    settings = {
+      window.padding = {
+        x = 15;
+        y = 15;
+      };
+
+      font = {
+        size = 12.0;
+
+        normal.family = "JetBrainsMono Nerd Font";
+
+        offset.y = 12;
+        glyph_offset.y = 6;
+      };
+
+      shell = {
+        program = "zsh";
+      };
+    };
+  };
 }
