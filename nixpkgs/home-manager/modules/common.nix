@@ -54,6 +54,7 @@
     php81Packages.phpstan
     rnix-lsp
     shellcheck
+    sumneko-lua-language-server
   ];
 
   programs.bat.enable = true;
