@@ -2,6 +2,7 @@
 {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "intelephense"
+    "postman"
   ];
 
   home.packages = with pkgs; [
@@ -23,6 +24,7 @@
     nodejs
     php81
     platformsh
+    postman
     pulumi-bin
     pv
     ripgrep
