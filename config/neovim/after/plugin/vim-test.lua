@@ -4,12 +4,17 @@ local options = {
   silent = true,
 }
 
-map("n", "t<C-f>", ":TestFile<CR>", options)
-map("n", "t<C-g>", ":TestVisit<CR>", options)
-map("n", "t<C-l>", ":TestLast<CR>", options)
-map("n", "t<C-n>", ":TestNearest<CR>", options)
-map("n", "t<C-s>", ":TestSuite<CR>", options)
+map("n", "<leader>tf", ":TestFile<CR>", options)
+map("n", "<leader>tg", ":TestVisit<CR>", options)
+map("n", "<leader>tl", ":TestLast<CR>", options)
+map("n", "<leader>tn", ":TestNearest<CR>", options)
+map("n", "<leader>ts", ":TestSuite<CR>", options)
 
-vim.g["test#echo_command"] = 0
-vim.g["test#neovim#start_normal"] = 1
-vim.g["test#strategy"] = "vimux"
+vim.cmd([[
+  let test#echo_command = 0
+  let test#neovim#start_normal = 1
+  let test#strategy = "vimux"
+
+  let test#php#phpunit#executable = 'just test'
+  let test#php#phpunit#options = '--colors=always'
+]])
