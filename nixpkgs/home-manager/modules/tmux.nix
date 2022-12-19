@@ -90,6 +90,9 @@
       bind-key -T copy-mode-vi 'C-k' select-pane -U
       bind-key -T copy-mode-vi 'C-l' select-pane -R
       bind-key -T copy-mode-vi 'C-\' select-pane -l
+
+      bind-key -r F new-window t
+      bind-key -r D run-shell "t ~/Code/dotfiles"
     '';
 
     plugins = with pkgs; [
