@@ -1,7 +1,0 @@
----
-- name: Install
-  community.general.flatpak:
-    name:
-      - com.discordapp.Discord
-    method: user
-    state: present

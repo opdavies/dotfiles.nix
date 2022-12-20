@@ -1,8 +1,0 @@
----
-- name: Install
-  community.general.cargo:
-    name:
-      - stylua
-    path: /usr/local
-    state: latest
-  become: true

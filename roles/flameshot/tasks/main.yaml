@@ -1,7 +1,0 @@
----
-- name: Install
-  community.general.flatpak:
-    name:
-      - org.flameshot.Flameshot
-    method: user
-    state: present

@@ -1,7 +1,0 @@
----
-- name: Install
-  ansible.builtin.package:
-    name:
-      - fzf
-    state: latest
-  become: true

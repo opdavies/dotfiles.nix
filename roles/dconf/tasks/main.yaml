@@ -1,6 +1,0 @@
----
-- name: Configure
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/dconf-settings.ini"
-    dest: "{{ ansible_user_dir }}/.config/dconf-settings.ini"
-    state: link

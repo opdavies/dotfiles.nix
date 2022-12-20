@@ -1,7 +1,0 @@
----
-- name: Install
-  community.general.flatpak:
-    name:
-      - com.spotify.Client
-    method: user
-    state: present

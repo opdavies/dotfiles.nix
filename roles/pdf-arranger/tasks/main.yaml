@@ -1,7 +1,0 @@
----
-- name: Install
-  community.general.flatpak:
-    name:
-      - com.github.jeromerobert.pdfarranger
-    method: user
-    state: present

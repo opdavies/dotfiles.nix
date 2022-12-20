@@ -1,8 +1,0 @@
-# Execute a "run" file either within ".notes" or the current directory.
-function run {
-  if [[ -f .notes/run ]]; then
-    .notes/run "${@}"
-  elif [[ -f run ]]; then
-    ./run "${@}"
-  fi
-}

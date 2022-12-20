@@ -1,7 +1,0 @@
----
-- name: Install
-  ansible.builtin.package:
-    name:
-      - jq
-    state: latest
-  become: true
