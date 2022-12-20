@@ -20,6 +20,7 @@
     htop
     jq
     lua
+    mysql
     neofetch
     nodejs
     php81
