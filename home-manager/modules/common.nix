@@ -29,6 +29,7 @@
     pulumi-bin
     pv
     ripgrep
+    terraform
     tldr
     tmuxinator
     tree
