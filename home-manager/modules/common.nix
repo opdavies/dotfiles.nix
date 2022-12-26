@@ -129,6 +129,7 @@
       cmp-buffer
       cmp-cmdline
       cmp-nvim-lsp
+      cmp-nvim-lsp-signature-help
       cmp-path
       cmp-tabnine
       cmp-treesitter
