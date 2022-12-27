@@ -86,6 +86,16 @@
           sha256 = "HyQ4i/T1uQmGurBqCpo8+ESVSVPsTrLQBxLe2OEYjcY=";
         };
       };
+
+      customVim.tabline-vim = pkgs.vimUtils.buildVimPlugin {
+        name = "tabline-vim";
+        src = pkgs.fetchFromGitHub {
+          owner = "mkitt";
+          repo = "tabline.vim";
+          rev = "69c9698a3240860adaba93615f44778a9ab724b4";
+          sha256 = "51b8PxyKqBdeIvmmZyF2hpMBjkyrlZDdTB1opr5JZ7Y=";
+        };
+      };
     in
     with pkgs.vimPlugins; [
       vim-astro
@@ -109,6 +119,7 @@
       vim-test
       vim-tmux-navigator
       vimux
+      customVim.tabline-vim
 
       # Debugging
       nvim-dap
