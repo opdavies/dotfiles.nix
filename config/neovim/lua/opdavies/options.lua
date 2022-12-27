@@ -117,6 +117,7 @@ end
 local function set_vim_o()
   local settings = {
     autoindent = true,
+    backup = true,
     breakindent = true,
     conceallevel = 0,
     cursorline = true,
@@ -153,6 +154,7 @@ local function set_vim_o()
     vim.o[key] = value
   end
 
+  vim.opt.backupdir:remove('.') -- keep backups out of the current directory
   vim.opt.clipboard:append "unnamedplus"
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
   vim.opt.laststatus = 3
