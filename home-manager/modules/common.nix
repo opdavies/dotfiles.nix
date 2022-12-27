@@ -101,6 +101,7 @@
       vim-astro
 
       comment-nvim
+      dial-nvim
       git-worktree-nvim
       gitsigns-nvim
       harpoon
