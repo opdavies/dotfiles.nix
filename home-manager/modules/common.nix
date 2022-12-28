@@ -101,6 +101,7 @@ in {
       vimPlugins.rest-nvim
       vimPlugins.splitjoin-vim
       vimPlugins.vim-abolish
+      vimPlugins.vim-floaterm
       vimPlugins.vim-highlightedyank
       vimPlugins.vim-polyglot
       vimPlugins.vim-repeat
