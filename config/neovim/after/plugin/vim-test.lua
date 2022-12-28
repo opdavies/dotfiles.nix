@@ -16,5 +16,5 @@ vim.cmd([[
   let test#strategy = "floaterm"
 
   let test#php#phpunit#executable = 'just test'
-  let test#php#phpunit#options = '--colors=always'
+  let test#php#phpunit#options = '--colors=always --testdox'
 ]])
