@@ -10,6 +10,7 @@ in {
     bottom
     ctop
     delta
+    doppler
     file
     fzf
     gcc
