@@ -25,6 +25,7 @@ in {
     mysql
     neofetch
     nodejs
+    nodePackages."http-server"
     php81
     platformsh
     postman
