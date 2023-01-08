@@ -12,8 +12,6 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    docker
-    docker-compose
     jetbrains-mono
   ];
 }
