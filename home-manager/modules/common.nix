@@ -49,6 +49,7 @@ in {
     gopls
     html-tidy
     nodePackages."@ansible/ansible-language-server"
+    nodePackages."@astrojs/language-server"
     nodePackages."@tailwindcss/language-server"
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs

@@ -71,6 +71,7 @@ end
 
 local servers = {
   ansiblels = true,
+  astro = true,
   bashls = true,
   cssls = true,
   gopls = true,
