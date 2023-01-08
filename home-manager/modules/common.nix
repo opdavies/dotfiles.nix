@@ -11,6 +11,7 @@ in {
     ctop
     delta
     doppler
+    exa
     file
     fzf
     gcc
@@ -26,7 +27,9 @@ in {
     neofetch
     nodejs
     nodePackages."http-server"
+    pdfpc
     php81
+    php81Packages.composer
     platformsh
     postman
     pulumi-bin
@@ -38,6 +41,7 @@ in {
     tree
     unzip
     wget
+    xcp
     yarn
     zoxide
 
