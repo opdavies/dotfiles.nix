@@ -125,6 +125,16 @@ in {
         };
       };
 
+      customVim.vim-caser = pkgs.vimUtils.buildVimPlugin {
+        name = "vim-caser";
+        src = pkgs.fetchFromGitHub {
+          owner = "arthurxavierx";
+          repo = "vim-caser";
+          rev = "master";
+          sha256 = "PXAY01O/cHvAdWx3V/pyWFeiV5qJGvLcAKhl5DQc0Ps=";
+        };
+      };
+
       customVim.vim-visual-star-search = pkgs.vimUtils.buildVimPlugin {
         name = "vim-visual-star-search";
         src = pkgs.fetchFromGitHub {
@@ -137,6 +147,7 @@ in {
     in with pkgs; [
       customVim.tabline-vim
       customVim.vim-astro
+      customVim.vim-caser
       customVim.vim-heritage
       customVim.vim-just
       customVim.vim-textobj-xmlattr
