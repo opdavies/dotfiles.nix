@@ -235,6 +235,11 @@ in {
     "$HOME/.config/bin"
   ];
 
+  xdg.configFile.alacritty = {
+    source = ../../config/alacritty;
+    recursive = true;
+  };
+
   xdg.configFile.bin = {
     source = ../../bin;
     recursive = true;
