@@ -24,6 +24,7 @@ configs.setup {
     "make",
     "markdown",
     "php",
+    "phpdoc",
     "regex",
     "rst",
     "scss",
