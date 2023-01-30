@@ -28,7 +28,6 @@ in {
     neofetch
     nodejs
     nodePackages."http-server"
-    pdfpc
     php81
     php81Packages.composer
     platformsh
