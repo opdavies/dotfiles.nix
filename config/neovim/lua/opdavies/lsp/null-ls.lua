@@ -33,4 +33,5 @@ null_ls.setup {
     diagnostics.phpstan,
     diagnostics.shellcheck,
   },
+  temp_dir = "/tmp",
 }
