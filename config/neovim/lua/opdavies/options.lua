@@ -31,6 +31,12 @@ local function set_autocmd()
   set_cursorline("WinLeave", false)
   set_cursorline("WinEnter", true)
   set_cursorline("FileType", false, "TelescopePrompt")
+
+  vim.api.nvim_create_autocmd("TermOpen", {
+    callback = function()
+      vim.cmd.set "filetype=term"
+    end,
+  })
 end
 
 local function set_filetypes()
