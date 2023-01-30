@@ -7,6 +7,9 @@ end
 local parser_install_dir = vim.fn.stdpath('data') .. "/site";
 
 configs.setup {
+  autotag = {
+    enable = true,
+  },
   context_commenting = {
     enable = true,
   },

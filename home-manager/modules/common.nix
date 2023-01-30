@@ -164,6 +164,7 @@ in {
       vimPlugins.neogit
       vimPlugins.nvim-autopairs
       vimPlugins.nvim-lastplace
+      vimPlugins.nvim-ts-autotag
       vimPlugins.nvim-web-devicons
       vimPlugins.refactoring-nvim
       vimPlugins.rest-nvim
