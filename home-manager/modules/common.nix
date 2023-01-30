@@ -18,6 +18,7 @@ in {
     gh
     git
     git-crypt
+    inotify-tools
     just
     tree-sitter
     htop
