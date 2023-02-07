@@ -221,6 +221,7 @@ in {
       vimPlugins.popup-nvim
       vimPlugins.telescope-file-browser-nvim
       vimPlugins.telescope-fzf-native-nvim
+      vimPlugins.telescope-live-grep-args-nvim
       vimPlugins.telescope-nvim
       vimPlugins.telescope-ui-select-nvim
 
