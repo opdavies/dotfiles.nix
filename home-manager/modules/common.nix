@@ -74,6 +74,8 @@ in {
 
   programs.neovim = {
     enable = true;
+    package = pkgs.neovim-nightly;
+
     plugins = let
       customVim.vim-astro = pkgs.vimUtils.buildVimPlugin {
         name = "vim-astro";
