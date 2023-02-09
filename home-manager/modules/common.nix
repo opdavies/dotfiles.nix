@@ -162,7 +162,6 @@ in {
       vimPlugins.harpoon
       vimPlugins.impatient-nvim
       vimPlugins.indent-blankline-nvim
-      vimPlugins.neogit
       vimPlugins.nvim-autopairs
       vimPlugins.nvim-lastplace
       vimPlugins.nvim-ts-autotag
@@ -184,6 +183,11 @@ in {
       vimPlugins.vim-tmux-navigator
       vimPlugins.vim-unimpaired
       vimPlugins.vimux
+
+      # Git
+      vimPlugins.vim-fugitive
+      vimPlugins.vim-rhubarb
+      vimPlugins.neogit
 
       # Debugging
       vimPlugins.nvim-dap
