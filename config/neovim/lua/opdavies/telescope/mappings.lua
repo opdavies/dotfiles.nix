@@ -41,4 +41,12 @@ local nmap = require("opdavies.keymap").nmap
 nmap { "<leader>gm", telescope.extensions.git_worktree.create_git_worktree }
 nmap { "<leader>gw", telescope.extensions.git_worktree.git_worktrees }
 
+-- Create a command to open Telescope, can be used when starting nvim -
+-- "e.g. nvim +GoToFile".
+vim.api.nvim_create_user_command(
+  "GoToFile",
+  telescope.fd,
+  {}
+)
+
 return telescope_mapper
