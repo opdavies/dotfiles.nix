@@ -34,18 +34,21 @@ in {
     postman
     pulumi-bin
     pv
+    python3Full
     ripgrep
     terraform
     tldr
     tmuxinator
     tree
     unzip
+    virtualenv
     wget
     xcp
     yarn
     zoxide
 
     # LSP
+    black
     gopls
     html-tidy
     nodePackages."@ansible/ansible-language-server"

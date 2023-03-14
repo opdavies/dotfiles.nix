@@ -23,6 +23,7 @@ null_ls.setup {
     formatting.phpcbf,
     code_actions.gitsigns,
 
+    formatting.black,
     formatting.markdownlint,
     formatting.prettier,
     formatting.rustywind,
