@@ -8,7 +8,7 @@ apollo command *args: && clean
   sudo nixos-rebuild {{ command }} --flake .#apollo {{ args }}
 
 pop-os command *args: && clean
-  home-manager {{ command }} -f home-manager/home.nix --flake .#pop-os {{ args }}
+  NIXPKGS_ALLOW_UNFREE=1 home-manager {{ command }} -f home-manager/home.nix --impure --flake .#pop-os {{ args }}
 
 wsl2 command *args: && clean
   home-manager {{ command }} -f home-manager/home.nix --flake .#wsl2 {{ args }}
