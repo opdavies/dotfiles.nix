@@ -48,10 +48,10 @@ in {
     zoxide
 
     # LSP
+    ansible-language-server
     black
     gopls
     html-tidy
-    nodePackages."@ansible/ansible-language-server"
     nodePackages."@astrojs/language-server"
     nodePackages."@tailwindcss/language-server"
     nodePackages.bash-language-server
