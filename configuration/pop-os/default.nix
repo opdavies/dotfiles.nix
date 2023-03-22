@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
+let
+  nixpkgs = import ../shared/nixpkgs.nix { };
+in
 {
   imports = [
     ../../home-manager/modules/common.nix
@@ -8,6 +11,8 @@
     ../../home-manager/modules/tmux.nix
     ../../home-manager/modules/zsh.nix
   ];
+
+  nixpkgs = nixpkgs;
 
   fonts.fontconfig.enable = true;
 
