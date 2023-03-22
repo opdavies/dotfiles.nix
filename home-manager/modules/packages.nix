@@ -1,0 +1,43 @@
+{ pkgs, ... }:
+
+with pkgs; [
+  bottom
+  ctop
+  delta
+  doppler
+  exa
+  file
+  fzf
+  gcc
+  gh
+  git
+  git-crypt
+  inotify-tools
+  just
+  tree-sitter
+  htop
+  jq
+  lua
+  mysql
+  neofetch
+  nodejs
+  nodePackages."http-server"
+  php81
+  php81Packages.composer
+  platformsh
+  postman
+  pulumi-bin
+  pv
+  python3Full
+  ripgrep
+  terraform
+  tldr
+  tmuxinator
+  tree
+  unzip
+  virtualenv
+  wget
+  xcp
+  yarn
+  zoxide
+]
