@@ -15,7 +15,6 @@
 
     initExtra = ''
 
-      eval "$(zoxide init zsh)"
       # Plugins
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh"
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh"
