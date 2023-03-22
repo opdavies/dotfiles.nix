@@ -19,7 +19,7 @@
       apollo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./nixos/apollo/configuration.nix
+          ./system/nixos/apollo/configuration.nix
           { nixpkgs.overlays = overlays; }
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -34,7 +34,7 @@
       pop-os = home-manager.lib.homeManagerConfiguration {
         modules = [     
           { nixpkgs.overlays = overlays; }
-          ./configuration/pop-os
+          ./system/pop-os.nix
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
@@ -42,7 +42,7 @@
       wsl2 = home-manager.lib.homeManagerConfiguration {
         modules = [     
           { nixpkgs.overlays = overlays; }
-          ./configuration/wsl2
+          ./system/wsl2.nix
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
