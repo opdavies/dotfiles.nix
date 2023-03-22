@@ -47,31 +47,6 @@ in {
     yarn
     zoxide
 
-    # LSP
-    ansible-language-server
-    black
-    gopls
-    html-tidy
-    lua53Packages.lua-lsp
-    nodePackages."@astrojs/language-server"
-    nodePackages."@tailwindcss/language-server"
-    nodePackages.bash-language-server
-    nodePackages.dockerfile-language-server-nodejs
-    nodePackages.eslint
-    nodePackages.intelephense
-    nodePackages.markdownlint-cli
-    nodePackages.prettier
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.vls
-    nodePackages.vscode-langservers-extracted
-    nodePackages.yaml-language-server
-    php81Packages.phpcbf
-    php81Packages.phpcs
-    php81Packages.phpstan
-    rnix-lsp
-    shellcheck
-    sumneko-lua-language-server
   ];
 
   programs.bat.enable = true;
@@ -159,8 +134,6 @@ in {
       customVim.vim-textobj-xmlattr
       customVim.vim-visual-star-search
 
-      vimPlugins.catppuccin-nvim
-
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
       vimPlugins.git-worktree-nvim
@@ -243,7 +216,35 @@ in {
       vimPlugins.vim-dadbod-completion
 
       # Themes
-      vimPlugins.onedark-nvim
+      vimPlugins.catppuccin-nvim
+    ];
+
+    extraPackages = with pkgs; [
+      ansible-language-server
+      black
+      gopls
+      html-tidy
+      lua53Packages.lua-lsp
+      nodePackages."@astrojs/language-server"
+      nodePackages."@tailwindcss/language-server"
+      nodePackages.bash-language-server
+      nodePackages.dockerfile-language-server-nodejs
+      nodePackages.eslint
+      nodePackages.intelephense
+      nodePackages.markdownlint-cli
+      nodePackages.prettier
+      nodePackages.typescript
+      nodePackages.typescript-language-server
+      nodePackages.vls
+      nodePackages.vscode-langservers-extracted
+      nodePackages.yaml-language-server
+      php81Packages.phpcbf
+      php81Packages.phpcs
+      php81Packages.phpstan
+      proselint
+      rnix-lsp
+      shellcheck
+      sumneko-lua-language-server
     ];
   };
 
