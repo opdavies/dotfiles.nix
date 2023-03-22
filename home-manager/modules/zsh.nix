@@ -14,11 +14,11 @@
     };
 
     initExtra = ''
-      if [ -f ~/.config/zsh/.p10k.zsh ]; then
-        . ~/.config/zsh/.p10k.zsh
-      fi
 
       eval "$(zoxide init zsh)"
+      # Plugins
+      source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh"
+      source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh"
 
       # Case insensitive autocompletion.
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
@@ -106,8 +106,9 @@
       enable = true;
 
       plugins = [
+        { name = "plugin/git"; tags = [from:oh-my-zsh]; }
+        { name = "plugin/vi-mode"; tags = [from:oh-my-zsh]; }
         { name = "mollifier/cd-gitroot"; }
-        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
         { name = "zsh-users/zsh-autosuggestions"; }
         { name = "zsh-users/zsh-completions"; }
         { name = "zsh-users/zsh-syntax-highlighting"; }
