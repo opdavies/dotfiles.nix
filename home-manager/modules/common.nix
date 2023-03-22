@@ -244,7 +244,6 @@ in {
       proselint
       rnix-lsp
       shellcheck
-      sumneko-lua-language-server
     ];
   };
 
