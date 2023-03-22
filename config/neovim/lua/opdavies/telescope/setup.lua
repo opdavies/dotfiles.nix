@@ -28,10 +28,16 @@ end
 
 local action_layout = require "telescope.actions.layout"
 local actions = require "telescope.actions"
+local lga_actions = require "telescope-live-grep-args.actions"
 
 telescope.setup {
   defaults = {
     buffer_previewer_maker = new_maker,
+    file_ignore_patterns = { '.git/' },
+    layout_config = {
+      prompt_position = 'top',
+    },
+
     mappings = {
       i = {
         ["<C-h>"] = actions.which_key,
@@ -41,13 +47,43 @@ telescope.setup {
         ["<C-p>"] = action_layout.toggle_preview,
       },
     },
+
     no_ignore = true,
+    path_display = { truncate = 1 },
     prompt_prefix = "$ ",
+    sorting_strategy = 'ascending',
+  },
+
+  pickers = {
+    find_files = {
+      hidden = true,
+    },
+
+    buffers = {
+      previewer = false,
+      layout_config = {
+        width = 80,
+      },
+    },
+
+    lsp_references = {
+      previewer = false,
+    },
   },
 
   extensions = {
     file_browser = {
       theme = "ivy",
+    },
+
+    live_grep_args = {
+      auto_quoting = true,
+      mappings = {
+        i = {
+          ["<C-k>"] = lga_actions.quote_prompt {},
+          ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
+        },
+      },
     },
 
     ["ui-select"] = {

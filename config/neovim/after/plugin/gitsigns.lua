@@ -8,11 +8,9 @@ gitsigns.setup {
   numhl = true,
 }
 
-local actions = require("gitsigns.actions")
-
-vim.keymap.set('n', '[h', actions.prev_hunk);
-vim.keymap.set('n', ']h', actions.next_hunk);
-vim.keymap.set('n', 'gS', actions.undo_stage_hunk);
-vim.keymap.set('n', 'gb', actions.blame_line);
-vim.keymap.set('n', 'gp', actions.preview_hunk);
-vim.keymap.set('n', 'gs', actions.stage_hunk);
+vim.keymap.set('n', '[h', "<cmd>Gitsigns prev_hunk<cr>");
+vim.keymap.set('n', ']h', "<cmd>Gitsigns next_hunk<cr>");
+vim.keymap.set('n', 'gS', "<cmd>Gitsigns undo_stage_hunk<cr>");
+vim.keymap.set('n', 'gb', "<cmd>Gitsigns blame_line<cr>");
+vim.keymap.set('n', 'gp', "<cmd>Gitsigns preview_hunk<cr>");
+vim.keymap.set('n', 'gs', "<cmd>Gitsigns stage_hunk<cr>");

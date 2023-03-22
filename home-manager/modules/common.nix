@@ -52,6 +52,7 @@ in {
     black
     gopls
     html-tidy
+    lua53Packages.lua-lsp
     nodePackages."@astrojs/language-server"
     nodePackages."@tailwindcss/language-server"
     nodePackages.bash-language-server
@@ -158,6 +159,8 @@ in {
       customVim.vim-textobj-xmlattr
       customVim.vim-visual-star-search
 
+      vimPlugins.catppuccin-nvim
+
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
       vimPlugins.git-worktree-nvim
@@ -176,6 +179,7 @@ in {
       vimPlugins.vim-eunuch
       vimPlugins.vim-floaterm
       vimPlugins.vim-highlightedyank
+      vimPlugins.vim-nix
       vimPlugins.vim-pasta
       vimPlugins.vim-polyglot
       vimPlugins.vim-repeat
@@ -227,6 +231,7 @@ in {
       vimPlugins.plenary-nvim
       vimPlugins.popup-nvim
       vimPlugins.telescope-file-browser-nvim
+      vimPlugins.telescope-frecency-nvim
       vimPlugins.telescope-fzf-native-nvim
       vimPlugins.telescope-live-grep-args-nvim
       vimPlugins.telescope-nvim

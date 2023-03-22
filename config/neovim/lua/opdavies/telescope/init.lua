@@ -97,10 +97,16 @@ function M.file_browser()
   require("telescope").extensions.file_browser.file_browser(opts)
 end
 
-function M.fd()
+function M.find_files()
   local opts = themes.get_ivy {
-    file_ignore_patterns = { ".git/" },
-    hidden = true,
+    file_ignore_patterns = { ".git/", "**/{core,contrib}", "vendor" },
+  }
+
+  require("telescope.builtin").find_files(opts)
+end
+
+function M.find_all_files()
+  local opts = themes.get_ivy {
     no_ignore = true,
   }
 
@@ -118,12 +124,20 @@ function M.git_files()
 end
 
 function M.live_grep()
-  require("telescope.builtin").live_grep {
+  require("telescope").extensions.live_grep_args.live_grep_args {
     file_ignore_patterns = { ".git/" },
     hidden = true,
     no_ignore = true,
     sorting_strategy = "ascending",
   }
+end
+
+function M.oldfiles()
+  local opts = themes.get_ivy {
+    prompt_title = "History",
+  }
+
+  require("telescope").extensions.frecency.frecency(opts)
 end
 
 return setmetatable({}, {
