@@ -14,6 +14,11 @@
     };
 
     initExtra = ''
+      # Make Caps Lock behave like Ctrl.
+      setxkbmap -option ctrl:nocaps
+
+      # Make short-pressed Ctrl behave like Escape.
+      xcape -e 'Control_L=Escape'
 
       # Plugins
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh"

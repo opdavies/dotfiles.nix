@@ -17,6 +17,8 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    gnome.gnome-tweaks
     jetbrains-mono
+    xcape
   ];
 }
