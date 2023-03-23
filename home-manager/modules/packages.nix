@@ -39,5 +39,4 @@ with pkgs; [
   wget
   xcp
   yarn
-  zoxide
 ]
