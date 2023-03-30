@@ -4,8 +4,8 @@ default:
 clean:
   rm -rf ./result
 
-apollo command *args: && clean
-  sudo nixos-rebuild {{ command }} --flake .#apollo {{ args }}
+nixos command profile: && clean
+  sudo nixos-rebuild {{ command }} --flake .#{{ profile }}
 
 pop-os command *args: && clean
   NIXPKGS_ALLOW_UNFREE=1 home-manager {{ command }} -f home-manager/home.nix --impure --flake .#pop-os {{ args }}

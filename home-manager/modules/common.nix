@@ -15,13 +15,13 @@ in {
     package = pkgs.neovim-nightly;
 
     plugins = with pkgs; [
-      customVim.tabline-vim
-      customVim.vim-astro
-      customVim.vim-caser
-      customVim.vim-heritage
-      customVim.vim-just
-      customVim.vim-textobj-xmlattr
-      customVim.vim-visual-star-search
+#      customVim.tabline-vim
+#      customVim.vim-astro
+#      customVim.vim-caser
+#      customVim.vim-heritage
+#      customVim.vim-just
+#      customVim.vim-textobj-xmlattr
+#      customVim.vim-visual-star-search
 
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
