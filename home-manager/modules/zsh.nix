@@ -28,18 +28,6 @@
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
       autoload -Uz compinit && compinit
 
-      # No arguments: `git status`
-      # With arguments: acts like `git`
-      g() {
-        if [[ $# -gt 0 ]]; then
-          git "$@"
-        else
-          git status
-        fi
-      }
-
-      compdef g=git
-
       clear-ls-all() {
         clear
         exa -al
