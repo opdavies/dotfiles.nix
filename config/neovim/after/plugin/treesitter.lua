@@ -4,7 +4,7 @@ if not has_configs then
 end
 
 
-local parser_install_dir = vim.fn.stdpath('data') .. "/site";
+local parser_install_dir = vim.fn.stdpath('cache') .. "treesitters";
 
 configs.setup {
   autotag = {
@@ -62,6 +62,7 @@ configs.setup {
   parser_install_dir = parser_install_dir,
 }
 
+vim.fn.mkdir(parser_install_dir, "p")
 vim.opt.runtimepath:append(parser_install_dir)
 
 local nmap = require("opdavies.keymap").nmap
