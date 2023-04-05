@@ -40,6 +40,7 @@
 
   home.packages = with pkgs; [
     discord
+    meslo-lg
     slack
     teams
     vlc
