@@ -5,14 +5,6 @@
     enableCompletion = false;
     dotDir = ".config/zsh";
 
-    shellAliases = {
-      fetch = "git fetch --all --jobs=4 --progress --prune";
-      run = "./run";
-      pull = "git pull --autostash --jobs=4 --summary origin";
-      rebase = "git rebase --autostash --stat";
-      update = "fetch && rebase";
-    };
-
     initExtra = ''
       # Make Caps Lock behave like Ctrl.
       setxkbmap -option ctrl:nocaps
@@ -88,6 +80,12 @@
       bindkey " " expand-alias-space
       bindkey -M isearch " " magic-space
 
+      ialias fetch="git fetch --all --jobs=4 --progress --prune"
+      ialias run="./run"
+      ialias pull="git pull --autostash --jobs=4 --summary origin"
+      ialias rebase="git rebase --autostash --stat"
+      ialias update="fetch && rebase"
+
       setopt auto_cd
       setopt auto_pushd
       setopt pushd_ignore_dups
@@ -98,6 +96,7 @@
       enable = true;
 
       plugins = [
+        { name = "themes/robbyrussell"; tags = [from:oh-my-zsh as:theme]; }
         { name = "plugin/git"; tags = [from:oh-my-zsh]; }
         { name = "plugin/vi-mode"; tags = [from:oh-my-zsh]; }
         { name = "mollifier/cd-gitroot"; }
