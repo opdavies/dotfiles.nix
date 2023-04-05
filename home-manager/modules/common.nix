@@ -13,6 +13,8 @@ in {
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
+    viAlias = true;
+    vimAlias = true;
 
     plugins = with pkgs; [
 #      customVim.tabline-vim
