@@ -26,7 +26,7 @@
       font = {
         size = 12.0;
 
-        normal.family = "JetBrainsMono Nerd Font";
+        normal.family = "Meslo LG M";
 
         offset.y = 12;
         glyph_offset.y = 6;
