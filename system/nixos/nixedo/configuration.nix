@@ -132,5 +132,10 @@
   system.stateVersion = "22.11"; # Did you read the comment?
 
   virtualisation.docker.enable = true;
+
+  programs.zsh.enable = true;
+  programs.zsh.histSize = 5000;
+
+  users.defaultUserShell = "/etc/profiles/per-user/opdavies/bin/zsh";
 }
 
