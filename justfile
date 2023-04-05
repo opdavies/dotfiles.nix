@@ -4,7 +4,7 @@ default:
 clean:
   rm -rf ./result
 
-nixos command profile: && clean
+nixos profile command: && clean
   sudo nixos-rebuild {{ command }} --flake .#{{ profile }}
 
 wsl2 command: && clean
