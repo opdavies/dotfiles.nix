@@ -4,7 +4,12 @@
 
 { config, pkgs, ... }:
 
+let
+  nixpkgs = import ../../shared/nixpkgs.nix { };
+in
 {
+  nixpkgs = nixpkgs;
+
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -92,9 +97,6 @@
     extraGroups = [ "docker" "networkmanager" "wheel" ];
     packages = with pkgs; [ firefox ];
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

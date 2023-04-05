@@ -26,7 +26,7 @@ self: super: {
         owner = "NoahTheDuke";
         repo = "vim-just";
         rev = "838c9096d4c5d64d1000a6442a358746324c2123";
-        sha256 = "51b8PxyKqBdeIvmmZyF2hpMBjkyrlZDdTB1opr5JZ7Y=";
+        sha256 = "DSC47z2wOEXvo2kGO5JtmR3hyHPiYXrkX7MgtagV5h4=";
       };
     };
 
