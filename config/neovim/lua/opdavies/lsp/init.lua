@@ -85,7 +85,7 @@ local servers = {
     filetypes = { "php", "module", "test", "inc" },
   },
 
-  sumneko_lua = {
+  lua_ls = {
     settings = {
       Lua = {
         diagnostics = {
