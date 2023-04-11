@@ -49,6 +49,7 @@ in {
       vimPlugins.vim-repeat
       vimPlugins.vim-sleuth
       vimPlugins.vim-surround
+      vimPlugins.vim-terraform
       vimPlugins.vim-test
       vimPlugins.vim-textobj-user
       vimPlugins.vim-tmux-navigator
