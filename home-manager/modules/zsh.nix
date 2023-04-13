@@ -102,6 +102,10 @@
       ialias system-repair='sudo nixos-rebuild switch --repair'
       ialias system-upgrade-information='sudo nixos-rebuild switch --upgrade dry-build'
 
+      # Build Configs.
+      ialias build-configs="~/Code/Personal/build-configs/bin/build-configs run"
+      ialias update-build-configs="~/Code/Personal/build-configs-updater/update.sh"
+
       setopt auto_cd
       setopt auto_pushd
       setopt pushd_ignore_dups
