@@ -86,6 +86,22 @@
       ialias rebase="git rebase --autostash --stat"
       ialias update="fetch && rebase"
 
+      # Nix and NixOS.
+      alias nx="nix"
+      alias nxb="nix build"
+      alias nxd="nix develop"
+      alias nxf="nix flake"
+      alias nxs="nix shell"
+      ialias full-system-clean='nix-collect-garbage -d && sudo nix-collect-garbage -d'
+      ialias full-system-repair='nix-store --verify --check-contents --repair'
+      ialias full-system-upgrade="sudo nixos-rebuild switch --upgrade && nix-env -u '*'"
+      ialias list-system-configurations='\ls -l /nix/var/nix/profiles/system-*-link'
+      ialias local-upgrade="nix-channel --update nixpkgs && nix-env -u '*'"
+      ialias set-default-boot='/run/current-system/bin/switch-to-configuration boot'
+      ialias system-rebuild='sudo nixos-rebuild switch'
+      ialias system-repair='sudo nixos-rebuild switch --repair'
+      ialias system-upgrade-information='sudo nixos-rebuild switch --upgrade dry-build'
+
       setopt auto_cd
       setopt auto_pushd
       setopt pushd_ignore_dups
