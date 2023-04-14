@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-if [[ -f "vendor/bin/pest" ]]; then
-  echo "pest"
-  exit 0
-fi
-
-echo "phpunit"

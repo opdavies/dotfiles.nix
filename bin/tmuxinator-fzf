@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Use fzf to select a project to open with tmuxinator.
-
-set -euo pipefail
-
-tmuxinator list -n | tail -n +2 | fzf | xargs tmuxinator start
