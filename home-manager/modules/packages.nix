@@ -20,8 +20,9 @@ with pkgs; [
   lua
   mysql
   neofetch
-  nodejs
   nodePackages."http-server"
+  nodePackages.nodemon
+  nodejs
   php81
   php81Packages.composer
   platformsh
