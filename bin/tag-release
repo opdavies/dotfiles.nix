@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "" ]]; then
+  echo "Usage: ${0##*/} <sha=HEAD>"; exit 2
+fi
+
+set -euo pipefail
+
+commit_sha="${1:-HEAD}"
+tag="$(date '+%Y-%m-%d-%H.%M.%S')"
+
+# Tag the appropriate commit and push to the remote.
+git tag "${tag}" "${commit_sha}"
+git push origin "refs/tags/${tag}"

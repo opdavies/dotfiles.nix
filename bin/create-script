@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "" ]]; then
+  echo "Usage: ${0##*/} <script-name>"; exit 2
+fi
+
+set -ueo pipefail
+
+cat > "${1}" << EOF
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+
+EOF
+
+chmod +x "${1}"
+vim "${1}"

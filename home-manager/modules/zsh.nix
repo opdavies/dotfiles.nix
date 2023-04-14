@@ -80,10 +80,12 @@
       bindkey " " expand-alias-space
       bindkey -M isearch " " magic-space
 
+      ialias cs="create-script"
       ialias fetch="git fetch --all --jobs=4 --progress --prune"
       ialias run="./run"
       ialias pull="git pull --autostash --jobs=4 --summary origin"
       ialias rebase="git rebase --autostash --stat"
+      ialias tag="tag-release"
       ialias update="fetch && rebase"
 
       # Nix and NixOS.
