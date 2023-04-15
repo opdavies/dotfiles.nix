@@ -85,6 +85,7 @@
       ialias run="./run"
       ialias pull="git pull --autostash --jobs=4 --summary origin"
       ialias rebase="git rebase --autostash --stat"
+      ialias run="./run"
       ialias tag="tag-release"
       ialias update="fetch && rebase"
 
