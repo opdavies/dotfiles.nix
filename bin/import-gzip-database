@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "" ]]; then
+  echo "Usage: ${0##*/} <filename>"; exit 2
+fi
+
+set -euo pipefail
+
+filename="${1}"
+shift 1
+
+pv "${filename}" \
+  | zcat \
+  | docker compose exec -T database mysql \
+    -p"${DB_PASSWORD:-app}" \
+    -u"${DB_USER:-app}" \
+    "${DB_NAME:-app}"
