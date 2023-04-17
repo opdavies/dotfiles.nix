@@ -4,37 +4,12 @@ if not has_configs then
 end
 
 
-local parser_install_dir = vim.fn.stdpath('cache') .. "treesitters";
-
 configs.setup {
   autotag = {
     enable = true,
   },
   context_commenting = {
     enable = true,
-  },
-  ensure_installed = {
-    "astro",
-    "bash",
-    "comment",
-    "css",
-    "dockerfile",
-    "go",
-    "html",
-    "javascript",
-    "json",
-    "lua",
-    "make",
-    "markdown",
-    "php",
-    "phpdoc",
-    "regex",
-    "rst",
-    "scss",
-    "typescript",
-    "vim",
-    "vue",
-    "yaml",
   },
   highlight = {
     enable = true,
@@ -59,11 +34,7 @@ configs.setup {
       },
     },
   },
-  parser_install_dir = parser_install_dir,
 }
-
-vim.fn.mkdir(parser_install_dir, "p")
-vim.opt.runtimepath:append(parser_install_dir)
 
 local nmap = require("opdavies.keymap").nmap
 

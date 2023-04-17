@@ -67,7 +67,7 @@ in {
       vimPlugins.nvim-dap-virtual-text
 
       # Treesitter
-      vimPlugins.nvim-treesitter
+      vimPlugins.nvim-treesitter.withAllGrammars
       vimPlugins.nvim-treesitter-context
       vimPlugins.nvim-treesitter-textobjects
 
