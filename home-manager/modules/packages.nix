@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 with pkgs; [
+  awscli2
   bottom
   ctop
   delta
