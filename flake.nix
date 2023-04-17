@@ -3,9 +3,6 @@
   inputs = {
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    # workaround: https://github.com/nix-community/neovim-nightly-overlay/issues/164
-    neovim-nightly.inputs.nixpkgs.url =
-      "github:nixos/nixpkgs?rev=fad51abd42ca17a60fc1d4cb9382e2d79ae31836";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
