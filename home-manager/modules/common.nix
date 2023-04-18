@@ -75,6 +75,7 @@ in {
       vimPlugins.null-ls-nvim
       vimPlugins.nvim-lspconfig
       vimPlugins.lsp-status-nvim
+      vimPlugins.lsp-zero-nvim
 
       # Completion
       vimPlugins.cmp-buffer
@@ -127,6 +128,7 @@ in {
       nodePackages.prettier
       nodePackages.typescript
       nodePackages.typescript-language-server
+      nodePackages.vue-language-server
       nodePackages.vls
       nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server

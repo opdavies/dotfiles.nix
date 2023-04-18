@@ -1,176 +1,70 @@
-local has_lsp, lspconfig = pcall(require, "lspconfig")
-if not has_lsp then
-  return
-end
+local lsp = require 'lsp-zero'
+local lspconfig = require "lspconfig"
 
-local nvim_status = require "lsp-status"
+lsp.preset({
+  float_border = 'none',
+});
 
-local imap = require("opdavies.keymap").imap
-local nmap = require("opdavies.keymap").nmap
+lsp.nvim_workspace()
 
-local telescope_mapper = require "opdavies.telescope.mappings"
+lsp.setup_servers({
+  'ansiblels',
+  'astro',
+  'bashls',
+  'cssls',
+  'dockerls',
+  'html',
+  'intelephense',
+  'jsonls',
+  'tailwindcss',
+  'terraformls',
+  'tsserver',
+  'volar',
+  'vuels',
+  'yamlls'
+})
 
-local buf_nnoremap = function(opts)
-  opts.buffer = 0
-  nmap(opts)
-end
-
-local buf_inoremap = function(opts)
-  opts.buffer = 0
-  imap(opts)
-end
-
-local default_capabilities = vim.lsp.protocol.make_client_capabilities()
-default_capabilities = require("cmp_nvim_lsp").default_capabilities(default_capabilities)
-
-local custom_init = function(client)
-  client.config.flags = client.config.flags or {}
-  client.config.flags.allow_incremental_sync = true
-end
-
-local custom_attach = function(client)
-  local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-
-  nvim_status.on_attach(client)
-
-  -- Keymaps
-  buf_inoremap { "<c-s>", vim.lsp.buf.signature_help }
-
-  buf_nnoremap { "<leader>[d", vim.diagnostic.goto_prev }
-  buf_nnoremap { "<leader>]d", vim.diagnostic.goto_next }
-  buf_nnoremap { "<leader>ca", vim.lsp.buf.code_action }
-  buf_nnoremap { "<leader>rn", vim.lsp.buf.rename }
-  buf_nnoremap { "<leader>rr", "<cmd>LspRestart<cr>" }
-  buf_nnoremap { "K", vim.lsp.buf.hover }
-  buf_nnoremap { "gD", vim.lsp.buf.declaration }
-  buf_nnoremap { "gT", vim.lsp.buf.type_definition }
-  buf_nnoremap { "gd", vim.lsp.buf.definition }
-  buf_nnoremap { "gi", vim.lsp.buf.implementation }
-
-  if filetype ~= "lua" then
-    buf_nnoremap { "K", vim.lsp.buf.hover }
-  end
-
-  telescope_mapper("<leader>dl", "diagnostics", nil, true)
-
-  -- Set autocommands conditional on server_capabilities
-  if client.server_capabilities.document_highlight then
-    vim.cmd [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]]
-  end
-
-  -- Attach any filetype specific options to the client
-  -- filetype_attach[filetype](client)
-end
-
-local servers = {
-  ansiblels = true,
-  astro = true,
-  bashls = true,
-  cssls = true,
-  gopls = true,
-  html = true,
-  -- intelephense = true
-  rnix = true,
-  tsserver = true,
-  vuels = true,
-  yamlls = true,
-
-  intelephense = {
-    filetypes = { "php", "module", "test", "inc" },
+lsp.set_preferences({
+  sign_icons = {
+      error = 'E',
+      hint = 'H',
+      info = 'I',
+      warn = 'W',
   },
 
-  lua_ls = {
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-      },
-    },
+  suggest_lsp_servers = false,
+})
+
+lsp.on_attach(on_attach)
+
+lsp.setup()
+
+vim.diagnostic.config({
+  virtual_text = true
+})
+
+lspconfig.intelephense.setup({
+  filetypes = { "php", "module", "test", "inc" },
+})
+
+lspconfig.tailwindcss.setup({
+  filetypes = {
+    "astro",
+    "html",
+    "html.twig",
+    "javascript",
+    "php",
+    "twig",
+    "typescript",
+    "vue",
   },
 
-  tailwindcss = {
-    filetypes = {
-      -- html
-      "html",
-      "html.twig",
-      "php",
-      "twig",
-
-      -- js
-      "javascript",
-      "typescript",
-
-      -- mixed
-      "astro",
-      "vue",
-    },
-
-    init_options = {
-      userLanguages = {
-        ["html.twig"] = "html",
-      },
+  init_options = {
+    userLanguages = {
+      ["html.twig"] = "html",
     },
   },
-
-  -- tsserver = {
-  --   filetypes = {
-  --     "javascript",
-  --     "javascriptreact",
-  --     "javascript.jsx",
-  --     "typescript",
-  --     "typescriptreact",
-  --     "typescript.tsx",
-  --     "vue",
-  --   },
-  -- },
-}
-
-local setup_server = function(server, config)
-  if not config then
-    return
-  end
-
-  if type(config) ~= "table" then
-    config = {}
-  end
-
-  config = vim.tbl_deep_extend("force", {
-    on_init = custom_init,
-    on_attach = custom_attach,
-    capabilities = default_capabilities,
-    flags = {
-      debounce_text_changes = nil,
-    },
-  }, config)
-
-  lspconfig[server].setup(config)
-end
-
-for server, config in pairs(servers) do
-  setup_server(server, config)
-end
-
-vim.diagnostic.config {
-  float = {
-    source = true,
-  },
-  signs = true,
-  underline = false,
-  update_in_insert = false,
-  virtual_text = { spacing = 2 },
-}
-
-vim.keymap.set("n", "<leader>f", function()
-  vim.lsp.buf.format { async = true }
-end
-);
+})
 
 require "opdavies.lsp.null-ls"
 require "opdavies.lsp.signature"
