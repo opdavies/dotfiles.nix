@@ -11,7 +11,7 @@ if [[ $# -eq 1 ]]; then
 else
   # Get the session name from fuzzy-finding list of directories and generating a
   # tmux-safe version.
-  selected=$(find ~/Code -type d -mindepth 1 -maxdepth 2 ! -name .git | sort | fzf --reverse)
+  selected=$(find ~/Code -mindepth 1 -maxdepth 2 -type d ! -name .git | sort | fzf --reverse)
 fi
 
 if [[ -z $selected ]]; then
