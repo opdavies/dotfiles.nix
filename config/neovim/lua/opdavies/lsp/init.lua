@@ -1,11 +1,19 @@
-local lsp = require 'lsp-zero'
-local lspconfig = require "lspconfig"
+local cmp = require('cmp')
+local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
 
-lsp.preset({
-  float_border = 'none',
-});
+lsp.preset("recommended")
 
-lsp.nvim_workspace()
+local on_attach = function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
+
+  local opts = { buffer = true }
+
+  vim.keymap.set("n", "<leader>ca", vim.lsp.code_action, opts)
+  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+end
+
+lsp.on_attach(on_attach)
 
 lsp.setup_servers({
   'ansiblels',
@@ -24,30 +32,11 @@ lsp.setup_servers({
   'yamlls'
 })
 
-lsp.set_preferences({
-  sign_icons = {
-      error = 'E',
-      hint = 'H',
-      info = 'I',
-      warn = 'W',
-  },
-
-  suggest_lsp_servers = false,
-})
-
-lsp.on_attach(on_attach)
-
 lsp.setup()
 
-vim.diagnostic.config({
-  virtual_text = true
-})
-
-lspconfig.intelephense.setup({
-  filetypes = { "php", "module", "test", "inc" },
-})
-
 lspconfig.tailwindcss.setup({
+  on_attach = on_attach,
+
   filetypes = {
     "astro",
     "html",
@@ -63,6 +52,17 @@ lspconfig.tailwindcss.setup({
     userLanguages = {
       ["html.twig"] = "html",
     },
+  },
+})
+
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
+cmp.setup({
+  preselect = 'item',
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
   },
 })
 
