@@ -8,6 +8,18 @@ in {
 
   home.packages = (import ./packages.nix) { inherit pkgs; };
 
+  home.file."nodemon.json".text = ''
+  {
+    "ignore": [
+      ".git"
+    ],
+    "verbose": true,
+    "events": {
+      "start": "clear"
+    }
+  }
+  '';
+
   programs.bat.enable = true;
 
   programs.neovim = {
