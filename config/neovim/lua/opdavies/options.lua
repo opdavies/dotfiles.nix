@@ -143,6 +143,7 @@ local function set_vim_o()
     scrolloff = 10,
     shiftwidth = 2,
     showmode = false,
+    signcolumn = "yes:1",
     smartindent = true,
     softtabstop = 2,
     splitbelow = true,
