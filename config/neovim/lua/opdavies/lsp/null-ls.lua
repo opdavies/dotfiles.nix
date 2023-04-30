@@ -29,7 +29,11 @@ null_ls.setup {
     formatting.rustywind,
     formatting.stylua,
 
-    diagnostics.eslint,
+    diagnostics.eslint.with({
+      condition = function(utils)
+        return utils.root_has_file({ '.eslintrc.js' })
+      end,
+    }),
     diagnostics.markdownlint,
     diagnostics.php,
     diagnostics.phpcs,
