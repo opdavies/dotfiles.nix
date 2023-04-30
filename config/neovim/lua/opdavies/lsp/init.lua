@@ -16,6 +16,10 @@ end
 
 lsp.on_attach(on_attach)
 
+lsp.set_preferences({
+  sign_icons = {},
+})
+
 lsp.setup_servers({
   'ansiblels',
   'astro',
