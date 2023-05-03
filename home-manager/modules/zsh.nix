@@ -1,5 +1,4 @@
-{ config, pkgs, lib, libs, ... }:
-{
+{ config, pkgs, lib, libs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = false;
@@ -119,9 +118,18 @@
       enable = true;
 
       plugins = [
-        { name = "themes/robbyrussell"; tags = [from:oh-my-zsh as:theme]; }
-        { name = "plugin/git"; tags = [from:oh-my-zsh]; }
-        { name = "plugin/vi-mode"; tags = [from:oh-my-zsh]; }
+        {
+          name = "themes/robbyrussell";
+          tags = [ "from:oh-my-zsh" "as:theme" ];
+        }
+        {
+          name = "plugin/git";
+          tags = [ "from:oh-my-zsh" ];
+        }
+        {
+          name = "plugin/vi-mode";
+          tags = [ "from:oh-my-zsh" ];
+        }
         { name = "mollifier/cd-gitroot"; }
         { name = "zsh-users/zsh-autosuggestions"; }
         { name = "zsh-users/zsh-completions"; }

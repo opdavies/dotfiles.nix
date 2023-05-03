@@ -1,7 +1,5 @@
-{ }: {
-  config = {
-    allowUnfree = true;
-  };
+{}: {
+  config = { allowUnfree = true; };
 
   overlays = [ (import ./overlays.nix) ];
 }

@@ -69,24 +69,23 @@ let
       sha256 = "n8jd6fy30XukZ9NFZX5qclSlMfziP/Ew9dXfkysRl4Y=";
     };
   };
-in {
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "intelephense"
-    "postman"
-  ];
+in
+{
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "intelephense" "postman" ];
 
   home.packages = (import ./packages.nix) { inherit pkgs; };
 
   home.file."nodemon.json".text = ''
-  {
-    "ignore": [
-      ".git"
-    ],
-    "verbose": true,
-    "events": {
-      "start": "clear"
+    {
+      "ignore": [
+        ".git"
+      ],
+      "verbose": true,
+      "events": {
+        "start": "clear"
+      }
     }
-  }
   '';
 
   programs.bat.enable = true;
@@ -213,18 +212,20 @@ in {
       nodePackages.vls
       nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
+      phpactor
       php81Packages.phpcbf
       php81Packages.phpcs
       php81Packages.phpstan
       proselint
       rnix-lsp
+      rstfmt
       shellcheck
     ];
   };
 
-  home.sessionPath = [
-    "$HOME/.config/bin"
-  ];
+  programs.nnn.enable = true;
+
+  home.sessionPath = [ "$HOME/.config/bin" ];
 
   xdg.configFile.bin = {
     source = ../../bin;

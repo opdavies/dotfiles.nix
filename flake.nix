@@ -8,12 +8,15 @@
   };
 
   outputs = { self, home-manager, neovim-nightly, nixpkgs, ... }:
-    let overlays = [ neovim-nightly.overlay ];
-    in {
+    let
+      overlays = [ neovim-nightly.overlay ];
+      system = "x86_64-linux";
+    in
+    {
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
+
       nixosConfigurations = {
         apollo = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
           modules = [
             { nixpkgs.overlays = overlays; }
 
@@ -29,8 +32,6 @@
         };
 
         nixedo = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
           modules = [
             { nixpkgs.overlays = overlays; }
 
@@ -48,7 +49,7 @@
 
       homeConfigurations = {
         wsl2 = home-manager.lib.homeManagerConfiguration {
-          modules = [ { nixpkgs.overlays = overlays; } ./system/wsl2.nix ];
+          modules = [{ nixpkgs.overlays = overlays; } ./system/wsl2.nix];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
         };
       };

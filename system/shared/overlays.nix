@@ -1,4 +1,1 @@
-self: super: {
-  customVim = with self; {
-  };
-}
+self: super: { }

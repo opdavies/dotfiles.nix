@@ -4,13 +4,12 @@
 
 { config, pkgs, ... }:
 
-let
-  nixpkgs = import ../../shared/nixpkgs.nix { };
-in
-{
+let nixpkgs = import ../../shared/nixpkgs.nix { };
+in {
   nixpkgs = nixpkgs;
 
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -141,5 +140,9 @@ in
   programs.zsh.histSize = 5000;
 
   users.defaultUserShell = "/etc/profiles/per-user/opdavies/bin/zsh";
+
+  fonts.fonts = with pkgs;
+    [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
+
 }
 

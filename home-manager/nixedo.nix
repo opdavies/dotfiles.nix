@@ -26,25 +26,15 @@
       font = {
         size = 12.0;
 
-        normal.family = "Meslo LG M";
+        normal.family = "JetBrainsMono Nerd Font";
 
         offset.y = 12;
         glyph_offset.y = 6;
       };
 
-      shell = {
-        program = "zsh";
-      };
+      shell = { program = "zsh"; };
     };
   };
 
-  home.packages = with pkgs; [
-    discord
-    meslo-lg
-    slack
-    teams
-    vlc
-    xcape
-    zoom-us
-  ];
+  home.packages = with pkgs; [ discord meslo-lg slack teams vlc xcape zoom-us ];
 }
