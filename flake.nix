@@ -1,13 +1,10 @@
-# https://nix-community.github.io/home-manager/index.html#ch-nix-flakes
 {
-  inputs = {
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  };
+  inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.home-manager.url = "github:nix-community/home-manager";
+  inputs.neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs = { self, home-manager, neovim-nightly, nixpkgs, ... }:
+  outputs = inputs@{ home-manager, neovim-nightly, flake-parts, nixpkgs, self, ... }:
     let
       overlays = [ neovim-nightly.overlay ];
       system = "x86_64-linux";
