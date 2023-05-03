@@ -4,50 +4,58 @@
   inputs.neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs = inputs@{ home-manager, neovim-nightly, flake-parts, nixpkgs, self, ... }:
+  outputs =
+    inputs@{ flake-parts, home-manager, neovim-nightly, nixpkgs, self, ... }:
     let
       overlays = [ neovim-nightly.overlay ];
-      system = "x86_64-linux";
     in
-    {
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
-      nixosConfigurations = {
-        apollo = nixpkgs.lib.nixosSystem {
-          modules = [
-            { nixpkgs.overlays = overlays; }
+      perSystem = { pkgs, self', nixpkgs, ... }: {
+        packages.default = self'.packages.activate;
 
-            ./system/nixos/apollo/configuration.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.opdavies = import ./home-manager/apollo.nix;
-            }
-          ];
-        };
-
-        nixedo = nixpkgs.lib.nixosSystem {
-          modules = [
-            { nixpkgs.overlays = overlays; }
-
-            ./system/nixos/nixedo/configuration.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.opdavies = import ./home-manager/nixedo.nix;
-            }
-          ];
-        };
+        formatter = pkgs.nixpkgs-fmt;
       };
 
-      homeConfigurations = {
-        wsl2 = home-manager.lib.homeManagerConfiguration {
-          modules = [{ nixpkgs.overlays = overlays; } ./system/wsl2.nix];
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      flake = {
+        nixosConfigurations = {
+          apollo = nixpkgs.lib.nixosSystem {
+            modules = [
+              { nixpkgs.overlays = overlays; }
+
+              ./system/nixos/apollo/configuration.nix
+
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.opdavies = import ./home-manager/apollo.nix;
+              }
+            ];
+          };
+
+          nixedo = nixpkgs.lib.nixosSystem {
+            modules = [
+              { nixpkgs.overlays = overlays; }
+
+              ./system/nixos/nixedo/configuration.nix
+
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.opdavies = import ./home-manager/nixedo.nix;
+              }
+            ];
+          };
+        };
+
+        homeConfigurations = {
+          wsl2 = home-manager.lib.homeManagerConfiguration {
+            modules = [{ nixpkgs.overlays = overlays; } ./system/wsl2.nix];
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          };
         };
       };
     };
