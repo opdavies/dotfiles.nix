@@ -144,5 +144,6 @@ in {
   fonts.fonts = with pkgs;
     [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
 
+  zramSwap.enable = true;
 }
 
