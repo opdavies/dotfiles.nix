@@ -60,6 +60,14 @@ lspconfig.tailwindcss.setup({
   },
 })
 
+lspconfig.yamlls.setup({
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    }
+  }
+})
+
 vim.diagnostic.config({
   virtual_text = true,
 })
