@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     userName = "Oliver Davies";
-    userEmail = "oliver@oliverdavies.uk";
+    userEmail = "oliver@oliverdavies.dev";
 
     aliases = {
       aa = "add --all";
