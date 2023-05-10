@@ -12,9 +12,6 @@ local function set_autocmd()
     autocmd FileType gitcommit setlocal textwidth=72
   ]]
 
-  -- Automatically resize buffers when Vim is resized.
-  vim.api.nvim_create_autocmd("VimResized *", { command = ":wincmd =" })
-
   -- Cursorline highlighting control.
   --  Only have it on in the current buffer.
   local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
