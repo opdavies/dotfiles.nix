@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ prototype.namespace }};
+
+use Drupal\Tests\UnitTestCase;
+
+{% for class in prototype.classes %}
+final class {{ class.name }} extends UnitTestCase {
+
+}
+{% endfor %}

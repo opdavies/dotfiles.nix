@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ prototype.namespace }};
+
+use Drupal\KernelTests\KernelTestBase;
+
+{% for class in prototype.classes %}
+final class {{ class.name }} extends KernelTestBase {
+
+  public static $modules = [];
+
+  protected $strictConfigSchema = FALSE;
+
+  public function setUp(): void {
+    parent::setUp();
+  }
+
+}
+{% endfor %}

@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ prototype.namespace }};
+
+use Drupal\Tests\BrowserTestBase;
+
+{% for class in prototype.classes %}
+final class {{ class.name }} extends BrowserTestBase {
+
+  public $defaultTheme = 'stark';
+
+  public static $modules = [];
+
+  public function setUp(): void {
+    parent::setUp();
+  }
+
+}
+{% endfor %}

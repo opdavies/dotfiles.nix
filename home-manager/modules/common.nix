@@ -236,4 +236,9 @@ in
     source = ../../config/neovim;
     recursive = true;
   };
+
+  xdg.configFile.phpactor = {
+    source = ../../config/phpactor;
+    recursive = true;
+  };
 }
