@@ -74,7 +74,7 @@ in
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "postman" ];
 
-  home.packages = (import ./packages.nix) { inherit pkgs; };
+  home.packages = (import ./home-manager-packages.nix) { inherit pkgs; };
 
   home.file."nodemon.json".text = ''
     {
