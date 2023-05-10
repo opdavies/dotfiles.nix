@@ -27,7 +27,6 @@ lsp.setup_servers({
   'cssls',
   'dockerls',
   'html',
-  'intelephense',
   'jsonls',
   'tailwindcss',
   'terraformls',

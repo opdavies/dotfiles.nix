@@ -72,7 +72,7 @@ let
 in
 {
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "intelephense" "postman" ];
+    builtins.elem (lib.getName pkg) [ "postman" ];
 
   home.packages = (import ./packages.nix) { inherit pkgs; };
 
@@ -204,7 +204,6 @@ in
       nodePackages.bash-language-server
       nodePackages.dockerfile-language-server-nodejs
       nodePackages.eslint
-      nodePackages.intelephense
       nodePackages.markdownlint-cli
       nodePackages.prettier
       nodePackages.typescript
