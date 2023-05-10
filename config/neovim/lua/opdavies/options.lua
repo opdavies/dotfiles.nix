@@ -121,7 +121,6 @@ local function set_vim_o()
     autoindent = true,
     backup = true,
     breakindent = true,
-    cmdheight = 0,
     conceallevel = 0,
     cursorline = true,
     expandtab = true,
