@@ -169,6 +169,7 @@ in
       vimPlugins.cmp_luasnip
       vimPlugins.lspkind-nvim
       vimPlugins.nvim-cmp
+      vimPlugins.phpactor
 
       # Snippets
       vimPlugins.luasnip
