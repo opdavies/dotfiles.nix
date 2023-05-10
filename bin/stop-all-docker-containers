@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Stops all running Docker containers except for the global Traefik proxy.
+
+set -euo pipefail
+
+# Show the running containers.
+docker container ps
+
+echo ""
+
+# Stop the running containers and show any that are still running.
+docker container ls |
+  tail -n +2 |
+  grep -v traefik-development-reverse-proxy-1 |
+  awk '{print $1}' |
+  xargs docker container stop
+echo ""
+docker container ps
