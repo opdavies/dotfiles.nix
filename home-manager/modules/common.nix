@@ -88,6 +88,14 @@ in
     }
   '';
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    LANG = "en_GB.UTF-8";
+    LC_ALL = "en_GB.UTF-8";
+    LC_CTYPE = "en_GB.UTF-8";
+    PULUMI_SKIP_UPDATE_CHECK = "true";
+  };
+
   programs.bat.enable = true;
 
   programs.neovim = {
