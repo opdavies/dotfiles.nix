@@ -5,7 +5,6 @@ local function set_autocmd()
     autocmd BufRead,BufNewFile *.test set filetype=php
 
     autocmd BufWritePost plugins.lua luafile %
-    autocmd BufWritePost plugins.lua PackerSync
 
     autocmd FileType gitcommit highlight ColorColumn ctermbg=8
     autocmd FileType gitcommit setlocal colorcolumn=50,72
