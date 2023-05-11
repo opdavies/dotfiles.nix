@@ -36,7 +36,11 @@ null_ls.setup {
     }),
     diagnostics.markdownlint,
     diagnostics.php,
-    diagnostics.phpcs,
+    diagnostics.phpcs.with({
+      condition = function(utils)
+        return utils.root_has_file({ 'phpcs.xml.dist' })
+      end,
+    }),
     diagnostics.phpstan,
     diagnostics.shellcheck,
   },
