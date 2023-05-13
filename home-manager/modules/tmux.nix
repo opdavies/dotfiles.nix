@@ -15,8 +15,7 @@
       bind-key -n C-l select-pane -R
 
       set-option -g status-keys "emacs"
-      set-option -ga terminal-overrides ",*256col*:Tc"
-      set-option -g default-terminal "screen-256color"
+      set-option -ga terminal-overrides ",*256col*:alacritty"
 
       bind-key h split-window -v  -c "#{pane_current_path}"
       bind-key v split-window -h  -c "#{pane_current_path}"
