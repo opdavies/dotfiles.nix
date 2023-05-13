@@ -88,6 +88,36 @@
       ialias tag="tag-release"
       ialias update="fetch && rebase"
 
+      ialias ls="exa -la"
+
+      # tmux
+      alias ta="tmux attach"
+      alias tl="tmux list-sessions"
+      alias tk="tmux kill-session"
+
+      # Docker and Docker Compose.
+      alias dk="docker"
+      alias dkp="docker ps"
+      alias dkpa="docker ps -a"
+      alias dkpaq="docker ps -a -q"
+      alias dkb="docker build -t"
+      alias dks="docker start"
+      alias dkt="docker stop"
+      alias dkrm="docker rm"
+      alias dkri="docker rmi"
+      alias dke="docker exec -ti"
+      alias dkl="docker logs -f"
+      alias dki="docker images"
+      alias dkpu="docker pull"
+      alias dkph="docker push"
+      alias dkbnc="docker build --no-cache -t"
+      alias dkr="docker run --rm"
+      alias dkrti="docker run --rm -ti"
+      alias dkc="docker compose"
+      alias dkcb="docker compose build"
+      alias dkcu="docker compose up"
+      alias dkclean="docker ps -q -a -f status=exited | xargs -r docker rm && docker images -q -f dangling=true | xargs -r docker rmi"
+
       # Nix and NixOS.
       alias nx="nix"
       alias nxb="nix build"
