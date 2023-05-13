@@ -132,6 +132,7 @@ in
       vimPlugins.vim-floaterm
       vimPlugins.vim-highlightedyank
       vimPlugins.vim-nix
+      vimPlugins.vim-obsession
       vimPlugins.vim-pasta
       vimPlugins.vim-polyglot
       vimPlugins.vim-repeat

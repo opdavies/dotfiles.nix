@@ -91,6 +91,8 @@
 
       bind-key -r F new-window t
       bind-key -r D run-shell "t ~/Code/dotfiles"
+
+      set -g @resurrect-strategy-nvim 'session'
     '';
 
     plugins = with pkgs; [
