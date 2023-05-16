@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-if [[ "$1" == "" ]]; then
-  echo "Usage: ${0##*/} <sha=HEAD>"; exit 2
-fi
-
 set -euo pipefail
 
 commit_sha="${1:-HEAD}"
