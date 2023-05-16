@@ -1,4 +1,21 @@
 { config, pkgs, lib, libs, ... }: {
+  home.file.".gitmessage".text = ''
+    type(scope): description
+
+    # type: fix, feat, build, chore, ci, docs, style, refactor, perf, test
+    #
+    # Description
+    #
+    # - Why is this change necessary?
+    # - How does it address the issue?
+    # - What side effects does this change have?
+    #
+    # For breaking changes, add an ! after the type/scope, uncomment the following
+    # line and describe the change:
+    #
+    # BREAKING CHANGE:
+  '';
+
   programs.git = {
     enable = true;
     userName = "Oliver Davies";
