@@ -19,6 +19,8 @@
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
       autoload -Uz compinit && compinit
 
+      bindkey -s ^f "t\n"
+
       clear-ls-all() {
         clear
         exa -al
