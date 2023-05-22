@@ -250,4 +250,9 @@ in
     source = ../../config/phpactor;
     recursive = true;
   };
+
+  xdg.configFile.sway = {
+    source = ../../config/sway;
+    recursive = true;
+  };
 }
