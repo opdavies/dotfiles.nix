@@ -36,5 +36,5 @@
     };
   };
 
-  home.packages = with pkgs; [ discord meslo-lg slack teams vlc xcape zoom-us ];
+  home.packages = with pkgs; [ discord meslo-lg slack teams vlc wofi xcape zoom-us ];
 }
