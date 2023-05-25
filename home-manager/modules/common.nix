@@ -94,6 +94,7 @@ in
     LC_ALL = "en_GB.UTF-8";
     LC_CTYPE = "en_GB.UTF-8";
     PULUMI_SKIP_UPDATE_CHECK = "true";
+    RIPGREP_CONFIG_PATH = "$HOME/.config/ripgrep/config";
   };
 
   programs.bat.enable = true;
@@ -235,6 +236,11 @@ in
   programs.nnn.enable = true;
 
   home.sessionPath = [ "$HOME/.config/bin" ];
+
+  xdg.configFile."ripgrep/config".text = ''
+    --follow
+    --smart-case
+  '';
 
   xdg.configFile.bin = {
     source = ../../bin;
