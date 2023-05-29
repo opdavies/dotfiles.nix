@@ -50,18 +50,16 @@ bindswitch --reload --locked lid:off output $laptop enable
 # bindsym $mod+9 [workspace="9"] move workspace to output current; workspace number 9
 # bindsym $mod+0 [workspace="10"] move workspace to output current; workspace number 10
 
+bindsym $mod+tab workspace back_and_forth
+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
 ### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
 #
@@ -219,17 +217,17 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-    tray_padding 5px
+    tray_padding 10px
+    font pango:DejaVu Sans Mono 16
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-    status_command while ~/.config/sway/status.sh; do sleep 10; done
+    status_command while ~/.config/sway/status.sh; do sleep 5; done
 
     colors {
         statusline #ffffff
         background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
 
