@@ -25,7 +25,7 @@ set $menu wofi --show run
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.config/sway/wallpaper.png fill
 #
 # Example configuration:
 #
@@ -216,18 +216,19 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    position bottom
     tray_padding 10px
     font pango:DejaVu Sans Mono 16
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-    status_command while ~/.config/sway/status.sh; do sleep 5; done
+    status_command /run/current-system/sw/bin/i3status-rs ~/.config/i3status-rs/config.toml
 
     colors {
         statusline #ffffff
         background #323232
+        focused_workspace #ffffff #ffffff #333333
     }
 }
 

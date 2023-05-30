@@ -119,6 +119,7 @@ in {
   environment.systemPackages = with pkgs;
     [
       configure-gtk
+      i3status-rust
       swayidle
       swaylock
     ];
