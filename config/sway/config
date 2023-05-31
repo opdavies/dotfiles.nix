@@ -236,7 +236,6 @@ default_border pixel 3
 
 input * {
     xkb_layout "gb"
-    # xkb_options "caps:swapescape"
 }
 
 input type:touchpad {
@@ -250,7 +249,6 @@ smart_gaps on
 gaps inner 10
 
 exec configure-gtk
-exec configue-keyboard
 
 bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2
 bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.2

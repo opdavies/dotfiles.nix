@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   nixpkgs = import ../../shared/nixpkgs.nix { };
@@ -175,5 +175,27 @@ in {
     [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
 
   zramSwap.enable = true;
+
+  # Make Caps lock work as an Escape key on press and Ctrl on hold.
+  services.interception-tools =
+    let
+      dfkConfig = pkgs.writeText "dual-function-keys.yaml" ''
+        MAPPINGS:
+          - KEY: KEY_CAPSLOCK
+            TAP: KEY_ESC
+            HOLD: KEY_LEFTCTRL
+      '';
+    in
+    {
+      enable = true;
+      plugins = lib.mkForce [ pkgs.interception-tools-plugins.dual-function-keys ];
+      udevmonConfig = ''
+        - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
+          DEVICE:
+            NAME: "AT Translated Set 2 keyboard"
+            EVENTS:
+              EV_KEY: [[KEY_CAPSLOCK, KEY_ESC, KEY_LEFTCTRL]]
+      '';
+    };
 }
 
