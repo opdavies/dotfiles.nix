@@ -1,4 +1,8 @@
 [[block]]
+block = "net"
+format = " $ip "
+
+[[block]]
 block = "battery"
 
 [[block]]
@@ -21,4 +25,5 @@ format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
 
 [[block]]
 block = "time"
+interval = 60
 format = " $timestamp.datetime(f:'%a %d/%m/%Y %R') "
