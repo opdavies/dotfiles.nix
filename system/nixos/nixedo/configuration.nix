@@ -118,6 +118,7 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs;
     [
+      brightnessctl
       configure-gtk
       i3status-rust
       swayidle
