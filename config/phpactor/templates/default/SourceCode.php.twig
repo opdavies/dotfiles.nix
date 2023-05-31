@@ -1,0 +1,10 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ prototype.namespace }};
+
+{% for class in prototype.classes %}
+final class {{ class.name }} {
+}
+{% endfor %}

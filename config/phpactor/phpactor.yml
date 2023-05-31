@@ -1,4 +1,5 @@
 code_transform.class_new.variants:
+  default: default
   drupal-functional-test: drupal-functional-test
   drupal-kernel-test: drupal-kernel-test
   drupal-unit-test: drupal-unit-test
