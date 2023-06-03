@@ -169,8 +169,24 @@ in {
 
   users.defaultUserShell = "/etc/profiles/per-user/opdavies/bin/zsh";
 
-  fonts.fonts = with pkgs;
-    [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
+  fonts = {
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [ "Meslo LG M Regular Nerd Font Complete Mono" ];
+      };
+    };
+    fonts = with pkgs; [
+      (nerdfonts.override {
+        fonts = [
+          "Iosevka"
+          "JetBrainsMono"
+          "Meslo"
+        ];
+      })
+    ];
+  };
+
 
   zramSwap.enable = true;
 
