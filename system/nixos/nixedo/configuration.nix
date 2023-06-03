@@ -28,8 +28,6 @@ in {
     ./hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -175,6 +173,18 @@ in {
     [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
 
   zramSwap.enable = true;
+
+  nix.settings = {
+    warn-dirty = false;
+    auto-optimise-store = true;
+    experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   # Make Caps lock work as an Escape key on press and Ctrl on hold.
   services.interception-tools =
