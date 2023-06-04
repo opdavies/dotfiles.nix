@@ -129,6 +129,7 @@ local function set_vim_o()
     foldmethod = "indent",
     formatoptions = "lm",
     hidden = false,
+    inccommand = "split",
     linebreak = true,
     mouse = "n",
     number = true,
