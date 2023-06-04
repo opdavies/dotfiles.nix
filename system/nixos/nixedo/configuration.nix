@@ -223,5 +223,11 @@ in {
               EV_KEY: [[KEY_CAPSLOCK, KEY_ESC, KEY_LEFTCTRL]]
       '';
     };
+
+    system.autoUpgrade = {
+      allowReboot = true;
+      enable = true;
+      flake = "nixedo";
+    };
 }
 
