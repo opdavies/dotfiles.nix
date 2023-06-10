@@ -24,10 +24,13 @@ set $menu wofi --show run
 
 set $browser firefox
 
+set $wallpaper ~/.config/sway/wallpaper.jpg
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg ~/.config/sway/wallpaper.png fill
+output * bg $wallpaper fill #000000
+
 #
 # Example configuration:
 #
@@ -59,11 +62,11 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 ### Idle configuration
 exec swayidle -w \
-    timeout 300 'swaylock -f -i ~/.config/sway/wallpaper.png' \
+    timeout 300 'swaylock -f -i $wallpaper \
     timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f -i ~/.config/sway/wallpaper.png'
+    before-sleep "swaylock -f -i $wallpaper"
 
-bindsym $mod+Escape exec swaylock -f -i ~/.config/sway/wallpaper.png
+bindsym $mod+Escape exec swaylock -f -i $wallpaper #000000
 
 ### Input configuration
 #

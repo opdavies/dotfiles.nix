@@ -3,10 +3,19 @@ if not status_ok then
   return
 end
 
-catppuccin.setup {}
+catppuccin.setup({
+  flavour = "macchiato",
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    native_lsp = {
+      enabled = true;
+    },
+    telescope = true,
+    treesitter = true,
+  },
+  term_colors = true,
+  transparent_background = true,
+})
 
-vim.opt.termguicolors = true
-
-vim.g.catppuccin_flavour = "mocha"
-
-vim.cmd([[ colorscheme catppuccin ]])
+vim.cmd.colorscheme "catppuccin"
