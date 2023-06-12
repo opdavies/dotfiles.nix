@@ -247,11 +247,6 @@ in
     recursive = true;
   };
 
-  xdg.configFile.i3status-rs = {
-    source = ../../config/i3status-rs;
-    recursive = true;
-  };
-
   xdg.configFile.nvim = {
     source = ../../config/neovim;
     recursive = true;
