@@ -257,8 +257,8 @@ in
     recursive = true;
   };
 
-  xdg.configFile.sway = {
-    source = ../../config/sway;
+  xdg.configFile.wallpaper = {
+    source = ../../config/wallpaper;
     recursive = true;
   };
 }

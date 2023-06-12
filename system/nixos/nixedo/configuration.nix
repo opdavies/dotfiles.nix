@@ -118,9 +118,12 @@ in {
     [
       brightnessctl
       configure-gtk
-      i3status-rust
-      swayidle
-      swaylock
+      ffmpegthumbnailer
+      google-chrome
+      swaybg
+      xfce.thunar
+      xfce.thunar-volman
+      xfce.tumbler
     ];
 
   xdg.portal = {
