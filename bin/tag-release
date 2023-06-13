@@ -10,4 +10,4 @@ echo ""
 
 # Tag the appropriate commit and push to the remote.
 git tag "${tag}" "${commit_sha}"
-git push origin "refs/tags/${tag}"
+git push origin "refs/tags/${tag}" --no-verify
