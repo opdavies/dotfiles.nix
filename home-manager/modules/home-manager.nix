@@ -90,7 +90,7 @@
         "${modifier}+Escape" = "exec swaylock --daemonize";
         "${modifier}+Shift+b" = "exec firefox";
         "${modifier}+tab" = "workspace back_and_forth";
-    };
+      };
 
     menu = "wofi --show run";
     modifier = "Mod4";

@@ -8,19 +8,22 @@ let
   nixpkgs = import ../../shared/nixpkgs.nix { };
 
   configure-gtk = pkgs.writeTextFile {
-      name = "configure-gtk";
-      destination = "/bin/configure-gtk";
-      executable = true;
-      text = let
+    name = "configure-gtk";
+    destination = "/bin/configure-gtk";
+    executable = true;
+    text =
+      let
         schema = pkgs.gsettings-desktop-schemas;
         datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-      in ''
+      in
+      ''
         export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
         gnome_schema=org.gnome.desktop.interface
         gsettings set $gnome_schema gtk-theme 'Breeze Dark'
-        '';
+      '';
   };
-in {
+in
+{
   nixpkgs = nixpkgs;
 
   imports = [
@@ -227,10 +230,10 @@ in {
       '';
     };
 
-    system.autoUpgrade = {
-      allowReboot = true;
-      enable = true;
-      flake = "nixedo";
-    };
+  system.autoUpgrade = {
+    allowReboot = true;
+    enable = true;
+    flake = "nixedo";
+  };
 }
 
