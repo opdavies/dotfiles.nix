@@ -6,120 +6,130 @@
 
   programs.home-manager.enable = true;
 
-  services.swayidle.enable = true;
+  services.swayidle = {
+    enable = true;
 
-  services.swayidle.events = [
-    {
-      event = "before-sleep";
-      command = "${pkgs.swaylock}/bin/swaylock --daemonize --image ~/.config/wallpaper/wallpaper.jpg";
-    }
-  ];
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock --daemonize --image ~/.config/wallpaper/wallpaper.jpg";
+      }
+    ];
+  };
 
   services.swayidle.timeouts = [
     {
-      timeout = 60;
+      timeout = 300;
       command = "${pkgs.swaylock}/bin/swaylock --daemonize --image ~/.config/wallpaper/wallpaper.jpg";
     }
+
     {
-      timeout = 300;
+      timeout = 600;
       command = "swaymsg 'output * dpms off'";
       resumeCommand = "swaymsg 'output * dpms on'";
     }
   ];
 
-  programs.swaylock.enable = true;
-  programs.swaylock.settings = {
-    daemonize = true;
-    image = "~/.config/wallpaper/wallpaper.jpg";
+  programs.swaylock = {
+    enable = true;
+
+    settings = {
+      daemonize = true;
+      image = "~/.config/wallpaper/wallpaper.jpg";
+    };
   };
 
-  wayland.windowManager.sway.enable = true;
+  wayland.windowManager.sway = {
+    enable = true;
 
-  wayland.windowManager.sway.config = {
-    assigns = {
-      "1" = [{ app_id = "firefox"; }];
-      "2" = [{ app_id = "Alacritty"; }];
-      "3" = [{ class = "vlc"; }];
-      "10" = [
-        { class = "Slack"; }
-        { class = "discord"; }
-      ];
-      # Get app_id with swaymsg -t get_tree
-    };
+    config = {
+      assigns = {
+        "1" = [{ app_id = "firefox"; }];
+        "2" = [{ app_id = "Alacritty"; }];
+        "3" = [{ class = "vlc"; }];
+        "10" = [
+          { class = "Slack"; }
+          { class = "discord"; }
+        ];
+        # Get app_id with swaymsg -t get_tree
+      };
 
-    bars = [
-      {
-        colors = {
-          background = "#323232";
-          focusedWorkspace = {
-            background = "#ffffff";
-            border = "#ffffff";
-            text = "#333333";
+      bars = [
+        {
+          colors = {
+            background = "#323232";
+            focusedWorkspace = {
+              background = "#ffffff";
+              border = "#ffffff";
+              text = "#333333";
+            };
+            statusline = "#ffffff";
           };
-          statusline = "#ffffff";
+
+          fonts = {
+            names = [ "DejaVu Sans Mono" ];
+            size = 16.0;
+          };
+
+          statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
+          trayPadding = 10;
+        }
+      ];
+
+      gaps = {
+        inner = 10;
+        smartBorders = "on";
+        smartGaps = true;
+      };
+
+      input = {
+        "*" = {
+          xkb_layout = "gb";
         };
 
-        fonts = {
-          names = [ "DejaVu Sans Mono" ];
-          size = 16.0;
+        "type:touchpad" = {
+          dwt = "enabled";
+          tap = "enabled";
+        };
+      };
+
+      keybindings =
+        let modifier = config.wayland.windowManager.sway.config.modifier;
+        in lib.mkOptionDefault {
+          "${modifier}+Escape" = "exec swaylock --daemonize";
+          "${modifier}+Shift+b" = "exec firefox";
+          "${modifier}+tab" = "workspace back_and_forth";
         };
 
-        statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
-        trayPadding = 10;
-      }
-    ];
+      menu = "wofi --show run";
+      modifier = "Mod4";
 
-    gaps.inner = 10;
-    gaps.smartBorders = "on";
-    gaps.smartGaps = true;
+      output = {
+        "*" = {
+          bg = "~/.config/wallpaper/wallpaper.jpg fill";
+        };
 
-    input = {
-      "*" = {
-        xkb_layout = "gb";
+        eDP-1 = {
+          scale = "1.0";
+        };
       };
 
-      "type:touchpad" = {
-        dwt = "enabled";
-        tap = "enabled";
-      };
+      terminal = "alacritty";
+
+      window.border = 3;
     };
 
-    keybindings =
-      let modifier = config.wayland.windowManager.sway.config.modifier;
-      in lib.mkOptionDefault {
-        "${modifier}+Escape" = "exec swaylock --daemonize";
-        "${modifier}+Shift+b" = "exec firefox";
-        "${modifier}+tab" = "workspace back_and_forth";
-      };
+    extraConfig = ''
+      set $laptop eDP-1
+      bindswitch --reload --locked lid:on output $laptop disable
+      bindswitch --reload --locked lid:off output $laptop enable
 
-    menu = "wofi --show run";
-    modifier = "Mod4";
+      bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+      bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
-    output = {
-      "*" = {
-        bg = "~/.config/wallpaper/wallpaper.jpg fill";
-      };
-
-      eDP-1 = {
-        scale = "1.0";
-      };
-    };
-
-    terminal = "alacritty";
-
-    window.border = 3;
+      for_window [class="vlc"] inhibit_idle fullscreen
+    '';
   };
-
-  wayland.windowManager.sway.extraConfig = ''
-    set $laptop eDP-1
-    bindswitch --reload --locked lid:on output $laptop disable
-    bindswitch --reload --locked lid:off output $laptop enable
-
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-
-    for_window [class="vlc"] inhibit_idle fullscreen
-  '';
 
   programs.i3status-rust = {
     enable = true;
