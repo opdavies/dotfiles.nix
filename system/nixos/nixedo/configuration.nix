@@ -36,7 +36,9 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
 
   networking.hostName = "nixedo"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
