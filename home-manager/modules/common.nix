@@ -213,9 +213,7 @@ in
       nodePackages."@tailwindcss/language-server"
       nodePackages.bash-language-server
       nodePackages.dockerfile-language-server-nodejs
-      nodePackages.eslint
       nodePackages.markdownlint-cli
-      nodePackages.prettier
       nodePackages.typescript
       nodePackages.typescript-language-server
       nodePackages.vue-language-server
@@ -223,9 +221,6 @@ in
       nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
       phpactor
-      php81Packages.phpcbf
-      php81Packages.phpcs
-      php81Packages.phpstan
       proselint
       rnix-lsp
       rstfmt

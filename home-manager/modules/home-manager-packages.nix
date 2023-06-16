@@ -22,10 +22,15 @@ with pkgs; [
   mysql
   neofetch
   nodePackages."http-server"
+  nodePackages.eslint
   nodePackages.nodemon
+  nodePackages.prettier
   nodejs
   php81
   php81Packages.composer
+  php81Packages.phpcbf
+  php81Packages.phpcs
+  php81Packages.phpstan
   platformsh
   postman
   pulumi-bin
