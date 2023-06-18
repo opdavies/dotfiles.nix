@@ -37,6 +37,7 @@ with pkgs; [
   pv
   python3Full
   ripgrep
+  rustywind
   terraform
   tldr
   tmuxinator
