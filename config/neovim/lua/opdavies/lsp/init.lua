@@ -28,6 +28,7 @@ lsp.setup_servers({
   'dockerls',
   'html',
   'jsonls',
+  'nixd',
   'phpactor',
   'tailwindcss',
   'terraformls',

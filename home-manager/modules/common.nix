@@ -209,6 +209,7 @@ in
       gopls
       html-tidy
       lua53Packages.lua-lsp
+      nixd
       nodePackages."@astrojs/language-server"
       nodePackages."@tailwindcss/language-server"
       nodePackages.bash-language-server
