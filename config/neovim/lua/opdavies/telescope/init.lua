@@ -98,7 +98,7 @@ function M.file_browser()
 end
 
 function M.find_files()
-  local opts = themes.get_ivy {
+  local opts = {
     file_ignore_patterns = { ".git/", "**/{core,contrib}", "vendor" },
   }
 
@@ -106,16 +106,17 @@ function M.find_files()
 end
 
 function M.find_all_files()
-  local opts = themes.get_ivy {
+  local opts = {
     no_ignore = true,
+    prompt_title = "All Files",
   }
 
   require("telescope.builtin").find_files(opts)
 end
 
 function M.git_files()
-  local opts = themes.get_ivy {
-    file_ignore_patterns = { ".git/", "vendor" },
+  local opts = {
+    file_ignore_patterns = { ".git/", "**/{core,contrib}", "vendor" },
     hidden = true,
     no_ignore = true,
   }
@@ -133,7 +134,7 @@ function M.live_grep()
 end
 
 function M.oldfiles()
-  local opts = themes.get_ivy {
+  local opts = {
     prompt_title = "History",
   }
 

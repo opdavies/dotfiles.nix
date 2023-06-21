@@ -217,8 +217,8 @@ in
       nodePackages.markdownlint-cli
       nodePackages.typescript
       nodePackages.typescript-language-server
-      nodePackages.vue-language-server
       nodePackages.vls
+      nodePackages.vue-language-server
       nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
       phpactor

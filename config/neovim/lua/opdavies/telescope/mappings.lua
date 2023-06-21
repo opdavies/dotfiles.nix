@@ -24,6 +24,7 @@ end
 
 telescope_mapper("<leader>fb", "buffers")
 telescope_mapper("<leader>fd", "find_files")
+telescope_mapper("<leader>fD", "find_all_files")
 telescope_mapper("<leader>fe", "file_browser")
 telescope_mapper("<leader>ff", "current_buf")
 telescope_mapper("<leader>fg", "git_files")
