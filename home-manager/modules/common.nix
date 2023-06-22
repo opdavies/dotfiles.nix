@@ -208,6 +208,7 @@ in
       black
       gopls
       html-tidy
+      nodePackages.intelephense
       lua53Packages.lua-lsp
       nixd
       nodePackages."@astrojs/language-server"
