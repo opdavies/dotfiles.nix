@@ -13,6 +13,8 @@ with pkgs; [
   gh
   git
   git-crypt
+  gnupg
+  pinentry
   inotify-tools
   just
   tree-sitter
@@ -26,6 +28,7 @@ with pkgs; [
   nodePackages.nodemon
   nodePackages.prettier
   nodejs
+  pass
   php81
   php81Packages.composer
   php81Packages.phpcbf
