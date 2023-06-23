@@ -18,6 +18,8 @@
     enable = true;
 
     settings = {
+      window.opacity = 0.9;
+
       window.padding = {
         x = 15;
         y = 15;
