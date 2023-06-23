@@ -38,13 +38,15 @@ telescope.setup {
       prompt_position = 'top',
     },
 
+    preview = {
+      hide_on_startup = true,
+    },
+
     mappings = {
       i = {
         ["<C-h>"] = actions.which_key,
-        ["<C-p>"] = action_layout.toggle_preview,
-      },
-      n = {
-        ["<C-p>"] = action_layout.toggle_preview,
+        ["<M-p>"] = action_layout.toggle_preview,
+        ["<M-m>"] = action_layout.toggle_mirror,
       },
     },
 
