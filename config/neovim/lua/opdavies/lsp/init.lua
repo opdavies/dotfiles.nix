@@ -78,7 +78,10 @@ vim.diagnostic.config({
 cmp.setup({
   preselect = 'item',
   completion = {
-    completeopt = 'menu,menuone,noinsert'
+    autocomplete = false,
+  },
+  mapping = {
+    ['<C-space>'] = cmp.mapping.complete(),
   },
 })
 
