@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }:
+
 let
   vim-astro = pkgs.vimUtils.buildVimPlugin {
     name = "vim-astro";
@@ -204,28 +205,34 @@ in
     ];
 
     extraPackages = with pkgs; [
+      # Languages
+      nodePackages.typescript
+
+      # Language servers
       ansible-language-server
-      black
-      gopls
-      html-tidy
-      nodePackages.intelephense
       lua53Packages.lua-lsp
       nixd
+      nodePackages.intelephense
       nodePackages."@astrojs/language-server"
       nodePackages."@tailwindcss/language-server"
       nodePackages.bash-language-server
       nodePackages.dockerfile-language-server-nodejs
-      nodePackages.markdownlint-cli
-      nodePackages.typescript
       nodePackages.typescript-language-server
       nodePackages.vls
       nodePackages.vue-language-server
       nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
       phpactor
-      proselint
       rnix-lsp
+
+      # Formatters
+      black
       rstfmt
+
+      # Tools
+      html-tidy
+      nodePackages.markdownlint-cli
+      proselint
       shellcheck
     ];
   };
