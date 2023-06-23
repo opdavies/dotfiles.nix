@@ -28,7 +28,7 @@
       font = {
         size = 12.0;
 
-        normal.family = "JetBrainsMono Nerd Font";
+        normal.family = "BlexMono Nerd Font Mono";
 
         offset.y = 12;
         glyph_offset.y = 6;
