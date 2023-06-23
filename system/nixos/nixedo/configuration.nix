@@ -129,6 +129,7 @@ in
       xfce.thunar
       xfce.thunar-volman
       xfce.tumbler
+      wl-clipboard
     ];
 
   xdg.portal = {
