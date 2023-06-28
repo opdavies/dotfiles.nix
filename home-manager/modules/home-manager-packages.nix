@@ -5,8 +5,10 @@ with pkgs; [
   bottom
   ctop
   delta
+  dog
   doppler
   exa
+  fd
   file
   fzf
   gcc
@@ -14,12 +16,10 @@ with pkgs; [
   git
   git-crypt
   gnupg
-  pinentry
-  inotify-tools
-  just
-  tree-sitter
   htop
+  inotify-tools
   jq
+  just
   lua
   mysql
   neofetch
@@ -34,6 +34,7 @@ with pkgs; [
   php81Packages.phpcbf
   php81Packages.phpcs
   php81Packages.phpstan
+  pinentry
   platformsh
   postman
   pulumi-bin
@@ -45,9 +46,11 @@ with pkgs; [
   tldr
   tmuxinator
   tree
+  tree-sitter
   unzip
   virtualenv
   wget
   xcp
+  xh
   yarn
 ]
