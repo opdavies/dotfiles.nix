@@ -174,6 +174,7 @@
           theme = {
             theme = "plain";
             overrides = {
+              critical_bg = "#333333";
               good_bg = "#333333";
               good_fg = "#ffffff";
               idle_bg = "#333333";
