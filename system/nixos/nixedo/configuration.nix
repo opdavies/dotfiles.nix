@@ -182,10 +182,11 @@ in
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "BlexMono Nerd Font Mono" ];
+        monospace = [ "IntelOne Mono" ];
       };
     };
     fonts = with pkgs; [
+      intel-one-mono
       (nerdfonts.override {
         fonts = [
           "Iosevka"

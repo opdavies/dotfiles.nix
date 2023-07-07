@@ -28,7 +28,10 @@
       font = {
         size = 12.0;
 
-        normal.family = "BlexMono Nerd Font Mono";
+        normal.family = "IntelOne Mono";
+        italic.style = "Regular";
+        bolditalic.style = "Regular";
+        bold.style = "Regular";
 
         offset.y = 12;
         glyph_offset.y = 6;
