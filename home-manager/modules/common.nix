@@ -150,7 +150,6 @@ in
       # Git
       vimPlugins.vim-fugitive
       vimPlugins.vim-rhubarb
-      vimPlugins.neogit
 
       # Debugging
       vimPlugins.nvim-dap
