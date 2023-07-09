@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "" || "$2" == "" ]]; then
+  echo "Usage: ${0##*/} <machine-name> <module-name>"; exit 2
+fi
+
+set -euo pipefail
+
+machine_name=$1
+module_name=$2
+
+wget --quiet https://github.com/opdavies/drupal-module-template/archive/refs/heads/main.zip
+unzip main.zip
+mv drupal-module-template-main "${machine_name}"
+rm main.zip
+
+pushd "${machine_name}"
+just rename "${module_name}"
+rm -fr .github justfile phpcs.xml.dist
+popd
