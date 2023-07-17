@@ -130,6 +130,7 @@ in
       vimPlugins.rest-nvim
       vimPlugins.splitjoin-vim
       vimPlugins.vim-abolish
+      vimPlugins.vim-easy-align
       vimPlugins.vim-eunuch
       vimPlugins.vim-floaterm
       vimPlugins.vim-highlightedyank
