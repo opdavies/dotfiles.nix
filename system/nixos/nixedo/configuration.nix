@@ -112,7 +112,7 @@ in
     isNormalUser = true;
     description = "Oliver Davies";
     extraGroups = [ "docker" "networkmanager" "wheel" ];
-    packages = with pkgs; [ firefox ];
+    packages = with pkgs; [];
   };
 
   security.sudo.wheelNeedsPassword = false;

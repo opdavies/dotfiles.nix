@@ -14,6 +14,11 @@
   home.username = "opdavies";
   home.homeDirectory = "/home/opdavies";
 
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-devedition;
+  };
+
   programs.alacritty = {
     enable = true;
 
