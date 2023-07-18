@@ -13,6 +13,9 @@
   boot.kernelParams = [ "i8042.reset" ];
   boot.extraModulePackages = [ ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  hardware.enableAllFirmware = true;
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/7c6d69ec-ba06-4ddb-b9c4-62b3994fda91";
     fsType = "ext4";
