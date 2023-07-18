@@ -57,7 +57,7 @@
       bars = [
         {
           colors = {
-            background = "#323232";
+            background = "#222222";
             focusedWorkspace = {
               background = "#ffffff";
               border = "#ffffff";
@@ -174,15 +174,15 @@
           theme = {
             theme = "plain";
             overrides = {
-              critical_bg = "#333333";
-              good_bg = "#333333";
+              critical_bg = "#222222";
+              good_bg = "#222222";
               good_fg = "#ffffff";
-              idle_bg = "#333333";
+              idle_bg = "#222222";
               idle_fg = "#ffffff";
-              info_bg = "#333333";
+              info_bg = "#222222";
               info_fg = "#ffffff";
-              separator_bg = "#333333";
-              warning_bg = "#333333";
+              separator_bg = "#222222";
+              warning_bg = "#222222";
               warning_fg = "#ffffff";
             };
           };
