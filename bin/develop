@@ -4,6 +4,11 @@
 
 set -euo pipefail
 
+if [[ -f flake.nix ]]; then
+  nix develop -c "$SHELL"
+  exit 0
+fi
+
 if [[ -f docker-compose.yml ]]; then
   docker compose up -d "${@}"
   exit 0
@@ -11,11 +16,6 @@ fi
 
 if [[ -f docker-compose.yaml ]]; then
   docker compose up -d "${@}"
-  exit 0
-fi
-
-if [[ -f flake.nix ]]; then
-  nix develop -c "$SHELL"
   exit 0
 fi
 
