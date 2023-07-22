@@ -47,7 +47,7 @@
         "1" = [{ app_id = "firefox"; }];
         "2" = [{ app_id = "Alacritty"; }];
         "3" = [{ class = "vlc"; }];
-        "10" = [
+        "9" = [
           { class = "Slack"; }
           { class = "discord"; }
         ];
