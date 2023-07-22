@@ -1,14 +1,10 @@
 {
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
   inputs.home-manager.url = "github:nix-community/home-manager";
-  inputs.neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
   outputs =
-    inputs@{ flake-parts, home-manager, neovim-nightly, nixpkgs, self, ... }:
-    let
-      overlays = [ neovim-nightly.overlay ];
-    in
+    inputs@{ flake-parts, home-manager, nixpkgs, self, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
@@ -22,8 +18,6 @@
         nixosConfigurations = {
           apollo = nixpkgs.lib.nixosSystem {
             modules = [
-              { nixpkgs.overlays = overlays; }
-
               ./system/nixos/apollo/configuration.nix
 
               home-manager.nixosModules.home-manager
@@ -37,8 +31,6 @@
 
           nixedo = nixpkgs.lib.nixosSystem {
             modules = [
-              { nixpkgs.overlays = overlays; }
-
               ./system/nixos/nixedo/configuration.nix
 
               home-manager.nixosModules.home-manager
@@ -53,7 +45,7 @@
 
         homeConfigurations = {
           wsl2 = home-manager.lib.homeManagerConfiguration {
-            modules = [{ nixpkgs.overlays = overlays; } ./system/wsl2.nix];
+            modules = [ ./system/wsl2.nix ];
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
           };
         };
