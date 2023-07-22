@@ -121,6 +121,8 @@ in
       vimPlugins.harpoon
       vimPlugins.impatient-nvim
       vimPlugins.indent-blankline-nvim
+      vimPlugins.lualine-lsp-progress
+      vimPlugins.lualine-nvim
       vimPlugins.nvim-autopairs
       vimPlugins.nvim-lastplace
       vimPlugins.nvim-ts-autotag
