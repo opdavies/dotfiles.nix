@@ -128,6 +128,13 @@
       bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
       for_window [class="vlc"] inhibit_idle fullscreen
+
+      for_window [app_id="zoom"] floating enable
+      for_window [app_id="zoom" title="Choose ONE of the audio conference options"] floating enable
+      for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+      for_window [app_id="zoom" title="zoom"] floating enable
+      for_window [app_id="zoom" title="Zoom Meeting"] floating disable
+      for_window [app_id="zoom" title="Zoom - Free Account"] floating disable
     '';
   };
 
