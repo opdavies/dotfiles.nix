@@ -127,6 +127,9 @@
       bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
       bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
+      exec alacritty
+      exec firefox
+
       for_window [class="vlc"] inhibit_idle fullscreen
 
       for_window [app_id="zoom"] floating enable
