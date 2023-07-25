@@ -92,7 +92,10 @@
       fetch.prune = true;
       grep.lineNumber = true;
       help.autocorrect = "1";
-      init.templatedir = "~/.git_template";
+      init = {
+        defaultBranch = "main";
+        templatedir = "~/.git_template";
+      };
       merge.ff = "only";
       rebase = {
         autosquash = true;
