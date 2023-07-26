@@ -13,6 +13,11 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end, opts)
   vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
+
+  vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+  vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+  vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+  vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 end
 
 lsp.on_attach(on_attach)
