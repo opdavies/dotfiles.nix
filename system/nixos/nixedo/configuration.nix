@@ -5,8 +5,6 @@
 { config, lib, pkgs, ... }:
 
 let
-  nixpkgs = import ../../shared/nixpkgs.nix { };
-
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
@@ -24,12 +22,16 @@ let
   };
 in
 {
-  nixpkgs = nixpkgs;
-
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
