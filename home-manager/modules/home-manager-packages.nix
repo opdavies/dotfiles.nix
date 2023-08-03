@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 with pkgs; [
   awscli2
@@ -35,13 +35,13 @@ with pkgs; [
   php81Packages.phpcs
   php81Packages.phpstan
   pinentry
+  pkgs-unstable.rustywind
   platformsh
   postman
   pulumi-bin
   pv
   python3Full
   ripgrep
-  rustywind
   terraform
   tldr
   tmuxinator
