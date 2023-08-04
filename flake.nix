@@ -18,19 +18,6 @@
 
       flake = {
         nixosConfigurations = {
-          apollo = nixpkgs.lib.nixosSystem {
-            modules = [
-              ./system/nixos/apollo/configuration.nix
-
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.opdavies = import ./home-manager/apollo.nix;
-              }
-            ];
-          };
-
           nixedo = nixpkgs.lib.nixosSystem {
             modules = [
               ./system/nixos/nixedo/configuration.nix
