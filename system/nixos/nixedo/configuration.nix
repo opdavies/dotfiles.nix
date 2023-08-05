@@ -184,16 +184,13 @@ in
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "IntelOne Mono" ];
+        monospace = [ "JetBrains Mono" ];
       };
     };
     fonts = with pkgs; [
-      intel-one-mono
       (nerdfonts.override {
         fonts = [
-          "Iosevka"
           "JetBrainsMono"
-          "IBMPlexMono"
           "Meslo"
         ];
       })

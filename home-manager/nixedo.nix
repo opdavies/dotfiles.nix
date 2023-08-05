@@ -33,7 +33,7 @@
       font = {
         size = 12.0;
 
-        normal.family = "IntelOne Mono";
+        normal.family = "JetBrainsMono Nerd Font Mono";
         italic.style = "Regular";
         bolditalic.style = "Regular";
         bold.style = "Regular";
