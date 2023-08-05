@@ -8,15 +8,6 @@
 
   outputs =
     inputs@{ flake-parts, home-manager, nixpkgs, nixpkgs-unstable, self, ... }:
-    let
-      system = "x86_64-linux";
-
-      specialArgs = {
-        pkgs-unstable = import nixpkgs-unstable {
-          inherit inputs system;
-        };
-      };
-    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
@@ -29,15 +20,13 @@
       flake = {
         nixosConfigurations = {
           nixedo = nixpkgs.lib.nixosSystem {
-            inherit specialArgs;
-
             modules = [
               ./system/nixos/nixedo/configuration.nix
 
               home-manager.nixosModules.home-manager
               {
                 home-manager = {
-                  extraSpecialArgs = specialArgs;
+                  extraSpecialArgs = { inherit inputs; };
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   users.opdavies = import ./home-manager/nixedo.nix;

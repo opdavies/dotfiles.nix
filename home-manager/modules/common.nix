@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, ... }:
+{ inputs, lib, pkgs, ... }:
 
 let
   vim-astro = pkgs.vimUtils.buildVimPlugin {
@@ -75,7 +75,7 @@ in
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "postman" ];
 
-  home.packages = (import ./home-manager-packages.nix) { inherit pkgs pkgs-unstable; };
+  home.packages = (import ./home-manager-packages.nix) { inherit inputs pkgs; };
 
   home.file."nodemon.json".text = ''
     {
@@ -164,10 +164,10 @@ in
       vimPlugins.nvim-treesitter-textobjects
 
       # LSP
+      inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.lsp-zero-nvim
+      inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.nvim-lspconfig
       vimPlugins.null-ls-nvim
       vimPlugins.lsp-status-nvim
-      pkgs-unstable.vimPlugins.lsp-zero-nvim
-      pkgs-unstable.vimPlugins.nvim-lspconfig
 
       # Completion
       vimPlugins.cmp-buffer
@@ -211,6 +211,7 @@ in
 
       # Language servers
       ansible-language-server
+      inputs.nixpkgs-unstable.legacyPackages."${system}".nixd
       lua53Packages.lua-lsp
       nodePackages.intelephense
       nodePackages."@astrojs/language-server"
@@ -224,7 +225,6 @@ in
       nodePackages.vue-language-server
       nodePackages.yaml-language-server
       phpactor
-      pkgs-unstable.nixd
       rnix-lsp
       terraform-ls
 

@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ inputs, pkgs, ... }:
 
 with pkgs; [
   awscli2
@@ -18,6 +18,7 @@ with pkgs; [
   gnupg
   htop
   inotify-tools
+  inputs.nixpkgs-unstable.legacyPackages."${system}".rustywind
   jq
   just
   lua
@@ -35,7 +36,6 @@ with pkgs; [
   php81Packages.phpcs
   php81Packages.phpstan
   pinentry
-  pkgs-unstable.rustywind
   platformsh
   postman
   pulumi-bin
