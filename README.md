@@ -1,6 +1,6 @@
 # dotfiles
 
-Cross-platform development environments for opdavies using NixOS and Home Manager.
+Cross-platform development environments for opdavies using Nix, NixOS and Home Manager.
 
 ## Why did you move from Ansible?
 
