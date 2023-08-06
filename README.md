@@ -1,34 +1,26 @@
 # dotfiles
 
-My personal dotfiles, originally for macOS only but currently being adapted for
-use on Linux based systems (Ubuntu and Pop!_OS in particular) where needed.
+Cross-platform development environments for opdavies using NixOS and Home Manager.
 
-The repository is powered using Ansible, with each software package and its
-associated configuration within separate roles within the `roles` directory.
+## Why did you move from Ansible?
 
-The `neovim` role, for example, has its own tasks in `roles/neovim/tasks/main.yaml`
-and files in `roles/neovim/files`.
+TBD.
 
-Files within a role are typically symlinked into their required destination
-so that they will be automatically updated without needing to run the playbook
-again.
+## Why NixOS?
 
-For example, the files and directories within the neovim role are symlinked
-into `~/.config/nvim`.
+TBD.
 
-## Requirements
+## Why Home Manager?
 
-- [Ansible](https://www.ansible.com)
-- [Git](https://git-scm.com)
+TBD.
 
-## Installation
+## NixOS vs WSL2 (Windows)
 
-```
-$ ansible-playbook main.yaml --ask-become-pass
-```
+TBD.
 
 ## Inspiration
 
+- [ALT-F4-LLC](https://github.com/ALT-F4-LLC/dotfiles-nixos)
 - [Chris Toomey](https://github.com/christoomey/dotfiles)
 - [Gabe Berke-Williams](https://github.com/gabebw/dotfiles)
 - [Jeff Geerling](https://github.com/geerlingguy/dotfiles)
@@ -38,3 +30,4 @@ $ ansible-playbook main.yaml --ask-become-pass
 - [ThePrimeagen](https://github.com/ThePrimeagen/.dotfiles)
 - [Thoughtbot](https://github.com/thoughtbot/dotfiles)
 - [codico](https://github.com/codicocodes/dotfiles)
+- [kensodev](https://github.com/KensoDev/dotfiles)
