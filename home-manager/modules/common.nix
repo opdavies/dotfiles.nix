@@ -207,6 +207,21 @@ in
       inputs.self.packages.${pkgs.system}.opdavies-nvim
     ];
 
+    extraConfig = ''
+      lua << EOF
+        pcall("require", impatient)
+
+        require "opdavies.globals"
+
+        require("opdavies.options").setup()
+
+        require "opdavies.lsp"
+
+        require "opdavies.telescope.setup"
+        require "opdavies.telescope.mappings"
+      EOF
+    '';
+
     extraPackages = with pkgs; [
       # Languages
       nodePackages.typescript
