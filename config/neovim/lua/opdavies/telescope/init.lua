@@ -39,7 +39,7 @@ end
 
 function M.edit_neovim()
   local opts = {
-    cwd = "~/Code/dotfiles/config/neovim",
+    cwd = "~/Code/github.com/opdavies/dotfiles/config/neovim",
     find_command = { "rg", "--no-ignore", "--files", "--follow" },
     path_display = { "shorten" },
     prompt_title = "~ dotfiles ~",

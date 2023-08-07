@@ -92,4 +92,4 @@ imap {
   end,
 }
 
-nmap { "<leader><leader>s", "<cmd>source ~/Code/dotfiles/config/neovim/after/plugin/luasnip.lua<CR>" }
+nmap { "<leader><leader>s", "<cmd>source ~/Code/github.com/opdavies/dotfiles/config/neovim/after/plugin/luasnip.lua<CR>" }
