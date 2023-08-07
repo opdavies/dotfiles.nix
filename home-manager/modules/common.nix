@@ -203,6 +203,8 @@ in
 
       # Themes
       vimPlugins.catppuccin-nvim
+
+      inputs.self.packages.${pkgs.system}.opdavies-nvim
     ];
 
     extraPackages = with pkgs; [
@@ -251,11 +253,6 @@ in
 
   xdg.configFile.bin = {
     source = ../../bin;
-    recursive = true;
-  };
-
-  xdg.configFile.nvim = {
-    source = ../../config/neovim;
     recursive = true;
   };
 

@@ -12,7 +12,12 @@
       systems = [ "x86_64-linux" ];
 
       perSystem = { pkgs, self', nixpkgs, ... }: {
-        packages.default = self'.packages.activate;
+        packages = {
+          opdavies-nvim = pkgs.vimUtils.buildVimPlugin {
+            name = "opdavies-nvim";
+            src = ./config/neovim;
+          };
+        };
 
         formatter = pkgs.nixpkgs-fmt;
       };
