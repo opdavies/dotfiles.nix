@@ -6,12 +6,17 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
   };
 
-  outputs =
-    inputs@{ flake-parts, home-manager, nixpkgs, nixpkgs-unstable, self, ... }:
+  outputs = inputs@{ flake-parts, self, ... }:
+    let
+      username = "opdavies";
+
+      nixos-system = import ./system/nixos { inherit inputs username; };
+      wsl-system = import ./system/wsl2 { inherit inputs username; };
+    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      perSystem = { pkgs, self', nixpkgs, ... }: {
+      perSystem = { pkgs, self', ... }: {
         packages = {
           opdavies-nvim = pkgs.vimUtils.buildVimPlugin {
             name = "opdavies-nvim";
@@ -24,28 +29,11 @@
 
       flake = {
         nixosConfigurations = {
-          nixedo = nixpkgs.lib.nixosSystem {
-            modules = [
-              ./system/nixos/nixedo/configuration.nix
-
-              home-manager.nixosModules.home-manager
-              {
-                home-manager = {
-                  extraSpecialArgs = { inherit inputs; };
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  users.opdavies = import ./home-manager/nixedo.nix;
-                };
-              }
-            ];
-          };
+          nixedo = nixos-system;
         };
 
         homeConfigurations = {
-          wsl2 = home-manager.lib.homeManagerConfiguration {
-            modules = [ ./system/wsl2.nix ];
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          };
+          wsl2 = wsl-system;
         };
       };
     };
