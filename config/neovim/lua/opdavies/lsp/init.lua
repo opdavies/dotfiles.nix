@@ -31,7 +31,6 @@ lsp.setup_servers({
   'intelephense',
   'jsonls',
   'nixd',
-  'phpactor',
   'tailwindcss',
   'terraformls',
   'tsserver',
