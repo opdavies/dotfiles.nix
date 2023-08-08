@@ -16,6 +16,10 @@
     # BREAKING CHANGE:
   '';
 
+  home.file.".gitignore-global".text = ''
+    .phpactor.json
+  '';
+
   programs.git = {
     enable = true;
     userName = "Oliver Davies";
