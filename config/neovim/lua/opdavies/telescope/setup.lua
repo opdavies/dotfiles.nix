@@ -44,6 +44,7 @@ telescope.setup {
 
     mappings = {
       i = {
+        ["<C-d>"] = actions.delete_buffer,
         ["<C-h>"] = actions.which_key,
         ["<M-p>"] = action_layout.toggle_preview,
         ["<M-m>"] = action_layout.toggle_mirror,
