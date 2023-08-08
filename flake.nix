@@ -29,7 +29,7 @@
 
       flake = {
         nixosConfigurations = {
-          nixedo = nixos-system;
+          nixedo = nixos-system { desktop = true; };
         };
 
         homeConfigurations = {

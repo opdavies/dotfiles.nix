@@ -29,15 +29,12 @@ with pkgs; [
   nodePackages.nodemon
   nodePackages.prettier
   nodejs
-  pass
   php81
   php81Packages.composer
   php81Packages.phpcbf
   php81Packages.phpcs
   php81Packages.phpstan
-  pinentry
   platformsh
-  postman
   pulumi-bin
   pv
   python3Full

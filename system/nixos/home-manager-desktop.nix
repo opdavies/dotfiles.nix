@@ -1,10 +1,10 @@
-{ config, lib, pkgs, ... }: {
-  home.username = "opdavies";
-  home.homeDirectory = "/home/opdavies";
+{ config, inputs, pkgs }:
 
-  home.stateVersion = "22.05";
-
-  programs.home-manager.enable = true;
+{
+  nixpkgs = {
+    config.allowUnfreePredicate = pkg:
+      builtins.elem (inputs.lib.getName pkg) [ "postman" ];
+  };
 
   services.swayidle = {
     enable = true;
@@ -95,7 +95,7 @@
 
       keybindings =
         let modifier = config.wayland.windowManager.sway.config.modifier;
-        in lib.mkOptionDefault {
+        in inputs.nixpkgs.lib.mkOptionDefault {
           "${modifier}+Escape" = "exec swaylock --daemonize";
           "${modifier}+Shift+b" = "exec firefox";
           "${modifier}+tab" = "workspace back_and_forth";
@@ -198,6 +198,43 @@
           };
         };
       };
+    };
+  };
+
+  xdg.configFile.wallpaper = {
+    source = ../../config/wallpaper;
+    recursive = true;
+  };
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-devedition;
+  };
+
+  programs.alacritty = {
+    enable = true;
+
+    settings = {
+      window.opacity = 0.9;
+
+      window.padding = {
+        x = 15;
+        y = 15;
+      };
+
+      font = {
+        size = 12.0;
+
+        normal.family = "JetBrainsMono Nerd Font Mono";
+        italic.style = "Regular";
+        bolditalic.style = "Regular";
+        bold.style = "Regular";
+
+        offset.y = 12;
+        glyph_offset.y = 6;
+      };
+
+      shell = { program = "zsh"; };
     };
   };
 }

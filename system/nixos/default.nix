@@ -1,5 +1,7 @@
 { inputs, username }:
 
+{ desktop }:
+
 let
   configuration = import ./configuration.nix;
   hardware-configuration = import ./hardware-configuration.nix;
@@ -8,7 +10,7 @@ inputs.nixpkgs.lib.nixosSystem {
   modules = [
     inputs.home-manager.nixosModules.home-manager {
       home-manager = {
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs desktop username; };
         useGlobalPkgs = true;
         useUserPackages = true;
         users."${username}" = import ./home-manager.nix;
