@@ -1,27 +1,16 @@
-{ inputs, username }:
+{ inputs, system, username }:
 
+let
+  pkgs = inputs.nixpkgs.legacyPackages."${system}";
+
+  shared-config = import ../shared/home-manager.nix { inherit inputs pkgs username; };
+  shared-packages = import ../shared/home-manager-packages.nix { inherit inputs pkgs; };
+in
 inputs.home-manager.lib.homeManagerConfiguration {
-  extraSpecialArgs = { inherit inputs; };
+  inherit pkgs;
 
   modules = [
-    {
-      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
-        "intelephense"
-        "postman"
-        "tabnine"
-      ];
-    }
-
-    {
-      imports = [
-        ../../home-manager/modules/common.nix
-        ../../home-manager/modules/git.nix
-        ../../home-manager/modules/home-manager.nix
-        ../../home-manager/modules/tmux.nix
-        ../../home-manager/modules/zsh.nix
-      ];
-    }
+    { imports = [ shared-config ]; }
+    { home.packages = shared-packages; }
   ];
-
-  pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 }

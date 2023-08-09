@@ -8,10 +8,11 @@
 
   outputs = inputs@{ flake-parts, self, ... }:
     let
+      system = "x86_64-linux";
       username = "opdavies";
 
       nixos-system = import ./system/nixos { inherit inputs username; };
-      wsl-system = import ./system/wsl2 { inherit inputs username; };
+      wsl-system = import ./system/wsl2 { inherit inputs system username; };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
