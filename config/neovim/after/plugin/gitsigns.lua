@@ -8,9 +8,23 @@ gitsigns.setup {
   numhl = true,
 }
 
-vim.keymap.set('n', '[h', "<cmd>Gitsigns prev_hunk<cr>");
-vim.keymap.set('n', ']h', "<cmd>Gitsigns next_hunk<cr>");
-vim.keymap.set('n', 'gS', "<cmd>Gitsigns undo_stage_hunk<cr>");
-vim.keymap.set('n', 'gb', "<cmd>Gitsigns blame_line<cr>");
-vim.keymap.set('n', 'gp', "<cmd>Gitsigns preview_hunk<cr>");
-vim.keymap.set('n', 'gs', "<cmd>Gitsigns stage_hunk<cr>");
+local bufnr = vim.api.nvim_get_current_buf()
+
+local map = require "opdavies.keymap".map
+local nmap = require "opdavies.keymap".nmap
+local vmap = require "opdavies.keymap".vmap
+
+nmap { '[h', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true, buffer = bufnr }}
+nmap { ']h', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true, buffer = bufnr }}
+
+nmap { '<leader>hR', gitsigns.reset_buffer }
+nmap { '<leader>hS', gitsigns.stage_buffer }
+nmap { '<leader>hp', gitsigns.preview_hunk }
+nmap { '<leader>hr', gitsigns.reset_hunk }
+nmap { '<leader>hs', gitsigns.stage_hunk }
+nmap { '<leader>hu', gitsigns.undo_stage_hunk }
+vmap { '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end }
+vmap { '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v')} end }
+
+-- Text object.
+map{ {'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>' }
