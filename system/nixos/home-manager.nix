@@ -16,6 +16,8 @@ in
     pkgs.postman
     pkgs.slack
     pkgs.teams
+    pkgs.via
+    pkgs.vial
     pkgs.vlc
     pkgs.wofi
     pkgs.xcape
