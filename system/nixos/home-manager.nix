@@ -1,8 +1,8 @@
-{ inputs, desktop, username, config, pkgs, ... }:
+{ inputs, config, desktop, pkgs, self, username, ... }:
 
 let
   desktop-config = import ./home-manager-desktop.nix { inherit config inputs pkgs; };
-  shared-config = import ../shared/home-manager.nix { inherit inputs pkgs username; };
+  shared-config = import ../shared/home-manager.nix { inherit inputs pkgs self username; };
   shared-packages = import ../shared/home-manager-packages.nix { inherit inputs pkgs; };
 in
 {

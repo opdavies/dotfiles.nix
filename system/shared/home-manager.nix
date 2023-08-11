@@ -1,4 +1,4 @@
-{ inputs, pkgs, username }:
+{ inputs, pkgs, self, username }:
 
 let
   vim-astro = pkgs.vimUtils.buildVimPlugin {
@@ -207,12 +207,20 @@ in
     };
   };
 
+  home.file."logo.txt" = {
+    source = pkgs.copyPathToStore "${self}/logo.txt";
+    target = "logo.txt";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = false;
     dotDir = ".config/zsh";
 
     initExtra = ''
+      # Show the logo at the start of each prompt.
+      cat ~/logo.txt
+
       # Plugins
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh"
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh"

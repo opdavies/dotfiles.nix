@@ -11,8 +11,8 @@
       system = "x86_64-linux";
       username = "opdavies";
 
-      nixos-system = import ./system/nixos { inherit inputs username; };
-      wsl-system = import ./system/wsl2 { inherit inputs system username; };
+      nixos-system = import ./system/nixos { inherit inputs self username; };
+      wsl-system = import ./system/wsl2 { inherit inputs self system username; };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
