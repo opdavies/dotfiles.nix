@@ -503,23 +503,17 @@ in
 
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
-      vimPlugins.git-worktree-nvim
       vimPlugins.gitsigns-nvim
       vimPlugins.harpoon
       vimPlugins.impatient-nvim
       vimPlugins.indent-blankline-nvim
-      vimPlugins.nvim-autopairs
-      vimPlugins.nvim-lastplace
-      vimPlugins.nvim-ts-autotag
       vimPlugins.nvim-web-devicons
       vimPlugins.refactoring-nvim
       vimPlugins.rest-nvim
       vimPlugins.splitjoin-vim
       vimPlugins.undotree
-      vimPlugins.vim-abolish
       vimPlugins.vim-easy-align
       vimPlugins.vim-eunuch
-      vimPlugins.vim-floaterm
       vimPlugins.vim-highlightedyank
       vimPlugins.vim-nix
       vimPlugins.vim-obsession
@@ -533,7 +527,6 @@ in
       vimPlugins.vim-textobj-user
       vimPlugins.vim-tmux-navigator
       vimPlugins.vim-unimpaired
-      vimPlugins.vimux
 
       # Git
       vimPlugins.vim-fugitive
