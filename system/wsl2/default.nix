@@ -10,7 +10,20 @@ inputs.home-manager.lib.homeManagerConfiguration {
   inherit pkgs;
 
   modules = [
-    { imports = [ shared-config ]; }
-    { home.packages = shared-packages; }
+    {
+      imports = [ shared-config ];
+
+      home.packages = shared-packages;
+
+      home.sessionVariables = {
+        EDITOR = "nvim";
+        # LANG = "en_GB.UTF-8";
+        # LC_ALL = "en_GB.UTF-8";
+        # LC_CTYPE = "en_GB.UTF-8";
+        PATH = "$PATH:./vendor/bin:./node_modules/.bin";
+        PULUMI_SKIP_UPDATE_CHECK = "true";
+        RIPGREP_CONFIG_PATH = "$HOME/.config/ripgrep/config";
+      };
+    }
   ];
 }
