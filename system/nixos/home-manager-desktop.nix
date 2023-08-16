@@ -124,8 +124,12 @@
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
 
-      bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-      bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+      bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume
+      bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume
+      bindsym XF86AudioMute exec pamixer --toggle-mute
+
+      bindsym --locked XF86MonBrightnessDown exec brightnessctl set 10%-
+      bindsym --locked XF86MonBrightnessUp exec brightnessctl set 10%+
 
       exec alacritty
       exec firefox
