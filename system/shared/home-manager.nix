@@ -519,6 +519,7 @@ in
       vimPlugins.vim-polyglot
       vimPlugins.vim-repeat
       vimPlugins.vim-sleuth
+      vimPlugins.vim-sort-motion
       vimPlugins.vim-surround
       vimPlugins.vim-terraform
       vimPlugins.vim-test
