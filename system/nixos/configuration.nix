@@ -175,19 +175,13 @@ in
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "JetBrains Mono" ];
+        monospace = [ "IntelOne Mono" ];
       };
     };
     fonts = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-          "Meslo"
-        ];
-      })
+      intel-one-mono
     ];
   };
-
 
   zramSwap.enable = true;
 
