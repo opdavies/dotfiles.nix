@@ -20,6 +20,7 @@ in
     pkgs.via
     pkgs.vial
     pkgs.vlc
+    pkgs.wob
     pkgs.wofi
     pkgs.xcape
     pkgs.zoom-us

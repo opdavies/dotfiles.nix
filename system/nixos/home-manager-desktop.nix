@@ -124,12 +124,15 @@
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
 
-      bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume
-      bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume
-      bindsym XF86AudioMute exec pamixer --toggle-mute
+      set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+      exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
-      bindsym --locked XF86MonBrightnessDown exec brightnessctl set 10%-
-      bindsym --locked XF86MonBrightnessUp exec brightnessctl set 10%+
+      bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume > $WOBSOCK
+      bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume > $WOBSOCK
+      bindsym XF86AudioMute exec pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+
+      bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+      bindsym XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 
       exec alacritty
       exec firefox
