@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "" || "$2" == "" ]]; then
+  echo "usage: ${0##*/} <file> <command>";
+  exit 2;
+fi
+
+set -euo pipefail
+
+while true; do
+  inotifywait \
+    --event modify \
+    --event move_self \
+    --recursive \
+    $1 && $2
+done
