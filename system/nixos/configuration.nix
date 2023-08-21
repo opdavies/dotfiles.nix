@@ -77,7 +77,9 @@ in
   # Configure console keymap
   console.keyMap = "uk";
 
-  # Enable CUPS to print documents.
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+  services.avahi.openFirewall = true;
   services.printing.enable = true;
 
   # Enable sound with pipewire.
