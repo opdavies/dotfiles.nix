@@ -11,6 +11,7 @@ in
   home.packages = shared-packages ++ pkgs.lib.optionals desktop [
     pkgs.discord
     pkgs.meslo-lg
+    pkgs.okular
     pkgs.pamixer
     pkgs.pass
     pkgs.pinentry
