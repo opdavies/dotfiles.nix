@@ -5,7 +5,7 @@ if [[ "$1" == "" || "$2" == "" ]]; then
   exit 2;
 fi
 
-set -euo pipefail
+set -uo pipefail
 
 while true; do
   inotifywait \
