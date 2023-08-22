@@ -434,6 +434,7 @@ in
 
       # Break a pane into a new window.
       bind-key b break-pane -d
+      bind-key J command-prompt -p "join pane from: "  "join-pane -h -s '%%'"
 
       bind-key C-j choose-tree
 
