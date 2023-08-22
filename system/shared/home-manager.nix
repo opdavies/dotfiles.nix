@@ -218,9 +218,6 @@ in
     dotDir = ".config/zsh";
 
     initExtra = ''
-      # Show the logo at the start of each prompt.
-      cat ~/logo.txt
-
       # Plugins
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh"
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh"
