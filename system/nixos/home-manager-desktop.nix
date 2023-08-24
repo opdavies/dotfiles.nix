@@ -67,7 +67,7 @@
           };
 
           fonts = {
-            names = [ "DejaVu Sans Mono" ];
+            names = [ "Fira Code Nerd Font Mono" ];
             size = 16.0;
           };
 
@@ -230,15 +230,15 @@
       };
 
       font = {
-        size = 12.0;
+        size = 14.0;
 
-        normal.family = "IntelOne Mono";
-        italic.style = "Regular";
-        bolditalic.style = "Regular";
         bold.style = "Regular";
+        bolditalic.style = "Regular";
+        italic.style = "Regular";
+        normal.family = "Fira Code Nerd Font Mono";
 
-        offset.y = 12;
-        glyph_offset.y = 6;
+        offset.y = 14;
+        glyph_offset.y = 8;
       };
 
       shell = { program = "zsh"; };

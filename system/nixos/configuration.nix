@@ -150,7 +150,7 @@ in
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -177,11 +177,18 @@ in
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "IntelOne Mono" ];
+        monospace = [ "Fira Code Nerd Font Mono" ];
       };
     };
     fonts = with pkgs; [
       intel-one-mono
+      (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "JetBrainsMono"
+          "Meslo"
+        ];
+      })
     ];
   };
 
