@@ -208,10 +208,7 @@ in
       fetch.prune = true;
       grep.lineNumber = true;
       help.autocorrect = "1";
-      init = {
-        defaultBranch = "main";
-        templatedir = "~/.git_template";
-      };
+      init.defaultBranch = "main";
       merge.ff = "only";
       rebase = {
         autosquash = true;
