@@ -158,7 +158,6 @@ in
       issues = "!gh issue list --web";
       mup =
         "!git master-to-main-wrapper checkout %BRANCH% && git fetch origin && echo && git sl %BRANCH%..origin/%BRANCH% && echo && git pull --quiet && git checkout -";
-      nah = "!git reset --hard && git clean -fd";
       no-ff = "merge --no-ff";
       pl = "pull";
       prune = "remote prune origin";
@@ -310,6 +309,7 @@ in
       ialias cs="create-script"
       ialias dev="develop"
       ialias fetch="git fetch --all --jobs=4 --progress --prune"
+      ialias nah="git reset --hard; git clean -fd"
       ialias run="./run"
       ialias pull="git pull --autostash --jobs=4 --summary origin"
       ialias rebase="git rebase --autostash --stat"
