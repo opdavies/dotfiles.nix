@@ -106,9 +106,16 @@ in
     # line and describe the change:
     #
     # BREAKING CHANGE:
+    #
+    #
+    # Add any issue IDs or commit SHAs that this commit references:
+    #
+    # Refs:
+
   '';
 
   home.file.".gitignore-global".text = ''
+    .issue-id
     .phpactor.json
   '';
 
