@@ -524,6 +524,7 @@ in
       vimPlugins.refactoring-nvim
       vimPlugins.rest-nvim
       vimPlugins.splitjoin-vim
+      vimPlugins.todo-comments-nvim
       vimPlugins.undotree
       vimPlugins.vim-easy-align
       vimPlugins.vim-eunuch
