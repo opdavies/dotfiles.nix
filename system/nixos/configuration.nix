@@ -120,6 +120,7 @@ in
       configure-gtk
       ffmpegthumbnailer
       google-chrome
+      shotwell
       swaybg
       xfce.thunar
       xfce.thunar-volman
