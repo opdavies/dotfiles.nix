@@ -242,6 +242,16 @@ in
     pinentryFlavor = "qt";
   };
 
+  programs.firefox = {
+    enable = true;
+    languagePacks = [ "en-GB" ];
+    package = pkgs.firefox-devedition;
+    preferences = {
+      "intl.accept_languages" = "en-GB, en";
+      "intl.regional_prefs.use_os_locales" = true;
+    };
+  };
+
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", TAG+="uaccess", TAG+="udev-acl", GROUP="realet"
   ''; 

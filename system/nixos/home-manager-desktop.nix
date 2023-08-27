@@ -213,11 +213,6 @@
     recursive = true;
   };
 
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox-devedition;
-  };
-
   programs.alacritty = {
     enable = true;
 
