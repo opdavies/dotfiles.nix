@@ -182,11 +182,9 @@ in
       slp = "log --oneline --decorate";
       staged = "diff --staged";
       unassume = "update-index --no-assume-unchanged";
-      uncommit = "reset --soft HEAD^";
       unstage = "reset";
       upstream = "rev-parse --abbrev-ref --symbolic-full-name @{u}";
       ureset = "!git reset --hard $(git upstream)";
-      wip = "!git add . && git commit -m 'wip'";
       worktrees = "worktree list";
     };
 
@@ -307,14 +305,15 @@ in
       ialias dev="develop"
       ialias fetch="git fetch --all --jobs=4 --progress --prune"
       ialias nah="git reset --hard; git clean -fd"
-      ialias run="./run"
       ialias pull="git pull --autostash --jobs=4 --summary origin"
       ialias rebase="git rebase --autostash --stat"
       ialias run="./run"
       ialias s="secrets"
       ialias secrets="doppler --project \"$(whoami)\" run"
       ialias tag="tag-release"
+      ialias uncommit = "git reset --soft HEAD^";
       ialias update="fetch && rebase"
+      ialias wip = "git add . && git commit -m 'wip'";
 
       ialias ls="exa -la"
 
