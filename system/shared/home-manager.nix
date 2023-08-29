@@ -311,9 +311,9 @@ in
       ialias s="secrets"
       ialias secrets="doppler --project \"$(whoami)\" run"
       ialias tag="tag-release"
-      ialias uncommit = "git reset --soft HEAD^";
+      ialias uncommit="git reset --soft HEAD^";
       ialias update="fetch && rebase"
-      ialias wip = "git add . && git commit -m 'wip'";
+      ialias wip="git add . && git commit -m 'wip'";
 
       ialias ls="exa -la"
 
