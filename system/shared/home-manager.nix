@@ -655,6 +655,12 @@ in
   };
   programs.nnn.enable = true;
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   home.sessionPath = [ "$HOME/.config/bin" ];
 
   xdg.configFile."ripgrep/config".text = ''
