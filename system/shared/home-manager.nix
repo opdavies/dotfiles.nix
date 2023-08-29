@@ -115,6 +115,7 @@ in
   '';
 
   home.file.".gitignore-global".text = ''
+    .direnv/
     .issue-id
     .phpactor.json
   '';

@@ -33,7 +33,7 @@ local lga_actions = require "telescope-live-grep-args.actions"
 telescope.setup {
   defaults = {
     buffer_previewer_maker = new_maker,
-    file_ignore_patterns = { '.git/' },
+    file_ignore_patterns = { '.direnv/', '.git/' },
     layout_config = {
       prompt_position = 'top',
     },
