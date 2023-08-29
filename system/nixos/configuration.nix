@@ -178,7 +178,7 @@ in
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Fira Code Nerd Font Mono" ];
+        monospace = [ "JetBrainsMono Nerd Font Mono" ];
       };
     };
     fonts = with pkgs; [

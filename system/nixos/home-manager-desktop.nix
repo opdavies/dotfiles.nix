@@ -67,7 +67,7 @@
           };
 
           fonts = {
-            names = [ "Fira Code Nerd Font Mono" ];
+            names = [ "JetBrainsMono Nerd Font Mono" ];
             size = 16.0;
           };
 
@@ -230,7 +230,7 @@
         bold.style = "Regular";
         bolditalic.style = "Regular";
         italic.style = "Regular";
-        normal.family = "Fira Code Nerd Font Mono";
+        normal.family = "JetBrainsMono Nerd Font Mono";
 
         offset.y = 14;
         glyph_offset.y = 8;
