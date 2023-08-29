@@ -542,6 +542,10 @@ in
       vimPlugins.vim-tmux-navigator
       vimPlugins.vim-unimpaired
 
+      vimPlugins.lualine-nvim
+      vimPlugins.noice-nvim
+      vimPlugins.nvim-notify
+
       # Git
       vimPlugins.vim-fugitive
       vimPlugins.vim-rhubarb
