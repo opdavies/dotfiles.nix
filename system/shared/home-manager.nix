@@ -303,7 +303,6 @@ in
       bindkey -M isearch " " magic-space
 
       ialias cs="create-script"
-      ialias dev="develop"
       ialias fetch="git fetch --all --jobs=4 --progress --prune"
       ialias nah="git reset --hard; git clean -fd"
       ialias pull="git pull --autostash --jobs=4 --summary origin"
