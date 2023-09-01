@@ -81,9 +81,5 @@ cmp.setup({
   },
 })
 
-local nmap = require "opdavies.keymap".nmap
-
-nmap { "<leader><leader>r", "<cmd>LspRestart<cr>" }
-
 require "opdavies.lsp.null-ls"
 require "opdavies.lsp.signature"
