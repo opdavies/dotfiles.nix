@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Continue a rebase or cherry-pick in the event of conflicts.
 
@@ -12,5 +12,5 @@ elif [[ -e .git/rebase-merge ]] ; then
     exec git rebase --continue "$@"
 else
     echo git-abort: unknown state
-    exit -1
+    exit 1
 fi
