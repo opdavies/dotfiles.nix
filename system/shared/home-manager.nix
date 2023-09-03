@@ -622,7 +622,7 @@ in
       # Language servers
       ansible-language-server
       inputs.nixpkgs-unstable.legacyPackages."${system}".nixd
-      lua53Packages.lua-lsp
+      lua-language-server
       nodePackages.intelephense
       nodePackages."@astrojs/language-server"
       nodePackages."@tailwindcss/language-server"
