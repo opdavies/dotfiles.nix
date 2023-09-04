@@ -37,16 +37,16 @@ dial_config.augends:register_group {
     augend.constant.alias.bool, -- boolean value (true <-> false)
     augend.integer.alias.decimal,
     augend.integer.alias.hex,
-    augend.semver.alias.semver
+    augend.semver.alias.semver,
   },
 }
 
 local dial_map = require "dial.map"
 
-local nmap = require "opdavies.keymap".nmap
-local vmap = require "opdavies.keymap".vmap
+local nmap = require("opdavies.keymap").nmap
+local vmap = require("opdavies.keymap").vmap
 
-nmap({ "<C-a>", dial_map.inc_normal "mygroup" })
-nmap({ "<C-x>", dial_map.dec_normal "mygroup" })
-vmap({ "<C-a>", dial_map.inc_normal "visual" })
-vmap({ "<C-x>", dial_map.dec_normal "visual" })
+nmap { "<C-a>", dial_map.inc_normal "mygroup" }
+nmap { "<C-x>", dial_map.dec_normal "mygroup" }
+vmap { "<C-a>", dial_map.inc_normal "visual" }
+vmap { "<C-x>", dial_map.dec_normal "visual" }

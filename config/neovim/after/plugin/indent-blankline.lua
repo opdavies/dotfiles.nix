@@ -5,9 +5,8 @@ end
 
 vim.opt.list = true
 
-vim.api.nvim_set_hl(0, 'IndentBlankLineChar', { fg = "#2F313C" })
+vim.api.nvim_set_hl(0, "IndentBlankLineChar", { fg = "#2F313C" })
 
 indent_blankline.setup {
   show_end_of_line = true,
 }
-

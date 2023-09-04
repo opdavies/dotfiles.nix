@@ -3,19 +3,19 @@ if not status_ok then
   return
 end
 
-catppuccin.setup({
+catppuccin.setup {
   flavour = "macchiato",
   integrations = {
     cmp = true,
     gitsigns = true,
     native_lsp = {
-      enabled = true;
+      enabled = true,
     },
     telescope = true,
     treesitter = true,
   },
   term_colors = true,
   transparent_background = true,
-})
+}
 
 vim.cmd.colorscheme "catppuccin"

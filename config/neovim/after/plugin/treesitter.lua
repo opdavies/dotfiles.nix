@@ -3,7 +3,6 @@ if not has_configs then
   return
 end
 
-
 configs.setup {
   autotag = {
     enable = true,

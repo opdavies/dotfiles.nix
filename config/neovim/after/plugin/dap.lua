@@ -11,7 +11,7 @@ end
 dap.adapters.php = {
   type = "executable",
   command = "node",
-  args = { os.getenv("HOME") .. "/build/vscode-php-debug/out/phpDebug.js" }
+  args = { os.getenv "HOME" .. "/build/vscode-php-debug/out/phpDebug.js" },
 }
 
 dap.configurations.php = {
@@ -21,9 +21,9 @@ dap.configurations.php = {
     name = "Listen for Xdebug",
     port = 9003,
     pathMappings = {
-      ["/var/www/html"] = "${workspaceFolder}"
-    }
-  }
+      ["/var/www/html"] = "${workspaceFolder}",
+    },
+  },
 }
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -38,7 +38,7 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
-require "dapui".setup {
+require("dapui").setup {
   layouts = {
     {
       elements = {
@@ -58,14 +58,14 @@ require "dapui".setup {
       size = 0.25, -- 25% of total lines
       position = "bottom",
     },
-  }
+  },
 }
 
-require "nvim-dap-virtual-text".setup {
+require("nvim-dap-virtual-text").setup {
   commented = true,
 }
 
-local nmap = require "opdavies.keymap".nmap
+local nmap = require("opdavies.keymap").nmap
 
 nmap { "<F12>", ":lua require'dap'.step_over()<cr>" }
 nmap { "<F2>", ":lua require'dap'.step_into()<cr>" }

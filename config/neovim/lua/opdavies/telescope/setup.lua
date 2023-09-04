@@ -3,8 +3,8 @@ if not status_ok then
   return
 end
 
-local previewers = require "telescope.previewers"
 local Job = require "plenary.job"
+local previewers = require "telescope.previewers"
 
 -- Create a new maker that won't preview binary files
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#dont-preview-binaries
@@ -33,9 +33,9 @@ local lga_actions = require "telescope-live-grep-args.actions"
 telescope.setup {
   defaults = {
     buffer_previewer_maker = new_maker,
-    file_ignore_patterns = { '.direnv/', '.git/' },
+    file_ignore_patterns = { ".direnv/", ".git/" },
     layout_config = {
-      prompt_position = 'top',
+      prompt_position = "top",
     },
 
     preview = {
@@ -54,7 +54,7 @@ telescope.setup {
     no_ignore = true,
     path_display = { truncate = 1 },
     prompt_prefix = "$ ",
-    sorting_strategy = 'ascending',
+    sorting_strategy = "ascending",
   },
 
   pickers = {

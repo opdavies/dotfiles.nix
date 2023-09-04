@@ -10,11 +10,11 @@ map("n", "<leader>tl", ":TestLast<CR>", options)
 map("n", "<leader>tn", ":TestNearest<CR>", options)
 map("n", "<leader>ts", ":TestSuite<CR>", options)
 
-vim.cmd([[
+vim.cmd [[
   let test#echo_command = 0
   let test#neovim#start_normal = 1
   let test#strategy = "neovim"
 
   let test#php#phpunit#executable = 'just test'
   let test#php#phpunit#options = '--colors=always --testdox'
-]])
+]]

@@ -96,9 +96,9 @@ local servers = {
     settings = {
       yaml = {
         keyOrdering = false,
-      }
-    }
-  }
+      },
+    },
+  },
 }
 
 local setup_server = function(server, config)
@@ -138,8 +138,7 @@ vim.diagnostic.config {
 
 vim.keymap.set("n", "<leader>f", function()
   vim.lsp.buf.format { async = true }
-end
-);
+end)
 
 require "opdavies.lsp.null-ls"
 require "opdavies.lsp.signature"

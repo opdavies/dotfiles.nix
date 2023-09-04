@@ -43,7 +43,7 @@ local M = {
        TextAnnotation "<>"
     ]],
     { i(0) }
-  )
+  ),
 }
 
 return M

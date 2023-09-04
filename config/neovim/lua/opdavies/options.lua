@@ -157,7 +157,7 @@ local function set_vim_o()
     vim.o[key] = value
   end
 
-  vim.opt.backupdir:remove('.') -- keep backups out of the current directory
+  vim.opt.backupdir:remove "." -- keep backups out of the current directory
   vim.opt.clipboard:append "unnamedplus"
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
   vim.opt.laststatus = 3

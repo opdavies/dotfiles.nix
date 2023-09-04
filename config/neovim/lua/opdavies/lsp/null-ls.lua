@@ -13,29 +13,29 @@ null_ls.setup {
 
     formatting.black,
     formatting.markdownlint,
-    formatting.phpcbf.with({
+    formatting.phpcbf.with {
       command = "./vendor/bin/phpcbf",
       condition = function(utils)
-        return utils.root_has_file({ 'phpcs.xml.dist' })
+        return utils.root_has_file { "phpcs.xml.dist" }
       end,
-    }),
+    },
     formatting.prettier,
     formatting.rustywind,
     formatting.stylua,
 
-    diagnostics.eslint.with({
+    diagnostics.eslint.with {
       condition = function(utils)
-        return utils.root_has_file({ '.eslintrc.js' })
+        return utils.root_has_file { ".eslintrc.js" }
       end,
-    }),
+    },
     diagnostics.markdownlint,
     diagnostics.php,
-    diagnostics.phpcs.with({
+    diagnostics.phpcs.with {
       command = "./vendor/bin/phpcs",
       condition = function(utils)
-        return utils.root_has_file({ 'phpcs.xml.dist' })
+        return utils.root_has_file { "phpcs.xml.dist" }
       end,
-    }),
+    },
     diagnostics.phpstan,
     diagnostics.shellcheck,
   },
