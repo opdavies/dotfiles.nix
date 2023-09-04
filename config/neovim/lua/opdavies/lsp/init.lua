@@ -77,7 +77,6 @@ local servers = {
   tailwindcss = true,
   tsserver = true,
   vuels = true,
-  yamlls = true,
 
   intelephense = {
     filetypes = { "php", "module", "test", "inc" },
@@ -92,6 +91,14 @@ local servers = {
       },
     },
   },
+
+  yamlls = {
+    settings = {
+      yaml = {
+        keyOrdering = false,
+      }
+    }
+  }
 }
 
 local setup_server = function(server, config)
