@@ -557,7 +557,6 @@ in
       vimPlugins.nvim-treesitter-textobjects
 
       # LSP
-      inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.lsp-zero-nvim
       inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.nvim-lspconfig
       vimPlugins.null-ls-nvim
       vimPlugins.lsp-status-nvim
