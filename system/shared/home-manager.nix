@@ -640,6 +640,7 @@ in
       # Formatters
       black
       rstfmt
+      stylua
 
       # Tools
       html-tidy
