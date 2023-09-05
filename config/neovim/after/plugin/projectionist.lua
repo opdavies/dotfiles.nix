@@ -1,4 +1,4 @@
-vim.g.projectionist_heuristics = {
+local heuristics = {
   ["composer.json"] = {
     ["src/*.php"] = {
       type = "source",
@@ -23,6 +23,16 @@ vim.g.projectionist_heuristics = {
     },
   },
 
+  ["fractal.config.js"] = {
+    ["*.config.yml"] = {
+      alternate = "{dirname}/{basename}.twig",
+    },
+
+    ["*.twig"] = {
+      alternate = "{dirname}/{basename}.config.yml",
+    },
+  },
+
   ["package.json"] = {
     ["src/*.ts"] = {
       type = "source",
@@ -40,3 +50,5 @@ vim.g.projectionist_heuristics = {
     },
   },
 }
+
+vim.g.projectionist_heuristics = heuristics
