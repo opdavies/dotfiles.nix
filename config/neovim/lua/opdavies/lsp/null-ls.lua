@@ -28,7 +28,9 @@ null_ls.setup {
         return utils.root_has_file { ".eslintrc.js" }
       end,
     },
-    diagnostics.markdownlint,
+    diagnostics.markdownlint.with {
+      extra_args = { "--disable", "MD013" }
+    },
     diagnostics.php,
     diagnostics.phpcs.with {
       command = "./vendor/bin/phpcs",
