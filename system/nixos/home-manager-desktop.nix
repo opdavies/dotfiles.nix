@@ -56,15 +56,7 @@
 
       bars = [
         {
-          colors = {
-            background = "#222222";
-            focusedWorkspace = {
-              background = "#ffffff";
-              border = "#ffffff";
-              text = "#333333";
-            };
-            statusline = "#ffffff";
-          };
+          colors.background = "#222222";
 
           fonts = {
             names = [ "JetBrainsMono Nerd Font Mono" ];
