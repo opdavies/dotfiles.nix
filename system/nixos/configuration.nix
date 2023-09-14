@@ -16,6 +16,8 @@ let
         gsettings set $gnome_schema gtk-theme 'Breeze Dark'
       '';
   };
+
+  username = "opdavies";
 in
 {
   nixpkgs = {
@@ -102,8 +104,7 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.opdavies = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "Oliver Davies";
     extraGroups = [ "docker" "networkmanager" "wheel" ];
@@ -172,7 +173,7 @@ in
   programs.zsh.enable = true;
   programs.zsh.histSize = 5000;
 
-  users.defaultUserShell = "/etc/profiles/per-user/opdavies/bin/zsh";
+  users.defaultUserShell = "/etc/profiles/per-user/${username}/bin/zsh";
 
   fonts = {
     fontconfig = {
@@ -255,6 +256,6 @@ in
 
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", TAG+="uaccess", TAG+="udev-acl", GROUP="realet"
-  ''; 
+  '';
 }
 
