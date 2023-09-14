@@ -52,3 +52,7 @@ local heuristics = {
 }
 
 vim.g.projectionist_heuristics = heuristics
+
+local nmap = require("opdavies.keymap").nmap
+
+nmap { "<leader>aa", "<cmd>A<cr>" }
