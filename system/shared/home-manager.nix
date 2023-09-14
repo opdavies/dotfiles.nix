@@ -367,6 +367,18 @@ in
       ialias build-configs="~/Code/Personal/build-configs/bin/build-configs run"
       ialias update-build-configs="~/Code/Personal/build-configs-updater/update.sh"
 
+      alias -g A1="| awk '{print \$1}'"
+      alias -g Fj='| jq .'
+      alias -g Fy='| yq .'
+      alias -g G='| grep'
+      alias -g GH='| grep HTTP'
+      alias -g Gi='| grep -i'
+      alias -g H2='| head -n 20'
+      alias -g H='| head'
+      alias -g L='| less'
+      alias -g V='| vim -'
+      alias -g X='| xargs -I1'
+
       setopt auto_cd
       setopt auto_pushd
       setopt pushd_ignore_dups
