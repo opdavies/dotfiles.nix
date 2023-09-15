@@ -48,6 +48,8 @@ ls.add_snippets("js", snippets.javascript)
 ls.add_snippets("typescript", snippets.javascript)
 ls.add_snippets("vue", snippets.javascript)
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 ls.config.set_config {
   enable_autosnippets = true,
   history = true,

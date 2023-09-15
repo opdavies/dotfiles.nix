@@ -589,6 +589,7 @@ in
       vimPlugins.phpactor
 
       # Snippets
+      vimPlugins.friendly-snippets
       vimPlugins.luasnip
 
       # Telescope
