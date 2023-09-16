@@ -525,6 +525,7 @@ in
       customVim.vim-textobj-xmlattr
       customVim.vim-visual-star-search
 
+      inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.refactoring-nvim
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
       vimPlugins.gitsigns-nvim
@@ -532,7 +533,6 @@ in
       vimPlugins.impatient-nvim
       vimPlugins.indent-blankline-nvim
       vimPlugins.nvim-web-devicons
-      vimPlugins.refactoring-nvim
       vimPlugins.rest-nvim
       vimPlugins.splitjoin-vim
       vimPlugins.todo-comments-nvim
