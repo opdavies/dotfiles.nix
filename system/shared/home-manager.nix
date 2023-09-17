@@ -525,7 +525,6 @@ in
       customVim.vim-textobj-xmlattr
       customVim.vim-visual-star-search
 
-      inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.refactoring-nvim
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
       vimPlugins.gitsigns-nvim
@@ -533,6 +532,7 @@ in
       vimPlugins.impatient-nvim
       vimPlugins.indent-blankline-nvim
       vimPlugins.nvim-web-devicons
+      vimPlugins.refactoring-nvim
       vimPlugins.rest-nvim
       vimPlugins.splitjoin-vim
       vimPlugins.todo-comments-nvim
@@ -570,9 +570,9 @@ in
       vimPlugins.nvim-treesitter-textobjects
 
       # LSP
-      inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.nvim-lspconfig
-      vimPlugins.null-ls-nvim
       vimPlugins.lsp-status-nvim
+      vimPlugins.null-ls-nvim
+      vimPlugins.nvim-lspconfig
 
       # Completion
       vimPlugins.cmp-buffer
@@ -634,8 +634,8 @@ in
 
       # Language servers
       ansible-language-server
-      inputs.nixpkgs-unstable.legacyPackages."${system}".nixd
       lua-language-server
+      nixd
       nodePackages.intelephense
       nodePackages."@astrojs/language-server"
       nodePackages."@tailwindcss/language-server"

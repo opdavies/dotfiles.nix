@@ -7,7 +7,7 @@ with pkgs; [
   delta
   dog
   doppler
-  exa
+  inputs.nixpkgs-2305.legacyPackages."${system}".exa
   fd
   file
   fzf
@@ -18,7 +18,6 @@ with pkgs; [
   gnupg
   htop
   inotify-tools
-  inputs.nixpkgs-unstable.legacyPackages."${system}".rustywind
   jq
   just
   lua
@@ -39,6 +38,7 @@ with pkgs; [
   pv
   python3Full
   ripgrep
+  rustywind
   terraform
   tldr
   tmuxinator
