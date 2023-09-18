@@ -187,6 +187,7 @@ in
       (nerdfonts.override {
         fonts = [
           "FiraCode"
+          "IntelOneMono"
           "JetBrainsMono"
           "Meslo"
         ];
