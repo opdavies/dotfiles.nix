@@ -2,6 +2,16 @@
 
 let
   customVim = with self; {
+    toggle-checkbox-nvim = pkgs.vimUtils.buildVimPlugin {
+      name = "toggle-checkbox-nvim";
+      src = pkgs.fetchFromGitHub {
+        owner = "opdavies";
+        repo = "toggle-checkbox.nvim";
+        rev = "main";
+        sha256 = "1h9IGyMa80HWrtiPjruG4cYBqgTafNirW0Hwl/JO70A=";
+      };
+    };
+
     vim-astro = pkgs.vimUtils.buildVimPlugin {
       name = "vim-astro";
       src = pkgs.fetchFromGitHub {
@@ -235,14 +245,29 @@ in
         exa -al
       }
       zle -N clear-ls-all
-      bindkey '^K' clear-ls-all
 
       clear-git-status() {
         clear
         git status -sb .
       }
       zle -N clear-git-status
+
+      clear-tree-2() {
+        clear
+        tree -L 2
+      }
+      zle -N clear-tree-2
+
+      clear-tree-3() {
+        clear
+        tree -L 3
+      }
+      zle -N clear-tree-3
+
       bindkey '^G' clear-git-status
+      # bindkey '^H' clear-tree-3
+      # bindkey '^J' clear-tree-2
+      # bindkey '^K' clear-ls-all
 
       # auto-completes aliases
       # enables to define
@@ -304,6 +329,14 @@ in
       ialias wip="git add . && git commit -m 'wip'";
 
       ialias ls="exa -la"
+
+      # just
+      alias j="just"
+      alias jc="just composer"
+      alias jci="just composer install"
+      alias jcr="just composer require"
+      alias jd="just drush"
+      alias jt="just test"
 
       # tmux
       alias ta="tmux attach"
@@ -512,6 +545,14 @@ in
       customVim.vim-zoom
       customVim.vim-textobj-xmlattr
       customVim.vim-visual-star-search
+
+      {
+        plugin = customVim.toggle-checkbox-nvim;
+        type = "lua";
+        config = ''
+          vim.keymap.set("n", "<leader>t", ":lua require('toggle-checkbox').toggle()<CR>")
+        '';
+      }
 
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim

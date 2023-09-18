@@ -21,6 +21,7 @@ in
     pkgs.via
     pkgs.vial
     pkgs.vlc
+    pkgs.wl-mirror
     pkgs.wob
     pkgs.wofi
     pkgs.xcape

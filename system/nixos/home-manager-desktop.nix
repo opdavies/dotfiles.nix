@@ -217,15 +217,15 @@
       };
 
       font = {
-        size = 14.0;
+        size = 16.0;
 
         bold.style = "Regular";
         bolditalic.style = "Regular";
         italic.style = "Regular";
-        normal.family = "JetBrainsMono Nerd Font Mono";
+        normal.family = "IntoneMono Nerd Font Mono";
 
-        offset.y = 14;
-        glyph_offset.y = 8;
+        offset.y = 12;
+        glyph_offset.y = 6;
       };
 
       shell = { program = "zsh"; };
