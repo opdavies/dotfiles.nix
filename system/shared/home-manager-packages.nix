@@ -25,7 +25,6 @@ with pkgs; [
   neofetch
   nodePackages."http-server"
   nodePackages.eslint
-  nodePackages.nodemon
   nodePackages.prettier
   nodejs
   php81
