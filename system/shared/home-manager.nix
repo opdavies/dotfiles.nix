@@ -604,6 +604,7 @@ in
       vimPlugins.nvim-lspconfig
 
       # Completion
+      inputs.nixpkgs-2305.legacyPackages."${system}".vimPlugins.phpactor
       vimPlugins.cmp-buffer
       vimPlugins.cmp-cmdline
       vimPlugins.cmp-nvim-lsp
@@ -615,7 +616,6 @@ in
       vimPlugins.cmp_luasnip
       vimPlugins.lspkind-nvim
       vimPlugins.nvim-cmp
-      vimPlugins.phpactor
 
       # Snippets
       vimPlugins.friendly-snippets
