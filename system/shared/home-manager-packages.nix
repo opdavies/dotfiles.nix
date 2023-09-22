@@ -15,6 +15,7 @@ with pkgs; [
   git
   git-crypt
   gnupg
+  go
   htop
   inotify-tools
   jq

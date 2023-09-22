@@ -663,6 +663,7 @@ in
 
       # Language servers
       ansible-language-server
+      gopls
       lua-language-server
       nixd
       nodePackages.intelephense
