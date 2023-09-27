@@ -75,6 +75,7 @@ local servers = {
   html = true,
   rnix = true,
   tailwindcss = true,
+  terraformls = true,
   tsserver = true,
   vuels = true,
 
