@@ -585,6 +585,8 @@ in
       vimPlugins.vim-tmux-navigator
       vimPlugins.vim-unimpaired
 
+      vimPlugins.lualine-nvim
+
       # Git
       vimPlugins.vim-fugitive
       vimPlugins.vim-rhubarb
