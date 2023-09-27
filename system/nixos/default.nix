@@ -8,7 +8,8 @@ let
 in
 inputs.nixpkgs.lib.nixosSystem {
   modules = [
-    inputs.home-manager.nixosModules.home-manager {
+    inputs.home-manager.nixosModules.home-manager
+    {
       home-manager = {
         extraSpecialArgs = { inherit inputs desktop self username; };
         useGlobalPkgs = true;
