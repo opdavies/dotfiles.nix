@@ -29,7 +29,7 @@ null_ls.setup {
       end,
     },
     diagnostics.markdownlint.with {
-      extra_args = { "--disable", "MD013" }
+      extra_args = { "--disable", "MD013" },
     },
     diagnostics.php,
     diagnostics.phpcs.with {
