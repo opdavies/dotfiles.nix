@@ -258,5 +258,7 @@ in
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", TAG+="uaccess", TAG+="udev-acl", GROUP="realet"
   '';
+
+  services.auto-cpufreq.enable = true;
 }
 
