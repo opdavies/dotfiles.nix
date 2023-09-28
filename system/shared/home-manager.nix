@@ -586,6 +586,7 @@ in
       vimPlugins.vim-unimpaired
 
       vimPlugins.lualine-nvim
+      vimPlugins.lualine-lsp-progress
 
       # Git
       vimPlugins.vim-fugitive
