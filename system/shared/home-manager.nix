@@ -580,10 +580,22 @@ in
       vimPlugins.vim-sort-motion
       vimPlugins.vim-surround
       vimPlugins.vim-terraform
-      vimPlugins.vim-test
       vimPlugins.vim-textobj-user
       vimPlugins.vim-tmux-navigator
       vimPlugins.vim-unimpaired
+
+      # Testing.
+      {
+        plugin = vimPlugins.neoterm;
+        type = "lua";
+        config = ''
+          vim.g.neoterm_autoscroll = 1
+          vim.g.neoterm_default_mod = "vertical"
+          vim.g.neoterm_term_per_tab = 1
+        '';
+      }
+
+      vimPlugins.vim-test
 
       vimPlugins.lualine-nvim
       vimPlugins.lualine-lsp-progress
