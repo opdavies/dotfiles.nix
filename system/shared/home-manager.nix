@@ -2,6 +2,17 @@
 
 let
   customVim = with self; {
+    none-ls-nvim = pkgs.vimUtils.buildVimPlugin {
+      name = "none-ls-nvim";
+      src = pkgs.fetchFromGitHub {
+        owner = "nvimtools";
+        repo = "none-ls.nvim";
+        rev = "main";
+        sha256 = "OzwC/i2bzHznf0wunclDEQ+Qfayzje19r4UBDXtbCeI=";
+      };
+      buildPhase = ":";
+    };
+
     toggle-checkbox-nvim = pkgs.vimUtils.buildVimPlugin {
       name = "toggle-checkbox-nvim";
       src = pkgs.fetchFromGitHub {
@@ -615,8 +626,8 @@ in
       vimPlugins.nvim-treesitter-textobjects
 
       # LSP
+      customVim.none-ls-nvim
       vimPlugins.lsp-status-nvim
-      vimPlugins.null-ls-nvim
       vimPlugins.nvim-lspconfig
 
       # Completion

@@ -141,5 +141,5 @@ vim.keymap.set("n", "<leader>f", function()
   vim.lsp.buf.format { async = true }
 end)
 
-require "opdavies.lsp.null-ls"
+require "opdavies.lsp.none-ls"
 require "opdavies.lsp.signature"
