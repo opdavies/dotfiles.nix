@@ -15,7 +15,6 @@ in
     pkgs.pamixer
     pkgs.pass
     pkgs.pinentry
-    pkgs.postman
     pkgs.slack
     pkgs.via
     pkgs.vial

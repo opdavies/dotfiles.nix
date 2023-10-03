@@ -23,24 +23,11 @@ with pkgs; [
   lua
   mysql
   neofetch
-  nodePackages."http-server"
-  nodePackages.eslint
-  nodePackages.prettier
-  nodejs
-  php81
-  php81Packages.composer
-  php81Packages.phpcbf
-  php81Packages.phpcs
-  php81Packages.phpstan
-  platformsh
-  pulumi-bin
   pv
-  python3Full
   ripgrep
   rustywind
   terraform
   tldr
-  tmuxinator
   tree
   tree-sitter
   unzip

@@ -1,11 +1,6 @@
 { config, inputs, pkgs }:
 
 {
-  nixpkgs = {
-    config.allowUnfreePredicate = pkg:
-      builtins.elem (inputs.lib.getName pkg) [ "postman" ];
-  };
-
   services.swayidle = {
     enable = true;
 
