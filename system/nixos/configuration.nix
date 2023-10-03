@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ inputs, pkgs, system }:
 
 let
   configure-gtk = pkgs.writeTextFile {
@@ -120,7 +120,6 @@ in
       brightnessctl
       configure-gtk
       ffmpegthumbnailer
-      google-chrome
       shotwell
       swaybg
       xfce.thunar
@@ -182,8 +181,7 @@ in
         monospace = [ "JetBrainsMono Nerd Font Mono" ];
       };
     };
-    fonts = with pkgs; [
-      intel-one-mono
+    fonts = with inputs.nixpkgs-unstable.legacyPackages."${system}"; [
       (nerdfonts.override {
         fonts = [
           "FiraCode"
@@ -221,7 +219,7 @@ in
     in
     {
       enable = true;
-      plugins = lib.mkForce [ pkgs.interception-tools-plugins.dual-function-keys ];
+      plugins = pkgs.lib.mkForce [ pkgs.interception-tools-plugins.dual-function-keys ];
       udevmonConfig = ''
         - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
           DEVICE:

@@ -1,9 +1,9 @@
 {
   inputs = {
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager/master";
-    nixpkgs-2305.url = "github:nixos/nixpkgs/nixos-23.05";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
   };
 
   outputs = inputs@{ flake-parts, self, ... }:
@@ -11,7 +11,7 @@
       system = "x86_64-linux";
       username = "opdavies";
 
-      nixos-system = import ./system/nixos { inherit inputs self username; };
+      nixos-system = import ./system/nixos { inherit inputs self system username; };
       wsl-system = import ./system/wsl2 { inherit inputs self system username; };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {

@@ -1,4 +1,4 @@
-{ inputs, pkgs, self, username }:
+{ inputs, pkgs, username, self }:
 
 let
   customVim = with self; {
@@ -566,6 +566,7 @@ in
         '';
       }
 
+      inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.refactoring-nvim
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
       vimPlugins.gitsigns-nvim
@@ -573,7 +574,6 @@ in
       vimPlugins.impatient-nvim
       vimPlugins.indent-blankline-nvim
       vimPlugins.nvim-web-devicons
-      vimPlugins.refactoring-nvim
       vimPlugins.rest-nvim
       vimPlugins.splitjoin-vim
       vimPlugins.todo-comments-nvim
@@ -627,11 +627,11 @@ in
 
       # LSP
       customVim.none-ls-nvim
+      # inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.nvim-lspconfig
       vimPlugins.lsp-status-nvim
       vimPlugins.nvim-lspconfig
 
       # Completion
-      inputs.nixpkgs-2305.legacyPackages."${system}".vimPlugins.phpactor
       vimPlugins.cmp-buffer
       vimPlugins.cmp-cmdline
       vimPlugins.cmp-nvim-lsp
@@ -643,6 +643,7 @@ in
       vimPlugins.cmp_luasnip
       vimPlugins.lspkind-nvim
       vimPlugins.nvim-cmp
+      vimPlugins.phpactor
 
       # Snippets
       vimPlugins.friendly-snippets
@@ -691,8 +692,8 @@ in
       # Language servers
       ansible-language-server
       gopls
+      inputs.nixpkgs-unstable.legacyPackages."${system}".nixd
       lua-language-server
-      nixd
       nodePackages.intelephense
       nodePackages."@astrojs/language-server"
       nodePackages."@tailwindcss/language-server"

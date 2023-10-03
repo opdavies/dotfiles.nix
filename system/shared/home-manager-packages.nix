@@ -6,7 +6,7 @@ with pkgs; [
   delta
   dog
   doppler
-  inputs.nixpkgs-2305.legacyPackages."${system}".exa
+  exa
   fd
   file
   fzf
@@ -18,6 +18,7 @@ with pkgs; [
   go
   htop
   inotify-tools
+  inputs.nixpkgs-unstable.legacyPackages."${system}".rustywind
   jq
   just
   lua
@@ -25,7 +26,6 @@ with pkgs; [
   neofetch
   pv
   ripgrep
-  rustywind
   terraform
   tldr
   tree
