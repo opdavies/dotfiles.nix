@@ -17,7 +17,6 @@ in
     pkgs.pinentry
     pkgs.postman
     pkgs.slack
-    pkgs.teams
     pkgs.via
     pkgs.vial
     pkgs.vlc
