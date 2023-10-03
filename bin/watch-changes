@@ -11,6 +11,7 @@ while true; do
   inotifywait \
     --event modify \
     --event move_self \
+    --exclude ".git|simpletest|vendor" \
     --recursive \
     $1 && $2
 done
