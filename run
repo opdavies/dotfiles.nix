@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+set -eu
+
+# delete any temporary or generated files.
+function clean {
+  rm -rf ./result
+}
+
+# Display a list of all available commands.
+function help {
+  printf "%s <task> [args]\n\nTasks:\n" "${0}"
+
+  compgen -A function | grep -v "^_" | cat -n
+
+  printf "\nExtended help:\n  Each task has comments for general usage\n"
+}
+
+# Perform nixos-rebuild commands for a specified flake on NixOS.
+function nixos {
+  clean
+
+  local profile="${1}"
+  local command="${2}"
+
+  sudo nixos-rebuild "${command}" --flake ".#${profile}"
+}
+
+# Update the Nix Flake.
+function update {
+  nix flake update
+}
+
+# Perform home-manager commands on WSL2.
+function wsl2 {
+  clean
+
+  local command="${1}"
+
+  NIXPKGS_ALLOW_UNFREE=1 home-manager "${command}" --flake ".#wsl2" --impure
+}
+
+TIMEFORMAT=$'\nTask completed in %3lR'
+time "${@:-help}"
