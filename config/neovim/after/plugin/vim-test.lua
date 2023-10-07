@@ -15,6 +15,6 @@ vim.cmd [[
   let test#neovim#start_normal = 1
   let test#strategy = "neoterm"
 
-  let test#php#phpunit#executable = 'just test'
+  let test#php#phpunit#executable = 'run test'
   let test#php#phpunit#options = '--colors=always --testdox'
 ]]
