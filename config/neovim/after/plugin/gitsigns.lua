@@ -14,8 +14,8 @@ local map = require("opdavies.keymap").map
 local nmap = require("opdavies.keymap").nmap
 local vmap = require("opdavies.keymap").vmap
 
-nmap { "[h", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true, buffer = bufnr } }
-nmap { "]h", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true, buffer = bufnr } }
+nmap { "[h", "<cmd>Gitsigns prev_hunk<CR>" }
+nmap { "]h", "<cmd>Gitsigns next_hunk<CR>" }
 
 nmap { "<leader>hR", gitsigns.reset_buffer }
 nmap { "<leader>hS", gitsigns.stage_buffer }
