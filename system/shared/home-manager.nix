@@ -572,11 +572,9 @@ in
       vimPlugins.gitsigns-nvim
       vimPlugins.harpoon
       vimPlugins.impatient-nvim
-      vimPlugins.indent-blankline-nvim
       vimPlugins.nvim-web-devicons
       vimPlugins.rest-nvim
       vimPlugins.splitjoin-vim
-      vimPlugins.todo-comments-nvim
       vimPlugins.undotree
       vimPlugins.vim-easy-align
       vimPlugins.vim-eunuch
@@ -608,9 +606,6 @@ in
 
       vimPlugins.vim-test
 
-      vimPlugins.lualine-nvim
-      vimPlugins.lualine-lsp-progress
-
       # Git
       vimPlugins.vim-fugitive
       vimPlugins.vim-rhubarb
@@ -627,7 +622,6 @@ in
 
       # LSP
       customVim.none-ls-nvim
-      # inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.nvim-lspconfig
       vimPlugins.lsp-status-nvim
       vimPlugins.nvim-lspconfig
 
