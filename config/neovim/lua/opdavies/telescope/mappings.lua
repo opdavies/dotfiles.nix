@@ -32,6 +32,8 @@ telescope_mapper("<leader>fh", "help_tags")
 telescope_mapper("<leader>fl", "live_grep")
 telescope_mapper("<leader>fo", "oldfiles")
 
+telescope_mapper("<leader>gp", "grep_prompt")
+
 telescope_mapper("<leader>ds", "lsp_document_symbols")
 telescope_mapper("<leader>dl", "diagnostics")
 

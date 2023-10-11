@@ -124,6 +124,13 @@ function M.git_files()
   require("telescope.builtin").git_files(opts)
 end
 
+function M.grep_prompt()
+  require("telescope.builtin").grep_string {
+    path_display = { "shorten" },
+    search = vim.fn.input "Grep String > ",
+  }
+end
+
 function M.live_grep()
   require("telescope").extensions.live_grep_args.live_grep_args {
     file_ignore_patterns = { ".git/" },
