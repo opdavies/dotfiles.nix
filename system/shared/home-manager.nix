@@ -238,6 +238,7 @@ in
   programs.zsh = {
     enable = true;
     enableCompletion = false;
+    defaultKeymap = "vicmd";
     dotDir = ".config/zsh";
 
     initExtra = ''
