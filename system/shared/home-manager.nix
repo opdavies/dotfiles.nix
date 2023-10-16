@@ -683,6 +683,7 @@ in
     extraPackages = with pkgs; [
       # Languages
       nodePackages.typescript
+      php81
 
       # Language servers
       ansible-language-server
