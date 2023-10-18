@@ -673,16 +673,7 @@ in
         vim.loader.enable()
       end
 
-      pcall("require", impatient)
-
-      require "opdavies.globals"
-
-      require("opdavies.options").setup()
-
-      require "opdavies.lsp"
-
-      require "opdavies.telescope.setup"
-      require "opdavies.telescope.mappings"
+      require "opdavies"
     '';
 
     extraPackages = with pkgs; [
