@@ -575,7 +575,7 @@ in
       vimPlugins.impatient-nvim
       vimPlugins.nvim-web-devicons
       vimPlugins.rest-nvim
-      vimPlugins.splitjoin-vim
+      vimPlugins.treesj
       vimPlugins.undotree
       vimPlugins.vim-easy-align
       vimPlugins.vim-eunuch
