@@ -668,23 +668,21 @@ in
       inputs.self.packages.${pkgs.system}.opdavies-nvim
     ];
 
-    extraConfig = ''
-      lua << EOF
-        if vim.loader then
-          vim.loader.enable()
-        end
+    extraLuaConfig = ''
+      if vim.loader then
+        vim.loader.enable()
+      end
 
-        pcall("require", impatient)
+      pcall("require", impatient)
 
-        require "opdavies.globals"
+      require "opdavies.globals"
 
-        require("opdavies.options").setup()
+      require("opdavies.options").setup()
 
-        require "opdavies.lsp"
+      require "opdavies.lsp"
 
-        require "opdavies.telescope.setup"
-        require "opdavies.telescope.mappings"
-      EOF
+      require "opdavies.telescope.setup"
+      require "opdavies.telescope.mappings"
     '';
 
     extraPackages = with pkgs; [
