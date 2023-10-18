@@ -218,14 +218,17 @@ in
       help.autocorrect = "1";
       init.defaultBranch = "main";
       merge.ff = "only";
-      rebase = {
-        autosquash = true;
-        autostash = true;
+      push = {
+        autoSetupRemote = true;
+        default = "upstream";
       };
-      push.default = "upstream";
       pull = {
         ff = "only";
         rebase = true;
+      };
+      rebase = {
+        autosquash = true;
+        autostash = true;
       };
     };
   };
