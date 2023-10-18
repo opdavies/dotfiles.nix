@@ -670,6 +670,10 @@ in
 
     extraConfig = ''
       lua << EOF
+        if vim.loader then
+          vim.loader.enable()
+        end
+
         pcall("require", impatient)
 
         require "opdavies.globals"
