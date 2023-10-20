@@ -16,7 +16,7 @@ local M = {
       '';
     }<>
     ]],
-    { c(1, { t "vimPlugin", t "customVim" }), i(2), i(3), i(0) }
+    { c(1, { t "vimPlugins", t "customVim" }), i(2), i(3), i(0) }
   ),
 }
 
