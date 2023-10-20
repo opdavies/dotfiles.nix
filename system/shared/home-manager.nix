@@ -578,7 +578,6 @@ in
       vimPlugins.impatient-nvim
       vimPlugins.nvim-web-devicons
       vimPlugins.rest-nvim
-      vimPlugins.treesj
       vimPlugins.undotree
       vimPlugins.vim-easy-align
       vimPlugins.vim-eunuch
@@ -597,6 +596,13 @@ in
       vimPlugins.vim-tmux-navigator
       vimPlugins.vim-unimpaired
 
+      {
+        plugin = vimPlugins.treesj;
+        type = "lua";
+        config = ''
+          require "treesj".setup {}
+        '';
+      }
       # Testing.
       {
         plugin = vimPlugins.neoterm;
@@ -607,7 +613,6 @@ in
           vim.g.neoterm_term_per_tab = 1
         '';
       }
-
       vimPlugins.vim-test
 
       # Git
