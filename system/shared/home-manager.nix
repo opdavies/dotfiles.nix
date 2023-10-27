@@ -329,20 +329,26 @@ in
       bindkey " " expand-alias-space
       bindkey -M isearch " " magic-space
 
+      alias dea='direnv allow'
+      alias dee='direnv edit'
+
       ialias cs="create-script"
+      ialias daily="run create-daily next"
       ialias fetch="git fetch --all --jobs=4 --progress --prune"
+      ialias ls="exa -la"
       ialias nah="git reset --hard; git clean -fd"
       ialias pull="git pull --autostash --jobs=4 --summary origin"
       ialias rebase="git rebase --autostash --stat"
       ialias run="./run"
       ialias s="secrets"
       ialias secrets="doppler --project \"$(whoami)\" run"
+      ialias switch="run nixos nixedo switch"
+      ialias sz="source ~/.config/zsh/.zshrc"
       ialias tag="tag-release"
       ialias uncommit="git reset --soft HEAD^";
       ialias update="fetch && rebase"
       ialias wip="git add . && git commit -m 'wip'";
-
-      ialias ls="exa -la"
+      ialias wt="git worktree"
 
       # just
       alias j="just"
