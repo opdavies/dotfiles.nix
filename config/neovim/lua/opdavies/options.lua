@@ -119,7 +119,7 @@ end
 local function set_vim_o()
   local settings = {
     autoindent = true,
-    backup = true,
+    backup = false,
     breakindent = true,
     conceallevel = 0,
     cursorline = true,
@@ -149,6 +149,8 @@ local function set_vim_o()
     tabstop = 2,
     termguicolors = true,
     textwidth = 0,
+    undodir = os.getenv("HOME") .. "/.vim/undodir",
+    undofile = true,
     updatetime = 1000,
     wrap = false,
   }
