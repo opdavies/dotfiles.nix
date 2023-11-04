@@ -12,7 +12,6 @@ else
   # Get the session name from fuzzy-finding list of directories and generating a
   # tmux-safe version.
   items=$(find ~/Code -mindepth 3 -maxdepth 3 -type d ! -name .git)
-  items+="$HOME/Code/github.com/opdavies/dotfiles"
 
   selected=$(echo "${items}" | sort | fzf --reverse)
 fi
