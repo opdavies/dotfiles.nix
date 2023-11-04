@@ -1,18 +1,9 @@
 { inputs, pkgs, username, self }:
 
 let
-  customVim = with self; {
-    none-ls-nvim = pkgs.vimUtils.buildVimPlugin {
-      name = "none-ls-nvim";
-      src = pkgs.fetchFromGitHub {
-        owner = "nvimtools";
-        repo = "none-ls.nvim";
-        rev = "main";
-        sha256 = "OzwC/i2bzHznf0wunclDEQ+Qfayzje19r4UBDXtbCeI=";
-      };
-      buildPhase = ":";
-    };
+  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${pkgs.system}";
 
+  customVim = with self; {
     toggle-checkbox-nvim = pkgs.vimUtils.buildVimPlugin {
       name = "toggle-checkbox-nvim";
       src = pkgs.fetchFromGitHub {
@@ -23,16 +14,6 @@ let
       };
     };
 
-    vim-astro = pkgs.vimUtils.buildVimPlugin {
-      name = "vim-astro";
-      src = pkgs.fetchFromGitHub {
-        owner = "wuelnerdotexe";
-        repo = "vim-astro";
-        rev = "main";
-        sha256 = "HyQ4i/T1uQmGurBqCpo8+ESVSVPsTrLQBxLe2OEYjcY=";
-      };
-    };
-
     vim-heritage = pkgs.vimUtils.buildVimPlugin {
       name = "vim-heritage";
       src = pkgs.fetchFromGitHub {
@@ -40,16 +21,6 @@ let
         repo = "vim-heritage";
         rev = "cffa05c78c0991c998adc4504d761b3068547db6";
         sha256 = "Lebe5V1XFxn4kSZ+ImZ69Vst9Nbc0N7eA9IzOCijFS0=";
-      };
-    };
-
-    vim-just = pkgs.vimUtils.buildVimPlugin {
-      name = "vim-just";
-      src = pkgs.fetchFromGitHub {
-        owner = "NoahTheDuke";
-        repo = "vim-just";
-        rev = "838c9096d4c5d64d1000a6442a358746324c2123";
-        sha256 = "DSC47z2wOEXvo2kGO5JtmR3hyHPiYXrkX7MgtagV5h4=";
       };
     };
 
@@ -78,18 +49,8 @@ let
       src = pkgs.fetchFromGitHub {
         owner = "arthurxavierx";
         repo = "vim-caser";
-        rev = "master";
+        rev = "6bc9f41d170711c58e0157d882a5fe8c30f34bf6";
         sha256 = "PXAY01O/cHvAdWx3V/pyWFeiV5qJGvLcAKhl5DQc0Ps=";
-      };
-    };
-
-    vim-visual-star-search = pkgs.vimUtils.buildVimPlugin {
-      name = "vim-visual-star-search";
-      src = pkgs.fetchFromGitHub {
-        owner = "nelstrom";
-        repo = "vim-visual-star-search";
-        rev = "37259722f45996733fd309add61385a4ad88bdb9";
-        sha256 = "n8jd6fy30XukZ9NFZX5qclSlMfziP/Ew9dXfkysRl4Y=";
       };
     };
 
@@ -559,13 +520,12 @@ in
 
     plugins = with pkgs; [
       customVim.tabline-vim
-      customVim.vim-astro
       customVim.vim-caser
       customVim.vim-heritage
-      customVim.vim-just
-      customVim.vim-zoom
       customVim.vim-textobj-xmlattr
-      customVim.vim-visual-star-search
+      customVim.vim-zoom
+      pkgsUnstable.vimPlugins.vim-astro
+      vimPlugins.vim-visual-star-search
 
       {
         plugin = customVim.toggle-checkbox-nvim;
@@ -575,7 +535,7 @@ in
         '';
       }
 
-      inputs.nixpkgs-unstable.legacyPackages."${system}".vimPlugins.refactoring-nvim
+      pkgsUnstable.vimPlugins.refactoring-nvim
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
       vimPlugins.gitsigns-nvim
@@ -594,13 +554,22 @@ in
       vimPlugins.vim-projectionist
       vimPlugins.vim-repeat
       vimPlugins.vim-sleuth
-      vimPlugins.vim-sort-motion
       vimPlugins.vim-surround
       vimPlugins.vim-terraform
       vimPlugins.vim-textobj-user
       vimPlugins.vim-tmux-navigator
       vimPlugins.vim-unimpaired
 
+      vimPlugins.lualine-nvim
+      vimPlugins.lualine-lsp-progress
+
+      {
+        plugin = vimPlugins.vim-sort-motion;
+        type = "lua";
+        config = ''
+          vim.g.sort_motion_flags = "ui"
+        '';
+      }
       {
         plugin = vimPlugins.treesj;
         type = "lua";
@@ -635,7 +604,7 @@ in
       vimPlugins.nvim-treesitter-textobjects
 
       # LSP
-      customVim.none-ls-nvim
+      pkgsUnstable.vimPlugins.none-ls-nvim
       vimPlugins.lsp-status-nvim
       vimPlugins.nvim-lspconfig
 
@@ -694,7 +663,6 @@ in
       # Language servers
       ansible-language-server
       gopls
-      inputs.nixpkgs-unstable.legacyPackages."${system}".nixd
       lua-language-server
       nodePackages.intelephense
       nodePackages."@astrojs/language-server"
@@ -708,6 +676,7 @@ in
       nodePackages.vue-language-server
       nodePackages.yaml-language-server
       phpactor
+      pkgsUnstable.nixd
       rnix-lsp
       terraform-ls
 
