@@ -311,14 +311,6 @@ in
       ialias wip="git add . && git commit -m 'wip'";
       ialias wt="git worktree"
 
-      # just
-      alias j="just"
-      alias jc="just composer"
-      alias jci="just composer install"
-      alias jcr="just composer require"
-      alias jd="just drush"
-      alias jt="just test"
-
       # tmux
       alias ta="tmux attach"
       alias tl="tmux list-sessions"
