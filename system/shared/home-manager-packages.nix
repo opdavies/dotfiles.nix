@@ -1,4 +1,7 @@
 { inputs, pkgs, ... }:
+let
+  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${pkgs.system}";
+in
 with pkgs; [
   awscli2
   bottom
@@ -18,12 +21,12 @@ with pkgs; [
   go
   htop
   inotify-tools
-  inputs.nixpkgs-unstable.legacyPackages."${system}".rustywind
   jq
   just
   lua
   mysql
   neofetch
+  pkgsUnstable.rustywind
   pv
   ripgrep
   terraform

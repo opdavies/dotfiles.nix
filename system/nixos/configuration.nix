@@ -1,6 +1,8 @@
 { inputs, pkgs, system }:
 
 let
+  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${system}";
+
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
@@ -181,7 +183,7 @@ in
         monospace = [ "JetBrainsMono Nerd Font Mono" ];
       };
     };
-    fonts = with inputs.nixpkgs-unstable.legacyPackages."${system}"; [
+    fonts = with pkgsUnstable; [
       (nerdfonts.override {
         fonts = [
           "FiraCode"
