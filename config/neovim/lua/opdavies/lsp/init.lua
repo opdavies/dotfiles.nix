@@ -34,16 +34,16 @@ local custom_attach = function(client)
   nvim_status.on_attach(client)
 
   buf_inoremap { "<C-s>", vim.lsp.buf.signature_help }
-  buf_nnoremap { "<leader>d", vim.diagnostic.open_float }
-  buf_nnoremap { "<leader>[d", vim.diagnostic.goto_prev }
-  buf_nnoremap { "<leader>]d", vim.diagnostic.goto_next }
   buf_nnoremap { "<leader>ca", vim.lsp.buf.code_action }
+  buf_nnoremap { "<leader>d", vim.diagnostic.open_float }
   buf_nnoremap { "<leader>rn", vim.lsp.buf.rename }
   buf_nnoremap { "<leader>rr", "<cmd>LspRestart<cr>" }
+  buf_nnoremap { "[d", vim.diagnostic.goto_prev }
+  buf_nnoremap { "]d", vim.diagnostic.goto_next }
   buf_nnoremap { "gD", vim.lsp.buf.declaration }
-  buf_nnoremap { "gT", vim.lsp.buf.type_definition }
   buf_nnoremap { "gd", vim.lsp.buf.definition }
   buf_nnoremap { "gi", vim.lsp.buf.implementation }
+  buf_nnoremap { "gT", vim.lsp.buf.type_definition }
 
   if filetype ~= "lua" then
     buf_nnoremap { "K", vim.lsp.buf.hover }
