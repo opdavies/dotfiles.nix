@@ -186,8 +186,10 @@ in
     fonts = with pkgsUnstable; [
       (nerdfonts.override {
         fonts = [
+          "AnonymousPro"
           "FiraCode"
           "IntelOneMono"
+          "Iosevka"
           "JetBrainsMono"
           "Meslo"
         ];
