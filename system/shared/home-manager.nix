@@ -595,7 +595,8 @@ in
       vimPlugins.nvim-treesitter-context
       vimPlugins.nvim-treesitter-textobjects
 
-      # LSP
+      # LSP, linting and formatting
+      pkgsUnstable.vimPlugins.conform-nvim
       pkgsUnstable.vimPlugins.none-ls-nvim
       vimPlugins.lsp-status-nvim
       vimPlugins.nvim-lspconfig
