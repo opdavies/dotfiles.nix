@@ -1,10 +1,8 @@
-{ inputs, self, system, username }:
+{ inputs, pkgs, self, system, username }:
 
-{ desktop }:
+{ desktop ? false }:
 
 let
-  pkgs = inputs.nixpkgs.legacyPackages."${system}";
-
   configuration = import ./configuration.nix { inherit inputs pkgs system; };
   hardware-configuration = import ./hardware-configuration.nix;
 in
