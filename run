@@ -37,7 +37,11 @@ function wsl2 {
 
   local command="${1}"
 
-  NIXPKGS_ALLOW_UNFREE=1 home-manager "${command}" --flake ".#wsl2" --impure
+  NIXPKGS_ALLOW_UNFREE=1 home-manager "${command}" \
+    --extra-experimental-features flakes \
+    --extra-experimental-features nix-command \
+    --flake ".#wsl2" \
+    --impure
 }
 
 TIMEFORMAT=$'\nTask completed in %3lR'
