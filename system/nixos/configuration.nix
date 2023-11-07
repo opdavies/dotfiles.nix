@@ -199,16 +199,20 @@ in
 
   zramSwap.enable = true;
 
-  nix.settings = {
-    warn-dirty = false;
-    auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
-  };
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
+    optimise.automatic = true;
+
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+      warn-dirty = false;
+    };
   };
 
   # Make Caps lock work as an Escape key on press and Ctrl on hold.
