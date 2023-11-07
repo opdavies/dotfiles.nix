@@ -6,10 +6,4 @@ require("lualine").setup {
     section_separators = { left = "", right = "" },
     theme = "catppuccin",
   },
-
-  sections = {
-    lualine_c = {
-      "lsp_progress",
-    },
-  },
 }

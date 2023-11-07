@@ -112,7 +112,6 @@ in
       vimPlugins.vim-unimpaired
 
       vimPlugins.lualine-nvim
-      vimPlugins.lualine-lsp-progress
 
       {
         plugin = vimPlugins.vim-sort-motion;
