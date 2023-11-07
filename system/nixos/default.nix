@@ -14,7 +14,7 @@ inputs.nixpkgs.lib.nixosSystem {
         extraSpecialArgs = { inherit inputs desktop self username; };
         useGlobalPkgs = true;
         useUserPackages = true;
-        users."${username}" = import ./home-manager.nix;
+        users."${username}" = import ./home-manager;
       };
     }
 

@@ -1,9 +1,9 @@
-{ inputs, config, desktop, pkgs, self, username, ... }:
+{ config, desktop, inputs, pkgs, self, username, ... }:
 
 let
-  desktop-config = import ./home-manager-desktop.nix { inherit config inputs pkgs; };
-  shared-config = import ../shared/home-manager.nix { inherit inputs pkgs self username; };
-  shared-packages = import ../shared/home-manager-packages.nix { inherit inputs pkgs; };
+  desktop-config = import ./desktop.nix { inherit config inputs pkgs; };
+  shared-config = import ../../shared/home-manager.nix { inherit inputs pkgs self username; };
+  shared-packages = import ../../shared/home-manager-packages.nix { inherit inputs pkgs; };
 in
 {
   imports = if desktop then [ desktop-config shared-config ] else [ shared-config ];

@@ -1,4 +1,4 @@
-{ config, inputs, pkgs }:
+{ config, inputs, pkgs, ... }:
 
 {
   services.swayidle = {
@@ -34,6 +34,66 @@
     };
   };
 
+  programs.i3status-rust = {
+    enable = true;
+
+    bars = {
+      default = {
+        blocks = [
+          {
+            block = "net";
+            format = " $ip ";
+          }
+          {
+            block = "battery";
+            format = " $icon $percentage $time ";
+          }
+          {
+            block = "cpu";
+          }
+          {
+            block = "memory";
+            format = " $icon $mem_total_used_percents.eng(w:2) ";
+            format_alt = " $icon_swap $swap_used_percents.eng(w:2) ";
+          }
+          {
+            block = "disk_space";
+            path = "/";
+            info_type = "available";
+            alert_unit = "GB";
+            interval = 20;
+            warning = 20.0;
+            alert = 10.0;
+            format = " $icon $available.eng(w:2) ";
+          }
+          {
+            block = "time";
+            interval = 1;
+            format = " $timestamp.datetime(f:'%F %T') ";
+          }
+        ];
+
+        settings = {
+          theme = {
+            theme = "plain";
+            overrides = {
+              critical_bg = "#222222";
+              good_bg = "#222222";
+              good_fg = "#ffffff";
+              idle_bg = "#222222";
+              idle_fg = "#ffffff";
+              info_bg = "#222222";
+              info_fg = "#ffffff";
+              separator_bg = "#222222";
+              warning_bg = "#222222";
+              warning_fg = "#ffffff";
+            };
+          };
+        };
+      };
+    };
+  };
+
   wayland.windowManager.sway = {
     enable = true;
 
@@ -55,7 +115,7 @@
 
           fonts = {
             names = [ "JetBrainsMono Nerd Font Mono" ];
-            size = 16.0;
+            size = 12.0;
           };
 
           statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
@@ -64,9 +124,9 @@
       ];
 
       gaps = {
-        inner = 10;
+        inner = 0;
         smartBorders = "on";
-        smartGaps = true;
+        # smartGaps = true;
       };
 
       input = {
@@ -133,97 +193,5 @@
       for_window [app_id="zoom" title="Zoom Meeting"] floating disable
       for_window [app_id="zoom" title="Zoom - Free Account"] floating disable
     '';
-  };
-
-  programs.i3status-rust = {
-    enable = true;
-
-    bars = {
-      default = {
-        blocks = [
-          {
-            block = "net";
-            format = " $ip ";
-          }
-          {
-            block = "battery";
-            format = " $icon $percentage $time ";
-          }
-          {
-            block = "cpu";
-          }
-          {
-            block = "memory";
-            format = " $icon $mem_total_used_percents.eng(w:2) ";
-            format_alt = " $icon_swap $swap_used_percents.eng(w:2) ";
-          }
-          {
-            block = "disk_space";
-            path = "/";
-            info_type = "available";
-            alert_unit = "GB";
-            interval = 20;
-            warning = 20.0;
-            alert = 10.0;
-            format = " $icon $available.eng(w:2) ";
-          }
-          {
-            block = "time";
-            interval = 1;
-            format = " $timestamp.datetime(f:'%F %T') ";
-          }
-        ];
-
-        settings = {
-          theme = {
-            theme = "plain";
-            overrides = {
-              critical_bg = "#222222";
-              good_bg = "#222222";
-              good_fg = "#ffffff";
-              idle_bg = "#222222";
-              idle_fg = "#ffffff";
-              info_bg = "#222222";
-              info_fg = "#ffffff";
-              separator_bg = "#222222";
-              warning_bg = "#222222";
-              warning_fg = "#ffffff";
-            };
-          };
-        };
-      };
-    };
-  };
-
-  xdg.configFile.wallpaper = {
-    source = ../../config/wallpaper;
-    recursive = true;
-  };
-
-  programs.alacritty = {
-    enable = true;
-
-    settings = {
-      window.opacity = 0.9;
-
-      window.padding = {
-        x = 15;
-        y = 15;
-      };
-
-      font = {
-        size = 16.0;
-
-        bold.style = "Regular";
-        bolditalic.style = "Regular";
-        italic.style = "Regular";
-        normal.family = "IntoneMono Nerd Font Mono";
-
-        offset.y = 12;
-        glyph_offset.y = 6;
-      };
-
-      shell = { program = "zsh"; };
-    };
   };
 }
