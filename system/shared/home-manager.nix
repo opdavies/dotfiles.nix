@@ -9,8 +9,8 @@
   programs.home-manager.enable = true;
 
   imports = [
+    (import ./modules/neovim.nix { inherit inputs pkgs self; })
     ./modules/git.nix
-    ./modules/neovim.nix
     ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/zsh.nix
