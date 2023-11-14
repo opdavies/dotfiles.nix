@@ -68,14 +68,21 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.defaultSession = "sway";
-  services.xserver.displayManager.sddm.enable = true;
-
-  # Configure keymap in X11
   services.xserver = {
+    # Configure keymap in X11.
     layout = "gb";
     xkbVariant = "";
+
+    displayManager = {
+      defaultSession = "none+i3";
+      sddm.enable = true;
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
+      extraPackages = with pkgs; [ i3status i3lock i3blocks ];
+    };
   };
 
   # Configure console keymap
@@ -123,24 +130,10 @@ in
       configure-gtk
       ffmpegthumbnailer
       shotwell
-      swaybg
       xfce.thunar
       xfce.thunar-volman
       xfce.tumbler
-      wl-clipboard
     ];
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    # gtk portal needed to make gtk apps happy
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

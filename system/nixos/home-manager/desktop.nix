@@ -3,7 +3,7 @@
 {
   imports = [
     ./modules/alacritty.nix
-    ./modules/sway.nix
+    ./modules/i3.nix
   ];
 
   xdg.configFile.wallpaper = {
