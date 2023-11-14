@@ -10,7 +10,9 @@ in
 
   home.packages = shared-packages ++ pkgs.lib.optionals desktop [
     pkgs.discord
+    pkgs.kdenlive
     pkgs.meslo-lg
+    pkgs.obs-studio
     pkgs.okular
     pkgs.pamixer
     pkgs.pass
