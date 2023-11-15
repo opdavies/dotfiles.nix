@@ -23,9 +23,10 @@
   '';
 
   home.file.".gitignore-global".text = ''
-    .direnv/
-    .issue-id
-    .phpactor.json
+    /.direnv/
+    /.ignored/
+    /.issue-id
+    /.phpactor.json
   '';
 
   programs.git = {
