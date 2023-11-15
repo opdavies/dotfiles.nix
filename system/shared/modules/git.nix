@@ -22,7 +22,7 @@
 
   '';
 
-  home.file.".gitignore-global".text = ''
+  xdg.configFile."git/ignore".text = ''
     /.direnv/
     /.ignored/
     /.issue-id
@@ -94,7 +94,7 @@
       commit = { template = "~/.gitmessage"; };
       core = {
         editor = "nvim";
-        excludesFile = "~/.gitignore-global";
+        excludesFile = "~/.config/git/ignore";
         pager = "delta";
       };
       delta.line-numbers = true;
