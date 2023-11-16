@@ -44,7 +44,7 @@ in
 
       keybindings = inputs.nixpkgs.lib.mkOptionDefault {
         "${modifier}+Shift+b" = "exec firefox";
-        # "${modifier}+tab" = "workspace back_and_forth";
+        "${modifier}+Tab" = "workspace back_and_forth";
       };
 
       terminal = "alacritty";
