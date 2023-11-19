@@ -75,7 +75,7 @@ in
 
     displayManager = {
       defaultSession = "none+i3";
-      sddm.enable = true;
+      lightdm.enable = true;
     };
 
     windowManager.i3 = {
