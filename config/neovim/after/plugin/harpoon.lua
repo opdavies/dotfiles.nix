@@ -1,23 +1,18 @@
-local status_ok, harpoon = pcall(require, "harpoon")
-if not status_ok then
-  return
-end
+require("harpoon").setup {}
 
 local nmap = require("opdavies.keymap").nmap
 
-harpoon.setup {}
+local mark = require "harpoon.mark"
+local ui = require "harpoon.ui"
 
-nmap { "<M-h><M-l>", require("harpoon.ui").toggle_quick_menu }
-nmap { "<M-h><M-m>", require("harpoon.mark").add_file }
+nmap { "<C-e>", ui.toggle_quick_menu }
+nmap { "<leader>a", mark.add_file }
 
-nmap { "<leader>hl", require("harpoon.ui").toggle_quick_menu }
-nmap { "<leader>hm", require("harpoon.mark").add_file }
-
-for i = 1, 5 do
+for key, letter in ipairs { "h", "j", "k", "l" } do
   nmap {
-    string.format("<space>%s", i),
+    string.format("<C-%s>", letter),
     function()
-      require("harpoon.ui").nav_file(i)
+      ui.nav_file(key)
     end,
   }
 end
