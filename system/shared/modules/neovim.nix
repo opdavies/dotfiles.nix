@@ -243,4 +243,13 @@ in
       shellcheck
     ];
   };
+
+  home.file.".markdownlint.yaml".text = ''
+    default: true
+
+    line-length: false
+
+    no-duplicate-heading:
+      siblings_only: true
+  '';
 }
