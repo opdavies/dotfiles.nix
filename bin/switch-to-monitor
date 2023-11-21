@@ -2,6 +2,8 @@
 
 set -ueo pipefail
 
+MONITOR_ID="${MONITOR_ID:-HDMI-1}"
+
 xrandr \
-  --output DP-3 --mode 2560x1440 \
+  --output "${MONITOR_ID}" --mode 2560x1440 \
   --output eDP-1 --off
