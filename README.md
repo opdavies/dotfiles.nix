@@ -22,6 +22,7 @@ TBD.
 
 - [Chris Toomey](https://github.com/christoomey/dotfiles)
 - [codico](https://github.com/codicocodes/dotfiles)
+- [Dan Leech](https://github.com/dantleech/dotfiles)
 - [Gabe Berke-Williams](https://github.com/gabebw/dotfiles)
 - [Jeff Geerling](https://github.com/geerlingguy/dotfiles)
 - [Jess Archer](https://github.com/jessarcher/dotfiles)
