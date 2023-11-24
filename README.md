@@ -20,14 +20,14 @@ TBD.
 
 ## Inspiration
 
-- [ALT-F4-LLC](https://github.com/ALT-F4-LLC/dotfiles-nixos)
 - [Chris Toomey](https://github.com/christoomey/dotfiles)
+- [codico](https://github.com/codicocodes/dotfiles)
 - [Gabe Berke-Williams](https://github.com/gabebw/dotfiles)
 - [Jeff Geerling](https://github.com/geerlingguy/dotfiles)
+- [Jess Archer](https://github.com/jessarcher/dotfiles)
+- [kensodev](https://github.com/KensoDev/dotfiles)
 - [Robin Malfait](https://github.com/RobinMalfait/dotfiles)
-- [TJ DeVries](https://github.com/tjdevries/config_manager)
-- [TheAltF4Stream](https://github.com/ALT-F4-LLC/dotfiles)
+- [TheAltF4Stream](https://github.com/ALT-F4-LLC/dotfiles-nixos)
 - [ThePrimeagen](https://github.com/ThePrimeagen/.dotfiles)
 - [Thoughtbot](https://github.com/thoughtbot/dotfiles)
-- [codico](https://github.com/codicocodes/dotfiles)
-- [kensodev](https://github.com/KensoDev/dotfiles)
+- [TJ DeVries](https://github.com/tjdevries/config_manager)
