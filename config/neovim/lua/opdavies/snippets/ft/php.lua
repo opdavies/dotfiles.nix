@@ -7,8 +7,6 @@ local i = ls.insert_node
 local t = ls.text_node
 
 local M = {
-
-
   func = fmta("function <>(<>)<> {\n  <>\n}<>", { i(1), i(2), i(3), i(4), i(0) }),
 
   met = fmta(
@@ -24,12 +22,21 @@ local M = {
 
   test = fmta(
     [[
-    /** @test */
-    public function <><>(): void {
+    public function test<>(): void {
       <>
     }<>
     ]],
-    { c(1, { t "test", t "it", t "should" }), i(2), i(3), i(0) }
+    { i(1), i(2), i(0) }
+  ),
+
+  testa = fmta(
+    [[
+    /** @test */
+    public function <>(): void {
+      <>
+    }<>
+    ]],
+    { i(1), i(2), i(0) }
   ),
 }
 
