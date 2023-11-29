@@ -10,16 +10,17 @@ in
 
   home.packages = shared-packages ++ pkgs.lib.optionals desktop [
     pkgs.discord
+    pkgs.gimp
     pkgs.kdenlive
     pkgs.meslo-lg
     pkgs.obs-studio
     pkgs.okular
     pkgs.pamixer
     pkgs.pass
+    pkgs.pavucontrol
     pkgs.pinentry
     pkgs.slack
     pkgs.via
-    pkgs.vial
     pkgs.vlc
     pkgs.xcape
     pkgs.zoom-us
