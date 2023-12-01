@@ -9,7 +9,7 @@ with pkgs; [
   delta
   dog
   doppler
-  exa
+  eza
   fd
   file
   fzf

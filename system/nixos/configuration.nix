@@ -176,7 +176,7 @@ in
         monospace = [ "JetBrainsMono Nerd Font Mono" ];
       };
     };
-    fonts = with pkgsUnstable; [
+    packages = with pkgsUnstable; [
       (nerdfonts.override {
         fonts = [
           "AnonymousPro"
