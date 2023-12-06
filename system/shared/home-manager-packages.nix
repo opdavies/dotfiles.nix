@@ -1,7 +1,5 @@
 { inputs, pkgs, ... }:
-let
-  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${pkgs.system}";
-in
+
 with pkgs; [
   awscli2
   bottom
@@ -26,9 +24,9 @@ with pkgs; [
   lua
   mysql
   neofetch
-  pkgsUnstable.rustywind
   pv
   ripgrep
+  rustywind
   terraform
   tldr
   tree
