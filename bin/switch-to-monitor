@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -ueo pipefail
-
-MONITOR_ID="${MONITOR_ID:-HDMI-1}"
-
-xrandr \
-  --output "${MONITOR_ID}" --mode 2560x1440 \
-  --output eDP-1 --off
