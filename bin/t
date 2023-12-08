@@ -1,19 +1,9 @@
 #!/usr/bin/env bash
 
-# Quickly navigate between different directories using fzf and tmux sessions
-# (Thanks, ThePrimeagen!).
-#
-# https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer
-# https://frontendmasters.com/workshops/dev-productivity
-
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  # Get the session name from fuzzy-finding list of directories and generating a
-  # tmux-safe version.
-  items=$(find ~/Code -mindepth 3 -maxdepth 3 -type d ! -name .git)
-
-  selected=$(echo "${items}" | sort | fzf --reverse)
+  selected=$(zoxide query -l | grep -v /tmp | grep -v "^${HOME}/\." | grep -v "^${HOME}/Code$" | grep -v "/main$"  | fzf --reverse)
 fi
 
 if [[ -z $selected ]]; then

@@ -31,6 +31,11 @@
     nix-direnv.enable = true;
   };
 
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.sessionPath = [ "$HOME/.config/bin" ];
 
   xdg.configFile."ripgrep/config".text = ''
