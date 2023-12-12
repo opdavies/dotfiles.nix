@@ -22,6 +22,7 @@ in
     pkgs.slack
     pkgs.via
     pkgs.vlc
+    pkgs.xsel
     pkgs.xcape
     pkgs.zoom-us
   ];
