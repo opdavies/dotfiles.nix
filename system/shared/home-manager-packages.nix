@@ -29,7 +29,6 @@ with pkgs; [
   pkgsUnstable.rustywind
   pv
   ripgrep
-  terraform
   tldr
   tree
   tree-sitter
