@@ -3,6 +3,7 @@
 {
   imports = [
     ./modules/alacritty.nix
+    ./modules/autorandr.nix
     ./modules/i3.nix
   ];
 
