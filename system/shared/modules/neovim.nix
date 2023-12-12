@@ -1,6 +1,8 @@
 { inputs, pkgs, self, ... }:
 
 let
+  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${pkgs.system}";
+
   customVim = with self; {
     toggle-checkbox-nvim = pkgs.vimUtils.buildVimPlugin {
       name = "toggle-checkbox-nvim";
@@ -73,7 +75,7 @@ in
       customVim.vim-heritage
       customVim.vim-textobj-xmlattr
       customVim.vim-zoom
-      vimPlugins.vim-astro
+      pkgsUnstable.vimPlugins.vim-astro
       vimPlugins.vim-visual-star-search
 
       {
@@ -84,14 +86,13 @@ in
         '';
       }
 
+      pkgsUnstable.vimPlugins.harpoon
+      pkgsUnstable.vimPlugins.refactoring-nvim
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
       vimPlugins.gitsigns-nvim
-      vimPlugins.harpoon
       vimPlugins.impatient-nvim
-      vimPlugins.lualine-nvim
       vimPlugins.nvim-web-devicons
-      vimPlugins.refactoring-nvim
       vimPlugins.rest-nvim
       vimPlugins.undotree
       vimPlugins.vim-easy-align
@@ -109,6 +110,8 @@ in
       vimPlugins.vim-textobj-user
       vimPlugins.vim-tmux-navigator
       vimPlugins.vim-unimpaired
+
+      vimPlugins.lualine-nvim
 
       {
         plugin = vimPlugins.vim-sort-motion;
@@ -151,8 +154,8 @@ in
       vimPlugins.nvim-treesitter-textobjects
 
       # LSP, linting and formatting
-      vimPlugins.conform-nvim
-      vimPlugins.none-ls-nvim
+      pkgsUnstable.vimPlugins.conform-nvim
+      pkgsUnstable.vimPlugins.none-ls-nvim
       vimPlugins.lsp-status-nvim
       vimPlugins.nvim-lspconfig
 
@@ -212,7 +215,6 @@ in
       ansible-language-server
       gopls
       lua-language-server
-      nixd
       nodePackages.intelephense
       nodePackages."@astrojs/language-server"
       nodePackages."@tailwindcss/language-server"
@@ -225,6 +227,7 @@ in
       nodePackages.vue-language-server
       nodePackages.yaml-language-server
       phpactor
+      pkgsUnstable.nixd
       rnix-lsp
       terraform-ls
 
