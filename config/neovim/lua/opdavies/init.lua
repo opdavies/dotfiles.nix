@@ -12,3 +12,9 @@ require "opdavies.telescope.mappings"
 vim.api.nvim_create_user_command("GoToFile", function()
   require("opdavies.telescope").git_files()
 end, {})
+
+local map = require("opdavies.keymap").map
+
+-- Quicker macro playback.
+map { "n", "Q", "@qj" }
+map { "x", "Q", ":norm @q<CR>" }
