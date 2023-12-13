@@ -22,7 +22,6 @@ with pkgs; [
   htop
   inotify-tools
   jq
-  just
   lua
   mysql
   neofetch
