@@ -74,6 +74,9 @@
       # Remove delay when switching Vim modes.
       set -sg escape-time 0
 
+      set-option -g pane-active-border-style "fg=#1f2335"
+      set-option -g pane-border-style "fg=#1f2335"
+
       # Smart pane switching with awareness of Vim splits.
       # See: https://github.com/christoomey/vim-tmux-navigator
       is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
