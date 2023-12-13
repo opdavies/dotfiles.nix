@@ -25,6 +25,7 @@ with pkgs; [
   lua
   mysql
   neofetch
+  openssl
   pkgsUnstable.rustywind
   pv
   ripgrep
