@@ -1,31 +1,51 @@
 #!/usr/bin/env bash
 
+set -o nounset
+set -o pipefail
+
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
   selected=$(zoxide query -l | grep -v /tmp | grep -v "^${HOME}/\." | grep -v "^${HOME}/Code$" | grep -v "/main$"  | fzf --reverse)
 fi
 
-if [[ -z $selected ]]; then
+if [[ -z "${selected}" ]]; then
   exit 0
 fi
 
-is_tmux_running=$(pgrep tmux)
-selected_name=$(basename "$selected" | tr . -)
+session_name=$(basename "${selected}" | sed 's/\./-/g')
 
-if [[ -z $TMUX ]] && [[ -z $is_tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-    exit 0
+if tmux has-session -t="${session_name}" 2> /dev/null; then
+  exec tmux attach -t "${session_name}"
 fi
 
-# Create a new session if tmux does not already have a session matching the
-# selected session name.
-if ! tmux has-session -t $selected_name 2> /dev/null; then
-  tmux new-session -s $selected_name -c $selected -d
+# If a .tmux file exists within the selected directory, run it with the
+# generated session name.
+if [[ -e "${selected}/main" ]] && [[ -e "${selected}/main/.tmux" ]]; then
+  "${selected}/main/.tmux" "${session_name}" "${selected}/main"
+  exit
+elif [[ -e "${selected}/.tmux" ]]; then
+  "${selected}/.tmux" "${session_name}" "${selected}"
+  exit
 fi
 
-if [[ -z $TMUX ]]; then
-  tmux attach-session -t $selected_name
-else
-  tmux switch-client -t $selected_name
+tmux_running=$(pgrep tmux)
+
+# if [[ -z "${TMUX:-}" ]] && [[ -z "${tmux_running}" ]]; then
+#   if [[ -e "${selected}/main" ]]; then
+#     tmux new-session -d -s "${session_name}" -d -s "${session_name}" -c "${selected}/main"
+#   else
+#     tmux new-session -d -s "${session_name}" -d -s "${session_name}" -c "${selected}"
+#   fi
+#   exit 0
+# fi
+
+if ! tmux has-session -t="${session_name}" 2> /dev/null; then
+  if [[ -e "${selected}/main" ]]; then
+    tmux new-session -d -s "${session_name}" -d -s "${session_name}" -c "${selected}/main"
+  else
+    tmux new-session -d -s "${session_name}" -d -s "${session_name}" -c "${selected}"
+  fi
 fi
+
+exec tmux switch-client -t "${session_name}"
