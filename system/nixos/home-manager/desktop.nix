@@ -4,6 +4,7 @@
   imports = [
     ./modules/alacritty.nix
     ./modules/autorandr.nix
+    ./modules/espanso.nix
     ./modules/i3.nix
   ];
 

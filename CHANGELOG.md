@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 12th December 2023
+
+## Added
+
+* Add [espanso](https://espanso.org) as a text expander.
+
 ## 21st November 2023
 
 ### Added
