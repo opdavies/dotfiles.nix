@@ -65,4 +65,22 @@ in
       smart_gaps on
     '';
   };
+
+  programs.i3status = {
+    enable = true;
+
+    general = {
+      colors = true;
+
+      color_bad = "#f7768e";
+      color_degraded = "#ff9e64";
+      color_good = "#c0caf5";
+    };
+
+    modules = {
+      cpu_temperature.enable = false;
+      ipv6.enable = false;
+      load.enable = false;
+    };
+  };
 }

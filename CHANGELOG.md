@@ -12,6 +12,10 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 
 * Add `:dotfiles` to espanso that links to my dotfiles repository on GitHub.
 
+### Changed
+
+* Configure colours in `i3status` and remove some modules.
+
 ## 14th December 2023
 
 ### Added
