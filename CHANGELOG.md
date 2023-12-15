@@ -6,11 +6,72 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
-## 12th December 2023
+## 14th December 2023
 
-## Added
+### Added
 
 * Add [espanso](https://espanso.org) as a text expander.
+
+## 13th December 2023
+
+### Changed
+
+* Changed tmux border pane colours.
+
+### Removed
+
+* Remove `just` from the flake.
+
+## 12th December 2023
+
+### Added
+
+* Add `Q` keymaps to easily re-run macros in Neovim.
+
+### Changed
+
+* Move `autorandr` configuration into its own Nix module.
+* Change default i3 workspaces for Alacritty and VLC.
+* Change back to the stable release of nixpkgs as Slack was broken.
+
+### Removed
+
+* Remove `terraform` from the flake.
+
+## 9th December 2023
+
+### Changed
+
+* Use `zoxide` to provide paths in the `t` script.
+* Upgrade to Harpoon 2.
+
+## 7th December 2023
+
+### Added
+
+* Use `autorandr` for monitor management instead of custom bash scripts.
+
+## 6th December 2023
+
+### Added
+
+* Re-add `GoToFile` command that starts Neovim with Telescope open.
+
+### Changed
+
+* Switched to nixpkgs unstable by default.
+
+## 1st December 2023
+
+### Changed
+
+* Update nixpkgs to 23.11.
+
+## 29th November 2023
+
+### Changed
+
+* Update PHP test method snippets and netrw in Neovim.
 
 ## 21st November 2023
 
