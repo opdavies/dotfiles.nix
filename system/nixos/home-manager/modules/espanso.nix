@@ -1,7 +1,7 @@
 let
   baseUrl = "https://www.oliverdavies.dev";
 in
-  {
+{
   services.espanso = {
     enable = true;
 
@@ -25,6 +25,10 @@ in
           {
             trigger = ":coaching";
             replace = "${baseUrl}/team-coaching";
+          }
+          {
+            trigger = ":dotfiles";
+            replace = "https://github.com/opdavies/dotfiles";
           }
         ];
       };

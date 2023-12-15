@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 15th December 2023
+
+### Added
+
+* Add `:dotfiles` to espanso that links to my dotfiles repository on GitHub.
+
 ## 14th December 2023
 
 ### Added
