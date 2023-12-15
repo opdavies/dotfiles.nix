@@ -10,7 +10,7 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 
 ### Added
 
-* Add `:dotfiles` to espanso that links to my dotfiles repository on GitHub.
+* Add `:dotfiles` and `:website` matches to espanso.
 
 ### Changed
 

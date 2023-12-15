@@ -30,6 +30,10 @@ in
             trigger = ":dotfiles";
             replace = "https://github.com/opdavies/dotfiles";
           }
+          {
+            trigger = ":website";
+            replace = "${baseUrl}";
+          }
         ];
       };
     };
