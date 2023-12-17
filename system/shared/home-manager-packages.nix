@@ -27,7 +27,6 @@ with pkgs; [
   neofetch
   pkgsUnstable.rustywind
   pv
-  ripgrep
   tldr
   tree
   tree-sitter
