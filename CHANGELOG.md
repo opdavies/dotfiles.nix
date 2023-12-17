@@ -10,6 +10,7 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 
 ### Changed
 
+* Update the Git commit message template, removing references to conventional commits.
 * Open Harpoon window at the top of the screen.
 * Manage `ripgrep` with Home Manager.
 

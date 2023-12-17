@@ -1,9 +1,7 @@
 {
   home.file.".gitmessage".text = ''
-    type(scope): description
 
-    # type: fix, feat, build, chore, ci, docs, style, refactor, perf, test
-    #
+
     # Description
     #
     # - Why is this change necessary?
