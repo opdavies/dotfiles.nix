@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 17th December 2023
+
+### Changed
+
+* Open Harpoon window at the top of the screen.
+* Manage `ripgrep` with Home Manager.
+
 ## 15th December 2023
 
 ### Added
