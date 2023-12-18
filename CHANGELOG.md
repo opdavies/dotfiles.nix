@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 18th December 2023
+
+### Added
+
+* Add `prettier` as a formatter within Neovim.
+
 ## 17th December 2023
 
 ### Changed

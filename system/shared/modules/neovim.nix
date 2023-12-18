@@ -233,6 +233,7 @@ in
 
       # Formatters
       black
+      nodePackages.prettier
       rstfmt
       stylua
 
