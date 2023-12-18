@@ -8,8 +8,7 @@
     # - How does it address the issue?
     # - What side effects does this change have?
     #
-    # For breaking changes, add an ! after the type/scope, uncomment the following
-    # line and describe the change:
+    # For breaking changes, uncomment the following line and describe the change:
     #
     # BREAKING CHANGE:
     #
