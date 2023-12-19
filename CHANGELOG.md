@@ -11,6 +11,7 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 ### Added
 
 * Add `prettier` as a formatter within Neovim.
+* Automatically close brackets, parentheses and quotes.
 
 ## 17th December 2023
 

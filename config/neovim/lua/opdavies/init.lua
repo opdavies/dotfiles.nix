@@ -13,8 +13,26 @@ vim.api.nvim_create_user_command("GoToFile", function()
   require("opdavies.telescope").git_files()
 end, {})
 
-local map = require("opdavies.keymap").map
+local imap = require("opdavies.keymap").imap
+local nmap = require("opdavies.keymap").nmap
+local xmap = require("opdavies.keymap").xmap
 
 -- Quicker macro playback.
-map { "n", "Q", "@qj" }
-map { "x", "Q", ":norm @q<CR>" }
+nmap { "Q", "@qj" }
+xmap { "Q", ":norm @q<CR>" }
+
+-- Automatically close brackets, parentheses and quotes.
+imap { "'", "''<left>" }
+imap { "(", "()<left>" }
+imap { "/*", "/**/<left><left>" }
+imap { "<", "<><left>" }
+imap { "[", "[]<left>" }
+imap { "[;", "[];<left><left>" }
+imap { "{", "{}<left>" }
+imap { "{;", "{};<left><left>" }
+imap { '\"', '\"\"<left>' }
+
+-- TODO: only add these in Twig files?
+imap { "{#", "{#  #}<left><left><left>" }
+imap { "{%", "{%  %}<left><left><left>" }
+imap { "{{", "{{  }}<left><left><left>" }
