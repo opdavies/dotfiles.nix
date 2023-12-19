@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 
+# Credit to ThePrimeagen.
+
 set -o nounset
 set -o pipefail
 
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(zoxide query -l | grep -v /tmp | grep -v "^${HOME}/\." | grep -v "^${HOME}/Code$" | grep -v "/main$"  | fzf --reverse)
+  # Get the session name from fuzzy-finding list of directories and generating a
+  # tmux-safe version.
+  items=$(find ~/Code -mindepth 3 -maxdepth 3 -type d ! -name .git)
+
+  selected=$(echo "${items}" | sort | fzf --reverse)
 fi
 
 if [[ -z "${selected}" ]]; then
