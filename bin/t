@@ -14,9 +14,9 @@ if [[ -z "${selected}" ]]; then
 fi
 
 session_name=$(basename "${selected}" | sed 's/\./-/g')
-tmux_running=$(pgrep tmux)
-
 session_path="${selected}"
+
+# Git worktrees.
 if [[ -e "${selected}/main" ]]; then
   session_path="${selected}/main"
 fi
@@ -25,20 +25,15 @@ if tmux has-session -t "${session_name}" 2> /dev/null; then
   tmux attach -t "${session_name}"
 fi
 
-# If a .tmux file exists within the selected directory, run it with the
-# generated session name.
+# If a .tmux file exists, run it with the generated session name and path.
 if [[ -e "${session_path}/.tmux" ]]; then
-  "${session_path}/.tmux" "${session_name}" "${selected}/main"
+  "${session_path}/.tmux" "${session_name}" "${session_path}"
+  exit
+elif [[ -e "${session_path}/.ignored/.tmux" ]]; then
+  "${session_path}/.ignored/.tmux" "${session_name}" "${session_path}"
   exit
 fi
 
-if [[ -z "${TMUX:-}" ]] && [[ -z "${tmux_running}" ]]; then
-  tmux new-session -s "${session_name}" -c "${session_path}"
-  exit 0
-fi
+tmux new-session -d -s "${session_name}" -c "${session_path}"
 
-if ! tmux has-session -t "${session_name}" 2> /dev/null; then
-  tmux new-session -ds "${session_name}" -c "${session_path}"
-fi
-
-tmux switch-client -t "${session_name}"
+tmux switch-client -t "${session_name}" || tmux attach -t "${session_name}"
