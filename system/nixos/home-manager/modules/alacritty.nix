@@ -11,12 +11,12 @@
       };
 
       font = {
-        size = 16.0;
+        size = 12.0;
 
         bold.style = "Regular";
-        bolditalic.style = "Regular";
-        italic.style = "Regular";
-        normal.family = "AnonymicePro Nerd Font Mono";
+        bolditalic.style = "Italic";
+        normal.family = "JetBrainsMono Nerd Font Mono";
+        # fc-list : family | sort | grep "Nerd Font"
 
         offset.y = 12;
         glyph_offset.y = 6;

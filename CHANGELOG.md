@@ -14,6 +14,7 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 
 ### Changed
 
+* Update Alacritty configuration.
 * Change `splitbelow` to `false` in Neovim.
 
 ### Removed
