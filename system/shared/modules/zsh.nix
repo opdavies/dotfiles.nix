@@ -157,6 +157,16 @@
 
       alias tf="terraform"
 
+      # run scripts.
+      alias r="run"
+      alias rc="run composer"
+      alias rd="run drush"
+      alias rdcr="run drush cr"
+      alias rdup="run drush updb -y"
+      alias rdce="run drush config:export -y"
+      alias rdci="run drush config:import -y"
+      alias rduli="run drush uli"
+
       # Build Configs.
       ialias build-configs="~/Code/Personal/build-configs/bin/build-configs run"
       ialias update-build-configs="~/Code/Personal/build-configs-updater/update.sh"

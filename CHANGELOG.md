@@ -8,6 +8,10 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 
 ## 21st December 2023
 
+### Added
+
+* Add `run` aliases to zsh.
+
 ### Changed
 
 * Change `splitbelow` to `false` in Neovim.
