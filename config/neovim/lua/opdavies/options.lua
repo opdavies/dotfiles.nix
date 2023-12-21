@@ -174,7 +174,7 @@ local function set_vim_o()
     signcolumn = "yes:1",
     smartindent = true,
     softtabstop = 2,
-    splitbelow = true,
+    splitbelow = false,
     splitright = true,
     swapfile = false,
     syntax = "on",

@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 21st December 2023
+
+### Changed
+
+* Change `splitbelow` to `false` in Neovim.
+
 ## 19th December 2023
 
 ### Fixed
