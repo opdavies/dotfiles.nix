@@ -16,6 +16,10 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 
 * Change `splitbelow` to `false` in Neovim.
 
+### Removed
+
+* Remove the Starship prompt.
+
 ## 19th December 2023
 
 ### Fixed
