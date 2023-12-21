@@ -74,7 +74,6 @@ local servers = {
   gopls = true,
   html = true,
   rnix = true,
-  tailwindcss = true,
   terraformls = true,
   tsserver = true,
   vuels = true,
@@ -89,6 +88,15 @@ local servers = {
         diagnostics = {
           globals = { "vim" },
         },
+      },
+    },
+  },
+
+  tailwindcss = {
+    filetypes = { "html", "html.twig", "javascript", "typescript", "vue" },
+    init_options = {
+      userLanguages = {
+        ["html.twig"] = "html",
       },
     },
   },
