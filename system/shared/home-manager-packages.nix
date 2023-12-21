@@ -9,7 +9,6 @@ with pkgs; [
   delta
   dog
   doppler
-  eza
   fd
   file
   fzf
@@ -25,8 +24,10 @@ with pkgs; [
   lua
   mysql
   neofetch
+  pkgsUnstable.eza
   pkgsUnstable.rustywind
   pv
+  ripgrep
   tldr
   tree
   tree-sitter

@@ -86,8 +86,8 @@ in
         '';
       }
 
-      pkgsUnstable.vimPlugins.harpoon
-      pkgsUnstable.vimPlugins.refactoring-nvim
+      vimPlugins.harpoon
+      vimPlugins.refactoring-nvim
       vimPlugins.comment-nvim
       vimPlugins.dial-nvim
       vimPlugins.gitsigns-nvim

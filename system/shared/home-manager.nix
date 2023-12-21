@@ -32,15 +32,10 @@
 
   home.sessionPath = [ "$HOME/.config/bin" ];
 
-  programs.ripgrep = {
-    enable = true;
-
-    arguments = [
-      "--follow"
-      "--hidden"
-      "--smart-case"
-    ];
-  };
+  xdg.configFile."ripgrep/config".text = ''
+    --follow
+    --smart-case
+  '';
 
   xdg.configFile.bin = {
     source = ../../bin;
