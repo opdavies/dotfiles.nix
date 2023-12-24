@@ -180,7 +180,7 @@ in
       };
     };
 
-    fonts = with pkgsUnstable; [
+    packages = with pkgsUnstable; [
       (nerdfonts.override {
         fonts = [
           "AnonymousPro"
