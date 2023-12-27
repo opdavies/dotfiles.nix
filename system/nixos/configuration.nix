@@ -1,4 +1,4 @@
-{ inputs, pkgs, system }:
+{ inputs, desktop ? false, pkgs, system }:
 
 let
   pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${system}";
@@ -133,6 +133,10 @@ in
       xfce.thunar
       xfce.thunar-volman
       xfce.tumbler
+    ] ++ pkgs.lib.optionals desktop [
+      acpi
+      dunst
+      libnotify
 
       # Games.
       zeroad
@@ -258,10 +262,13 @@ in
     };
   };
 
-  services.udev.extraRules = ''
-    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", TAG+="uaccess", TAG+="udev-acl", GROUP="realet"
-  '';
+  services.cron = {
+    enable = true;
+
+    systemCronJobs = [
+      "* * * * * opdavies /home/opdavies/.config/bin/notify-battery.sh"
+    ];
+  };
 
   services.auto-cpufreq.enable = true;
 }
-

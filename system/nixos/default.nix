@@ -3,7 +3,7 @@
 { desktop ? false }:
 
 let
-  configuration = import ./configuration.nix { inherit inputs pkgs system; };
+  configuration = import ./configuration.nix { inherit desktop inputs pkgs system; };
   hardware-configuration = import ./hardware-configuration.nix;
 in
 inputs.nixpkgs.lib.nixosSystem {
