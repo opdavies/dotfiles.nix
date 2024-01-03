@@ -192,6 +192,15 @@ in
       vimPlugins.vim-dadbod-ui
       vimPlugins.vim-dadbod-completion
 
+      # Markdown
+      {
+        plugin = vimPlugins.markdown-preview-nvim;
+        type = "lua";
+        config = ''
+          vim.g.mkdp_refresh_slow = 1
+        '';
+      }
+
       # Themes
       vimPlugins.catppuccin-nvim
 
