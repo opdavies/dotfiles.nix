@@ -18,6 +18,8 @@
     };
   };
 
+  services.copyq.enable = true;
+
   services.flameshot = {
     enable = true;
 

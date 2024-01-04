@@ -38,6 +38,7 @@ in
         "${modifier}+Shift+l" = "move right";
 
         "${modifier}+Shift+p" = "exec flameshot gui";
+        "${modifier}+Shift+y" = "exec copyq toggle";
 
         "XF86AudioRaiseVolume" = "exec pamixer -ui 2 && pamixer --get-volume";
         "XF86AudioLowerVolume" = "exec pamixer -ud 2 && pamixer --get-volume";
