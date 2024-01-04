@@ -37,6 +37,8 @@ in
         "${modifier}+Shift+k" = "move up";
         "${modifier}+Shift+l" = "move right";
 
+        "${modifier}+Shift+p" = "exec flameshot gui";
+
         "XF86AudioRaiseVolume" = "exec pamixer -ui 2 && pamixer --get-volume";
         "XF86AudioLowerVolume" = "exec pamixer -ud 2 && pamixer --get-volume";
         "XF86AudioMute" = "exec pamixer --toggle-mute && ( [ \"$(pamixer --get-mute)\" = \"true\" ] && echo 0";
