@@ -110,6 +110,8 @@
       ialias update="fetch && rebase"
       ialias wip="git add . && git commit -m 'wip'";
       ialias wt="git worktree"
+      balias lh3="xdg-open http://localhost:3000"
+      balias lh8="xdg-open http://localhost:8000"
 
       # tmux
       alias ta="tmux attach"
@@ -144,6 +146,7 @@
       alias nxb="nix build"
       alias nxd="nix develop"
       alias nxf="nix flake"
+      alias nxfu="nix flake update"
       alias nxs="nix shell"
       ialias full-system-clean='nix-collect-garbage -d && sudo nix-collect-garbage -d'
       ialias full-system-repair='nix-store --verify --check-contents --repair'
