@@ -32,6 +32,25 @@ telescope_mapper("<leader>fh", "help_tags")
 telescope_mapper("<leader>fl", "live_grep")
 telescope_mapper("<leader>fo", "oldfiles")
 
+local builtin = require "telescope.builtin"
+local nmap = require("opdavies.keymap").nmap
+
+nmap {
+  "<leader>fw",
+  function()
+    local word = vim.fn.expand "<cword>"
+    builtin.grep_string { search = word }
+  end,
+}
+
+nmap {
+  "<leader>fW",
+  function()
+    local word = vim.fn.expand "<cWORD>"
+    builtin.grep_string { search = word }
+  end,
+}
+
 telescope_mapper("<leader>gp", "grep_prompt")
 
 telescope_mapper("<leader>ds", "lsp_document_symbols")

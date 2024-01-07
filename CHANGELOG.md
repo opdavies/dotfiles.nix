@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 7th January 2024
+
+### Added
+
+* Add Telescope keymaps to find the current word under the cursor within the open project.
+
 ## 4th January 2024
 
 ### Added
