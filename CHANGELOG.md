@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 4th January 2024
+
+### Added
+
+* Add CopyQ for clipboard management and Flameshot for screenshots.
+
+## 3rd January 2024
+
+### Added
+
+* Add iamcco/markdown-preview.nvim to preview Markdown files within Neovim.
+
+## 27th December 2023
+
+### Added
+
+* Add Dunst for notifications, including when the battery is low or fully charged.
+
 ## 21st December 2023
 
 ### Added
