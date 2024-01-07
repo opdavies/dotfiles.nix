@@ -14,7 +14,7 @@ fi
 tmux new-session -d -s "${session_name}" -n vim -c "${session_path}"
 
 # 1. Main window: Vim
-tmux send-keys -t "${session_name}:vim" "nvim +GoToFile" Enter
+tmux send-keys -t "${session_name}:vim" "nvim" Enter
 
 # 2. General shell use.
 tmux new-window -t "${session_name}" -c "${session_path}"
