@@ -11,8 +11,7 @@ in
 
     config = {
       assigns = {
-        "3" = [{ class = "Alacritty"; }];
-        "4" = [{ class = "vlc"; }];
+        "8" = [{ class = "vlc"; }];
         "9" = [
           { class = "Slack"; }
           { class = "discord"; }
