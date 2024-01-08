@@ -31,25 +31,6 @@ local function set_autocmd()
       vim.cmd.set "filetype=term"
     end,
   })
-
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "html.twig",
-    group = vim.api.nvim_create_augroup("twig_keymaps", { clear = true }),
-    callback = function()
-      local imap = require("opdavies.keymap").imap
-      local opts = { silent = true, buffer = true }
-
-      imap { "{#", "{#  #}<left><left><left>", opts }
-      imap { "{%", "{%  %}<left><left><left>", opts }
-      imap { "{{", "{{  }}<left><left><left>", opts }
-    end,
-  })
-end
-
-local function set_user_commands()
-  vim.api.nvim_create_user_command("GoToFile", function()
-    require("opdavies.telescope").git_files()
-  end, {})
 end
 
 local function set_filetypes()
@@ -123,21 +104,6 @@ local function set_key_mappings()
   -- Move half a screen up or down and re-center.
   nmap { "<C-d>", "<C-d>zz" }
   nmap { "<C-u>", "<C-u>zz" }
-
-  -- Quicker macro playback.
-  nmap { "Q", "@qj" }
-  xmap { "Q", ":norm @q<CR>" }
-
-  -- Automatically close brackets, parentheses and quotes.
-  imap { "'", "''<left>" }
-  imap { "(", "()<left>" }
-  imap { "/*", "/**/<left><left>" }
-  imap { "<", "<><left>" }
-  imap { "[", "[]<left>" }
-  imap { "[;", "[];<left><left>" }
-  imap { "{", "{}<left>" }
-  imap { "{;", "{};<left><left>" }
-  imap { '"', '""<left>' }
 end
 
 local function set_highlights()
@@ -202,7 +168,6 @@ M.setup = function()
   set_vim_o()
   set_key_mappings()
   set_autocmd()
-  set_user_commands()
   set_filetypes()
   set_highlights()
 
