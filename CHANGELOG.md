@@ -10,6 +10,7 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 
 ### Added
 
+* Add `feh` to automatically select a random wallpaper and link it with i3 and autorandr.
 * Add Telescope keymaps to find the current word under the cursor within the open project.
 
 ## 4th January 2024

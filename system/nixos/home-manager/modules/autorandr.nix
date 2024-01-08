@@ -1,5 +1,16 @@
+{ username, ... }:
+
 {
   services.autorandr.enable = true;
+
+  xdg.configFile."autorandr/postswitch" = {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+
+      feh --randomize --bg-scale /home/${username}/Pictures/Wallpaper/*;
+    '';
+  };
 
   programs.autorandr = {
     enable = true;

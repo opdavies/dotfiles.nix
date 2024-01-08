@@ -1,11 +1,9 @@
-{ config, inputs, self, ... }:
+{ config, inputs, self, username, ... }:
 
 let
   modifier = "Mod4";
 in
 {
-  home.file.".background-image".source = ../../../../config/wallpaper/wallpaper.jpg;
-
   xsession.windowManager.i3 = {
     enable = true;
 
@@ -59,6 +57,8 @@ in
       set $laptop eDP-1
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
+
+      exec --no-startup-id feh --randomize --bg-scale /home/${username}/Pictures/Wallpaper/*;
 
       default_border none
       default_floating_border none

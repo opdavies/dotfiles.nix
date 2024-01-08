@@ -34,8 +34,5 @@
     };
   };
 
-  xdg.configFile.wallpaper = {
-    source = ../../../config/wallpaper;
-    recursive = true;
-  };
+  programs.feh.enable = true;
 }
