@@ -1,4 +1,4 @@
-{ inputs, desktop ? false, pkgs, system }:
+{ inputs, desktop ? false, hostname, pkgs, system }:
 
 let
   pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${system}";
@@ -37,7 +37,7 @@ in
     DefaultTimeoutStopSec=10s
   '';
 
-  # networking.hostName = "nixedo"; # Define your hostname.
+  networking.hostName = hostname;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

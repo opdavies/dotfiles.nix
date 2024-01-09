@@ -32,7 +32,15 @@
 
       flake = {
         nixosConfigurations = {
-          nixedo = nixos-system { desktop = true; };
+          apollo = nixos-system {
+            desktop = true;
+            hostname = "apollo";
+          };
+
+          nixedo = nixos-system {
+            desktop = true;
+            hostname = "nixedo";
+          };
         };
 
         homeConfigurations = {
