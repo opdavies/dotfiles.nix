@@ -9,6 +9,7 @@ in
   imports = if desktop then [ desktop-config shared-config ] else [ shared-config ];
 
   home.packages = shared-packages ++ pkgs.lib.optionals desktop [
+    pkgs.gscan2pdf
     pkgs.discord
     pkgs.gimp
     pkgs.kdenlive
