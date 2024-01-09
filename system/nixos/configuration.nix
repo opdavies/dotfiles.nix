@@ -262,6 +262,8 @@ in
     };
   };
 
+  services.blueman.enable = true;
+
   services.cron = {
     enable = true;
 
