@@ -1,5 +1,5 @@
 let
-  baseUrl = "https://www.oliverdavies.dev";
+  baseUrl = "https://www.oliverdavies.uk";
 in
 {
   services.espanso = {
@@ -53,6 +53,14 @@ in
           {
             trigger = ":lh";
             replace = "http://localhost";
+          }
+          {
+            trigger = ":podcast";
+            replace = "${baseUrl}/podcast";
+          }
+          {
+            trigger = ":pricing";
+            replace = "${baseUrl}/pricing";
           }
           {
             trigger = ":talks";
