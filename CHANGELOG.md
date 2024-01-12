@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 8th January 2024
+
+### Added
+
+* Add `blueman` for Bluetooth and `gscan2pdf` for scanning.
+
+### Changed
+
+* Don't use autocomplete in Vim's command mode.
+* Making the NixOS hostname configurable from the Flake.
+
 ## 7th January 2024
 
 ### Added
