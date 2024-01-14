@@ -1,7 +1,7 @@
 { inputs, desktop ? false, hostname, pkgs, system }:
 
 let
-  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${system}";
+  pkgs-2311 = inputs.nixpkgs-2311.legacyPackages.${system};
 
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
@@ -89,7 +89,7 @@ in
   console.keyMap = "uk";
 
   services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi.nssmdns4 = true;
   services.avahi.openFirewall = true;
   services.printing.enable = true;
 
@@ -139,7 +139,7 @@ in
       libnotify
 
       # Games.
-      zeroad
+      pkgs-2311.zeroad
     ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -184,7 +184,7 @@ in
       };
     };
 
-    packages = with pkgsUnstable; [
+    packages = with pkgs; [
       (nerdfonts.override {
         fonts = [
           "AnonymousPro"

@@ -14,7 +14,6 @@
         size = 12.0;
 
         bold.style = "Regular";
-        bolditalic.style = "Italic";
         normal.family = "JetBrainsMono Nerd Font Mono";
         # fc-list : family | sort | grep "Nerd Font"
 

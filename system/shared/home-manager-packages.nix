@@ -1,7 +1,4 @@
 { inputs, pkgs, ... }:
-let
-  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${pkgs.system}";
-in
 with pkgs; [
   awscli2
   bottom
@@ -9,6 +6,7 @@ with pkgs; [
   delta
   dog
   doppler
+  eza
   fd
   file
   fzf
@@ -24,10 +22,9 @@ with pkgs; [
   lua
   mysql
   neofetch
-  pkgsUnstable.eza
-  pkgsUnstable.rustywind
   pv
   ripgrep
+  rustywind
   tldr
   tree
   tree-sitter

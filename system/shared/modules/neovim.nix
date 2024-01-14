@@ -1,8 +1,6 @@
 { inputs, pkgs, self, ... }:
 
 let
-  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."${pkgs.system}";
-
   customVim = with self; {
     toggle-checkbox-nvim = pkgs.vimUtils.buildVimPlugin {
       name = "toggle-checkbox-nvim";
@@ -10,7 +8,7 @@ let
         owner = "opdavies";
         repo = "toggle-checkbox.nvim";
         rev = "main";
-        sha256 = "1h9IGyMa80HWrtiPjruG4cYBqgTafNirW0Hwl/JO70A=";
+        sha256 = "4YSEagQnLK5MBl2z53e6sOBlCDm220GYVlc6A+HNywg=";
       };
     };
 
@@ -75,7 +73,7 @@ in
       customVim.vim-heritage
       customVim.vim-textobj-xmlattr
       customVim.vim-zoom
-      pkgsUnstable.vimPlugins.vim-astro
+      vimPlugins.vim-astro
       vimPlugins.vim-visual-star-search
 
       {
@@ -154,9 +152,9 @@ in
       vimPlugins.nvim-treesitter-textobjects
 
       # LSP, linting and formatting
-      pkgsUnstable.vimPlugins.conform-nvim
-      pkgsUnstable.vimPlugins.none-ls-nvim
+      vimPlugins.conform-nvim
       vimPlugins.lsp-status-nvim
+      vimPlugins.none-ls-nvim
       vimPlugins.nvim-lspconfig
 
       # Completion
@@ -224,6 +222,7 @@ in
       ansible-language-server
       gopls
       lua-language-server
+      nixd
       nodePackages.intelephense
       nodePackages."@astrojs/language-server"
       nodePackages."@tailwindcss/language-server"
@@ -236,14 +235,12 @@ in
       nodePackages.vue-language-server
       nodePackages.yaml-language-server
       phpactor
-      pkgsUnstable.nixd
       rnix-lsp
       terraform-ls
 
       # Formatters
       black
       nodePackages.prettier
-      rstfmt
       stylua
 
       # Tools
