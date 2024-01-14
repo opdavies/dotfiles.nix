@@ -129,6 +129,7 @@ local function set_vim_o()
     hidden = false,
     inccommand = "split",
     linebreak = true,
+    list = true,
     mouse = "n",
     number = true,
     pumblend = 10,
@@ -159,6 +160,9 @@ local function set_vim_o()
 
   vim.opt.backupdir:remove "." -- keep backups out of the current directory
   vim.opt.clipboard:append "unnamedplus"
+  vim.opt.listchars:append {
+    trail = "·",
+  }
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
   vim.opt.laststatus = 3
 end
