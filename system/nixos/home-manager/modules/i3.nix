@@ -34,6 +34,7 @@ in
         "${modifier}+Shift+k" = "move up";
         "${modifier}+Shift+l" = "move right";
 
+        "${modifier}+Shift+s" = "exec --no-startup-id feh --randomize --bg-scale /home/${username}/Pictures/Wallpaper/*;";
         "${modifier}+Shift+p" = "exec flameshot gui";
         "${modifier}+Shift+y" = "exec copyq toggle";
 
