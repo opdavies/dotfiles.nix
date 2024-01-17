@@ -1,3 +1,4 @@
+vim.keymap.set("n", "<leader>gc", "<cmd>Git commit<cr><C-w>K")
 vim.keymap.set("n", "<leader>gs", "<cmd>Git<cr><C-w>K")
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
