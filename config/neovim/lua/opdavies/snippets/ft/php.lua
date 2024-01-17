@@ -7,6 +7,24 @@ local i = ls.insert_node
 local t = ls.text_node
 
 local M = {
+  __construct = fmta(
+    [[
+    public function __construct(<>) {
+      <>
+    }
+  ]],
+    { i(1), i(0) }
+  ),
+
+  __invoke = fmta(
+    [[
+    public function __invoke(<>) {
+      <>
+    }
+  ]],
+    { i(1), i(0) }
+  ),
+
   func = fmta("function <>(<>)<> {\n  <>\n}<>", { i(1), i(2), i(3), i(4), i(0) }),
 
   met = fmta(
