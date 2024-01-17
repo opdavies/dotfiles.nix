@@ -1,4 +1,4 @@
-{ config, inputs, self, username, ... }:
+{ config, inputs, self, username, pkgs, ... }:
 
 let
   modifier = "Mod4";
@@ -19,7 +19,7 @@ in
       modifier = modifier;
 
       keybindings = inputs.nixpkgs.lib.mkOptionDefault {
-        "${modifier}+Shift+b" = "exec firefox";
+        "${modifier}+Shift+b" = "exec ${pkgs.firefox-devedition}/bin/firefox-devedition";
         "${modifier}+Tab" = "workspace back_and_forth";
 
         # Change focus.
@@ -59,7 +59,7 @@ in
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
 
-      exec --no-startup-id feh --randomize --bg-scale /home/${username}/Pictures/Wallpaper/*;
+      exec --no-startup-id ${pkgs.feh}/bin/feh --randomize --bg-scale /home/${username}/Pictures/Wallpaper/*;
 
       default_border none
       default_floating_border none
