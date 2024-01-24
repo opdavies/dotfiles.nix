@@ -202,7 +202,7 @@ in
       # Themes
       vimPlugins.catppuccin-nvim
 
-      inputs.self.packages.${pkgs.system}.opdavies-nvim
+      inputs.opdavies-nvim.packages.${pkgs.system}.default
     ];
 
     extraLuaConfig = ''

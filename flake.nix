@@ -4,6 +4,8 @@
     home-manager.url = "github:nix-community/home-manager";
     nixpkgs-2311.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    opdavies-nvim.inputs.nixpkgs.follows = "nixpkgs";
+    opdavies-nvim.url = "github:opdavies/opdavies.nvim";
   };
 
   outputs = inputs@{ flake-parts, self, ... }:
@@ -20,13 +22,6 @@
       systems = [ "x86_64-linux" ];
 
       perSystem = { pkgs, self', ... }: {
-        packages = {
-          opdavies-nvim = pkgs.vimUtils.buildVimPlugin {
-            name = "opdavies-nvim";
-            src = ./config/neovim;
-          };
-        };
-
         formatter = pkgs.nixpkgs-fmt;
       };
 
