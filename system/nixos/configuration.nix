@@ -137,6 +137,8 @@ in
       acpi
       dunst
       libnotify
+      rclone
+      rclone-browser
 
       # Games.
       pkgs-2311.zeroad
