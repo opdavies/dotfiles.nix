@@ -22,8 +22,10 @@ function nixos {
 
   local profile="${1}"
   local command="${2}"
+  shift 2
 
-  sudo nixos-rebuild "${command}" --flake ".#${profile}"
+  sudo nixos-rebuild "${command}" \
+    --flake ".#${profile}" "${@}"
 }
 
 # Update the Nix Flake.
