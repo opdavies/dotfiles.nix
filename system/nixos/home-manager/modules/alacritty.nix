@@ -14,7 +14,7 @@
         size = 12.0;
 
         bold.style = "Regular";
-        normal.family = "JetBrainsMono Nerd Font Mono";
+        normal.family = "GeistMono Nerd Font Mono";
         # fc-list : family | sort | grep "Nerd Font"
 
         offset.y = 12;

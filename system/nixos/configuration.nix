@@ -191,6 +191,7 @@ in
         fonts = [
           "AnonymousPro"
           "FiraCode"
+          "GeistMono"
           "IntelOneMono"
           "Iosevka"
           "JetBrainsMono"
