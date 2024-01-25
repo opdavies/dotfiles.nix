@@ -209,7 +209,6 @@
           tags = [ "from:oh-my-zsh" ];
         }
         { name = "mollifier/cd-gitroot"; }
-        { name = "zsh-users/zsh-autosuggestions"; }
         { name = "zsh-users/zsh-completions"; }
         { name = "zsh-users/zsh-syntax-highlighting"; }
       ];
