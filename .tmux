@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-session_name="${1:-dotfiles}"
+session_name="${1:-dotfiles-nix}"
 session_path="${2:-$(pwd)}"
 
 if tmux has-session -t="${session_name}" 2> /dev/null; then
