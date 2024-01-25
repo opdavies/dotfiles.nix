@@ -15,6 +15,11 @@
     ./modules/zsh.nix
   ];
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.bat.enable = true;
 
   home.file."logo.txt" = {

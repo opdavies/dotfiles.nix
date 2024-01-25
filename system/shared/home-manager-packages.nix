@@ -9,7 +9,6 @@ with pkgs; [
   eza
   fd
   file
-  fzf
   gcc
   gh
   git
