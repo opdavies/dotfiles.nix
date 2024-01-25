@@ -6,6 +6,51 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 25th January 2024
+
+### Added
+
+* Add `lazygit`.
+* Add Geist Mono Nerd Font and use it in Alacritty.
+* Add `rclone` and `rclone-browser`.
+
+### Changed
+
+* Don't list any directories ending with `-old` or `.old` when using the `t` function.
+* zsh: rename `nah` alias to `reset`.
+* zsh: remove autocompletion plugin.
+* Install `fzf` using Home Manager.
+
+### Fixed
+
+* Only show the first level of directories in `~/Code/tmp` when using the `t` function.
+
+## 24th January 2024
+
+### Changed
+
+* Extract my Neovim configuration to a separate repository - <https://github.com/opdavies/opdavies.nvim>.
+
+## 17th January 2024
+
+### Added
+
+* nvim: add `<leader>gc` to run `:Git commit`.
+* nvim: add PHP snippets for `__invoke()` and `__construct()` methods.
+
+## 15th January 2024
+
+### Added
+
+* Add a keybinding for i3 to use `feh` to switch the wallpaper.
+
+## 10th January 2024
+
+### Added
+
+* nvim: show trailing spaces.
+* nvim: remove completion in command mode.
+
 ## 8th January 2024
 
 ### Added
