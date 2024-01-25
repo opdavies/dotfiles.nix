@@ -36,7 +36,7 @@ in
           }
           {
             trigger = ":dotfiles";
-            replace = "https://github.com/opdavies/dotfiles";
+            replace = "https://github.com/opdavies/dotfiles.nix";
           }
           {
             trigger = ":dc";
