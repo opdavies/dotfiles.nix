@@ -9,7 +9,8 @@ in
 
     config = {
       assigns = {
-        "8" = [{ class = "vlc"; }];
+        "7" = [{ class = "vlc"; }];
+        "8" = [{ class = "0ad"; }];
         "9" = [
           { class = "Slack"; }
           { class = "discord"; }
