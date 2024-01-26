@@ -11,6 +11,7 @@
   imports = [
     (import ./modules/neovim.nix { inherit inputs; })
     ./modules/git.nix
+    ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/zsh.nix
   ];

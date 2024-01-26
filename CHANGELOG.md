@@ -10,6 +10,7 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 
 ### Added
 
+* Re-add the Sharship prompt.
 * Add `lazygit`.
 * Add Geist Mono Nerd Font and use it in Alacritty.
 * Add `rclone` and `rclone-browser`.
