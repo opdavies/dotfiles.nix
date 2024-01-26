@@ -70,6 +70,10 @@ in
             trigger = ":website";
             replace = "${baseUrl}";
           }
+          {
+            trigger = ":zoom";
+            replace = "https://savvycal.com/opdavies/zoom";
+          }
         ];
       };
     };
