@@ -143,7 +143,7 @@
 
       # Nix and NixOS.
       alias nx="nix"
-      alias nxb="nix build"
+      alias nxb="nix build --json --no-link --print-build-logs"
       alias nxd="nix develop"
       alias nxf="nix flake"
       alias nxfu="nix flake update"
