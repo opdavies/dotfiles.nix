@@ -24,6 +24,8 @@
     /.ignored/
     /.issue-id
     /.phpactor.json
+    /notes
+    /todo
   '';
 
   programs = {
