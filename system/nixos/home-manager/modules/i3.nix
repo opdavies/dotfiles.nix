@@ -17,6 +17,8 @@ in
         ];
       };
 
+      focus.followMouse = false;
+
       modifier = modifier;
 
       keybindings = inputs.nixpkgs.lib.mkOptionDefault {
