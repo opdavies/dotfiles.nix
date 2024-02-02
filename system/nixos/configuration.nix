@@ -69,9 +69,10 @@ in
   services.xserver.enable = true;
 
   services.xserver = {
-    # Configure keymap in X11.
-    layout = "gb";
-    xkbVariant = "";
+    xkb = {
+      layout = "gb";
+      variant = "";
+    };
 
     displayManager = {
       defaultSession = "none+i3";
