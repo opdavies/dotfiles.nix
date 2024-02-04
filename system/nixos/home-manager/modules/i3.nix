@@ -121,7 +121,7 @@ in
         };
       }];
 
-      fonts = { names = [ "GeistMono" ]; };
+      fonts.names = [ "GeistMono" ];
 
       gaps = {
         smartBorders = "on";
