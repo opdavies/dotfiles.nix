@@ -6,7 +6,6 @@ with pkgs; [
   delta
   dog
   doppler
-  eza
   fd
   file
   gcc

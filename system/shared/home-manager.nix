@@ -28,6 +28,8 @@
     target = "logo.txt";
   };
 
+  programs.lsd.enable = true;
+
   programs.nnn.enable = true;
 
   programs.direnv = {
