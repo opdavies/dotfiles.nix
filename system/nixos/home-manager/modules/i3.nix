@@ -64,6 +64,7 @@ in
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
 
+      exec_always --no-startup-id i3-auto-layout
       exec --no-startup-id ${pkgs.feh}/bin/feh --randomize --bg-scale /home/${username}/Pictures/Wallpaper/*;
 
       default_border none
