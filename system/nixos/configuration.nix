@@ -141,7 +141,7 @@ in
       rclone-browser
 
       # Games.
-      pkgs-2311.zeroad
+      zeroad
     ];
 
   # Some programs need SUID wrappers, can be configured further or are
