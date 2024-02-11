@@ -114,11 +114,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707348472,
-        "narHash": "sha256-hOuK38SpC3mZlmwQuoaTO6deSJLY/aRFVDDnAA93md8=",
+        "lastModified": 1707660563,
+        "narHash": "sha256-/bwnzUpSxsPP5s0r0nYFeP7upTUapglvK/QH4alPxbQ=",
         "owner": "opdavies",
         "repo": "opdavies.nvim",
-        "rev": "7be3356fd9e9b7b424cfabba668b2494ec8710bb",
+        "rev": "b55886673f093042ac55c319958a979e60dc7797",
         "type": "github"
       },
       "original": {
