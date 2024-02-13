@@ -1,19 +1,23 @@
-{ config, inputs, self, username, pkgs, ... }:
-
-let
-  modifier = "Mod4";
-in
 {
+  config,
+  inputs,
+  self,
+  username,
+  pkgs,
+  ...
+}: let
+  modifier = "Mod4";
+in {
   xsession.windowManager.i3 = {
     enable = true;
 
     config = {
       assigns = {
-        "7" = [{ class = "vlc"; }];
-        "8" = [{ class = "0ad"; }];
+        "7" = [{class = "vlc";}];
+        "8" = [{class = "0ad";}];
         "9" = [
-          { class = "Slack"; }
-          { class = "discord"; }
+          {class = "Slack";}
+          {class = "discord";}
         ];
       };
 
@@ -81,47 +85,49 @@ in
     '';
 
     config = {
-      bars = [{
-        position = "bottom";
-        statusCommand = "${pkgs.i3status}/bin/i3status";
-        colors = {
-          background = "#161616";
-          statusline = "#ffffff";
-          separator = "#333333";
+      bars = [
+        {
+          position = "bottom";
+          statusCommand = "${pkgs.i3status}/bin/i3status";
+          colors = {
+            background = "#161616";
+            statusline = "#ffffff";
+            separator = "#333333";
 
-          focusedWorkspace = {
-            background = "#444444";
-            border = "#555555";
-            text = "#ffffff";
+            focusedWorkspace = {
+              background = "#444444";
+              border = "#555555";
+              text = "#ffffff";
+            };
+
+            activeWorkspace = {
+              background = "#555555";
+              border = "#666666";
+              text = "#ffffff";
+            };
+
+            inactiveWorkspace = {
+              background = "#111111";
+              border = "#000000";
+              text = "#888888";
+            };
+
+            bindingMode = {
+              background = "#ff0000";
+              border = "#880000";
+              text = "#ffffff";
+            };
+
+            urgentWorkspace = {
+              background = "#ff0000";
+              border = "#880000";
+              text = "#ffffff";
+            };
           };
+        }
+      ];
 
-          activeWorkspace = {
-            background = "#555555";
-            border = "#666666";
-            text = "#ffffff";
-          };
-
-          inactiveWorkspace = {
-            background = "#111111";
-            border = "#000000";
-            text = "#888888";
-          };
-
-          bindingMode = {
-            background = "#ff0000";
-            border = "#880000";
-            text = "#ffffff";
-          };
-
-          urgentWorkspace = {
-            background = "#ff0000";
-            border = "#880000";
-            text = "#ffffff";
-          };
-        };
-      }];
-
-      fonts.names = [ "GeistMono" ];
+      fonts.names = ["GeistMono"];
 
       gaps = {
         smartBorders = "on";

@@ -1,10 +1,7 @@
-{ inputs }: { pkgs, ... }:
-
-let
+{inputs}: {pkgs, ...}: let
   system = pkgs.system;
-in
-{
-  programs.neovim = inputs.opdavies-nvim.lib.mkHomeManager { inherit system; };
+in {
+  programs.neovim = inputs.opdavies-nvim.lib.mkHomeManager {inherit system;};
 
   home.file.".markdownlint.yaml".text = ''
     default: true

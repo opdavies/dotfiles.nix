@@ -7,21 +7,28 @@
     opdavies-nvim.url = "github:opdavies/opdavies.nvim";
   };
 
-  outputs = inputs@{ flake-parts, self, ... }:
-    let
-      system = "x86_64-linux";
-      username = "opdavies";
+  outputs = inputs @ {
+    flake-parts,
+    self,
+    ...
+  }: let
+    system = "x86_64-linux";
+    username = "opdavies";
 
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
 
-      nixos-system = import ./system/nixos { inherit inputs pkgs self system username; };
-      wsl-system = import ./system/wsl2 { inherit inputs pkgs self system username; };
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+    nixos-system = import ./system/nixos {inherit inputs pkgs self system username;};
+    wsl-system = import ./system/wsl2 {inherit inputs pkgs self system username;};
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
-      perSystem = { pkgs, self', ... }: {
-        formatter = pkgs.nixpkgs-fmt;
+      perSystem = {
+        pkgs,
+        self',
+        ...
+      }: {
+        formatter = pkgs.alejandra;
       };
 
       flake = {

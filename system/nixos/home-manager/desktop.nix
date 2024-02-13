@@ -1,6 +1,9 @@
-{ config, inputs, pkgs, username }:
-
 {
+  config,
+  inputs,
+  pkgs,
+  username,
+}: {
   imports = [
     ./modules/alacritty.nix
     ./modules/autorandr.nix

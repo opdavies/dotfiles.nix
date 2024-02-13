@@ -21,7 +21,7 @@
         glyph_offset.y = 6;
       };
 
-      shell = { program = "zsh"; };
+      shell = {program = "zsh";};
     };
   };
 }

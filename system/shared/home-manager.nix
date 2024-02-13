@@ -1,6 +1,9 @@
-{ inputs, pkgs, username, self }:
-
 {
+  inputs,
+  pkgs,
+  username,
+  self,
+}: {
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
@@ -9,7 +12,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    (import ./modules/neovim.nix { inherit inputs; })
+    (import ./modules/neovim.nix {inherit inputs;})
     ./modules/git.nix
     ./modules/starship.nix
     ./modules/tmux.nix
@@ -38,7 +41,7 @@
     nix-direnv.enable = true;
   };
 
-  home.sessionPath = [ "$HOME/.config/bin" ];
+  home.sessionPath = ["$HOME/.config/bin"];
 
   xdg.configFile."ripgrep/config".text = ''
     --follow

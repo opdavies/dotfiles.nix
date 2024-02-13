@@ -1,7 +1,6 @@
 let
   baseUrl = "https://www.oliverdavies.uk";
-in
-{
+in {
   services.espanso = {
     enable = true;
 

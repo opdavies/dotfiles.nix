@@ -200,19 +200,19 @@
       plugins = [
         {
           name = "themes/robbyrussell";
-          tags = [ "from:oh-my-zsh" "as:theme" ];
+          tags = ["from:oh-my-zsh" "as:theme"];
         }
         {
           name = "plugin/git";
-          tags = [ "from:oh-my-zsh" ];
+          tags = ["from:oh-my-zsh"];
         }
         {
           name = "plugin/vi-mode";
-          tags = [ "from:oh-my-zsh" ];
+          tags = ["from:oh-my-zsh"];
         }
-        { name = "mollifier/cd-gitroot"; }
-        { name = "zsh-users/zsh-completions"; }
-        { name = "zsh-users/zsh-syntax-highlighting"; }
+        {name = "mollifier/cd-gitroot";}
+        {name = "zsh-users/zsh-completions";}
+        {name = "zsh-users/zsh-syntax-highlighting";}
       ];
     };
   };

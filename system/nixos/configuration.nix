@@ -1,27 +1,28 @@
-{ inputs, desktop ? false, hostname, pkgs, system }:
-
-let
+{
+  inputs,
+  desktop ? false,
+  hostname,
+  pkgs,
+  system,
+}: let
   pkgs-2311 = inputs.nixpkgs-2311.legacyPackages.${system};
 
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
     executable = true;
-    text =
-      let
-        schema = pkgs.gsettings-desktop-schemas;
-        datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-      in
-      ''
-        export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-        gnome_schema=org.gnome.desktop.interface
-        gsettings set $gnome_schema gtk-theme 'Breeze Dark'
-      '';
+    text = let
+      schema = pkgs.gsettings-desktop-schemas;
+      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+    in ''
+      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+      gnome_schema=org.gnome.desktop.interface
+      gsettings set $gnome_schema gtk-theme 'Breeze Dark'
+    '';
   };
 
   username = "opdavies";
-in
-{
+in {
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -81,7 +82,7 @@ in
 
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [ i3status i3lock i3blocks ];
+      extraPackages = with pkgs; [i3status i3lock i3blocks];
     };
   };
 
@@ -116,8 +117,8 @@ in
   users.users.${username} = {
     isNormalUser = true;
     description = "Oliver Davies";
-    extraGroups = [ "docker" "networkmanager" "wheel" ];
-    packages = with pkgs; [ ];
+    extraGroups = ["docker" "networkmanager" "wheel"];
+    packages = with pkgs; [];
   };
 
   security.sudo.wheelNeedsPassword = false;
@@ -133,7 +134,8 @@ in
       xfce.thunar
       xfce.thunar-volman
       xfce.tumbler
-    ] ++ pkgs.lib.optionals desktop [
+    ]
+    ++ pkgs.lib.optionals desktop [
       acpi
       dunst
       libnotify
@@ -182,7 +184,7 @@ in
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "JetBrainsMono Nerd Font Mono" ];
+        monospace = ["JetBrainsMono Nerd Font Mono"];
       };
     };
 
@@ -214,32 +216,30 @@ in
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       warn-dirty = false;
     };
   };
 
   # Make Caps lock work as an Escape key on press and Ctrl on hold.
-  services.interception-tools =
-    let
-      dfkConfig = pkgs.writeText "dual-function-keys.yaml" ''
-        MAPPINGS:
-          - KEY: KEY_CAPSLOCK
-            TAP: KEY_ESC
-            HOLD: KEY_LEFTCTRL
-      '';
-    in
-    {
-      enable = true;
-      plugins = pkgs.lib.mkForce [ pkgs.interception-tools-plugins.dual-function-keys ];
-      udevmonConfig = ''
-        - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
-          DEVICE:
-            NAME: "AT Translated Set 2 keyboard"
-            EVENTS:
-              EV_KEY: [[KEY_CAPSLOCK, KEY_ESC, KEY_LEFTCTRL]]
-      '';
-    };
+  services.interception-tools = let
+    dfkConfig = pkgs.writeText "dual-function-keys.yaml" ''
+      MAPPINGS:
+        - KEY: KEY_CAPSLOCK
+          TAP: KEY_ESC
+          HOLD: KEY_LEFTCTRL
+    '';
+  in {
+    enable = true;
+    plugins = pkgs.lib.mkForce [pkgs.interception-tools-plugins.dual-function-keys];
+    udevmonConfig = ''
+      - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
+        DEVICE:
+          NAME: "AT Translated Set 2 keyboard"
+          EVENTS:
+            EV_KEY: [[KEY_CAPSLOCK, KEY_ESC, KEY_LEFTCTRL]]
+    '';
+  };
 
   system.autoUpgrade = {
     allowReboot = true;
@@ -257,7 +257,7 @@ in
 
   programs.firefox = {
     enable = true;
-    languagePacks = [ "en-GB" ];
+    languagePacks = ["en-GB"];
     package = pkgs.firefox-devedition;
     preferences = {
       "intl.accept_languages" = "en-GB, en";
