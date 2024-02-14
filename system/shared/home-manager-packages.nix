@@ -32,6 +32,7 @@ with pkgs; [
   tree-sitter
   unzip
   virtualenv
+  watchexec
   wget
   xcp
   xh
