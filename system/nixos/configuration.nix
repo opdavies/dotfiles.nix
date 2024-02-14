@@ -137,6 +137,7 @@ in {
     ]
     ++ pkgs.lib.optionals desktop [
       acpi
+      arandr
       dunst
       libnotify
       rclone
