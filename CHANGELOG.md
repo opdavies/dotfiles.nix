@@ -6,6 +6,60 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 19th February 2024
+
+### Added
+
+* Add an i3 keybinding to open `thunar`.
+* Set the default i3 workspace.
+
+## 14th February 2024
+
+### Changed
+
+* Replace the custom `watch-changes` script with `watchexec` (https://github.com/watchexec/watchexec).
+* Add `arandr`.
+
+## 7th February 2024
+
+### Changed
+
+* Run NixOS garbage collection daily instead of weekly and delete generations older than 7 days.
+
+## 4th February 2024
+
+### Added
+
+* Add `i3-auto-layout` to add automatic tiling.
+
+### Removed
+
+* Remove `i3-gaps`.
+
+## 31st January 2024
+
+### Changed
+
+* Focus in i3 should no longer follows the mouse.
+* Change colours in `dmenu`.
+
+## 29th January 2024
+
+### Changed
+
+* Automatically ignore `todo` and `notes` files from Git.
+* Change i3 colours.
+
+## 26th January 2024
+
+### Added
+
+* Re-add Starship prompt.
+
+### Changed
+
+* Update `build-configs` aliases.
+
 ## 25th January 2024
 
 ### Added
