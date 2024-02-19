@@ -31,6 +31,7 @@ in {
         "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_run -sb '#555555'";
 
         "${modifier}+Shift+b" = "exec ${pkgs.firefox-devedition}/bin/firefox-devedition";
+        "${modifier}+Shift+f" = "exec ${pkgs.xfce.thunar}/bin/thunar";
         "${modifier}+Tab" = "workspace back_and_forth";
 
         # Change focus.
