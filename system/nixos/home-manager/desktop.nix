@@ -38,4 +38,6 @@
   };
 
   programs.feh.enable = true;
+
+  programs.rofi.enable = true;
 }

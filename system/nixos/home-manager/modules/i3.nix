@@ -28,7 +28,7 @@ in {
       modifier = modifier;
 
       keybindings = inputs.nixpkgs.lib.mkOptionDefault {
-        "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_run -sb '#555555'";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
 
         "${modifier}+Shift+b" = "exec ${pkgs.firefox-devedition}/bin/firefox-devedition";
         "${modifier}+Shift+f" = "exec ${pkgs.xfce.thunar}/bin/thunar";

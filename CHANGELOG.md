@@ -13,6 +13,10 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 * Add an i3 keybinding to open `thunar`.
 * Set the default i3 workspace.
 
+## Changed
+
+* Use `rofi` instead of `dmenu`.
+
 ## 14th February 2024
 
 ### Changed
