@@ -46,9 +46,9 @@ in {
         "${modifier}+Shift+k" = "move up";
         "${modifier}+Shift+l" = "move right";
 
-        "${modifier}+Shift+s" = "exec --no-startup-id feh --randomize --bg-scale /home/${username}/Pictures/Wallpaper/*;";
-        "${modifier}+Shift+p" = "exec flameshot gui";
-        "${modifier}+Shift+y" = "exec copyq toggle";
+        "${modifier}+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui";
+        "${modifier}+Shift+p" = "exec ${pkgs.autorandr}/bin/autorandr --cycle";
+        "${modifier}+Shift+y" = "exec ${pkgs.copyq}/bin/copyq toggle";
 
         "XF86AudioRaiseVolume" = "exec pamixer -ui 2 && pamixer --get-volume";
         "XF86AudioLowerVolume" = "exec pamixer -ud 2 && pamixer --get-volume";
