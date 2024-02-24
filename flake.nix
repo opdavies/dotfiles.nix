@@ -28,6 +28,10 @@
         self',
         ...
       }: {
+        packages.default = pkgs.mkShell {
+          nativeBuildInputs = [pkgs.just];
+        };
+
         formatter = pkgs.alejandra;
       };
 
