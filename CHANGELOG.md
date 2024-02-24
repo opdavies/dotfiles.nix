@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 24th February 2024
+
+### Removed
+
+* Remove `i3-auto-layout`.
+
 ## 19th February 2024
 
 ### Added

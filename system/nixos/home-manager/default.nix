@@ -22,7 +22,6 @@ in {
       pkgs.discord
       pkgs.gimp
       pkgs.gscan2pdf
-      pkgs.i3-auto-layout
       pkgs.kdenlive
       pkgs.meslo-lg
       pkgs.obs-studio
