@@ -30,7 +30,7 @@ in {
       keybindings = inputs.nixpkgs.lib.mkOptionDefault {
         "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
 
-        "${modifier}+Shift+b" = "exec ${pkgs.firefox-devedition}/bin/firefox-devedition";
+        "${modifier}+Shift+b" = "exec ${pkgs.firefox}/bin/firefox";
         "${modifier}+Shift+f" = "exec ${pkgs.xfce.thunar}/bin/thunar";
         "${modifier}+Tab" = "workspace back_and_forth";
 

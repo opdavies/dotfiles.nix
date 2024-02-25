@@ -259,7 +259,6 @@ in {
   programs.firefox = {
     enable = true;
     languagePacks = ["en-GB"];
-    package = pkgs.firefox-devedition;
     preferences = {
       "intl.accept_languages" = "en-GB, en";
       "intl.regional_prefs.use_os_locales" = true;
