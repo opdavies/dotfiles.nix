@@ -243,9 +243,16 @@ in {
   };
 
   system.autoUpgrade = {
-    allowReboot = true;
     enable = true;
-    flake = "nixedo";
+    flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "--no-write-lock-file"
+      "-L" # print build logs
+    ];
+    dates = "08:00";
+    randomizedDelaySec = "45min";
   };
 
   services.gvfs.enable = true;
