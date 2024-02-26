@@ -24,6 +24,8 @@ with pkgs; [
   lua
   mysql
   neofetch
+  php82
+  php82Packages.composer
   pv
   ripgrep
   rustywind

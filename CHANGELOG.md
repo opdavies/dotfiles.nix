@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 26th February 2024
+
+### Added
+
+* Add PHP 8.2 as a default global version.
+
 ## 24th February 2024
 
 ### Removed
