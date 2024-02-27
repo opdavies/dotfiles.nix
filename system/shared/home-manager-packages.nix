@@ -5,6 +5,7 @@
 }:
 with pkgs; [
   awscli2
+  bitwarden-cli
   bottom
   ctop
   delta
