@@ -36,6 +36,8 @@
       };
 
       flake = {
+        lib = import ./lib {inherit inputs;};
+
         nixosConfigurations = {
           apollo = mkNixos {
             desktop = true;
