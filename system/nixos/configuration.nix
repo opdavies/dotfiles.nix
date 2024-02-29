@@ -5,8 +5,6 @@
   pkgs,
   system,
 }: let
-  pkgs-2311 = inputs.nixpkgs-2311.legacyPackages.${system};
-
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
