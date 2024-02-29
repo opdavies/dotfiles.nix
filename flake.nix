@@ -17,8 +17,8 @@
 
     pkgs = inputs.nixpkgs.legacyPackages.${system};
 
-    nixos-system = import ./lib/nixos {inherit inputs pkgs self system username;};
-    wsl-system = import ./lib/wsl2 {inherit inputs pkgs self system username;};
+    mkNixos = import ./lib/nixos {inherit inputs pkgs self system username;};
+    mkWsl = import ./lib/wsl2 {inherit inputs pkgs self system username;};
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
@@ -37,19 +37,19 @@
 
       flake = {
         nixosConfigurations = {
-          apollo = nixos-system {
+          apollo = mkNixos {
             desktop = true;
             hostname = "apollo";
           };
 
-          nixedo = nixos-system {
+          nixedo = mkNixos {
             desktop = true;
             hostname = "nixedo";
           };
         };
 
         homeConfigurations = {
-          wsl2 = wsl-system;
+          wsl2 = mkWsl;
         };
       };
     };

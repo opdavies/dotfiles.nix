@@ -9,7 +9,7 @@
   hostname,
 }: let
   configuration = import ./configuration.nix {inherit desktop hostname inputs pkgs system;};
-  hardware-configuration = import ./hardware-configuration.nix;
+  hardwareConfiguration = import ./hardware-configuration.nix;
 in
   inputs.nixpkgs.lib.nixosSystem {
     modules = [
@@ -24,6 +24,6 @@ in
       }
 
       configuration
-      hardware-configuration
+      hardwareConfiguration
     ];
   }
