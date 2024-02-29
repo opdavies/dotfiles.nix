@@ -6,9 +6,8 @@
   username,
 }: {
   desktop ? false,
-  hostname,
 }: let
-  configuration = import ./configuration.nix {inherit desktop hostname inputs pkgs system;};
+  configuration = import ./configuration.nix {inherit desktop inputs pkgs system;};
   hardwareConfiguration = import ./hardware-configuration.nix;
 in
   inputs.nixpkgs.lib.nixosSystem {

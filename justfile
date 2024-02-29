@@ -4,11 +4,14 @@ _default:
 check:
     nix flake check
 
-nixos-build profile:
-    sudo nixos-rebuild build --flake ".#{{ profile }}"
+nixos-build:
+    sudo nixos-rebuild build --flake .
 
 nixos-switch profile:
-    sudo nixos-rebuild switch --flake ".#{{ profile }}"
+    sudo nixos-rebuild switch --flake .
+
+nixos-test profile:
+    sudo nixos-rebuild test --flake .
 
 update:
     nix flake update
