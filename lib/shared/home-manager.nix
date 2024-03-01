@@ -1,8 +1,6 @@
 {
   inputs,
-  pkgs,
   username,
-  self,
 }: {
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -25,11 +23,6 @@
   };
 
   programs.bat.enable = true;
-
-  home.file."logo.txt" = {
-    source = pkgs.copyPathToStore "${self}/logo.txt";
-    target = "logo.txt";
-  };
 
   programs.lsd.enable = true;
 

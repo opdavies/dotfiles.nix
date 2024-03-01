@@ -1,9 +1,8 @@
 {
   inputs,
   desktop ? false,
-  pkgs,
   system,
-}: let
+}: {pkgs, ...}: let
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
