@@ -7,8 +7,8 @@ session_name="${1:-dotfiles-nix}"
 session_path="${2:-$(pwd)}"
 
 if tmux has-session -t="${session_name}" 2> /dev/null; then
-  tmux attach -t "${session_name}"
-  exit
+  tmux attach -t "${session_name}" ||
+    tmux switch-client -t "${session_name}"
 fi
 
 tmux new-session -d -s "${session_name}" -n vim -c "${session_path}"
