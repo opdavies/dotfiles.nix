@@ -39,6 +39,7 @@
         assume = "update-index --assume-unchanged";
         assumed = "!git ls-files -v | grep '^[hsmrck?]' | cut -c 3-";
         b = "branch";
+        blame = "blame -w -C -C -C";
         browse = "!gh repo view --web";
         ca = "commit --amend --verbose";
         car = "commit --amend --no-edit";
@@ -73,6 +74,7 @@
         slap = "log --oneline --decorate --graph --all";
         slp = "log --oneline --decorate";
         staged = "diff --staged";
+        stash = "stash --all";
         unassume = "update-index --no-assume-unchanged";
         uncommit = "reset --soft HEAD^";
         unstage = "reset";
@@ -85,9 +87,11 @@
         branch = {
           autosetupmerge = true;
           autosetuprebase = "always";
+          sort = "-committerdate";
         };
         checkout.defaultRemote = "origin";
         color.ui = true;
+        column.ui = "auto";
         commit = {template = "~/.gitmessage";};
         core = {
           editor = "nvim";
@@ -97,9 +101,14 @@
         delta.line-numbers = true;
         diff.tool = "vimdiff";
         fetch.prune = true;
+        gpg.format = "ssh";
         grep.lineNumber = true;
         help.autocorrect = "1";
         init.defaultBranch = "main";
+        maintenance = {
+          auto = false;
+          strategy = "incremental";
+        };
         merge.ff = "only";
         push = {
           autoSetupRemote = true;
@@ -113,6 +122,7 @@
           autosquash = true;
           autostash = true;
         };
+        user.signingkey = "~/.ssh/id_rsa.pub";
       };
     };
 
