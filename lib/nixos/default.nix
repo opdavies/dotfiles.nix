@@ -1,13 +1,12 @@
 {
   inputs,
-  pkgs,
   self,
   system,
   username,
 }: {
   desktop ? false,
 }: let
-  configuration = import ./configuration.nix {inherit desktop inputs pkgs system;};
+  configuration = import ./configuration.nix {inherit desktop inputs system;};
   hardwareConfiguration = import ./hardware-configuration.nix;
 in
   inputs.nixpkgs.lib.nixosSystem {

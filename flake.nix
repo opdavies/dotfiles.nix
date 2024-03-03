@@ -15,10 +15,8 @@
     system = "x86_64-linux";
     username = "opdavies";
 
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
-
-    mkNixos = import ./lib/nixos {inherit inputs pkgs self system username;};
-    mkWsl = import ./lib/wsl2 {inherit inputs pkgs self system username;};
+    mkNixos = import ./lib/nixos {inherit inputs self system username;};
+    mkWsl = import ./lib/wsl2 {inherit inputs self system username;};
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];

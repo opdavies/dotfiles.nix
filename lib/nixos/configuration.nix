@@ -1,9 +1,8 @@
 {
   inputs,
   desktop ? false,
-  pkgs,
   system,
-}: let
+}: {pkgs, ...}: let
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
@@ -20,11 +19,7 @@
 
   username = "opdavies";
 in {
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
+  nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -137,6 +132,7 @@ in {
       arandr
       dunst
       libnotify
+      obsidian
       rclone
       rclone-browser
 
