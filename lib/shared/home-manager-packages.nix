@@ -25,7 +25,6 @@ with pkgs; [
   jq
   lua
   mysql
-  neofetch
   php82
   php82Packages.composer
   pv
