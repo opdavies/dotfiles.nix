@@ -4,12 +4,15 @@
   inputs,
   pkgs,
   self,
+  system,
   username,
   ...
 }: let
   desktop-config = import ./desktop.nix {inherit config inputs pkgs username;};
   shared-config = import ../../shared/home-manager.nix {inherit inputs pkgs self username;};
   shared-packages = import ../../shared/home-manager-packages.nix {inherit inputs pkgs;};
+
+  pkgs-2311 = inputs.nixpkgs-2311.legacyPackages.${system};
 in {
   imports =
     if desktop
@@ -22,7 +25,7 @@ in {
       pkgs.discord
       pkgs.gimp
       pkgs.gscan2pdf
-      pkgs.kdenlive
+      pkgs-2311.kdenlive
       pkgs.meslo-lg
       pkgs.obs-studio
       pkgs.okular
