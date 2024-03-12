@@ -13,11 +13,10 @@
     self,
     ...
   }: let
-    system = "x86_64-linux";
     username = "opdavies";
 
-    mkNixos = import ./lib/nixos {inherit inputs self system username;};
-    mkWsl = import ./lib/wsl2 {inherit inputs self system username;};
+    mkNixos = import ./lib/nixos {inherit inputs self username;};
+    mkWsl = import ./lib/wsl2 {inherit inputs self username;};
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];

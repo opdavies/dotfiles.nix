@@ -4,7 +4,6 @@
   inputs,
   pkgs,
   self,
-  system,
   username,
   ...
 }: let
@@ -12,7 +11,7 @@
   shared-config = import ../../shared/home-manager.nix {inherit inputs pkgs self username;};
   shared-packages = import ../../shared/home-manager-packages.nix {inherit inputs pkgs;};
 
-  pkgs-2311 = inputs.nixpkgs-2311.legacyPackages.${system};
+  pkgs-2311 = inputs.nixpkgs-2311.legacyPackages.${pkgs.system};
 in {
   imports =
     if desktop
