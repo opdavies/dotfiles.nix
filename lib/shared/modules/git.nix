@@ -34,6 +34,11 @@
       userName = "Oliver Davies";
       userEmail = "oliver@oliverdavies.dev";
 
+      includes = [{
+        condition = "gitdir:~/Code/bitbucket.org/transportforwales/";
+        contents.user.email = "oliver.davies@tfw.wales";
+      }];
+
       aliases = {
         aa = "add --all";
         assume = "update-index --assume-unchanged";
