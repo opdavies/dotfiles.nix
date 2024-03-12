@@ -130,13 +130,5 @@
         user.signingkey = "~/.ssh/id_rsa.pub";
       };
     };
-
-    lazygit = {
-      enable = true;
-
-      settings = {
-        gui.skipDiscardChangeWarning = true;
-      };
-    };
   };
 }
