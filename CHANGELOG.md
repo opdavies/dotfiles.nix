@@ -6,6 +6,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 12th March 2024
+
+### Removed
+
+* Remove lazygit from my Git configuration file.
+
+### Changed
+
+* Use a different email address for Git when working in a TfW codebase.
+
+## 9th March 2024
+
+### Fixed
+
+* Fix error in Kdenlive when rendering a project by pinning it to the nixpkgs 23.11 release.
+* Add `udev` rules via VIA/Vial which allow for more reliably accessing the keyboard, which was previously inconsistent and only seemed to work straight away after booting.
+
+## 1st March 2024
+
+### Added
+
+* Add `cachix` for Nix binary caching (to be configured).
+
+### Changed
+
+* Git configuration changes after watching Scott Chacon's FOSDEM talk.
+
+## 27th February 2024
+
+### Added
+
+* Add `bitwarden-cli`.
+
 ## 26th February 2024
 
 ### Added
