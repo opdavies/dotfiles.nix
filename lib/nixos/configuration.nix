@@ -132,8 +132,12 @@ in {
       dunst
       libnotify
       obsidian
+      pocket-casts
       rclone
       rclone-browser
+      spotify
+      teams-for-linux
+      todoist-electron
 
       # Games.
       zeroad

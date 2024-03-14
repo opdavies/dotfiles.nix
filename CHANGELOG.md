@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 14th March 2024
+
+### Added
+
+- Add Pocket Casts, Spotify, Microsoft Teams, and Todoist.
+
 ## 12th March 2024
 
 ### Removed
