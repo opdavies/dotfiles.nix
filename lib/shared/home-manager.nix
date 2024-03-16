@@ -13,48 +13,17 @@
 
   imports = [
     (import ./modules/neovim.nix {inherit inputs;})
+    ./modules/bat.nix
+    ./modules/bin.nix
+    ./modules/direnv.nix
+    ./modules/fzf.nix
     ./modules/git.nix
+    ./modules/lsd.nix
+    ./modules/nnn.nix
+    ./modules/phpactor.nix
+    ./modules/ripgrep.nix
     ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/zsh.nix
   ];
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.bat.enable = true;
-
-  home.file."logo.txt" = {
-    source = pkgs.copyPathToStore "${self}/logo.txt";
-    target = "logo.txt";
-  };
-
-  programs.lsd.enable = true;
-
-  programs.nnn.enable = true;
-
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
-  };
-
-  home.sessionPath = ["$HOME/.config/bin"];
-
-  xdg.configFile."ripgrep/config".text = ''
-    --follow
-    --smart-case
-  '';
-
-  xdg.configFile.bin = {
-    source = ../../bin;
-    recursive = true;
-  };
-
-  xdg.configFile.phpactor = {
-    source = ../../config/phpactor;
-    recursive = true;
-  };
 }

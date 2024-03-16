@@ -1,6 +1,9 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  inherit (pkgs) tmuxPlugins;
+in {
   programs.tmux = {
     enable = true;
+
     terminal = "tmux-256color";
 
     extraConfig = ''
@@ -99,7 +102,7 @@
       set -g @resurrect-strategy-nvim 'session'
     '';
 
-    plugins = with pkgs; [
+    plugins = [
       tmuxPlugins.resurrect
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank

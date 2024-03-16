@@ -7,37 +7,12 @@
   imports = [
     ./modules/alacritty.nix
     ./modules/autorandr.nix
+    ./modules/copyq.nix
+    ./modules/dunst.nix
     ./modules/espanso.nix
+    ./modules/feh.nix
+    ./modules/flameshot.nix
     ./modules/i3.nix
+    ./modules/rofi.nix
   ];
-
-  services.dunst = {
-    enable = true;
-
-    settings = {
-      global = {
-        follow = "keyboard";
-      };
-    };
-  };
-
-  services.copyq.enable = true;
-
-  services.flameshot = {
-    enable = true;
-
-    settings = {
-      General = {
-        disabledTrayIcon = false;
-        saveAfterCopy = true;
-        savePath = "/home/${username}/Pictures/Screenshots";
-        showHelp = false;
-        uiColor = "#60a5fa";
-      };
-    };
-  };
-
-  programs.feh.enable = true;
-
-  programs.rofi.enable = true;
 }
