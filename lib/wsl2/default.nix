@@ -6,8 +6,8 @@
 }: let
   pkgs = inputs.nixpkgs.legacyPackages.${system};
 
-  shared-config = import ../shared/home-manager.nix {inherit inputs pkgs self username;};
-  shared-packages = import ../shared/home-manager-packages.nix {inherit inputs pkgs;};
+  shared-config = import "${self}/lib/shared/home-manager.nix" {inherit inputs pkgs self username;};
+  shared-packages = import "${self}/lib/shared/home-manager-packages.nix" {inherit inputs pkgs;};
 in
   inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
