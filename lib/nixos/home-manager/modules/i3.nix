@@ -77,13 +77,6 @@ in {
       default_floating_border none
       smart_borders on
       smart_gaps on
-
-                              #border backgr  text    indicator
-      client.focused          #444444 #555555 #ffffff #dddddd
-      client.focused_inactive #222222 #333333 #888888 #292d2e
-      client.unfocused        #222222 #111111 #888888 #292d2e
-      client.urgent           #2f343a #900000 #ffffff #900000
-
     '';
 
     config = {
@@ -91,41 +84,6 @@ in {
         {
           position = "bottom";
           statusCommand = "${pkgs.i3status}/bin/i3status";
-          colors = {
-            background = "#161616";
-            statusline = "#ffffff";
-            separator = "#333333";
-
-            focusedWorkspace = {
-              background = "#444444";
-              border = "#555555";
-              text = "#ffffff";
-            };
-
-            activeWorkspace = {
-              background = "#555555";
-              border = "#666666";
-              text = "#ffffff";
-            };
-
-            inactiveWorkspace = {
-              background = "#111111";
-              border = "#000000";
-              text = "#888888";
-            };
-
-            bindingMode = {
-              background = "#ff0000";
-              border = "#880000";
-              text = "#ffffff";
-            };
-
-            urgentWorkspace = {
-              background = "#ff0000";
-              border = "#880000";
-              text = "#ffffff";
-            };
-          };
         }
       ];
 
