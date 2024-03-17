@@ -1,4 +1,14 @@
 {
+  lib,
+  pkgs,
+  self,
+  ...
+}: let
+  inherit (lib) strings;
+  inherit (strings) toInt;
+
+  theme = import "${self}/lib/theme" {inherit pkgs;};
+in {
   programs.alacritty = {
     enable = true;
 
@@ -11,11 +21,10 @@
       };
 
       font = {
-        size = 12.0;
+        size = toInt "${theme.fonts.monospace.size}";
 
         bold.style = "Regular";
-        normal.family = "GeistMono Nerd Font Mono";
-        # fc-list : family | sort | grep "Nerd Font"
+        normal.family = "${theme.fonts.monospace.name}";
 
         offset.y = 12;
         glyph_offset.y = 6;

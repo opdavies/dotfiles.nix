@@ -1,6 +1,7 @@
 {
   inputs,
   desktop ? false,
+  self,
 }: {pkgs, ...}: let
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
@@ -15,6 +16,8 @@
       gsettings set $gnome_schema gtk-theme 'Breeze Dark'
     '';
   };
+
+  theme = import "${self}/lib/theme" {inherit pkgs;};
 
   username = "opdavies";
 in {
@@ -185,19 +188,22 @@ in {
       };
     };
 
-    packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "AnonymousPro"
-          "FiraCode"
-          "GeistMono"
-          "IntelOneMono"
-          "Iosevka"
-          "JetBrainsMono"
-          "Meslo"
-        ];
-      })
-    ];
+    packages = with pkgs;
+      [
+        (nerdfonts.override {
+          fonts = [
+            "AnonymousPro"
+            "FiraCode"
+            "GeistMono"
+            "IntelOneMono"
+            "Iosevka"
+            "JetBrainsMono"
+          ];
+        })
+      ]
+      ++ [
+        theme.fonts.monospace.package
+      ];
   };
 
   zramSwap.enable = true;
