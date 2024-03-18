@@ -54,10 +54,12 @@
         current-branch = "rev-parse --abbrev-ref HEAD";
         dc = "diff --color --word-diff --cached";
         df = "diff --color --word-diff";
-        dup = "!git checkout develop && git fetch origin && echo && git sl develop..origin/develop && echo && git pull --quiet && git checkout -";
+        dup =
+          "!git checkout develop && git fetch origin && echo && git sl develop..origin/develop && echo && git pull --quiet && git checkout -";
         fixup = "commit --fixup";
         issues = "!gh issue list --web";
-        mup = "!git master-to-main-wrapper checkout %BRANCH% && git fetch origin && echo && git sl %BRANCH%..origin/%BRANCH% && echo && git pull --quiet && git checkout -";
+        mup =
+          "!git master-to-main-wrapper checkout %BRANCH% && git fetch origin && echo && git sl %BRANCH%..origin/%BRANCH% && echo && git pull --quiet && git checkout -";
         no-ff = "merge --no-ff";
         pl = "pull";
         prune = "remote prune origin";
@@ -69,10 +71,12 @@
         repush = "!git pull --rebase && git push";
         ri = "rebase --interactive";
         rid = "!git rebase -i $(git merge-base develop HEAD)";
-        rim = "!git rebase -i $(git master-to-main-wrapper merge-base %BRANCH% HEAD)";
+        rim =
+          "!git rebase -i $(git master-to-main-wrapper merge-base %BRANCH% HEAD)";
         rip = "!git rebase -i $(git merge-base production HEAD)";
         ris = "!git rebase -i $(git merge-base staging HEAD)";
-        riu = "!git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name @{u})";
+        riu =
+          "!git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name @{u})";
         rmup = "!git mup && git master-to-main-wrapper rebase %BRANCH%";
         sl = "log --oneline --decorate -20";
         sla = "log --oneline --decorate --graph --all -20";
@@ -97,7 +101,7 @@
         checkout.defaultRemote = "origin";
         color.ui = true;
         column.ui = "auto";
-        commit = {template = "~/.gitmessage";};
+        commit = { template = "~/.gitmessage"; };
         core = {
           editor = "nvim";
           excludesFile = "~/.config/git/ignore";

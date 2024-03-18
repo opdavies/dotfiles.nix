@@ -1,11 +1,7 @@
-{
-  config,
-  inputs,
-  self,
-  username,
-  pkgs,
-  ...
-}: let
+{ config, inputs, pkgs, self, username, ... }:
+let
+  theme = import "${self}/lib/theme" { inherit pkgs; };
+
   modifier = "Mod4";
 in {
   xsession.windowManager.i3 = {
@@ -13,12 +9,9 @@ in {
 
     config = {
       assigns = {
-        "7" = [{class = "vlc";}];
-        "8" = [{class = "0ad";}];
-        "9" = [
-          {class = "Slack";}
-          {class = "discord";}
-        ];
+        "7" = [{ class = "vlc"; }];
+        "8" = [{ class = "0ad"; }];
+        "9" = [ { class = "Slack"; } { class = "discord"; } ];
       };
 
       defaultWorkspace = "workspace number 1";
@@ -52,10 +45,13 @@ in {
 
         "XF86AudioRaiseVolume" = "exec pamixer -ui 2 && pamixer --get-volume";
         "XF86AudioLowerVolume" = "exec pamixer -ud 2 && pamixer --get-volume";
-        "XF86AudioMute" = "exec pamixer --toggle-mute && ( [ \"$(pamixer --get-mute)\" = \"true\" ] && echo 0";
+        "XF86AudioMute" = ''
+          exec pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0'';
 
-        "XF86MonBrightnessDown" = "exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p'";
-        "XF86MonBrightnessUp" = "exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p'";
+        "XF86MonBrightnessDown" =
+          "exec brightnessctl set 5%- | sed -En 's/.*(([0-9]+)%).*/1/p'";
+        "XF86MonBrightnessUp" =
+          "exec brightnessctl set +5% | sed -En 's/.*(([0-9]+)%).*/1/p'";
       };
 
       terminal = "alacritty";
@@ -80,14 +76,12 @@ in {
     '';
 
     config = {
-      bars = [
-        {
-          position = "bottom";
-          statusCommand = "${pkgs.i3status}/bin/i3status";
-        }
-      ];
+      bars = [{
+        position = "bottom";
+        statusCommand = "${pkgs.i3status}/bin/i3status";
+      }];
 
-      fonts.names = ["GeistMono"];
+      fonts.names = [ "${theme.fonts.monospace.name}" ];
 
       gaps = {
         smartBorders = "on";

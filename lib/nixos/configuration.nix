@@ -1,8 +1,6 @@
-{
-  inputs,
-  desktop ? false,
-  self,
-}: {pkgs, ...}: let
+{ inputs, desktop ? false, self, }:
+{ pkgs, ... }:
+let
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
@@ -17,7 +15,7 @@
     '';
   };
 
-  theme = import "${self}/lib/theme" {inherit pkgs;};
+  theme = import "${self}/lib/theme" { inherit pkgs; };
 
   username = "opdavies";
 in {
@@ -76,7 +74,7 @@ in {
 
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [i3status i3lock i3blocks];
+      extraPackages = with pkgs; [ i3status i3lock i3blocks ];
     };
   };
 
@@ -111,8 +109,8 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = "Oliver Davies";
-    extraGroups = ["docker" "networkmanager" "wheel"];
-    packages = with pkgs; [];
+    extraGroups = [ "docker" "networkmanager" "wheel" ];
+    packages = with pkgs; [ ];
   };
 
   security.sudo.wheelNeedsPassword = false;
@@ -128,8 +126,7 @@ in {
       xfce.thunar
       xfce.thunar-volman
       xfce.tumbler
-    ]
-    ++ pkgs.lib.optionals desktop [
+    ] ++ pkgs.lib.optionals desktop [
       acpi
       arandr
       dunst
@@ -190,9 +187,7 @@ in {
   fonts = {
     fontconfig = {
       enable = true;
-      defaultFonts = {
-        monospace = ["JetBrainsMono Nerd Font Mono"];
-      };
+      defaultFonts = { monospace = [ "JetBrainsMono Nerd Font Mono" ]; };
     };
 
     packages = with pkgs;
@@ -207,10 +202,7 @@ in {
             "JetBrainsMono"
           ];
         })
-      ]
-      ++ [
-        theme.fonts.monospace.package
-      ];
+      ] ++ [ theme.fonts.monospace.package ];
   };
 
   zramSwap.enable = true;
@@ -226,7 +218,7 @@ in {
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
     };
   };
@@ -241,7 +233,8 @@ in {
     '';
   in {
     enable = true;
-    plugins = pkgs.lib.mkForce [pkgs.interception-tools-plugins.dual-function-keys];
+    plugins =
+      pkgs.lib.mkForce [ pkgs.interception-tools-plugins.dual-function-keys ];
     udevmonConfig = ''
       - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
         DEVICE:
@@ -274,7 +267,7 @@ in {
 
   programs.firefox = {
     enable = true;
-    languagePacks = ["en-GB"];
+    languagePacks = [ "en-GB" ];
     preferences = {
       "intl.accept_languages" = "en-GB, en";
       "intl.regional_prefs.use_os_locales" = true;
@@ -286,9 +279,8 @@ in {
   services.cron = {
     enable = true;
 
-    systemCronJobs = [
-      "* * * * * opdavies /home/opdavies/.config/bin/notify-battery.sh"
-    ];
+    systemCronJobs =
+      [ "* * * * * opdavies /home/opdavies/.config/bin/notify-battery.sh" ];
   };
 
   services.auto-cpufreq.enable = true;

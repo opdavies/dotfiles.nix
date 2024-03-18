@@ -1,5 +1,5 @@
-{pkgs, ...}: let
-  inherit (pkgs) tmuxPlugins;
+{ pkgs, ... }:
+let inherit (pkgs) tmuxPlugins;
 in {
   programs.tmux = {
     enable = true;
@@ -102,10 +102,7 @@ in {
       set -g @resurrect-strategy-nvim 'session'
     '';
 
-    plugins = [
-      tmuxPlugins.resurrect
-      tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.yank
-    ];
+    plugins =
+      [ tmuxPlugins.resurrect tmuxPlugins.vim-tmux-navigator tmuxPlugins.yank ];
   };
 }

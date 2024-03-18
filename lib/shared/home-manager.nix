@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  username,
-  self,
-}: {
+{ inputs, pkgs, username, self, }: {
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
@@ -12,7 +7,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    (import ./modules/neovim.nix {inherit inputs;})
+    (import ./modules/neovim.nix { inherit inputs; })
     ./modules/bat.nix
     ./modules/bin.nix
     ./modules/direnv.nix

@@ -10,42 +10,31 @@
     # opdavies-nvim.url = "path:/home/opdavies/Code/github.com/opdavies/opdavies.nvim";
   };
 
-  outputs = inputs @ {
-    flake-parts,
-    self,
-    ...
-  }: let
-    username = "opdavies";
+  outputs = inputs@{ flake-parts, self, ... }:
+    let
+      username = "opdavies";
 
-    mkNixos = import ./lib/nixos {inherit inputs self username;};
-    mkWsl = import ./lib/wsl2 {inherit inputs self username;};
-  in
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
+      mkNixos = import ./lib/nixos { inherit inputs self username; };
+      mkWsl = import ./lib/wsl2 { inherit inputs self username; };
+    in flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
-      perSystem = {
-        pkgs,
-        self',
-        ...
-      }: {
-        packages.default = pkgs.mkShell {
-          nativeBuildInputs = [pkgs.just];
-        };
+      perSystem = { pkgs, self', ... }: {
+        packages.default =
+          pkgs.mkShell { nativeBuildInputs = [ pkgs.nixfmt pkgs.just ]; };
 
-        formatter = pkgs.alejandra;
+        formatter = pkgs.nixfmt;
       };
 
       flake = {
-        lib = import ./lib {inherit inputs;};
+        lib = import ./lib { inherit inputs; };
 
         nixosConfigurations = {
-          apollo = mkNixos {desktop = true;};
-          nixedo = mkNixos {desktop = true;};
+          apollo = mkNixos { desktop = true; };
+          nixedo = mkNixos { desktop = true; };
         };
 
-        homeConfigurations = {
-          wsl2 = mkWsl;
-        };
+        homeConfigurations = { wsl2 = mkWsl; };
       };
     };
 }
