@@ -173,7 +173,14 @@ in {
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+    };
+  };
 
   programs.zsh.enable = true;
   programs.zsh.histSize = 5000;
