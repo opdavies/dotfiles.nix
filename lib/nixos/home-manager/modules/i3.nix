@@ -40,7 +40,7 @@ in {
         "${modifier}+Shift+l" = "move right";
 
         "${modifier}+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui";
-        "${modifier}+Shift+p" = "exec ${pkgs.autorandr}/bin/autorandr --cycle";
+        "${modifier}+Shift+p" = "exec ${pkgs.autorandr}/bin/autorandr --change";
         "${modifier}+Shift+y" = "exec ${pkgs.copyq}/bin/copyq toggle";
 
         "XF86AudioRaiseVolume" = "exec pamixer -ui 2 && pamixer --get-volume";
