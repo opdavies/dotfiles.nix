@@ -27,8 +27,6 @@
       };
 
       flake = {
-        lib = import ./lib { inherit inputs; };
-
         nixosConfigurations = {
           apollo = mkNixos { desktop = true; hostname = "apollo"; };
           nixedo = mkNixos { desktop = true; hostname = "nixedo"; };
