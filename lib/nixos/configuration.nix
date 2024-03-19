@@ -1,4 +1,4 @@
-{ inputs, desktop ? false, self, }:
+{ inputs, desktop ? false, hostname, self }:
 { pkgs, ... }:
 let
   configure-gtk = pkgs.writeTextFile {
@@ -30,7 +30,8 @@ in {
     DefaultTimeoutStopSec=10s
   '';
 
-  # networking.hostName = hostname;
+  networking.hostName = hostname;
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

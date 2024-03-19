@@ -1,7 +1,7 @@
-{ inputs, self, username, }:
-{ desktop ? false, }:
+{ inputs, self, username }:
+{ desktop ? false, hostname }:
 let
-  configuration = import ./configuration.nix { inherit desktop inputs self; };
+  configuration = import ./configuration.nix { inherit desktop hostname inputs self; };
   hardwareConfiguration = import ./hardware-configuration.nix;
 in inputs.nixpkgs.lib.nixosSystem {
   modules = [
