@@ -25,7 +25,6 @@ in {
 
         "${modifier}+Shift+b" = "exec ${pkgs.firefox}/bin/firefox";
         "${modifier}+Shift+f" = "exec ${pkgs.xfce.thunar}/bin/thunar";
-        "${modifier}+Tab" = "workspace back_and_forth";
 
         # Change focus.
         "${modifier}+h" = "focus left";
