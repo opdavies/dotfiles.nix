@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 20th March 2024
+
+### Removed
+
+* Remove `Mod+Tab` keybinding from the i3 configuration so that it no longer toggles the previous workspace.
+
+## 18th March 2024
+
+### Changed
+
+* Update autorandr configuration.
+* Automatically prune unused Docker images on a weekly basis.
+
 ## 14th March 2024
 
 ### Added
