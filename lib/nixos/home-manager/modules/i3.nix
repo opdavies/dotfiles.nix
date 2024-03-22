@@ -72,6 +72,9 @@ in {
       default_floating_border none
       smart_borders on
       smart_gaps on
+
+      for_window [class="zoom"] floating enable
+      # xprop | grep -i class
     '';
 
     config = {
