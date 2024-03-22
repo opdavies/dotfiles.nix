@@ -1,1 +1,0 @@
-{ programs.rofi.enable = true; }
