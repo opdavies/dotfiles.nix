@@ -66,6 +66,8 @@ in {
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
 
+      exec_always --no-startup-id autotiling
+
       exec --no-startup-id ${pkgs.feh}/bin/feh --randomize --bg-scale /home/${username}/Pictures/Wallpaper/*;
 
       default_border none
@@ -109,4 +111,6 @@ in {
       load.enable = false;
     };
   };
+
+  home.packages = with pkgs; [ autotiling ];
 }
