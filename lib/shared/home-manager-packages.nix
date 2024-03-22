@@ -8,6 +8,7 @@ with pkgs; [
   delta
   dog
   doppler
+  entr
   fd
   file
   gcc
@@ -30,7 +31,6 @@ with pkgs; [
   tree-sitter
   unzip
   virtualenv
-  watchexec
   wget
   xcp
   xh
