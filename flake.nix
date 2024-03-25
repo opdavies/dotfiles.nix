@@ -32,7 +32,7 @@
           nixedo = mkNixos { desktop = true; hostname = "nixedo"; };
         };
 
-        homeConfigurations = { wsl2 = mkWsl; };
+        homeConfigurations = { wsl2 = mkWsl { system = "x86_64-linux"; }; };
       };
     };
 }

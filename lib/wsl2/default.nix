@@ -1,4 +1,6 @@
-{ inputs, self, system, username, }:
+{ inputs, self, username }:
+{ system }:
+
 let
   pkgs = inputs.nixpkgs.legacyPackages.${system};
 
@@ -10,6 +12,8 @@ let
   };
 in inputs.home-manager.lib.homeManagerConfiguration {
   inherit pkgs;
+
+  extraSpecialArgs = { inherit self; };
 
   modules = [{
     imports = [ shared-config ];
