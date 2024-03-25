@@ -28,8 +28,14 @@
 
       flake = {
         nixosConfigurations = {
-          apollo = mkNixos { desktop = true; hostname = "apollo"; };
-          nixedo = mkNixos { desktop = true; hostname = "nixedo"; };
+          apollo = mkNixos {
+            desktop = true;
+            hostname = "apollo";
+          };
+          nixedo = mkNixos {
+            desktop = true;
+            hostname = "nixedo";
+          };
         };
 
         homeConfigurations = { wsl2 = mkWsl { system = "x86_64-linux"; }; };
