@@ -4,6 +4,8 @@ in {
   programs.tmux = {
     enable = true;
 
+    tmuxinator.enable = true;
+
     terminal = "tmux-256color";
 
     extraConfig = ''

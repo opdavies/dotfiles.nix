@@ -53,7 +53,10 @@ if tmux has-session -t "${session_name}" 2> /dev/null; then
 fi
 
 # If a .tmux file exists, run it with the generated session name and path.
-if [[ -e "${session_path}/.tmux" ]]; then
+if [[ -e "${session_path}/.tmuxinator.yml" ]]; then
+  cd "${session_path}" && tmuxinator start
+  exit
+elif [[ -e "${session_path}/.tmux" ]]; then
   "${session_path}/.tmux" "${session_name}" "${session_path}"
   exit
 elif [[ -e "${session_path}/.ignored/.tmux" ]]; then
