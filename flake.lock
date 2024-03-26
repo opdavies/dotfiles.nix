@@ -147,11 +147,11 @@
         "nixpkgs-2305": "nixpkgs-2305"
       },
       "locked": {
-        "lastModified": 1711033467,
-        "narHash": "sha256-4YKpKt087W+WzfkVEGL/UL2NMriYVOCNId7iId+NzJc=",
+        "lastModified": 1711496468,
+        "narHash": "sha256-xV7zu7LhVUl6S5ruwMqvYjvQ3Uv87stqBfPjAv/lGuY=",
         "owner": "opdavies",
         "repo": "opdavies.nvim",
-        "rev": "51329ce842fe49dafa806969952e9034a8718c0a",
+        "rev": "e3ddc8cf772f5fb5b137a747463bdfa85568f895",
         "type": "github"
       },
       "original": {
