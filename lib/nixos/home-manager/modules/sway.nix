@@ -139,6 +139,7 @@
         in inputs.nixpkgs.lib.mkOptionDefault {
           "${modifier}+Escape" = "exec swaylock --daemonize";
           "${modifier}+Shift+b" = "exec ${pkgs.firefox}/bin/firefox";
+          "${modifier}+Shift+f" = "exec ${pkgs.xfce.thunar}/bin/thunar";
           "${modifier}+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui";
           "${modifier}+Shift+y" = "exec ${pkgs.copyq}/bin/copyq toggle";
         };
