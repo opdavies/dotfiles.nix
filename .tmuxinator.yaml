@@ -1,0 +1,6 @@
+name: dotfiles-nix
+root: .
+
+windows:
+  - vim: nvim
+  - shell:
