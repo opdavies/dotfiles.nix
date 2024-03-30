@@ -1,5 +1,8 @@
 { inputs, pkgs, ... }:
-with pkgs; [
+let
+  php = pkgs.php82;
+  phpPackages = pkgs.php82Packages;
+in with pkgs; [
   bitwarden-cli
   bottom
   cachix
@@ -22,8 +25,8 @@ with pkgs; [
   jq
   lua
   mysql
-  php82
-  php82Packages.composer
+  php
+  phpPackages.composer
   pv
   rustywind
   tldr
