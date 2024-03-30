@@ -3,6 +3,7 @@ let
   php = pkgs.php82;
   phpPackages = pkgs.php82Packages;
 in with pkgs; [
+  awscli2
   bitwarden-cli
   bottom
   cachix
@@ -21,7 +22,6 @@ in with pkgs; [
   go
   htop
   inotify-tools
-  inputs.nixpkgs-2311.legacyPackages.${pkgs.system}.awscli2
   jq
   lua
   mysql
