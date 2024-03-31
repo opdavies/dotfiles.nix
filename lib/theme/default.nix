@@ -1,11 +1,11 @@
 { pkgs, ... }: {
   fonts = {
     monospace = {
-      name = "JetBrainsMono Nerd Font Mono";
+      name = "MesloLGM Nerd Font Mono";
       # fc-list : family | sort | grep "Nerd Font"
 
-      package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
-      size = "8";
+      package = pkgs.nerdfonts.override { fonts = [ "Meslo" ]; };
+      size = "14";
     };
   };
 }
