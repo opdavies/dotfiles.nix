@@ -53,13 +53,7 @@ if tmux has-session -t "${session_name}" 2> /dev/null; then
 fi
 
 # If a .tmux file exists, run it with the generated session name and path.
-if [[ -e "${session_path}/.tmuxinator.yml" ]]; then
-  cd "${session_path}" && tmuxinator start
-  exit
-elif [[ -e "${session_path}/.ignored/.tmuxinator.yml" ]]; then
-  cd "${session_path}" && tmuxinator start --project-config "${session_path}/.ignored/.tmuxinator.yml"
-  exit
-elif [[ -e "${session_path}/.tmuxinator.yaml" ]]; then
+if [[ -e "${session_path}/.tmuxinator.yaml" ]]; then
   cd "${session_path}" && tmuxinator start
   exit
 elif [[ -e "${session_path}/.ignored/.tmuxinator.yaml" ]]; then
