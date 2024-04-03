@@ -120,9 +120,9 @@
       }];
 
       gaps = {
-        inner = 0;
+        inner = 5;
         smartBorders = "on";
-        # smartGaps = true;
+        smartGaps = true;
       };
 
       input = {
