@@ -23,6 +23,15 @@ else
     ! -path "${HOME}/Code/tmp/*"
   )
 
+  # Include GitLab repositories that are within multi-level project and group directories.
+  items+=" "
+  items+=$(find "${HOME}/Code/gitlab.com" \
+    -maxdepth 4  \
+    -mindepth 3 \
+    -type d \
+    ! -path "${HOME}/Code/gitlab.com/opdavies/wiki/*" \
+  )
+
   # Add the top-level directories within ~/Code/tmp.
   items+=" "
   items+=$(find "${HOME}/Code/tmp" \
