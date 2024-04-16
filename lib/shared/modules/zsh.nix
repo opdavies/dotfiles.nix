@@ -44,6 +44,7 @@
         ${pkgs.coreutils}/bin/mkdir -p "''${user_path}"
         pushd "''${user_path}"
 
+        echo ${pkgs.git}/bin/git bare-clone "''${repo_url}" "''${repo_name}"
         ${pkgs.git}/bin/git bare-clone "''${repo_url}" "''${repo_name}"
 
         popd
