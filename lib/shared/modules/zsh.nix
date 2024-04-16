@@ -48,7 +48,7 @@
         ${pkgs.git}/bin/git bare-clone "''${repo_url}" "''${repo_name}"
 
         popd
-        t "''${user_repo_path}"
+        t "''${repo_path}"
       }
 
       # Plugins
