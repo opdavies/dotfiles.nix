@@ -24,6 +24,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
       EDITOR = "nvim";
       PATH = "$PATH:./vendor/bin:./node_modules/.bin";
       PULUMI_SKIP_UPDATE_CHECK = "true";
+      REPOS = "$HOME/Code";
       RIPGREP_CONFIG_PATH = "$HOME/.config/ripgrep/config";
     };
   }];

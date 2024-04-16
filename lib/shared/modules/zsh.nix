@@ -35,7 +35,7 @@
         repo_name="''${user_and_repo_name##*/}"
         repo_name="''${repo_name%.git}"
 
-        user_path="''${HOME}/Code/''${domain}/''${user}"
+        user_path="''${REPOS}/''${domain}/''${user}"
 
         repo_path="''${user_path}/''${repo_name}"
 
