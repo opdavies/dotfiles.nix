@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   programs.zsh = {
     enable = true;
@@ -5,6 +7,38 @@
     dotDir = ".config/zsh";
 
     initExtra = ''
+      # Based on https://github.com/rwxrob/dot/blob/f4240010a82609da352b203103ab548f213a4328/.bashrc#L313.
+      clone() {
+        repo_url="$1"
+
+        # TODO: work with Bitbucket and GitLab.
+
+        user_and_repo_name="''${repo_url#https://github.com/}"
+        user_and_repo_name="''${repo_url#git@github.com:}"
+
+        if [[ "''${user_and_repo_name}" =~ / ]]; then
+          user="''${user_and_repo_name%%/*}"
+        else
+          user="$GITUSER"
+          [[ -z "$user" ]] && user="$USER"
+        fi
+
+        repo_name="''${user_and_repo_name##*/}"
+        repo_name="''${repo_name%.git}"
+
+        user_path="''${HOME}/Code/github.com/''${user}"
+
+        user_repo_path="''${user_path}/''${repo_name}"
+        [[ -d "''${user_repo_path}" ]] && cd "''${user_repo_path}" && return
+
+        ${pkgs.coreutils}/bin/mkdir -p "''${user_path}"
+        cd "''${user_path}"
+
+        ${pkgs.git}/bin/git clone "''${repo_url}" "''${repo_name}"
+
+        # TODO: create a new tmux session with `bin/t`?
+      }
+
       # Plugins
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh"
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh"
