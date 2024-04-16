@@ -29,14 +29,15 @@
         user_path="''${HOME}/Code/github.com/''${user}"
 
         user_repo_path="''${user_path}/''${repo_name}"
-        [[ -d "''${user_repo_path}" ]] && cd "''${user_repo_path}" && return
+        [[ -d "''${user_repo_path}" ]] && t "''${user_repo_path}" && return
 
         ${pkgs.coreutils}/bin/mkdir -p "''${user_path}"
-        cd "''${user_path}"
+        pushd "''${user_path}"
 
         ${pkgs.git}/bin/git clone "''${repo_url}" "''${repo_name}"
 
-        # TODO: create a new tmux session with `bin/t`?
+        popd
+        t "''${user_repo_path}"
       }
 
       # Plugins
