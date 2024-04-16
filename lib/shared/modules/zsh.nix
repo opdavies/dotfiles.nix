@@ -23,12 +23,17 @@
           [[ -z "$user" ]] && user="$USER"
         fi
 
+        # Extract the remote domain (e.g. github.com) from the repo URL.
+        domain="''${repo_url#*@}"
+        domain="''${domain%:*}"
+
         repo_name="''${user_and_repo_name##*/}"
         repo_name="''${repo_name%.git}"
 
-        user_path="''${HOME}/Code/github.com/''${user}"
+        user_path="''${HOME}/Code/''${domain}/''${user}"
 
         user_repo_path="''${user_path}/''${repo_name}"
+
         [[ -d "''${user_repo_path}" ]] && t "''${user_repo_path}" && return
 
         ${pkgs.coreutils}/bin/mkdir -p "''${user_path}"
