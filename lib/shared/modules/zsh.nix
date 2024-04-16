@@ -37,9 +37,9 @@
 
         user_path="''${HOME}/Code/''${domain}/''${user}"
 
-        user_repo_path="''${user_path}/''${repo_name}"
+        repo_path="''${user_path}/''${repo_name}"
 
-        [[ -d "''${user_repo_path}" ]] && t "''${user_repo_path}" && return
+        [[ -d "''${repo_path}" ]] && t "''${repo_path}" && return
 
         ${pkgs.coreutils}/bin/mkdir -p "''${user_path}"
         pushd "''${user_path}"
