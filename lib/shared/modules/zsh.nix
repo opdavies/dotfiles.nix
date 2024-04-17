@@ -29,6 +29,8 @@
         fi
 
         # Extract the remote domain (e.g. github.com) from the repo URL.
+        # TODO: make it work with HTTPS URLs.
+        #  Cloning https://github.com/opdavies/oliverdavies.uk.git returns "https" as the domain.
         domain="''${repo_url#*@}"
         domain="''${domain%:*}"
 
