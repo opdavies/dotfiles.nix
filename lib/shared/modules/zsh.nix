@@ -11,6 +11,17 @@
       clone() {
         repo_url="$1"
 
+        # Extract the remote domain (e.g. github.com) from the repo URL.
+        domain="''${repo_url#*://}"
+        if [[ "''${domain}" == *@*:* ]]; then
+            # SSH repo URL: domain ends at the colon.
+            domain="''${domain#*@}"
+            domain="''${domain%%:*}"
+        else
+            # HTTPS repo URL: domain ends at the slash.
+            domain="''${domain%%/*}"
+        fi
+
         # TODO: make it work with multi-level URLS - e.g. https://gitlab.com/a/b/c/d.git
 
         user_and_repo_name="''${repo_url}"
@@ -27,12 +38,6 @@
           user="$GITUSER"
           [[ -z "$user" ]] && user="$USER"
         fi
-
-        # Extract the remote domain (e.g. github.com) from the repo URL.
-        # TODO: make it work with HTTPS URLs.
-        #  Cloning https://github.com/opdavies/oliverdavies.uk.git returns "https" as the domain.
-        domain="''${repo_url#*@}"
-        domain="''${domain%:*}"
 
         repo_name="''${user_and_repo_name##*/}"
         repo_name="''${repo_name%.git}"
