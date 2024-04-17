@@ -25,10 +25,10 @@
         # TODO: make it work with multi-level URLS - e.g. https://gitlab.com/a/b/c/d.git
 
         user_and_repo_name="''${repo_url}"
-        user_and_repo_name="''${user_and_repo_name#git@bitbucket.com:}"
+        user_and_repo_name="''${user_and_repo_name#git@bitbucket.org:}"
         user_and_repo_name="''${user_and_repo_name#git@github.com:}"
         user_and_repo_name="''${user_and_repo_name#git@gitlab.com:}"
-        user_and_repo_name="''${user_and_repo_name#https://bitbucket.com/}"
+        user_and_repo_name="''${user_and_repo_name#https://bitbucket.org/}"
         user_and_repo_name="''${user_and_repo_name#https://github.com/}"
         user_and_repo_name="''${user_and_repo_name#https://gitlab.com/}"
 
