@@ -8,7 +8,6 @@
 
   imports = [
     (import ./modules/neovim.nix { inherit inputs; })
-    ./modules/atuin.nix
     ./modules/bat.nix
     ./modules/bin.nix
     ./modules/direnv.nix

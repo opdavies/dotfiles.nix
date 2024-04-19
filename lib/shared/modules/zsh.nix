@@ -263,6 +263,7 @@
           name = "plugin/vi-mode";
           tags = [ "from:oh-my-zsh" ];
         }
+        { name = "joshskidmore/zsh-fzf-history-search"; }
         { name = "mollifier/cd-gitroot"; }
         { name = "zsh-users/zsh-completions"; }
         { name = "zsh-users/zsh-syntax-highlighting"; }
