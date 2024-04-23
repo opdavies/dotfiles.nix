@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+
+docker container stop traefik-development-reverse-proxy-1
+docker container ps
