@@ -1,7 +1,7 @@
 { self, ... }: {
-  home.sessionPath = [ "$HOME/.config/bin" ];
+  home.sessionPath = [ "$HOME/bin" ];
 
-  xdg.configFile.bin = {
+  home.file.bin = {
     source = "${self}/bin";
     recursive = true;
   };
