@@ -22,11 +22,11 @@
       mkNixos = import ./lib/nixos { inherit inputs self username; };
       mkWsl = import ./lib/wsl2 { inherit inputs self username; };
 
-      inherit (pkgs) just mkShell nixfmt;
+      inherit (pkgs) just mkShell;
     in {
       packages.${system}.default = mkShell { buildInputs = [ just ]; };
 
-      formatter.${system} = nixfmt;
+      formatter.${system} = pkgs.nixfmt-classic;
 
       nixosConfigurations = {
         apollo = mkNixos {

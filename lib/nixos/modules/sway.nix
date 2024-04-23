@@ -1,11 +1,9 @@
 { inputs, username, ... }:
 { pkgs, ... }: {
   services = {
-    xserver = {
-      displayManager = {
-        defaultSession = "sway";
-        sddm.enable = true;
-      };
+    displayManager = {
+      defaultSession = "sway";
+      sddm.enable = true;
     };
   };
 
