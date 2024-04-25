@@ -111,7 +111,9 @@ in {
     [
       brightnessctl
       configure-gtk
+      ddev
       ffmpegthumbnailer
+      mkcert
       shotwell
       xfce.thunar
       xfce.thunar-volman
