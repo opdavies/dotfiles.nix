@@ -162,6 +162,7 @@
 
     extraConfig = ''
       exec_always ${pkgs.autotiling}/bin/autotiling
+      exec_always ${pkgs.kanshi}/bin/kanshi
 
       set $laptop eDP-1
       bindswitch --reload --locked lid:on output $laptop disable
