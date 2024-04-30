@@ -130,6 +130,7 @@ in {
       spotify
       teams-for-linux
       todoist-electron
+      vscode
 
       # Games.
       zeroad
