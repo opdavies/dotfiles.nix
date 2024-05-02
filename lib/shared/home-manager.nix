@@ -6,8 +6,6 @@
 
   programs.home-manager.enable = true;
 
-  services.syncthing.enable = true;
-
   imports = [
     (import ./modules/neovim.nix { inherit inputs; })
     ./modules/bat.nix
@@ -20,6 +18,7 @@
     ./modules/phpactor.nix
     ./modules/ripgrep.nix
     ./modules/starship.nix
+    ./modules/syncthing.nix
     ./modules/tmux.nix
     ./modules/zsh.nix
   ];

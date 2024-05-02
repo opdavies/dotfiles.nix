@@ -1,0 +1,1 @@
+{ services.syncthing.enable = true; }
