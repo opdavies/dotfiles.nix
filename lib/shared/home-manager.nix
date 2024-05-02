@@ -6,6 +6,8 @@
 
   programs.home-manager.enable = true;
 
+  services.syncthing.enable = true;
+
   imports = [
     (import ./modules/neovim.nix { inherit inputs; })
     ./modules/bat.nix
