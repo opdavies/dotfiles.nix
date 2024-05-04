@@ -1,40 +1,6 @@
 { config, inputs, pkgs, ... }:
 
 {
-  # services.swayidle = {
-  #   enable = true;
-  #
-  #   events = [
-  #     {
-  #       event = "before-sleep";
-  #       command = "${pkgs.swaylock}/bin/swaylock --daemonize --image ~/.config/wallpape
-  #       /wallpaper.jpg";
-  #     }
-  #   ];
-  # };
-
-  # services.swayidle.timeouts = [
-  #   {
-  #     timeout = 300;
-  #     command = "${pkgs.swaylock}/bin/swaylock --daemonize --image ~/.config/wallpaper/wallpaper.jpg";
-  #   }
-  #
-  #   {
-  #     timeout = 600;
-  #     command = "swaymsg 'output * dpms off'";
-  #     resumeCommand = "swaymsg 'output * dpms on'";
-  #   }
-  # ];
-
-  # programs.swaylock = {
-  #   enable = true;
-  #
-  #   settings = {
-  #     daemonize = true;
-  #     image = "~/.config/wallpaper/wallpaper.jpg";
-  #   };
-  # };
-
   programs.i3status-rust = {
     enable = true;
 
