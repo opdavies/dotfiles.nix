@@ -17,7 +17,6 @@
     ./modules/nnn.nix
     ./modules/phpactor.nix
     ./modules/ripgrep.nix
-    ./modules/starship.nix
     ./modules/syncthing.nix
     ./modules/tmux.nix
     ./modules/zsh.nix
