@@ -98,14 +98,6 @@
     xwayland = true;
 
     config = {
-      assigns = {
-        "1" = [{ app_id = "firefox"; }];
-        "2" = [{ app_id = "Alacritty"; }];
-        "3" = [{ class = "vlc"; }];
-        "9" = [ { class = "Slack"; } { class = "discord"; } ];
-        # Get app_id with swaymsg -t get_tree
-      };
-
       bars = [{
         colors.background = "#222222";
 
