@@ -1,40 +1,6 @@
 { config, inputs, pkgs, ... }:
 
 {
-  # services.swayidle = {
-  #   enable = true;
-  #
-  #   events = [
-  #     {
-  #       event = "before-sleep";
-  #       command = "${pkgs.swaylock}/bin/swaylock --daemonize --image ~/.config/wallpape
-  #       /wallpaper.jpg";
-  #     }
-  #   ];
-  # };
-
-  # services.swayidle.timeouts = [
-  #   {
-  #     timeout = 300;
-  #     command = "${pkgs.swaylock}/bin/swaylock --daemonize --image ~/.config/wallpaper/wallpaper.jpg";
-  #   }
-  #
-  #   {
-  #     timeout = 600;
-  #     command = "swaymsg 'output * dpms off'";
-  #     resumeCommand = "swaymsg 'output * dpms on'";
-  #   }
-  # ];
-
-  # programs.swaylock = {
-  #   enable = true;
-  #
-  #   settings = {
-  #     daemonize = true;
-  #     image = "~/.config/wallpaper/wallpaper.jpg";
-  #   };
-  # };
-
   programs.i3status-rust = {
     enable = true;
 
@@ -76,15 +42,15 @@
           theme = {
             theme = "plain";
             overrides = {
-              critical_bg = "#222222";
-              good_bg = "#222222";
+              critical_bg = "#121212";
+              good_bg = "#121212";
               good_fg = "#ffffff";
-              idle_bg = "#222222";
+              idle_bg = "#121212";
               idle_fg = "#ffffff";
-              info_bg = "#222222";
+              info_bg = "#121212";
               info_fg = "#ffffff";
-              separator_bg = "#222222";
-              warning_bg = "#222222";
+              separator_bg = "#121212";
+              warning_bg = "#121212";
               warning_fg = "#ffffff";
             };
           };
@@ -99,7 +65,17 @@
 
     config = {
       bars = [{
-        colors.background = "#222222";
+        colors = {
+          background = "#161616";
+          separator = "#333333";
+          statusline = "#ffffff";
+
+          focusedWorkspace = {
+            background = "#555555";
+            border = "#444444";
+            text = "#ffffff";
+          };
+        };
 
         fonts = {
           names = [ "JetBrainsMono Nerd Font Mono" ];
@@ -110,6 +86,8 @@
           "i3status-rs ~/.config/i3status-rust/config-default.toml";
         trayPadding = 5;
       }];
+
+      defaultWorkspace = "workspace number 1";
 
       gaps = {
         inner = 5;
