@@ -77,6 +77,8 @@
         trayPadding = 5;
       }];
 
+      defaultWorkspace = "workspace number 1";
+
       gaps = {
         inner = 5;
         smartBorders = "on";
