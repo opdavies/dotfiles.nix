@@ -1,7 +1,7 @@
 { self, ... }: {
-  home.sessionPath = [ "$HOME/bin" ];
+  home.sessionPath = [ "$HOME/.local/bin" ];
 
-  home.file.bin = {
+  home.file.".local/bin" = {
     source = "${self}/bin";
     recursive = true;
   };
