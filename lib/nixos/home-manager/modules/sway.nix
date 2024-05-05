@@ -42,15 +42,15 @@
           theme = {
             theme = "plain";
             overrides = {
-              critical_bg = "#222222";
-              good_bg = "#222222";
+              critical_bg = "#111111";
+              good_bg = "#111111";
               good_fg = "#ffffff";
-              idle_bg = "#222222";
+              idle_bg = "#111111";
               idle_fg = "#ffffff";
-              info_bg = "#222222";
+              info_bg = "#111111";
               info_fg = "#ffffff";
-              separator_bg = "#222222";
-              warning_bg = "#222222";
+              separator_bg = "#111111";
+              warning_bg = "#111111";
               warning_fg = "#ffffff";
             };
           };
@@ -65,7 +65,7 @@
 
     config = {
       bars = [{
-        colors.background = "#222222";
+        colors.background = "#111111";
 
         fonts = {
           names = [ "JetBrainsMono Nerd Font Mono" ];
