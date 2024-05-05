@@ -59,6 +59,7 @@
       }
 
       # Plugins
+      source "''${ZPLUG_REPOS}/joshskidmore/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh"
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh"
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh"
 
