@@ -24,7 +24,7 @@ if [[ -z "${selected}" ]]; then
   exit 0
 fi
 
-session_name=$(basename "${selected}" | sed 's/\./-/g')
+session_name=$(basename "${selected}" | sed 's/\./_/g')
 session_path="${selected}"
 
 # Git worktrees.
