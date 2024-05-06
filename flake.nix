@@ -22,9 +22,10 @@
       mkNixos = import ./lib/nixos { inherit inputs self username; };
       mkWsl = import ./lib/wsl2 { inherit inputs self username; };
 
-      inherit (pkgs) just mkShell;
+      inherit (pkgs) mkShell;
     in {
-      packages.${system}.default = mkShell { buildInputs = [ just ]; };
+      packages.${system}.default =
+        mkShell { buildInputs = with pkgs; [ just ]; };
 
       formatter.${system} = pkgs.nixfmt-classic;
 
