@@ -80,9 +80,8 @@
       defaultWorkspace = "workspace number 1";
 
       gaps = {
-        inner = 5;
+        inner = 0;
         smartBorders = "on";
-        smartGaps = true;
       };
 
       input = {
@@ -100,6 +99,7 @@
           "${modifier}+Escape" = "exec swaylock --daemonize";
           "${modifier}+Shift+b" = "exec ${pkgs.firefox}/bin/firefox";
           "${modifier}+Shift+f" = "exec ${pkgs.xfce.thunar}/bin/thunar";
+          "${modifier}+Shift+period" = "exec systemctl suspend";
           "${modifier}+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui";
           "${modifier}+Shift+y" = "exec ${pkgs.copyq}/bin/copyq toggle";
         };
@@ -143,6 +143,9 @@
 
       for_window [app_id="flameshot"] floating enable
       for_window [class="zoom"] floating enable
+
+      seat seat0 hide_cursor 1000
+      seat seat0 hide_cursor when-typing enable
     '';
   };
 }
