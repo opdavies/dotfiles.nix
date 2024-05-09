@@ -4,14 +4,14 @@ _default:
 check:
     nix flake check
 
-nixos-build:
-    sudo nixos-rebuild build --flake .
+nixos-build *args:
+    sudo nixos-rebuild build --flake . {{ args }}
 
-nixos-switch:
-    sudo nixos-rebuild switch --flake .
+nixos-switch *args:
+    sudo nixos-rebuild switch --flake . {{ args }}
 
-nixos-test:
-    sudo nixos-rebuild test --flake .
+nixos-test *args:
+    sudo nixos-rebuild test --flake . {{ args }}
 
 update:
     nix flake update
