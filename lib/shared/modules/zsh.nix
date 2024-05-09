@@ -58,6 +58,22 @@
         t "''${repo_path}"
       }
 
+      git() {
+        if [[ "''${1}" == "root" ]]; then
+          shift
+
+          local ROOT="$(${pkgs.git}/bin/git rev-parse --show-toplevel 2> /dev/null || echo -n .)"
+
+          if [[ $# == 0 ]]; then
+            cd "''${ROOT}"
+          else
+            (cd "''${ROOT}" && eval "''${@}")
+          fi
+        else
+          ${pkgs.git}/bin/git "''${@}"
+        fi
+      }
+
       just() {
         if [[ -f .ignored/justfile ]]; then
           ${pkgs.just}/bin/just --justfile .ignored/justfile "''${@}"
@@ -277,7 +293,6 @@
           tags = [ "from:oh-my-zsh" ];
         }
         { name = "joshskidmore/zsh-fzf-history-search"; }
-        { name = "mollifier/cd-gitroot"; }
         { name = "zsh-users/zsh-completions"; }
         { name = "zsh-users/zsh-syntax-highlighting"; }
       ];
