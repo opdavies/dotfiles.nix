@@ -29,7 +29,7 @@
 
           {
             criteria = "Samsung Electric Company LU28R55 H4ZRA00128";
-            mode = "2560x1440";
+            mode = "3840x2160";
             position = "0,0";
           }
         ];
