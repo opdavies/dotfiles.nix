@@ -112,6 +112,7 @@ in {
       ddev
       mkcert
       ttyper
+      yt-dlp
     ] ++ pkgs.lib.optionals desktop [
       acpi
       arandr
