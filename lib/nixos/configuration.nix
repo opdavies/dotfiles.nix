@@ -109,28 +109,28 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs;
     [
-      brightnessctl
-      configure-gtk
       ddev
-      ffmpegthumbnailer
       mkcert
-      shotwell
-      xfce.thunar
-      xfce.thunar-volman
-      xfce.tumbler
     ] ++ pkgs.lib.optionals desktop [
       acpi
       arandr
+      brightnessctl
+      configure-gtk
       dunst
+      ffmpegthumbnailer
       libnotify
       obsidian
       pocket-casts
       rclone
       rclone-browser
+      shotwell
       spotify
       teams-for-linux
       todoist-electron
       vscode
+      xfce.thunar
+      xfce.thunar-volman
+      xfce.tumbler
 
       # Games.
       zeroad
@@ -182,7 +182,7 @@ in {
   fonts = {
     fontconfig = {
       enable = true;
-      defaultFonts = { monospace = [ "JetBrainsMono Nerd Font Mono" ]; };
+      defaultFonts = { monospace = [ theme.fonts.monospace.name ]; };
     };
 
     packages = with pkgs;
