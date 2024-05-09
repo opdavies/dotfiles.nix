@@ -111,6 +111,7 @@ in {
     [
       ddev
       mkcert
+      ttyper
     ] ++ pkgs.lib.optionals desktop [
       acpi
       arandr
