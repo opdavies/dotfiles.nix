@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-cd "${REPOS}/github.com/opdavies/traefik-development"
+cd "${REPOS}/personal/traefik-development"
 
 docker compose up --detach
 docker container ps
