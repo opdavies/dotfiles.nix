@@ -6,7 +6,7 @@ in {
 
     tmuxinator.enable = true;
 
-    terminal = "tmux-256color";
+    terminal = "screen-256color";
 
     extraConfig = ''
       unbind C-b

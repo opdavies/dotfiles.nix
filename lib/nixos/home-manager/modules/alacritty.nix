@@ -9,7 +9,9 @@ in {
     enable = true;
 
     settings = {
-      window.opacity = 0.9;
+      env = {
+        TERM = "screen-256color";
+      };
 
       window.padding = {
         x = 15;
