@@ -58,6 +58,14 @@
         t "''${repo_path}"
       }
 
+      just() {
+        if [[ -f .ignored/justfile ]]; then
+          ${pkgs.just}/bin/just --justfile .ignored/justfile "''${@}"
+        else
+          ${pkgs.just}/bin/just "''${@}"
+        fi
+      }
+
       ttyper() {
         command ${pkgs.ttyper}/bin/ttyper --language english1000 --words 50 "''${@}"
       }
