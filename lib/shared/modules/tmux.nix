@@ -61,7 +61,7 @@ in {
 
       # Setup 'v' to begin selection as in Vim
       bind-key -T copy-mode-vi 'v' send -X begin-selection
-      bind-key -T copy-mode-vi 'y' send -X copy-pipe "reattach-to-user-namespace pbcopy"
+      bind-key -T copy-mode-vi 'y' send -X copy-pipe wl-copy
 
       bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
 
