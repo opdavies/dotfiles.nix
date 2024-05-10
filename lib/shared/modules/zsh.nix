@@ -99,7 +99,7 @@
 
       clear-ls-all() {
         clear
-        lsd -al
+        ls -al
       }
       zle -N clear-ls-all
 
@@ -178,7 +178,7 @@
       ialias cs="create-script"
       ialias daily="run create-daily next"
       ialias fetch="git fetch --all --jobs=4 --progress --prune"
-      ialias ls="lsd -la"
+      ialias ls="lsd"
       ialias pull="git pull --autostash --jobs=4 --summary origin"
       ialias rebase="git rebase --autostash --stat"
       ialias reset="git reset --hard; git clean -fd"
