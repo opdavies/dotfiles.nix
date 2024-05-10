@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Update all top-level Git repository clones within my Code directories to their
+# latest version.
+
+set -o errexit
+set -o nounset
+
+dirs=$(find ~/Code/personal ~/Code/work -mindepth 1 -maxdepth 2 -type f -name .git -not -path '*/*.old/*')
+
+for dir in $dirs; do
+  repo_path="${dir%/.git}"
+
+  cd "${repo_path}"
+
+  # If the repo is a bare clone, the commands need to be run within the
+  # worktree directory.
+  [[ -f .bare/worktrees/main/gitdir && -d main && -f main/.git ]] && cd main
+
+  echo "Updating $(pwd)"
+
+  # Update the repository.
+  git fetch --all --jobs=4 --progress --prune
+  git pull --rebase
+done
