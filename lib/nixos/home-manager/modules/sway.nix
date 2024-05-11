@@ -142,6 +142,7 @@
 
       for_window [app_id="flameshot"] floating enable
       for_window [app_id="pavucontrol"] floating enable
+      for_window [class="copyq"] floating enable
       for_window [class="zoom"] floating enable
       # swaymsg -t get_tree
 
