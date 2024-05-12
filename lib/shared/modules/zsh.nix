@@ -82,6 +82,24 @@
         fi
       }
 
+      til() {
+        if [[ ''${#} < 1 ]]; then
+          echo "No text was provided."
+          return
+        fi
+
+        echo ''${1} >> TIL.txt
+      }
+
+      todo() {
+        if [[ ''${#} < 1 ]]; then
+          echo "No text was provided."
+          return
+        fi
+
+        echo ''${1} >> TODO.txt
+      }
+
       ttyper() {
         command ${pkgs.ttyper}/bin/ttyper --language english1000 --words 50 "''${@}"
       }
