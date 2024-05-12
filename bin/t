@@ -36,21 +36,6 @@ if tmux has-session -t "${session_name}" 2> /dev/null; then
   tmux attach -t "${session_name}"
 fi
 
-# If a .tmux file exists, run it with the generated session name and path.
-if [[ -e "${session_path}/.tmuxinator.yaml" ]]; then
-  cd "${session_path}" && tmuxinator start
-  exit
-elif [[ -e "${session_path}/.ignored/.tmuxinator.yaml" ]]; then
-  cd "${session_path}" && tmuxinator start --project-config "${session_path}/.ignored/.tmuxinator.yaml"
-  exit
-elif [[ -e "${session_path}/.tmux" ]]; then
-  "${session_path}/.tmux" "${session_name}" "${session_path}"
-  exit
-elif [[ -e "${session_path}/.ignored/.tmux" ]]; then
-  "${session_path}/.ignored/.tmux" "${session_name}" "${session_path}"
-  exit
-fi
-
 tmux new-session -d -s "${session_name}" -c "${session_path}"
 
 tmux switch-client -t "${session_name}" || tmux attach -t "${session_name}"
