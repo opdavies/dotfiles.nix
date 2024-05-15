@@ -193,6 +193,7 @@
       alias dea='direnv allow'
       alias dee='direnv edit'
 
+      ialias cat="bat"
       ialias cs="create-script"
       ialias daily="run create-daily next"
       ialias fetch="git fetch --all --jobs=4 --progress --prune"
