@@ -18,7 +18,7 @@ in {
     pkgs.discord
     pkgs.gimp
     pkgs.gscan2pdf
-    pkgs-2311.kdenlive
+    pkgs.kdenlive
     pkgs.meslo-lg
     pkgs.obs-studio
     pkgs.okular
