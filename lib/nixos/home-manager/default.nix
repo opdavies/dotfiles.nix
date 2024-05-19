@@ -8,8 +8,6 @@ let
   shared-packages = import "${self}/lib/shared/home-manager-packages.nix" {
     inherit inputs pkgs;
   };
-
-  pkgs-2311 = inputs.nixpkgs-2311.legacyPackages.${pkgs.system};
 in {
   imports =
     if desktop then [ desktop-config shared-config ] else [ shared-config ];

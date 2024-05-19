@@ -52,22 +52,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-2311": {
-      "locked": {
-        "lastModified": 1716061101,
-        "narHash": "sha256-H0eCta7ahEgloGIwE/ihkyGstOGu+kQwAiHvwVoXaA0=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e7cc61784ddf51c81487637b3031a6dd2d6673a2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-23.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "opdavies-nvim": {
       "inputs": {
         "nixpkgs": [
@@ -93,7 +77,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-2311": "nixpkgs-2311",
         "opdavies-nvim": "opdavies-nvim"
       }
     }
