@@ -24,6 +24,6 @@
       XDG_SESSION_TYPE = "wayland";
     };
 
-    home.packages = with pkgs; [ i3status wdisplays wl-clipboard wofi ];
+    home.packages = with pkgs; [ i3status swaybg wdisplays wl-clipboard wofi ];
   };
 }
