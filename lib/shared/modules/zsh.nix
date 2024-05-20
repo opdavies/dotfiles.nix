@@ -196,11 +196,7 @@
       ialias cat="bat"
       ialias cs="create-script"
       ialias daily="run create-daily next"
-      ialias fetch="git fetch --all --jobs=4 --progress --prune"
       ialias ls="lsd"
-      ialias pull="git pull --autostash --jobs=4 --summary origin"
-      ialias rebase="git rebase --autostash --stat"
-      ialias reset="git reset --hard; git clean -fd"
       ialias run="./run"
       ialias s="secrets"
       ialias secrets="doppler --project \"$(whoami)\" run"
@@ -208,8 +204,6 @@
       ialias sz="source ~/.config/zsh/.zshrc"
       ialias tag="tag-release"
       ialias uncommit="git reset --soft HEAD^";
-      ialias update="fetch && rebase"
-      ialias wip="git add . && git commit -m 'wip'";
       ialias wt="git worktree"
       balias lh3="xdg-open http://localhost:3000"
       balias lh8="xdg-open http://localhost:8000"

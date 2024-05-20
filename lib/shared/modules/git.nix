@@ -87,6 +87,8 @@
         unassume = "update-index --no-assume-unchanged";
         uncommit = "reset --soft HEAD^";
         unstage = "reset";
+        update =
+          "!git fetch --all --jobs=4 --prune --progress && git rebase --autostash --stat";
         upstream = "rev-parse --abbrev-ref --symbolic-full-name @{u}";
         ureset = "!git reset --hard $(git upstream)";
         worktrees = "worktree list";
