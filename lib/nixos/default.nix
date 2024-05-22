@@ -16,6 +16,7 @@ in inputs.nixpkgs.lib.nixosSystem {
       };
     }
 
+    (import ./modules/gnome.nix)
     (import ./modules/sway.nix { inherit inputs username; })
 
     configuration
