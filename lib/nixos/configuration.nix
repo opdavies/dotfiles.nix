@@ -121,6 +121,7 @@ in {
       rclone
       rclone-browser
       shotwell
+      slack
       spotify
       teams-for-linux
       todoist-electron

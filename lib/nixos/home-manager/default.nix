@@ -24,7 +24,6 @@ in {
     pkgs.pass
     pkgs.pavucontrol
     pkgs.pinentry
-    pkgs.slack
     pkgs.via
     pkgs.vlc
     pkgs.xsel
