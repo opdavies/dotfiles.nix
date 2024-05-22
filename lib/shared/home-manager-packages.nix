@@ -3,6 +3,8 @@ let
   php = pkgs.php82;
   phpPackages = pkgs.php82Packages;
 in with pkgs; [
+  inputs.build-configs.packages.${pkgs.system}.default
+
   awscli2
   bitwarden-cli
   bottom

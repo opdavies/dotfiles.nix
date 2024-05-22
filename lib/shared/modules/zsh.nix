@@ -266,12 +266,6 @@
       alias rdci="run drush config:import -y"
       alias rduli="run drush uli"
 
-      # Build Configs.
-      ialias build-configs="nix shell nixpkgs#php82 --command ~/Code/github.com/OliverDaviesLtd/build-configs/main/bin/build-configs app:generate"
-      ialias build-configs-update-all="~/Code/github.com/OliverDaviesLtd/build-configs-updater/update.sh"
-      alias bc=build-configs
-      alias bcu=build-configs-update-all
-
       alias -g A1="| awk '{print \$1}'"
       alias -g Fj='| jq .'
       alias -g Fy='| yq .'

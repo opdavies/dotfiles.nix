@@ -8,6 +8,11 @@
     opdavies-nvim.inputs.nixpkgs.follows = "nixpkgs";
     opdavies-nvim.url = "github:opdavies/opdavies.nvim";
     # opdavies-nvim.url = "path:/home/opdavies/Code/personal/opdavies.nvim";
+
+    build-configs.inputs.nixpkgs.follows = "nixpkgs";
+    build-configs.url = "path:/home/opdavies/Code/personal/build-configs";
+    # TODO: how to do this with a private GitHub repository?
+    # build-configs.url = "github:OliverDaviesLtd/build-configs";
   };
 
   outputs = { nixpkgs, self, ... }@inputs:

@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "build-configs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1716365597,
+        "narHash": "sha256-hVI9QY4tLbXmci1MERp8CEduJ3xfeTT3ZxKnuMCJP3E=",
+        "path": "/home/opdavies/Code/personal/build-configs",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/opdavies/Code/personal/build-configs",
+        "type": "path"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -75,6 +92,7 @@
     },
     "root": {
       "inputs": {
+        "build-configs": "build-configs",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "opdavies-nvim": "opdavies-nvim"
