@@ -205,6 +205,7 @@
       ialias tag="tag-release"
       ialias uncommit="git reset --soft HEAD^";
       ialias wt="git worktree"
+      ialias vss="LC_ALL=C sort --unique ~/Code/personal/opdavies.nvim/spell/en.utf-8.add --output ~/Code/personal/opdavies.nvim/spell/en.utf-8.add"
       balias lh3="xdg-open http://localhost:3000"
       balias lh8="xdg-open http://localhost:8000"
 
