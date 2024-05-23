@@ -107,8 +107,17 @@ in {
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs;
-    [ ddev just mkcert ttyper yt-dlp ] ++ pkgs.lib.optionals desktop [
+  environment.systemPackages =
+    with pkgs;
+    [
+      ddev
+      just
+      mkcert
+      simple-http-server
+      ttyper
+      yt-dlp
+    ]
+    ++ pkgs.lib.optionals desktop [
       acpi
       arandr
       brightnessctl
