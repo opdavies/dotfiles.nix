@@ -10,7 +10,7 @@
     enable = true;
 
     # swaymsg -t get_outputs
-    profiles = {
+    settings = {
       undocked = {
         outputs = [{
           criteria = "eDP-1";
