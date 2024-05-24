@@ -19,6 +19,7 @@
     ./modules/ripgrep.nix
     ./modules/syncthing.nix
     ./modules/tmux.nix
+    ./modules/wezterm.nix
     ./modules/zsh.nix
   ];
 }
