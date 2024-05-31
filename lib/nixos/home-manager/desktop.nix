@@ -1,6 +1,5 @@
 { config, inputs, pkgs, username, }: {
   imports = [
-    ./modules/alacritty.nix
     ./modules/copyq.nix
     ./modules/dunst.nix
     ./modules/espanso.nix

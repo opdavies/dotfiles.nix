@@ -115,7 +115,7 @@
         eDP-1 = { scale = "1.0"; };
       };
 
-      terminal = "alacritty";
+      terminal = "wezterm";
 
       window.border = 3;
     };
