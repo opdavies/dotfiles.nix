@@ -25,7 +25,6 @@ in {
     pkgs.pavucontrol
     pkgs.pinentry
     pkgs.via
-    pkgs.vlc
     pkgs.xsel
     pkgs.xcape
     pkgs.zoom-us

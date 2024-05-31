@@ -138,8 +138,6 @@
       bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
       bindsym XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 
-      for_window [class="vlc"] inhibit_idle fullscreen
-
       for_window [app_id="flameshot"] floating enable
       for_window [app_id="pavucontrol"] floating enable
       for_window [class="copyq"] floating enable

@@ -9,5 +9,6 @@
     ./modules/flameshot.nix
     ./modules/kanshi.nix
     ./modules/sway.nix
+    ./modules/mpv.nix
   ];
 }
