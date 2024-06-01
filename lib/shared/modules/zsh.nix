@@ -300,7 +300,6 @@
           name = "plugin/vi-mode";
           tags = [ "from:oh-my-zsh" ];
         }
-        { name = "joshskidmore/zsh-fzf-history-search"; }
         { name = "zsh-users/zsh-completions"; }
         { name = "zsh-users/zsh-syntax-highlighting"; }
       ];
