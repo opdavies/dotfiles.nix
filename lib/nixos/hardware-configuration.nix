@@ -5,10 +5,17 @@
     [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [ "i8042.reset" ];
+  boot.kernelParams = [
+    "i915.modeset=1"
+    "i915.fastboot=1"
+    "i915.enable_guc=2"
+    "i915.enable_psr=1"
+    "i915.enable_fbc=1"
+    "i915.enable_dc=2"
+  ];
   boot.extraModulePackages = [ ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   hardware.enableAllFirmware = true;
 
   fileSystems."/" = {
