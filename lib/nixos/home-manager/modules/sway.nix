@@ -34,7 +34,7 @@
           {
             block = "time";
             interval = 1;
-            format = " $timestamp.datetime(f:'%F %T') ";
+            format = " $timestamp.datetime(f:'%d-%m-%Y %T') ";
           }
         ];
 
