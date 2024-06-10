@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   fonts = {
     monospace = {
       name = "MesloLGSDZ Nerd Font Mono";

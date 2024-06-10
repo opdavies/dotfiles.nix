@@ -15,7 +15,7 @@
       ls = "lsd";
       run = "./run";
       s = "secrets";
-      secrets = "doppler --project \"$(whoami)\" run";
+      secrets = ''doppler --project "$(whoami)" run'';
       switch = "run nixos nixedo switch";
       sz = "source ~/.config/zsh/.zshrc";
       tag = "tag-release";
@@ -62,7 +62,7 @@
     };
 
     shellGlobalAliases = {
-      A1 = "| awk '{print \$1}'";
+      A1 = "| awk '{print $1}'";
       Fj = "| jq .";
       Fy = "| yq .";
       G = "| grep";
@@ -175,7 +175,10 @@
       plugins = [
         {
           name = "themes/robbyrussell";
-          tags = [ "from:oh-my-zsh" "as:theme" ];
+          tags = [
+            "from:oh-my-zsh"
+            "as:theme"
+          ];
         }
         {
           name = "plugin/git";

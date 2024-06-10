@@ -1,7 +1,8 @@
 { pkgs, self, ... }:
 let
   theme = import "${self}/lib/theme" { inherit pkgs; };
-in {
+in
+{
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;

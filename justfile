@@ -4,6 +4,9 @@ _default:
 check:
     nix flake check
 
+fmt:
+    nix fmt flake.nix lib
+
 nixos-build *args:
     sudo nixos-rebuild build --flake . {{ args }}
 

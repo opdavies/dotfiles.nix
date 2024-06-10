@@ -1,4 +1,10 @@
-{ inputs, pkgs, username, self, }: {
+{
+  inputs,
+  pkgs,
+  username,
+  self,
+}:
+{
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 

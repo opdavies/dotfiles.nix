@@ -1,6 +1,8 @@
 { pkgs, ... }:
-let inherit (pkgs) tmuxPlugins;
-in {
+let
+  inherit (pkgs) tmuxPlugins;
+in
+{
   programs.tmux = {
     enable = true;
 
@@ -106,7 +108,10 @@ in {
       if-shell "[ -f ~/.tmux.conf.local ]" 'source ~/.tmux.conf.local'
     '';
 
-    plugins =
-      [ tmuxPlugins.resurrect tmuxPlugins.vim-tmux-navigator tmuxPlugins.yank ];
+    plugins = [
+      tmuxPlugins.resurrect
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.yank
+    ];
   };
 }

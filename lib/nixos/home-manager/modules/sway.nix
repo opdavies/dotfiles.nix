@@ -1,4 +1,9 @@
-{ config, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   programs.i3status-rust = {
@@ -64,18 +69,19 @@
     xwayland = true;
 
     config = {
-      bars = [{
-        colors.background = "#111111";
+      bars = [
+        {
+          colors.background = "#111111";
 
-        fonts = {
-          names = [ "JetBrainsMono Nerd Font Mono" ];
-          size = 12.0;
-        };
+          fonts = {
+            names = [ "JetBrainsMono Nerd Font Mono" ];
+            size = 12.0;
+          };
 
-        statusCommand =
-          "i3status-rs ~/.config/i3status-rust/config-default.toml";
-        trayPadding = 5;
-      }];
+          statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
+          trayPadding = 5;
+        }
+      ];
 
       defaultWorkspace = "workspace number 1";
 
@@ -85,7 +91,9 @@
       };
 
       input = {
-        "*" = { xkb_layout = "gb"; };
+        "*" = {
+          xkb_layout = "gb";
+        };
 
         "type:touchpad" = {
           dwt = "enabled";
@@ -94,8 +102,10 @@
       };
 
       keybindings =
-        let modifier = config.wayland.windowManager.sway.config.modifier;
-        in inputs.nixpkgs.lib.mkOptionDefault {
+        let
+          modifier = config.wayland.windowManager.sway.config.modifier;
+        in
+        inputs.nixpkgs.lib.mkOptionDefault {
           "${modifier}+Escape" = "exec swaylock --daemonize";
           "${modifier}+Shift+b" = "exec ${pkgs.firefox}/bin/firefox";
           "${modifier}+Shift+f" = "exec ${pkgs.xfce.thunar}/bin/thunar";
@@ -112,7 +122,9 @@
         #   bg = "~/.config/wallpaper/wallpaper.jpg fill";
         # };
 
-        eDP-1 = { scale = "1.0"; };
+        eDP-1 = {
+          scale = "1.0";
+        };
       };
 
       terminal = "wezterm";

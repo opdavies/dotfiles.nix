@@ -1,24 +1,32 @@
-{ inputs, desktop ? false, hostname, self }:
+{
+  inputs,
+  desktop ? false,
+  hostname,
+  self,
+}:
 { pkgs, ... }:
 let
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
     executable = true;
-    text = let
-      schema = pkgs.gsettings-desktop-schemas;
-      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-    in ''
-      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-      gnome_schema=org.gnome.desktop.interface
-      gsettings set $gnome_schema gtk-theme 'Breeze Dark'
-    '';
+    text =
+      let
+        schema = pkgs.gsettings-desktop-schemas;
+        datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+      in
+      ''
+        export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+        gnome_schema=org.gnome.desktop.interface
+        gsettings set $gnome_schema gtk-theme 'Breeze Dark'
+      '';
   };
 
   theme = import "${self}/lib/theme" { inherit pkgs; };
 
   username = "opdavies";
-in {
+in
+{
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
@@ -126,7 +134,11 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = "Oliver Davies";
-    extraGroups = [ "docker" "networkmanager" "wheel" ];
+    extraGroups = [
+      "docker"
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [ ];
   };
 
@@ -216,10 +228,13 @@ in {
   fonts = {
     fontconfig = {
       enable = true;
-      defaultFonts = { monospace = [ theme.fonts.monospace.name ]; };
+      defaultFonts = {
+        monospace = [ theme.fonts.monospace.name ];
+      };
     };
 
-    packages = with pkgs;
+    packages =
+      with pkgs;
       [
         (nerdfonts.override {
           fonts = [
@@ -231,7 +246,8 @@ in {
             "JetBrainsMono"
           ];
         })
-      ] ++ [ theme.fonts.monospace.package ];
+      ]
+      ++ [ theme.fonts.monospace.package ];
   };
 
   zramSwap.enable = true;
@@ -247,31 +263,35 @@ in {
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
   };
 
   # Make Caps lock work as an Escape key on press and Ctrl on hold.
-  services.interception-tools = let
-    dfkConfig = pkgs.writeText "dual-function-keys.yaml" ''
-      MAPPINGS:
-        - KEY: KEY_CAPSLOCK
-          TAP: KEY_ESC
-          HOLD: KEY_LEFTCTRL
-    '';
-  in {
-    enable = true;
-    plugins =
-      pkgs.lib.mkForce [ pkgs.interception-tools-plugins.dual-function-keys ];
-    udevmonConfig = ''
-      - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
-        DEVICE:
-          NAME: "AT Translated Set 2 keyboard"
-          EVENTS:
-            EV_KEY: [[KEY_CAPSLOCK, KEY_ESC, KEY_LEFTCTRL]]
-    '';
-  };
+  services.interception-tools =
+    let
+      dfkConfig = pkgs.writeText "dual-function-keys.yaml" ''
+        MAPPINGS:
+          - KEY: KEY_CAPSLOCK
+            TAP: KEY_ESC
+            HOLD: KEY_LEFTCTRL
+      '';
+    in
+    {
+      enable = true;
+      plugins = pkgs.lib.mkForce [ pkgs.interception-tools-plugins.dual-function-keys ];
+      udevmonConfig = ''
+        - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
+          DEVICE:
+            NAME: "AT Translated Set 2 keyboard"
+            EVENTS:
+              EV_KEY: [[KEY_CAPSLOCK, KEY_ESC, KEY_LEFTCTRL]]
+      '';
+    };
 
   system.autoUpgrade = {
     enable = true;
@@ -308,8 +328,7 @@ in {
   services.cron = {
     enable = true;
 
-    systemCronJobs =
-      [ "* * * * * opdavies /home/opdavies/.config/bin/notify-battery.sh" ];
+    systemCronJobs = [ "* * * * * opdavies /home/opdavies/.config/bin/notify-battery.sh" ];
   };
 
   services.auto-cpufreq.enable = true;

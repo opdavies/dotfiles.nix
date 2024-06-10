@@ -1,4 +1,10 @@
-{ config, inputs, pkgs, username, }: {
+{
+  config,
+  inputs,
+  pkgs,
+  username,
+}:
+{
   imports = [
     ./modules/copyq.nix
     ./modules/dunst.nix

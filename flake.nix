@@ -15,7 +15,8 @@
     # build-configs.url = "github:OliverDaviesLtd/build-configs";
   };
 
-  outputs = { nixpkgs, self, ... }@inputs:
+  outputs =
+    { nixpkgs, self, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -26,11 +27,11 @@
       mkWsl = import ./lib/wsl2 { inherit inputs self username; };
 
       inherit (pkgs) mkShell;
-    in {
-      packages.${system}.default =
-        mkShell { buildInputs = with pkgs; [ just ]; };
+    in
+    {
+      packages.${system}.default = mkShell { buildInputs = with pkgs; [ just ]; };
 
-      formatter.${system} = pkgs.nixfmt-classic;
+      formatter.${system} = pkgs.nixfmt-rfc-style;
 
       nixosConfigurations = {
         apollo = mkNixos {
@@ -44,6 +45,8 @@
         };
       };
 
-      homeConfigurations = { wsl2 = mkWsl { system = "x86_64-linux"; }; };
+      homeConfigurations = {
+        wsl2 = mkWsl { system = "x86_64-linux"; };
+      };
     };
 }
