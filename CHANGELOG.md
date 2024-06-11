@@ -6,6 +6,432 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 11th June 2024
+
+### Changed
+
+- Switch from NixOS unstable to 24.05.
+
+## 10th June 2024
+
+### Updated
+
+- Update `opdavies.nvim` to the latest version.
+
+### Changed
+
+- Format code in `flake.nix` and `lib` with the new `nixfmt-rfc-style`.
+
+## 9th June 2024
+
+### Changed
+
+- Set the `systemd-boot` configuration limit to 10.
+- Refactor zsh configuration.
+  - Use <https://github.com/MenkeTechnologies/zsh-expand> for expanding ZSH aliases instead of custom code.
+  - Use `programs.zsh.shellAliases` and `programs.zsh.shellGlobalAliases` for declaring aliases instead of `programs.zsh.initExtra`.
+- Tweak battery and performance settings.
+- Change the date format used in `i3status-rs`.
+
+### Removed
+
+- Remove the `starship` prompt.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 6th June 2024
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 2nd July 2024
+
+### Added
+
+- Re-add the `starship` prompt.
+
+## 1st July 2024
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 31st May 2024
+
+### Added
+
+- Add keybindings to increase and decrease the volume in `mpv`.
+- Add `mpv`.
+
+### Removed
+
+- Remove `vlc`.
+
+### Changed
+
+- Add `wezterm` as my default terminal to see how it compares to Alacritty.
+- Rename `kanshi.profiles` to `kanshi.settings` as `kanshi.settings` is deprecated.
+
+### Updated
+
+- Update flake lock dependencies
+
+## 24th May 2024
+
+### Added
+
+- Add `wezterm`.
+
+## 23rd May 2024
+
+### Added
+
+- Add `simple-http-server`.
+
+## 22nd May 2024
+
+### Added
+
+- Add GNOME as a desktop manager, working with Wayland and Sway.
+- Add `vss` as an alias for sorting words in my Vim spellfile (`~/Code/personal/opdavies.nvim/spell/en.utf-8.add`).
+
+### Updated
+
+- Update flake lock dependencies.
+
+### Changed
+
+- Move Slack from Home Manager to the NixOS configuration.
+- Add `build-configs` from its derivation.
+
+## 20th May 2024
+
+### Added
+
+- Add `swaybg`.
+
+### Changed
+
+- Remove Git aliases I wasn't using and move the `update` ZSH alias to be `git update`.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 19th May 2024
+
+### Updated
+
+- Update `kdenlive` and remove references to nixpkgs 23.11.
+- Update flake lock dependencies.
+
+## 15th May 2024
+
+### Added
+
+- Alias `cat` to `bat`.
+
+## 12th May 2024
+
+### Added
+
+- Add a `todo` function to append to a `TODO.txt` file.
+- Add a `til` function to append to a `TIL.txt` file.
+
+### Changed
+
+- Don't automatically run tmuxinator when starting a `tmux` session.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 11th May 2024
+
+### Changed
+
+- Open `pavucontrol` and `copyq` in a floating window.
+- Configure `lsd`.
+
+## 10th May 2024
+
+### Added
+
+- Add `update-all-git-repos` script to update top-level Git repositories to their latest versions.
+- Add `just` globally.
+
+## 9th May 2024
+
+### Added
+
+- Add the `git root` command to navigate to or execute commands at the root of a Git repository.
+- Add `yt-dlp`.
+- Add `ttyper` and set some default values.
+
+### Changed
+
+- Use `.ignored/justfile` if it exists when running `just` commands.
+- Update monitor resolution in `kanshi`.
+- Move some desktop-specific packages to the desktop list.
+- Allow passing arguments to the `just nixos-*` commands.
+
+### Fixed
+
+- Fix colours in `tmux` and copying to the system clipboard.
+
+### Updated
+
+- Update flake lock dependencies.
+
+### Removed
+
+- Remove references to `autotiling`, as it's no longer used.
+
+## 7th May 2024
+
+### Changed
+
+- Update sway configuration.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 6th May 2024
+
+### Changed
+
+- Replace periods with underscores in tmux session names.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 5th May 2024
+
+### Changed
+
+- Change background colours in the sway bar.
+- Source a `~/.tmux.conf.local` file, if it exists.
+
+### Fixed
+
+- Include the `zsh-fzf-history-search` plugin within `.zshrc`.
+
+### 4th May 2024
+
+### Changed
+
+- Move `bin` into my `~/.local` directory.
+- Add directories within `~/Code/personal`, `~/Code/work` and `/tmp` when fuzzy-finding directories for tmux sessions.
+- Set the default workspace in `sway`.
+- Stop automatically assigning apps to workspaces.
+
+### Removed
+
+- Remove `starship`.
+
+### Updated
+
+- Update lock file dependencies.
+
+## 3rd May 2024
+
+### Changed
+
+- Simplify the directory structure within `bin/t`.
+
+## 2nd May 2024
+
+### Added
+
+- Add `syncthing` as a service.
+
+### Changed
+
+- Make `Prefix-W` create a new tmux session in the wiki directory.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 30th April 2024
+
+### Fixed
+
+- Automatically run `kanshi` when reloading sway so the resolution is correct.
+- Allow for firewall connections to xdebug.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 25th April 2024
+
+### Added
+
+- Add `ddev` and `mkcert`.
+
+## 23rd April 2024
+
+### Added
+
+- Add scripts to easily start and stop Traefik.
+
+### Changed
+
+- Move `~/.config/bin` to `~/bin`.
+
+## 19th April 2024
+
+### Changed
+
+- Use `fzf` for searching ZSH history.
+
+## 18th April 2024
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 17th April 2024
+
+### Added
+
+- Make `clone` work with HTTPS URLs.
+- Add a `$REPOS` environment variable that links to my code repository directory (`~/Code`).
+
+### Fixed
+
+- Update Bitbucket URLs within the `clone` function.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 16th April 2024
+
+### Added
+
+- Add a `clone` function for cloning Git repositories into the correct directory based on service provider and organisation name.
+
+## 8th April 2024
+
+### Changed
+
+- Move `wsl2-*` commands to justfile.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 7th April 2024
+
+### Added
+
+- Add `atuin` for searching shell history.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 4th April 2024
+
+### Updated
+
+- Update `opdavies.nvim` to the latest version.
+
+## 3rd April 2024
+
+### Changed
+
+- Enable smart gaps in sway.
+
+## 1st April 2024
+
+### Changed
+
+- Remove support for `.tmuxinator.yml` files in `bin/t`.
+
+## 31st March 2024
+
+### Added
+
+- Re-add autotiling with sway.
+
+### Changed
+
+- Use MesloLGSDZ Nerd Font Mono as the default monospace font.
+
+### Updated
+
+- Update `opdavies.nvim` to the latest version.
+
+---
+
+## 30th March 2024
+
+### Added
+
+- Add a keybinding to open Thunar.
+- Add support for `.tmuxinator.yaml` files to `bin/t`.
+
+### Changed
+
+- Switch `awscli2` back to unstable.
+- Replace `.tmux` with `tmuxinator`.
+
+## 29th March 2024
+
+### Changed
+
+- Remove flake parts from `flake.nix`.
+
+## 26th March 2024
+
+### Added
+
+- Add `tmuxinator`.
+
+### Changed
+
+- Use a `.ignored/.tmuxinator.yml` file, if it exists.
+- Simplify `nixos-*` recipes in `justfile`.
+- Configure gtk.
+
+### Updated
+
+- Update `opdavies.nvim` to the latest version.
+
+## 25th March 2024
+
+### Changed
+
+- Switch back to Wayland and Sway.
+- Format with `nixfmt`.
+
+### Fixed
+
+- Fix `awscli2` build error.
+
+### Updated
+
+- Update flake lock dependencies.
+
+## 22nd March 2024
+
+### Added
+
+- Re-add `autotiling`.
+
+### Changed
+
+- Enable floating windows by default for Zoom.
+- Replace `watchexec` with `entr`.
+
 ## 20th March 2024
 
 ### Removed
@@ -77,7 +503,7 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 * Add an i3 keybinding to open `thunar`.
 * Set the default i3 workspace.
 
-## Changed
+### Changed
 
 * Use `rofi` instead of `dmenu`.
 
