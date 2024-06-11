@@ -10,6 +10,7 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 
 ### Changed
 
+- Updated background colour in the tmux status bar.
 - Switch from NixOS unstable to 24.05.
 
 ## 10th June 2024
