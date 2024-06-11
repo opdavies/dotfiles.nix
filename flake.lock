@@ -24,31 +24,32 @@
         ]
       },
       "locked": {
-        "lastModified": 1717931644,
-        "narHash": "sha256-Sz8Wh9cAiD5FhL8UWvZxBfnvxETSCVZlqWSYWaCPyu0=",
+        "lastModified": 1717527182,
+        "narHash": "sha256-vWSkg6AMok1UUQiSYVdGMOXKD2cDFnajITiSi0Zjd1A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3d65009effd77cb0d6e7520b68b039836a7606cf",
+        "rev": "845a5c4c073f74105022533907703441e0464bc3",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-24.05",
         "repo": "home-manager",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1717786204,
-        "narHash": "sha256-4q0s6m0GUcN7q+Y2DqD27iLvbcd1G50T2lv08kKxkSI=",
+        "lastModified": 1717952948,
+        "narHash": "sha256-mJi4/gjiwQlSaxjA6AusXBN/6rQRaPCycR7bd8fydnQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "051f920625ab5aabe37c920346e3e69d7d34400e",
+        "rev": "2819fffa7fa42156680f0d282c60d81e8fb185b7",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
+        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -65,6 +66,22 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1717786204,
+        "narHash": "sha256-4q0s6m0GUcN7q+Y2DqD27iLvbcd1G50T2lv08kKxkSI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "051f920625ab5aabe37c920346e3e69d7d34400e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -95,6 +112,7 @@
         "build-configs": "build-configs",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "opdavies-nvim": "opdavies-nvim"
       }
     }
