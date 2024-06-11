@@ -329,7 +329,7 @@ in
   services.cron = {
     enable = true;
 
-    systemCronJobs = [ "* * * * * opdavies /home/opdavies/.config/bin/notify-battery.sh" ];
+    systemCronJobs = [ "* * * * * opdavies /home/${username}/.local/bin/notify-battery" ];
   };
 
   services.auto-cpufreq.enable = true;

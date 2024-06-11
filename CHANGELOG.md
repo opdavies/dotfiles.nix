@@ -14,6 +14,10 @@ Instead of grouping changes by tag, they are grouped by the date they are releas
 - Updated background colour in the tmux status bar.
 - Switch from NixOS unstable to 24.05.
 
+### Fixed
+
+- Fix battery and charging notifications.
+
 ## 10th June 2024
 
 ### Updated
