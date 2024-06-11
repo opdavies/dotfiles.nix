@@ -316,6 +316,7 @@ in
 
   programs.firefox = {
     enable = true;
+    package = pkgs.firefox-wayland;
     languagePacks = [ "en-GB" ];
     preferences = {
       "intl.accept_languages" = "en-GB, en";
