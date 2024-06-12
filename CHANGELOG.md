@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), but adapt
 
 Instead of grouping changes by tag, they are grouped by the date they are released.
 
+## 12th June 2024
+
+### Added
+
+- Add `move-firefox-screenshots` - a script to move screenshots created in Firefox from my Downloads directory into my screenshots directory as there isn't a Firefox setting for this.
+
 ## 11th June 2024
 
 ### Changed
