@@ -7,14 +7,17 @@ let
 
   script-t = writeShellApplication {
     name = "t";
-    text = ''
-      # Credit to ThePrimeagen.
 
-      set -o nounset
-      set -o pipefail
+    runtimeInputs = with pkgs; [
+      openssl
+      tmux
+    ];
+
+    text = ''
+      # Credit to ThePrimeagen and Jess Archer.
 
       if [[ $# -eq 1 ]]; then
-        selected=$1
+        SELECTED_PATH=$1
       else
         # Get the session name from fuzzy-finding list of directories and generating a
         # tmux-safe version.
@@ -24,28 +27,47 @@ let
           ! -name "*.old"
         )
 
-        selected=$(echo "''${items}" | fzf)
+        SELECTED_PATH=$(echo "''${items}" | fzf)
       fi
 
-      if [[ -z "''${selected}" ]]; then
-        exit 0
+      SESSION_NAME=$(basename "''${SELECTED_PATH}" | sed 's/\./_/g')
+
+      # Attach to an existing session, if one exists.
+      if tmux has-session -t "''${SESSION_NAME}" 2> /dev/null; then
+        tmux attach -t "''${SESSION_NAME}" || tmux switch-client -t "''${SESSION_NAME}"
+        exit
       fi
 
-      session_name=$(basename "''${selected}" | sed 's/\./_/g')
-      session_path="''${selected}"
+      # TODO: support .ignored/.tmux
+      if [[ -x "''${SELECTED_PATH}/.tmux" ]]; then
+        DIGEST="$(openssl sha512 "''${SELECTED_PATH}/.tmux")"
 
-      # Git worktrees.
-      if [[ -e "''${selected}/main" ]]; then
-        session_path="''${selected}/main"
+        # Prompt the first time we see a given .tmux file before running it.
+        if ! grep -q "''${DIGEST}" ~/..tmux.digests 2> /dev/null; then
+          cat "''${SELECTED_PATH}/.tmux"
+
+          read -r -n 1 -p "Trust (and run) this .tmux file? (t = trust, otherwise = skip) "
+
+          if [[ $REPLY =~ ^[Tt]$ ]]; then
+            echo "''${DIGEST}" >> ~/..tmux.digests
+
+            # Create a new session and run the .tmux script.
+            tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
+            (cd "''${SELECTED_PATH}" && "''${SELECTED_PATH}/.tmux" "''${SESSION_NAME}")
+          fi
+        else
+          # Create a new session and run the .tmux script.
+          tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
+          (cd "''${SELECTED_PATH}" && "''${SELECTED_PATH}/.tmux" "''${SESSION_NAME}")
+        fi
       fi
 
-      if tmux has-session -t "''${session_name}" 2> /dev/null; then
-        tmux attach -t "''${session_name}"
+      # If there is no session, create one.
+      if ! tmux has-session -t "''${SESSION_NAME}" 2> /dev/null; then
+        tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
       fi
 
-      tmux new-session -d -s "''${session_name}" -c "''${session_path}"
-
-      tmux switch-client -t "''${session_name}" || tmux attach -t "''${session_name}"
+      tmux switch-client -t "''${SESSION_NAME}" || tmux attach-session -t "''${SESSION_NAME}"
     '';
   };
 in
