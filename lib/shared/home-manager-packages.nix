@@ -3,48 +3,51 @@ let
   php = pkgs.php82;
   phpPackages = pkgs.php82Packages;
 
-  inherit (pkgs) writeShellScriptBin;
+  inherit (pkgs) writeShellApplication;
 
-  script-t = writeShellScriptBin "t" ''
-    # Credit to ThePrimeagen.
+  script-t = writeShellApplication {
+    name = "t";
+    text = ''
+      # Credit to ThePrimeagen.
 
-    set -o nounset
-    set -o pipefail
+      set -o nounset
+      set -o pipefail
 
-    if [[ $# -eq 1 ]]; then
-      selected=$1
-    else
-      # Get the session name from fuzzy-finding list of directories and generating a
-      # tmux-safe version.
-      items=$(find ~/Code/* ~/Code ~ ~/Documents /tmp \
-        -maxdepth 1 -mindepth 1 -type d \
-        ! -name "*-old" \
-        ! -name "*.old"
-      )
+      if [[ $# -eq 1 ]]; then
+        selected=$1
+      else
+        # Get the session name from fuzzy-finding list of directories and generating a
+        # tmux-safe version.
+        items=$(find ~/Code/* ~/Code ~ ~/Documents /tmp \
+          -maxdepth 1 -mindepth 1 -type d \
+          ! -name "*-old" \
+          ! -name "*.old"
+        )
 
-      selected=$(echo "''${items}" | fzf)
-    fi
+        selected=$(echo "''${items}" | fzf)
+      fi
 
-    if [[ -z "''${selected}" ]]; then
-      exit 0
-    fi
+      if [[ -z "''${selected}" ]]; then
+        exit 0
+      fi
 
-    session_name=$(basename "''${selected}" | sed 's/\./_/g')
-    session_path="''${selected}"
+      session_name=$(basename "''${selected}" | sed 's/\./_/g')
+      session_path="''${selected}"
 
-    # Git worktrees.
-    if [[ -e "''${selected}/main" ]]; then
-      session_path="''${selected}/main"
-    fi
+      # Git worktrees.
+      if [[ -e "''${selected}/main" ]]; then
+        session_path="''${selected}/main"
+      fi
 
-    if tmux has-session -t "''${session_name}" 2> /dev/null; then
-      tmux attach -t "''${session_name}"
-    fi
+      if tmux has-session -t "''${session_name}" 2> /dev/null; then
+        tmux attach -t "''${session_name}"
+      fi
 
-    tmux new-session -d -s "''${session_name}" -c "''${session_path}"
+      tmux new-session -d -s "''${session_name}" -c "''${session_path}"
 
-    tmux switch-client -t "''${session_name}" || tmux attach -t "''${session_name}"
-  '';
+      tmux switch-client -t "''${session_name}" || tmux attach -t "''${session_name}"
+    '';
+  };
 in
 with pkgs;
 [

@@ -6,13 +6,16 @@
 }:
 
 let
-  inherit (pkgs) writeShellScriptBin;
+  inherit (pkgs) writeShellApplication;
 
-  script-autostart = writeShellScriptBin "awesome-autostart" ''
-    set -o errexit
+  script-autostart = writeShellApplication {
+    name = "awesome-autostart";
+    text = ''
+      set -o errexit
 
-    ${pkgs.nitrogen}/bin/nitrogen --set-zoom-fill --random "''${HOME}/Pictures/Wallpaper"
-  '';
+      ${pkgs.nitrogen}/bin/nitrogen --set-zoom-fill --random "''${HOME}/Pictures/Wallpaper"
+    '';
+  };
 in
 {
   environment.systemPackages = with pkgs; [
