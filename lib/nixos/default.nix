@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   self,
   username,
 }:
@@ -37,7 +38,14 @@ inputs.nixpkgs.lib.nixosSystem {
       };
     }
 
-    (import ./modules/awesome.nix)
+    (import ./modules/awesome.nix {
+      inherit
+        inputs
+        pkgs
+        self
+        username
+        ;
+    })
     (import ./modules/gnome.nix)
     # (import ./modules/sway.nix { inherit inputs username; })
 

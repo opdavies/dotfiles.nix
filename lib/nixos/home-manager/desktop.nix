@@ -8,7 +8,7 @@
   imports = [
     ./modules/alacritty.nix
     ./modules/autorandr.nix
-    ./modules/awesome.nix
+    # ./modules/awesome.nix
     ./modules/copyq.nix
     ./modules/dunst.nix
     ./modules/espanso.nix

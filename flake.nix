@@ -25,7 +25,14 @@
 
       username = "opdavies";
 
-      mkNixos = import ./lib/nixos { inherit inputs self username; };
+      mkNixos = import ./lib/nixos {
+        inherit
+          inputs
+          pkgs
+          self
+          username
+          ;
+      };
       mkWsl = import ./lib/wsl2 { inherit inputs self username; };
 
       inherit (pkgs) mkShell;
