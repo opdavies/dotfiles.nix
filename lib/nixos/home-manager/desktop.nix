@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ./modules/alacritty.nix
     ./modules/autorandr.nix
     ./modules/awesome.nix
     ./modules/copyq.nix

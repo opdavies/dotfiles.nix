@@ -6,7 +6,7 @@
       # fc-list : family | sort | grep "Nerd Font"
 
       package = pkgs.nerdfonts.override { fonts = [ "Meslo" ]; };
-      size = "14";
+      size = "10";
     };
   };
 }

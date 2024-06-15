@@ -8,7 +8,7 @@ in
 
     tmuxinator.enable = true;
 
-    terminal = "xterm-256color";
+    terminal = "tmux-256color";
 
     extraConfig = ''
       unbind C-b
