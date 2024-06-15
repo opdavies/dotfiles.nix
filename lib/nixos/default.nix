@@ -37,8 +37,9 @@ inputs.nixpkgs.lib.nixosSystem {
       };
     }
 
+    (import ./modules/awesome.nix)
     (import ./modules/gnome.nix)
-    (import ./modules/sway.nix { inherit inputs username; })
+    # (import ./modules/sway.nix { inherit inputs username; })
 
     configuration
     hardwareConfiguration

@@ -86,19 +86,36 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable_2": {
+      "locked": {
+        "lastModified": 1718160348,
+        "narHash": "sha256-9YrUjdztqi4Gz8n3mBuqvCkMo4ojrA6nASwyIKWMpus=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "57d6973abba7ea108bac64ae7629e7431e0199b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "opdavies-nvim": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nixpkgs-2305": "nixpkgs-2305"
+        "nixpkgs-2305": "nixpkgs-2305",
+        "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1718010124,
-        "narHash": "sha256-nnsPTbO4FhNYmm4PlhYjTFqcmnOvuB2OXAOv/8NC7f4=",
+        "lastModified": 1718217733,
+        "narHash": "sha256-gsx71BY4IFk4449YQEhsS+n8NiWRcsxncNhfvYqeewU=",
         "owner": "opdavies",
         "repo": "opdavies.nvim",
-        "rev": "b00cef78afe53a421d6e7115dd8139ccddf01db4",
+        "rev": "2453186ee1c97e5e21f081bd9efa06f3b7ca9682",
         "type": "github"
       },
       "original": {

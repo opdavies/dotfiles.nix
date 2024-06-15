@@ -4,9 +4,9 @@
   services.xserver = {
     desktopManager.gnome.enable = true;
 
-    displayManager.gdm = {
+    displayManager.sddm = {
       enable = true;
-      wayland = true;
+      # wayland = true;
     };
   };
 
