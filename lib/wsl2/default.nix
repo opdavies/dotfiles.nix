@@ -29,7 +29,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
     {
       imports = [ shared-config ];
 
-      home.packages = shared-packages;
+      home.packages = shared-packages ++ [ pkgs.wsl-open ];
 
       home.sessionVariables = {
         EDITOR = "nvim";

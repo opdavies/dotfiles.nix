@@ -50,6 +50,7 @@ with pkgs;
   virtualenv
   wget
   xcp
+  xdg-utils
   xh
   yarn
 ]
