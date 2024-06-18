@@ -156,8 +156,6 @@ in
       ddev
       just
       mkcert
-      mob
-      simple-http-server
       ttyper
       yt-dlp
     ]

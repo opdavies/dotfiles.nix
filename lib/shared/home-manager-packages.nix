@@ -36,11 +36,13 @@ with pkgs;
   inotify-tools
   jq
   lua
+  mob
   mysql
   php
   phpPackages.composer
   pv
   rustywind
+  simple-http-server
   tldr
   tree
   tree-sitter
