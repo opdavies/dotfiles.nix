@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   home.file.".gitmessage".text = ''
 
@@ -136,4 +138,6 @@
       };
     };
   };
+
+  home.packages = with pkgs; [ git-instafix ];
 }
