@@ -7,6 +7,11 @@
     dotDir = ".config/zsh";
 
     shellAliases = {
+      "-" = "cd -";
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      "....." = "cd ../../../..";
       dea = "direnv allow";
       dee = "direnv edit";
       cat = "bat";
