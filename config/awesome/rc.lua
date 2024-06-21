@@ -57,7 +57,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
-awful.spawn.with_shell "awesome-autorun"
+awful.spawn.with_shell "awesome-autostart"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -73,7 +73,7 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-  awful.layout.suit.max,
+  -- awful.layout.suit.max,
   awful.layout.suit.tile,
   awful.layout.suit.floating,
   -- awful.layout.suit.tile.left,
@@ -354,6 +354,10 @@ globalkeys = gears.table.join(
     awful.spawn "thunar"
   end, { description = "run browser", group = "launcher" }),
 
+  awful.key({ modkey, "Shift" }, "y", function()
+    awful.spawn "copyq toggle"
+  end, { description = "run copyq", group = "launcher" }),
+
   awful.key({ modkey }, "x", function()
     awful.prompt.run {
       prompt = "Run Lua code: ",
@@ -530,7 +534,7 @@ awful.rules.rules = {
       },
     },
 
-    properties = { floating = true },
+    properties = { floating = true, placement = awful.placement.centered },
   },
 
   -- Add titlebars to normal clients and dialogs
@@ -546,7 +550,7 @@ awful.rules.rules = {
 
   { rule = { class = "kdenlive" }, properties = { tag = "7", fullscreen = true } },
 
-  { rule = { class = "0ad" }, properties = { tag = "8" } },
+  { rule = { class = "0ad" }, properties = { tag = "8", fullscreen = true } },
 
   { rule = { class = "Slack" }, properties = { tag = "9" } },
   { rule = { class = "discord" }, properties = { tag = "9" } },
