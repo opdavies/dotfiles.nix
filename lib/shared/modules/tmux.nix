@@ -41,7 +41,7 @@ in
       set-option -g status-left " "
       set-option -g status-right " #{session_name} "
       set-option -g status-right-length 100
-      set-option -g status-style "fg=#7C7D83 bg=#000000"
+      set-option -g status-style "fg=#7C7D83 bg=default"
       set-option -g window-status-activity-style none
       set-option -g window-status-current-format "#{window_index}:#{pane_current_command}#{window_flags} "
       set-option -g window-status-current-style "fg=#E9E9EA"
