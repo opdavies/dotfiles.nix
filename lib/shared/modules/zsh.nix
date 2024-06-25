@@ -2,82 +2,24 @@
 
 {
   programs.zsh = {
-    enable = true;
-    enableCompletion = false;
     dotDir = ".config/zsh";
+    enable = true;
+    enableCompletion = true;
 
+    # Aliases (which don't expand).
     shellAliases = {
       "-" = "cd -";
       ".." = "cd ..";
       "..." = "cd ../..";
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
-      dea = "direnv allow";
-      dee = "direnv edit";
       cat = "bat";
-      cs = "create-script";
-      daily = "run create-daily next";
-      ls = "lsd";
       run = "./run";
       s = "secrets";
       secrets = ''doppler --project "$(whoami)" run'';
-      switch = "run nixos nixedo switch";
-      sz = "source ~/.config/zsh/.zshrc";
       tag = "tag-release";
       wt = "git worktree";
       vss = "LC_ALL=C sort --unique ~/Code/personal/opdavies.nvim/spell/en.utf-8.add --output ~/Code/personal/opdavies.nvim/spell/en.utf-8.add";
-
-      # tmux
-      ta = "tmux attach";
-      tl = "tmux list-sessions";
-      tk = "tmux kill-session";
-
-      # Docker and Docker Compose.
-      dk = "docker";
-      dkp = "docker ps";
-      dkpa = "docker ps -a";
-      dkpaq = "docker ps -a -q";
-      dkb = "docker build -t";
-      dks = "docker start";
-      dkt = "docker stop";
-      dkrm = "docker rm";
-      dkri = "docker rmi";
-      dke = "docker exec -ti";
-      dkl = "docker logs -f";
-      dki = "docker images";
-      dkpu = "docker pull";
-      dkph = "docker push";
-      dkbnc = "docker build --no-cache -t";
-      dkr = "docker run --rm";
-      dkrti = "docker run --rm -ti";
-      dkc = "docker compose";
-      dkcb = "docker compose build";
-      dkcu = "docker compose up";
-      dkclean = "docker ps -q -a -f status=exited | xargs -r docker rm && docker images -q -f dangling=true | xargs -r docker rmi";
-
-      # run scripts.
-      r = "run";
-      rc = "run composer";
-      rd = "run drush";
-      rdcr = "run drush cr";
-      rdup = "run drush updb -y";
-      rdce = "run drush config:export -y";
-      rdci = "run drush config:import -y";
-      rduli = "run drush uli";
-    };
-
-    shellGlobalAliases = {
-      A1 = "| awk '{print $1}'";
-      Fj = "| jq .";
-      Fy = "| yq .";
-      G = "| grep";
-      GH = "| grep HTTP";
-      Gi = "| grep -i";
-      H2 = "| head -n 20";
-      H = "| head";
-      L = "| less";
-      V = "| vim -";
-      X = "| xargs -I1";
     };
 
     initExtra = ''
@@ -128,7 +70,6 @@
       }
 
       # Plugins
-      source "''${ZPLUG_REPOS}/MenkeTechnologies/zsh-expand/zsh-expand.plugin.zsh"
       source "''${ZPLUG_REPOS}/joshskidmore/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh"
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh"
       source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh"
@@ -182,42 +123,83 @@
           name = "plugin/git";
           tags = [ "from:oh-my-zsh" ];
         }
+
         {
           name = "plugin/vi-mode";
           tags = [ "from:oh-my-zsh" ];
         }
 
-        { name = "MenkeTechnologies/zsh-expand"; }
+        { name = "olets/zsh-abbr"; }
+
         { name = "zsh-users/zsh-completions"; }
         { name = "zsh-users/zsh-syntax-highlighting"; }
       ];
     };
   };
 
-  programs.zsh.localVariables = {
-    ZPWR_EXPAND = true;
-    ZPWR_EXPAND_BLACKLIST = [
-      "cat"
-      "cs"
-      "daily"
-      "full-system-clean"
-      "full-system-repair"
-      "full-system-upgrade"
-      "list-system-configurations"
-      "set-default-boot"
-      "system-rebuld"
-      "system-repair"
-      "system-upgrade-information"
-      "ls"
-      "run"
-      "s"
-      "secrets"
-      "sz"
-      "tag"
-      "vss"
-      "wt"
-    ];
-    ZPWR_EXPAND_NATIVE = true;
-    ZPWR_EXPAND_SECOND_POSITION = true;
-  };
+  home.file.".config/zsh-abbr/user-abbreviations".text = ''
+    abbr dea="direnv allow"
+    abbr dee="direnv edit"
+    abbr cs="create-script"
+    abbr daily="run create-daily next"
+    abbr switch="run nixos nixedo switch"
+    abbr sz="source ~/.config/zsh/.zshrc"
+
+    abbr g="git"
+    abbr ga="git add"
+    abbr gap="git add -p"
+    abbr gc="git commit"
+    abbr gri="git rebase -i"
+    abbr gs="git status
+
+    # tmux
+    abbr ta="tmux attach"
+    abbr tl="tmux list-sessions"
+    abbr tk="tmux kill-session"
+
+    # Docker and Docker Compose.
+    abbr dk="docker"
+    abbr dkp="docker ps"
+    abbr dkpa="docker ps -a"
+    abbr dkpaq="docker ps -a -q"
+    abbr dkb="docker build -t"
+    abbr dks="docker start"
+    abbr dkt="docker stop"
+    abbr dkrm="docker rm"
+    abbr dkri="docker rmi"
+    abbr dke="docker exec -ti"
+    abbr dkl="docker logs -f"
+    abbr dki="docker images"
+    abbr dkpu="docker pull"
+    abbr dkph="docker push"
+    abbr dkbnc="docker build --no-cache -t"
+    abbr dkr="docker run --rm"
+    abbr dkrti="docker run --rm -ti"
+    abbr dkc="docker compose"
+    abbr dkcb="docker compose build"
+    abbr dkcu="docker compose up"
+    abbr dkclean="docker ps -q -a -f status=exited | xargs -r docker rm && docker images -q -f dangling=true | xargs -r docker rmi"
+
+    # run scripts.
+    abbr r="run"
+    abbr rc="run composer"
+    abbr rd="run drush"
+    abbr rdcr="run drush cr"
+    abbr rdup="run drush updb -y"
+    abbr rdce="run drush config:export -y"
+    abbr rdci="run drush config:import -y"
+    abbr rduli="run drush uli"
+
+    abbr -g A1="| awk '{print $1}'"
+    abbr -g Fj="| jq ."
+    abbr -g Fy="| yq ."
+    abbr -g G="| grep"
+    abbr -g GH="| grep HTTP"
+    abbr -g Gi="| grep -i"
+    abbr -g H2="| head -n 20"
+    abbr -g H="| head"
+    abbr -g L="| less"
+    abbr -g V="| vim -"
+    abbr -g X="| xargs -I1"
+  '';
 }
