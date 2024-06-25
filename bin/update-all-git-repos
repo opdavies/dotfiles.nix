@@ -6,7 +6,7 @@
 set -o errexit
 set -o nounset
 
-dirs=$(find ~/Code/personal ~/Code/work -mindepth 1 -maxdepth 2 -type f -name .git -not -path '*/*.old/*')
+dirs=$(find ~/Code/personal ~/Code/work -mindepth 1 -maxdepth 2 -type d -name .git -not -path '*/*.old/*')
 
 for dir in $dirs; do
   repo_path="${dir%/.git}"
