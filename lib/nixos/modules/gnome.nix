@@ -1,13 +1,10 @@
 { pkgs, ... }:
 
 {
-  services.xserver = {
-    desktopManager.gnome.enable = true;
+  services = {
+    displayManager.sddm.enable = true;
 
-    displayManager.sddm = {
-      enable = true;
-      # wayland = true;
-    };
+    xserver.desktopManager.gnome.enable = true;
   };
 
   environment.systemPackages = with pkgs; [ networkmanagerapplet ];
