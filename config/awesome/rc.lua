@@ -354,6 +354,10 @@ globalkeys = gears.table.join(
     awful.spawn "thunar"
   end, { description = "run browser", group = "launcher" }),
 
+  awful.key({ modkey, "Shift" }, "s", function()
+    awful.spawn "flameshot gui"
+  end, { description = "run flameshot", group = "launcher" }),
+
   awful.key({ modkey, "Shift" }, "y", function()
     awful.spawn "copyq toggle"
   end, { description = "run copyq", group = "launcher" }),
