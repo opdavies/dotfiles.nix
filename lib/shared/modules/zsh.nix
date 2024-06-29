@@ -129,6 +129,7 @@
           tags = [ "from:oh-my-zsh" ];
         }
 
+        { name = "MichaelAquilina/zsh-auto-notify"; }
         { name = "olets/zsh-abbr"; }
 
         { name = "zsh-users/zsh-completions"; }
