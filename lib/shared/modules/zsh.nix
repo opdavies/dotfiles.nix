@@ -151,7 +151,7 @@
     abbr gap="git add -p"
     abbr gc="git commit"
     abbr gri="git rebase -i"
-    abbr gs="git status
+    abbr gs="git status"
 
     # tmux
     abbr ta="tmux attach"
