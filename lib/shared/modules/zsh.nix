@@ -122,22 +122,11 @@
         { name = "zsh-users/zsh-syntax-highlighting"; }
       ];
     };
+
+    sessionVariables = {
+      AUTO_NOTIFY_IGNORE = import ./zsh/auto-notify-ignore.nix;
+    };
   };
 
   home.file.".config/zsh-abbr/user-abbreviations".text = builtins.readFile ./zsh/abbreviations.zsh;
-
-  home.sessionVariables = {
-    AUTO_NOTIFY_IGNORE = builtins.concatStringsSep " " [
-      "git commit"
-      "htop"
-      "less"
-      "man"
-      "more"
-      "nix develop"
-      "nvim"
-      "ssh"
-      "tldr"
-      "watch"
-    ];
-  };
 }

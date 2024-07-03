@@ -1,0 +1,17 @@
+[
+  "atuin"
+  "bat"
+  "cat"
+  "docker"
+  "git"
+  "htop"
+  "less"
+  "man"
+  "more"
+  "nix develop"
+  "nvim"
+  "ssh"
+  "t"
+  "tldr"
+  "watch"
+]
