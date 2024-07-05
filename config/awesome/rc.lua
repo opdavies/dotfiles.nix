@@ -391,10 +391,44 @@ globalkeys = gears.table.join(
       history_path = awful.util.get_cache_dir() .. "/history_eval",
     }
   end, { description = "lua execute prompt", group = "awesome" }),
+
   -- Menubar
   awful.key({ modkey }, "p", function()
     menubar.show()
-  end, { description = "show the menubar", group = "launcher" })
+  end, { description = "show the menubar", group = "launcher" }),
+
+  -- Sound and volume keys
+  awful.key({}, "XF86AudioRaiseVolume", function()
+    awful.util.spawn "amixer -D pulse set Master '1000+'"
+  end),
+
+  awful.key({}, "XF86AudioLowerVolume", function()
+    awful.util.spawn "amixer -D pulse set Master '1000-'"
+  end),
+
+  awful.key({}, "XF86AudioMute", function()
+    awful.util.spawn "amixer -D pulse set Master toggle"
+  end),
+
+  awful.key({ "Shift" }, "XF86AudioRaiseVolume", function()
+    awful.util.spawn "pamixer -i 10"
+  end),
+
+  awful.key({ "Shift" }, "XF86AudioLowerVolume", function()
+    awful.util.spawn "pamixer -d 10"
+  end),
+
+  awful.key({}, "XF86AudioMicMute", function()
+    awful.util.spawn "pamixer --mute"
+  end),
+
+  awful.key({}, "XF86MonBrightnessDown", function()
+    awful.util.spawn "brightnessctl specific '10%-'"
+  end),
+
+  awful.key({}, "XF86MonBrightnessUp", function()
+    awful.util.spawn "brightnessctl specific '+10%'"
+  end)
 )
 
 clientkeys = gears.table.join(
