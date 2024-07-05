@@ -36,8 +36,8 @@ in
       bind -n C-Up resize-pane -U 5
 
       # Status line customisation
-      set-option -g status-left " "
-      set-option -g status-right " #{session_name} "
+      set-option -g status-left ""
+      set-option -g status-right " #{session_name}"
       set-option -g status-right-length 100
       set-option -g status-style "fg=#7C7D83 bg=default"
       set-option -g window-status-activity-style none
