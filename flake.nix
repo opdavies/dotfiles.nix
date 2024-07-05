@@ -9,7 +9,7 @@
 
     opdavies-nvim.inputs.nixpkgs.follows = "nixpkgs";
     opdavies-nvim.url = "github:opdavies/opdavies.nvim";
-    # opdavies-nvim.url = "path:/home/opdavies/Code/personal/opdavies.nvim";
+    # opdavies-nvim.url = "path:/home/opdavies/Code/opdavies.nvim";
   };
 
   outputs =

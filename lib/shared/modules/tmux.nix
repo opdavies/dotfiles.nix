@@ -97,8 +97,8 @@ in
       bind-key -T copy-mode-vi 'C-\' select-pane -l
 
       bind-key -r F new-window t
-      bind-key -r D run-shell "t ~/Code/github.com/opdavies/dotfiles.nix"
-      bind-key -r N run-shell "t ~/Code/github.com/opdavies/opdavies.nvim"
+      bind-key -r D run-shell "t ~/Code/dotfiles.nix"
+      bind-key -r N run-shell "t ~/Code/opdavies.nvim"
       bind-key -r W run-shell "t ~/Documents/wiki"
 
       set -g @resurrect-strategy-nvim 'session'
