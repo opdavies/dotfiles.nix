@@ -21,15 +21,6 @@
 
   '';
 
-  xdg.configFile."git/ignore".text = ''
-    /.direnv/
-    /.ignored/
-    /.issue-id
-    /.phpactor.json
-    /notes
-    /todo
-  '';
-
   programs = {
     git = {
       enable = true;
@@ -92,6 +83,16 @@
         ureset = "!git reset --hard $(git upstream)";
         worktrees = "worktree list";
       };
+
+      ignores = [
+        "/.ddev/providers/"
+        "/.direnv/"
+        "/.ignored/"
+        "/.issue-id"
+        "/.phpactor.json"
+        "/notes"
+        "/todo"
+      ];
 
       extraConfig = {
         branch = {
