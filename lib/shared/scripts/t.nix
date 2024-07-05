@@ -33,7 +33,7 @@
       exit
     fi
 
-    # TODO: support .ignored/.tmux
+    # TODO: refactor to a function that works for both .tmux and .ignored/.tmux files.
     if [[ -x "''${SELECTED_PATH}/.tmux" ]]; then
       DIGEST="$(openssl sha512 "''${SELECTED_PATH}/.tmux")"
 
@@ -49,6 +49,27 @@
           # Create a new session and run the .tmux script.
           tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
           (cd "''${SELECTED_PATH}" && "''${SELECTED_PATH}/.tmux" "''${SESSION_NAME}")
+        fi
+      else
+        # Create a new session and run the .tmux script.
+        tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
+        (cd "''${SELECTED_PATH}" && "''${SELECTED_PATH}/.tmux" "''${SESSION_NAME}")
+      fi
+    elif [[ -x "''${SELECTED_PATH}/.ignored/.tmux" ]]; then
+      DIGEST="$(openssl sha512 "''${SELECTED_PATH}/.ignored/.tmux")"
+
+      # Prompt the first time we see a given .ignored/.tmux file before running it.
+      if ! grep -q "''${DIGEST}" ~/..ignored/.tmux.digests 2> /dev/null; then
+        cat "''${SELECTED_PATH}/.ignored/.tmux"
+
+        read -r -n 1 -p "Trust (and run) this .tmux file? (t = trust, otherwise = skip) "
+
+        if [[ $REPLY =~ ^[Tt]$ ]]; then
+          echo "''${DIGEST}" >> ~/..tmux.digests
+
+          # Create a new session and run the .ignored/.tmux script.
+          tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
+          (cd "''${SELECTED_PATH}" && "''${SELECTED_PATH}/.ignored/.tmux" "''${SESSION_NAME}")
         fi
       else
         # Create a new session and run the .tmux script.
