@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 
 {
   home.file.".gitmessage".text = ''
@@ -140,5 +140,5 @@
     };
   };
 
-  home.packages = with pkgs; [ git-instafix ];
+  home.packages = with pkgsUnstable; [ git-instafix ];
 }

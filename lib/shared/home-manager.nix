@@ -4,6 +4,9 @@
   username,
   self,
 }:
+let
+  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
+in
 {
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -13,13 +16,13 @@
   programs.home-manager.enable = true;
 
   imports = [
+    (import ./modules/git.nix { inherit inputs pkgs pkgsUnstable; })
     (import ./modules/neovim.nix { inherit inputs; })
     ./modules/atuin.nix
     ./modules/bat.nix
     ./modules/bin.nix
     ./modules/direnv.nix
     ./modules/fzf.nix
-    ./modules/git.nix
     ./modules/lsd.nix
     ./modules/nnn.nix
     ./modules/phpactor.nix
