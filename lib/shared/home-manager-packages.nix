@@ -13,8 +13,6 @@ with pkgs;
 [
   scripts.t
 
-  inputs.build-configs.packages.${pkgs.system}.default
-
   awscli2
   bitwarden-cli
   bottom
