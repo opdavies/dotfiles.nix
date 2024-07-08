@@ -18,6 +18,7 @@
       # tmux-safe version.
       items=$(find ~/Code /tmp \
         -maxdepth 1 -mindepth 1 -type d \
+        ! -name "_archive" \
         ! -name "*-old" \
         ! -name "*.old"
       )
