@@ -55,11 +55,6 @@
         command ${pkgs.ttyper}/bin/ttyper --language english1000 --words 50 "''${@}"
       }
 
-      # Plugins
-      source "''${ZPLUG_REPOS}/joshskidmore/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh"
-      source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh"
-      source "''${ZPLUG_REPOS}/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh"
-
       # Case insensitive autocompletion.
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
       autoload -Uz compinit && compinit
