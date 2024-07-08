@@ -46,6 +46,7 @@ inputs.nixpkgs.lib.nixosSystem {
         username
         ;
     })
+    (import ./modules/autorandr.nix)
     (import ./modules/gnome.nix)
     # (import ./modules/sway.nix { inherit inputs username; })
 
