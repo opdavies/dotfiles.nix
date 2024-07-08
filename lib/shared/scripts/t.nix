@@ -11,79 +11,76 @@
   text = ''
     # Credit to ThePrimeagen and Jess Archer.
 
-    if [[ $# -eq 1 ]]; then
-      SELECTED_PATH=$1
-    else
-      # Get the session name from fuzzy-finding list of directories and generating a
-      # tmux-safe version.
-      items=$(find ~/Code /tmp \
-        -maxdepth 1 -mindepth 1 -type d \
-        ! -name "_archive" \
-        ! -name "*-old" \
-        ! -name "*.old"
-      )
+    function execute_tmux_file {
+      local tmux_file="$1"
+      selected_path="$2"
+      session_name="$3"
 
-      SELECTED_PATH=$(echo "''${items}" | fzf)
-    fi
-
-    SESSION_NAME=$(basename "''${SELECTED_PATH}" | sed 's/\./_/g')
-
-    # Attach to an existing session, if one exists.
-    if tmux has-session -t "''${SESSION_NAME}" 2> /dev/null; then
-      tmux attach -t "''${SESSION_NAME}" || tmux switch-client -t "''${SESSION_NAME}"
-      exit
-    fi
-
-    # TODO: refactor to a function that works for both .tmux and .ignored/.tmux files.
-    if [[ -x "''${SELECTED_PATH}/.tmux" ]]; then
-      DIGEST="$(openssl sha512 "''${SELECTED_PATH}/.tmux")"
+      DIGEST="$(openssl sha512 "$tmux_file")"
 
       # Prompt the first time we see a given .tmux file before running it.
-      if ! grep -q "''${DIGEST}" ~/..tmux.digests 2> /dev/null; then
-        cat "''${SELECTED_PATH}/.tmux"
+      if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
+        cat "$tmux_file"
 
         read -r -n 1 -p "Trust (and run) this .tmux file? (t = trust, otherwise = skip) "
 
         if [[ $REPLY =~ ^[Tt]$ ]]; then
-          echo "''${DIGEST}" >> ~/..tmux.digests
+          echo "$DIGEST" >> ~/..tmux.digests
 
-          # Create a new session and run the .tmux script.
-          tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
-          (cd "''${SELECTED_PATH}" && "''${SELECTED_PATH}/.tmux" "''${SESSION_NAME}")
+          create_session_and_run_tmux_file "$tmux_file" "$selected_path" "$session_name"
         fi
       else
-        # Create a new session and run the .tmux script.
-        tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
-        (cd "''${SELECTED_PATH}" && "''${SELECTED_PATH}/.tmux" "''${SESSION_NAME}")
+        create_session_and_run_tmux_file "$tmux_file" "$selected_path" "$session_name"
       fi
-    elif [[ -x "''${SELECTED_PATH}/.ignored/.tmux" ]]; then
-      DIGEST="$(openssl sha512 "''${SELECTED_PATH}/.ignored/.tmux")"
+    }
 
-      # Prompt the first time we see a given .ignored/.tmux file before running it.
-      if ! grep -q "''${DIGEST}" ~/..ignored/.tmux.digests 2> /dev/null; then
-        cat "''${SELECTED_PATH}/.ignored/.tmux"
+    function create_session_and_run_tmux_file {
+      tmux_file="$1"
+      selected_path="$2"
+      session_name="$3"
 
-        read -r -n 1 -p "Trust (and run) this .tmux file? (t = trust, otherwise = skip) "
+      tmux new-session -d -c "$selected_path" -s "$session_name"
+      (cd "$selected_path" && "$tmux_file" "$session_name")
+    }
 
-        if [[ $REPLY =~ ^[Tt]$ ]]; then
-          echo "''${DIGEST}" >> ~/..tmux.digests
-
-          # Create a new session and run the .ignored/.tmux script.
-          tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
-          (cd "''${SELECTED_PATH}" && "''${SELECTED_PATH}/.ignored/.tmux" "''${SESSION_NAME}")
-        fi
+    function main {
+      if [[ $# -eq 1 ]]; then
+        selected_path=$1
       else
-        # Create a new session and run the .tmux script.
-        tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
-        (cd "''${SELECTED_PATH}" && "''${SELECTED_PATH}/.tmux" "''${SESSION_NAME}")
+        # Get the session name from fuzzy-finding list of directories and generating a
+        # tmux-safe version.
+        items=$(find ~/Code /tmp \
+          -maxdepth 1 -mindepth 1 -type d \
+          ! -name "_archive" \
+          ! -name "*-old" \
+          ! -name "*.old"
+        )
+
+        selected_path=$(echo "''${items}" | fzf)
       fi
-    fi
 
-    # If there is no session, create one.
-    if ! tmux has-session -t "''${SESSION_NAME}" 2> /dev/null; then
-      tmux new-session -d -c "''${SELECTED_PATH}" -s "''${SESSION_NAME}"
-    fi
+      session_name=$(basename "$selected_path" | sed 's/\./_/g')
 
-    tmux switch-client -t "''${SESSION_NAME}" || tmux attach-session -t "''${SESSION_NAME}"
+      # Attach to an existing session, if one exists.
+      if tmux has-session -t "$session_name" 2> /dev/null; then
+        tmux attach -t "$session_name" || tmux switch-client -t "$session_name"
+        exit
+      fi
+
+      if [[ -x "$selected_path/.tmux" ]]; then
+        execute_tmux_file "$selected_path/.tmux" "$selected_path" "$session_name"
+      elif [[ -x "$selected_path/.ignored/.tmux" ]]; then
+        execute_tmux_file "$selected_path/.ignored/.tmux" "$selected_path" "$session_name"
+      fi
+
+      # If there is no session, create one.
+      if ! tmux has-session -t "$session_name" 2> /dev/null; then
+        tmux new-session -d -c "$selected_path" -s "$session_name"
+      fi
+
+      tmux switch-client -t "$session_name" || tmux attach-session -t "$session_name"
+    }
+
+    main "$@"
   '';
 }
