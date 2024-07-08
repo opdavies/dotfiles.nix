@@ -33,7 +33,7 @@
       inherit (pkgs) mkShell;
     in
     {
-      packages.${system}.default = mkShell { buildInputs = with pkgs; [ just ]; };
+      packages.${system}.default = mkShell { buildInputs = with pkgs; [ bashInteractive ]; };
 
       formatter.${system} = pkgs.nixfmt-rfc-style;
 
