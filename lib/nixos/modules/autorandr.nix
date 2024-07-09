@@ -1,14 +1,4 @@
-{ username, ... }:
 {
-  # xdg.configFile."autorandr/postswitch" = {
-  #   executable = true;
-  #   text = ''
-  #     #!/usr/bin/env bash
-  #
-  #     feh --randomize --bg-scale /home/${username}/Pictures/Wallpaper/*;
-  #   '';
-  # };
-
   services.autorandr = {
     enable = true;
 
@@ -49,5 +39,9 @@
           };
         };
       };
+
+    hooks.postswitch = {
+      "reload-awesome" = ''echo 'awesome.restart()' | awesome-client'';
+    };
   };
 }
