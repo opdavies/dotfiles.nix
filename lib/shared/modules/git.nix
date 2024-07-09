@@ -34,6 +34,11 @@
         }
       ];
 
+      difftastic = {
+        background = "dark";
+        enable = true;
+      };
+
       aliases = {
         aa = "add --all";
         assume = "update-index --assume-unchanged";
@@ -112,7 +117,6 @@
           pager = "delta";
         };
         delta.line-numbers = true;
-        diff.tool = "vimdiff";
         fetch.prune = true;
         gpg.format = "ssh";
         grep.lineNumber = true;
