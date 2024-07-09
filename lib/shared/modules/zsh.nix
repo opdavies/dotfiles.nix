@@ -25,14 +25,6 @@
         fi
       }
 
-      just() {
-        if [[ -f .ignored/justfile ]]; then
-          ${pkgs.just}/bin/just --justfile .ignored/justfile "''${@}"
-        else
-          ${pkgs.just}/bin/just "''${@}"
-        fi
-      }
-
       til() {
         if [[ ''${#} < 1 ]]; then
           echo "No text was provided."
