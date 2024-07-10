@@ -125,11 +125,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1720551285,
-        "narHash": "sha256-qbnVIBsTPUvTK0/IJLI/BfGwrl2y6y83TNnhF1zIz2w=",
+        "lastModified": 1720573858,
+        "narHash": "sha256-J8Fk4zcFpUv68IF8Zy4OOQ+klnkVLwNxc9rWXh2HHf4=",
         "owner": "opdavies",
         "repo": "opdavies.nvim",
-        "rev": "70c8eade7c8708dd562d34e1efff364121db6736",
+        "rev": "40c873756c39c9d449e584b53ca2586071c5b2a5",
         "type": "github"
       },
       "original": {
