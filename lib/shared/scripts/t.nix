@@ -49,7 +49,7 @@
       else
         # Get the session name from fuzzy-finding list of directories and generating a
         # tmux-safe version.
-        items=$(find ~/Code ~/Documents /tmp \
+        items=$(find "$REPOS" ~/Documents /tmp \
           -maxdepth 1 -mindepth 1 -type d \
           ! -name "_archive" \
           ! -name "*-old" \
