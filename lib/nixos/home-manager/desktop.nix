@@ -11,6 +11,7 @@
     ./modules/espanso.nix
     ./modules/feh.nix
     ./modules/flameshot.nix
+    ./modules/gtk.nix
     ./modules/mpv.nix
   ];
 }
