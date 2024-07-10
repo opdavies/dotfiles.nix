@@ -498,6 +498,11 @@ for i = 1, 9 do
       end
     end, { description = "view tag #" .. i, group = "tag" }),
 
+    awful.key({ modkey }, "b", function()
+      local myscreen = awful.screen.focused()
+      myscreen.mywibox.visible = not myscreen.mywibox.visible
+    end, { description = "toggle statusbar" }),
+
     -- Toggle tag display.
     awful.key({ modkey, "Control" }, "#" .. i + 9, function()
       local screen = awful.screen.focused()
