@@ -162,6 +162,7 @@ in
     ++ pkgs.lib.optionals desktop [
       acpi
       arandr
+      backintime
       brightnessctl
       configure-gtk
       cpufrequtils
