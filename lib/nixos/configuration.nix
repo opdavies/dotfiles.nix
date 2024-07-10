@@ -164,6 +164,7 @@ in
       arandr
       brightnessctl
       configure-gtk
+      cpufrequtils
       dunst
       ffmpegthumbnailer
       libnotify
