@@ -89,16 +89,11 @@
           tags = [ "from:oh-my-zsh" ];
         }
 
-        { name = "MichaelAquilina/zsh-auto-notify"; }
         { name = "olets/zsh-abbr"; }
 
         { name = "zsh-users/zsh-completions"; }
         { name = "zsh-users/zsh-syntax-highlighting"; }
       ];
-    };
-
-    sessionVariables = {
-      AUTO_NOTIFY_IGNORE = import ./zsh/auto-notify-ignore.nix;
     };
   };
 
