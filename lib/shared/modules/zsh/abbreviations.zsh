@@ -9,6 +9,8 @@ abbr g="git"
 abbr ga="git add"
 abbr gap="git add -p"
 abbr gc="git commit"
+abbr gpl="git pull"
+abbr gps="git push"
 abbr gri="git rebase -i"
 abbr gs="git status"
 
