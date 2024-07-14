@@ -24,9 +24,13 @@ in
     nitrogen
   ];
 
-  services.xserver.windowManager.awesome = {
-    enable = true;
-    noArgb = true;
+  services.xserver = {
+    displayManager.lightdm.enable = true;
+
+    windowManager.awesome = {
+      enable = true;
+      noArgb = true;
+    };
   };
 
   home-manager.users.${username} = {
