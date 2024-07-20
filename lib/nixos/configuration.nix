@@ -166,10 +166,8 @@ in
       brightnessctl
       configure-gtk
       cpufrequtils
-      dunst
       ffmpegthumbnailer
       libnotify
-      obsidian
       pocket-casts
       rclone
       rclone-browser
