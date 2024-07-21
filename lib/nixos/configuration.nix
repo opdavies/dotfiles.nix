@@ -168,6 +168,7 @@ in
       cpufrequtils
       ffmpegthumbnailer
       libnotify
+      pmutils
       pocket-casts
       rclone
       rclone-browser
