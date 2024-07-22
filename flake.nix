@@ -13,39 +13,49 @@
   };
 
   outputs =
-    { nixpkgs, self, ... }@inputs:
+    {
+      nixpkgs,
+      home-manager,
+      self,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
 
       username = "opdavies";
 
-      mkNixos = import ./lib/nixos {
-        inherit
-          inputs
-          pkgs
-          self
-          username
-          ;
-      };
       mkWsl = import ./lib/wsl2 { inherit inputs self username; };
 
-      inherit (pkgs) mkShell;
+      specialArgs = inputs // {
+        inherit system;
+      };
+
+      shared-modules = [
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            extraSpecialArgs = specialArgs;
+            useUserPackages = true;
+          };
+        }
+      ];
     in
     {
-      packages.${system}.default = mkShell { buildInputs = with pkgs; [ bashInteractive ]; };
-
-      formatter.${system} = pkgs.nixfmt-rfc-style;
-
       nixosConfigurations = {
-        apollo = mkNixos {
-          desktop = true;
-          hostname = "apollo";
+        apollo = nixpkgs.lib.nixosSystem {
+          inherit specialArgs system;
+
+          modules = shared-modules ++ [ ./hosts/apollo ];
         };
       };
 
       homeConfigurations = {
         wsl2 = mkWsl { system = "x86_64-linux"; };
       };
+
+      packages.${system}.default = pkgs.mkShell { buildInputs = with pkgs; [ bashInteractive ]; };
+
+      formatter.${system} = pkgs.nixfmt-rfc-style;
     };
 }

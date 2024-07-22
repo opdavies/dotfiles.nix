@@ -1,16 +1,12 @@
-{
-  inputs,
-  desktop ? false,
-  hostname,
-  self,
-}:
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 let
   theme = import "${self}/lib/theme" { inherit pkgs; };
 
   username = "opdavies";
 in
 {
+  imports = [ ./hardware-configuration.nix ];
+
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
@@ -49,7 +45,7 @@ in
     DefaultTimeoutStopSec=10s
   '';
 
-  networking.hostName = hostname;
+  networking.hostName = "apollo";
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -134,40 +130,36 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages =
-    with pkgs;
-    [
-      ddev
-      just
-      mkcert
-      ttyper
-      yt-dlp
-    ]
-    ++ pkgs.lib.optionals desktop [
-      acpi
-      arandr
-      backintime
-      brightnessctl
-      cpufrequtils
-      ffmpegthumbnailer
-      libnotify
-      pmutils
-      pocket-casts
-      rclone
-      rclone-browser
-      shotwell
-      slack
-      spotify
-      teams-for-linux
-      todoist-electron
-      vscode
-      xfce.thunar
-      xfce.thunar-volman
-      xfce.tumbler
+  environment.systemPackages = with pkgs; [
+    acpi
+    arandr
+    backintime
+    brightnessctl
+    cpufrequtils
+    ddev
+    ffmpegthumbnailer
+    just
+    libnotify
+    mkcert
+    pmutils
+    pocket-casts
+    rclone
+    rclone-browser
+    shotwell
+    slack
+    spotify
+    teams-for-linux
+    todoist-electron
+    ttyper
+    vscode
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.tumbler
+    yt-dlp
 
-      # Games.
-      zeroad
-    ];
+    # Games.
+    zeroad
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -282,7 +274,7 @@ in
 
   system.autoUpgrade = {
     enable = true;
-    flake = inputs.self.outPath;
+    flake = self.outPath;
     flags = [
       "--update-input"
       "nixpkgs"
