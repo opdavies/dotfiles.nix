@@ -38,8 +38,6 @@ inputs.nixpkgs.lib.nixosSystem {
       };
     }
 
-    (import ./modules/autorandr.nix)
-
     (import ./modules/awesome.nix {
       inherit
         inputs
@@ -48,6 +46,8 @@ inputs.nixpkgs.lib.nixosSystem {
         username
         ;
     })
+    (import ./modules/autorandr.nix)
+    (import ./modules/gnome.nix)
 
     configuration
     hardwareConfiguration
