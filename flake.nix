@@ -42,11 +42,6 @@
           desktop = true;
           hostname = "apollo";
         };
-
-        nixedo = mkNixos {
-          desktop = true;
-          hostname = "nixedo";
-        };
       };
 
       homeConfigurations = {
