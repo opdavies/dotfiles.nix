@@ -51,7 +51,11 @@
       };
 
       homeConfigurations = {
-        wsl2 = mkWsl { system = "x86_64-linux"; };
+        wsl2 = home-manager.lib.homeManagerConfiguration {
+          inherit specialArgs system;
+
+          modules = shared-modules ++ [ ];
+        };
       };
 
       packages.${system}.default = pkgs.mkShell { buildInputs = with pkgs; [ bashInteractive ]; };
