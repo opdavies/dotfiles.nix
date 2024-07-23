@@ -7,7 +7,7 @@ local gears = require "gears"
 local wibox = require "wibox"
 
 local text = wibox.widget {
-  font = "sans 10",
+  font = "sans 9",
   widget = wibox.widget.textbox,
 }
 
