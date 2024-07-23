@@ -6,11 +6,13 @@ let
   inherit (pkgs) writeShellApplication;
 
   scripts = {
+    notetaker = writeShellApplication (import ./scripts/notetaker.nix);
     t = writeShellApplication (import ./scripts/t.nix { inherit pkgs; });
   };
 in
 with pkgs;
 [
+  scripts.notetaker
   scripts.t
 
   awscli2
