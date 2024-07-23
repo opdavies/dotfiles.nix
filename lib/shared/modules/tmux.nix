@@ -11,8 +11,8 @@ in
     extraConfig = ''
       unbind C-b
 
-      set -g prefix C-s
-      bind C-s send-prefix
+      set -g prefix `
+      bind ` send-prefix
 
       bind-key -n C-h select-pane -L
       bind-key -n C-j select-pane -D
