@@ -39,6 +39,7 @@
       autoload -Uz compinit && compinit
 
       bindkey -s ^f "t\n"
+      bindkey -s ^v "nvim\n"
 
       clear-ls-all() {
         clear
