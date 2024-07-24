@@ -44,24 +44,28 @@
       clear-ls-all() {
         clear
         ls -al
+        zle reset-prompt
       }
       zle -N clear-ls-all
 
       clear-git-status() {
         clear
-        git status -sb .
+        git status
+        zle reset-prompt
       }
       zle -N clear-git-status
 
       clear-tree-2() {
         clear
         tree -L 2
+        zle reset-prompt
       }
       zle -N clear-tree-2
 
       clear-tree-3() {
         clear
         tree -L 3
+        zle reset-prompt
       }
       zle -N clear-tree-3
 
