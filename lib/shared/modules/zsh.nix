@@ -20,11 +20,6 @@
           else
             (cd "''${ROOT}" && eval "''${@}")
           fi
-        elif [[ "''$1" == "log" || "''$1" == "show"  ]]; then
-          local command="$1"
-          shift 1
-
-          ${pkgs.git}/bin/git "$command" --ext-diff "$@"
         else
           ${pkgs.git}/bin/git "''${@}"
         fi
