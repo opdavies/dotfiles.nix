@@ -7,12 +7,14 @@ let
 
   scripts = {
     notetaker = writeShellApplication (import ./scripts/notetaker.nix);
+    run = writeShellApplication (import ./scripts/run.nix { inherit pkgs; });
     t = writeShellApplication (import ./scripts/t.nix { inherit pkgs; });
   };
 in
 with pkgs;
 [
   scripts.notetaker
+  scripts.run
   scripts.t
 
   awscli2
