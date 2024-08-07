@@ -147,6 +147,7 @@ in
       acpi
       arandr
       backintime
+      bluetuith
       brightnessctl
       cpufrequtils
       ffmpegthumbnailer
