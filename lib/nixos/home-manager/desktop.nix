@@ -8,6 +8,7 @@
   imports = [
     ./modules/alacritty.nix
     ./modules/copyq.nix
+    ./modules/desktop/bluetuith.nix
     ./modules/espanso.nix
     ./modules/gtk.nix
     ./modules/feh.nix
