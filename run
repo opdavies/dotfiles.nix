@@ -33,11 +33,11 @@ function update {
 }
 
 function wsl:build {
-  _home build wsl2
+  _home build wsl2 "$@"
 }
 
 function wsl:switch {
-  _home switch wsl2
+  _home switch wsl2 "$@"
 }
 
 function _home {
