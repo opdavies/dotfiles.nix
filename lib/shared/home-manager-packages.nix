@@ -17,6 +17,7 @@ with pkgs;
   scripts.run
   scripts.t
 
+  age
   awscli2
   bitwarden-cli
   bottom
@@ -45,6 +46,7 @@ with pkgs;
   pv
   rustywind
   simple-http-server
+  sshs
   tldr
   tree
   tree-sitter
