@@ -9,21 +9,8 @@ in
     terminal = "tmux-256color";
 
     extraConfig = ''
-      unbind C-b
-
-      set -g prefix `
-      bind ` send-prefix
-
-      bind-key -n C-h select-pane -L
-      bind-key -n C-j select-pane -D
-      bind-key -n C-k select-pane -U
-      bind-key -n C-l select-pane -R
-
-      set-option -g status-keys "emacs"
+      set-option -g status-keys "vi"
       set-option -sa terminal-features "''${TERM}:RGB"
-
-      bind-key h split-window -v  -c "#{pane_current_path}"
-      bind-key v split-window -h  -c "#{pane_current_path}"
 
       bind -n S-Left resize-pane -L 2
       bind -n S-Right resize-pane -R 2
@@ -48,6 +35,7 @@ in
       bind c new-window -c "#{pane_current_path}"
 
       set -g base-index 1
+      set -g pane-base-index 1
       set -g renumber-windows on
 
       # Break a pane into a new window.
@@ -80,30 +68,9 @@ in
       set-option -g pane-active-border-style "fg=#1f2335"
       set-option -g pane-border-style "fg=#1f2335"
 
-      # Smart pane switching with awareness of Vim splits.
-      # See: https://github.com/christoomey/vim-tmux-navigator
-      is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-        | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
-
-      bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h' 'select-pane -L'
-      bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j' 'select-pane -D'
-      bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k' 'select-pane -U'
-      bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l' 'select-pane -R'
-
-      bind-key -T copy-mode-vi 'C-h' select-pane -L
-      bind-key -T copy-mode-vi 'C-j' select-pane -D
-      bind-key -T copy-mode-vi 'C-k' select-pane -U
-      bind-key -T copy-mode-vi 'C-l' select-pane -R
-      bind-key -T copy-mode-vi 'C-\' select-pane -l
-
-      bind-key -r F new-window t
-      bind-key -r D run-shell "t $REPOS/dotfiles.nix"
-      bind-key -r N run-shell "t $REPOS/opdavies.nvim"
-      bind-key -r W run-shell "t ~/Documents/wiki"
+      bind-key -r f run-shell "tmux new-window t"
 
       set -g @resurrect-strategy-nvim 'session'
-
-      if-shell "[ -f ~/.tmux.conf.local ]" 'source ~/.tmux.conf.local'
     '';
 
     plugins = [
