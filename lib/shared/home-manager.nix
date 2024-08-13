@@ -18,7 +18,6 @@ in
   imports = [
     (import ./modules/git.nix { inherit inputs pkgs pkgsUnstable; })
     (import ./modules/neovim.nix { inherit inputs; })
-    ./modules/atuin.nix
     ./modules/bat.nix
     ./modules/bin.nix
     ./modules/direnv.nix
@@ -27,10 +26,8 @@ in
     ./modules/nnn.nix
     ./modules/phpactor.nix
     ./modules/ripgrep.nix
-    ./modules/starship.nix
     ./modules/syncthing.nix
     ./modules/tmux.nix
-    ./modules/wezterm.nix
     ./modules/zsh.nix
   ];
 }

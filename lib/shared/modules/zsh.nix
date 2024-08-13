@@ -80,6 +80,14 @@
 
       plugins = [
         {
+          name = "themes/robbyrussell";
+          tags = [
+            "from:oh-my-zsh"
+            "as:theme"
+          ];
+        }
+
+        {
           name = "plugin/git";
           tags = [ "from:oh-my-zsh" ];
         }
