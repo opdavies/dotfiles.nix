@@ -23,6 +23,7 @@ in
     ./modules/direnv.nix
     ./modules/fzf.nix
     ./modules/lsd.nix
+    ./modules/pet.nix
     ./modules/phpactor.nix
     ./modules/ripgrep.nix
     ./modules/syncthing.nix
