@@ -1,1 +1,0 @@
-{ programs.nnn.enable = true; }
