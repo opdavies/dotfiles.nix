@@ -11,7 +11,6 @@
     ./modules/desktop/bluetuith.nix
     ./modules/espanso.nix
     ./modules/gtk.nix
-    ./modules/feh.nix
     ./modules/flameshot.nix
     ./modules/gtk.nix
     ./modules/mpv.nix

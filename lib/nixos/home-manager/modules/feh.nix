@@ -1,1 +1,0 @@
-{ programs.feh.enable = true; }
