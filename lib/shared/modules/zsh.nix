@@ -13,6 +13,19 @@
     };
 
     initExtra = ''
+      # suffix
+      alias -s gz="tar -tf"
+      alias -s {html,HTML}="background firefox"
+      alias -s {jpg,JPG,png,PNG}="background okular"
+      alias -s {pdf,PDF}="background okular"
+      alias -s {zip,ZIP}="unzip -l"
+
+      background() {
+        for ((i=2;i<=$#;i++)); do
+          ''${@[1]} ''${@[$i]} &> /dev/null &
+        done
+      }
+
       git() {
         if [[ "''${1}" == "root" ]]; then
           shift
