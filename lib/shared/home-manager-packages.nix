@@ -53,6 +53,7 @@ with pkgs;
   unzip
   virtualenv
   wget
+  xclip
   xcp
   xdg-utils
   xh

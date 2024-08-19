@@ -52,7 +52,6 @@ in
       pkgs.pinentry
       pkgs.via
       pkgs.xcape
-      pkgs.xclip
       pkgs.xsel
       pkgs.zoom-us
     ];
