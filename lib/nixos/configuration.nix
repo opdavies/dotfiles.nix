@@ -139,6 +139,7 @@ in
     [
       ddev
       just
+      mermaid-cli
       mkcert
       ttyper
       yt-dlp
