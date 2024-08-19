@@ -53,6 +53,7 @@ abbr rdci="run drush config:import -y"
 abbr rduli="run drush uli"
 
 abbr -g A1="| awk '{print $1}'"
+abbr -g C="| xclip -sel clip"
 abbr -g Fj="| jq ."
 abbr -g Fy="| yq ."
 abbr -g G="| grep"
