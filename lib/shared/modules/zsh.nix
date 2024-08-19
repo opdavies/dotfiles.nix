@@ -8,6 +8,10 @@
 
     shellAliases = (import ./zsh/aliases.nix);
 
+    localVariables = {
+      ABBR_SET_EXPANSION_CURSOR = 1;
+    };
+
     initExtra = ''
       git() {
         if [[ "''${1}" == "root" ]]; then

@@ -64,3 +64,7 @@ abbr -g H="| head"
 abbr -g L="| less"
 abbr -g V="| vim -"
 abbr -g X="| xargs -I1"
+
+abbr clh="curl localhost:%"
+abbr clh3="curl localhost:3000%"
+abbr clh8="curl localhost:8000%"
