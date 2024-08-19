@@ -51,8 +51,9 @@ in
       pkgs.pavucontrol
       pkgs.pinentry
       pkgs.via
-      pkgs.xsel
       pkgs.xcape
+      pkgs.xclip
+      pkgs.xsel
       pkgs.zoom-us
     ];
 
