@@ -27,7 +27,7 @@
 
     output_file="$HOME/Documents/videos.json"
 
-    ${pkgs.tree}/bin/tree -J "$source_path/Videos" | jq . > "$output_file"
+    ${pkgs.tree}/bin/tree -J "$source_path/Videos" | ${pkgs.jq}/bin/jq . > "$output_file"
     ${pkgs.jq}/bin/jq . < "$output_file"
   '';
 }
