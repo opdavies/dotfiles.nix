@@ -18,7 +18,7 @@ let
   };
 
   shared-packages = import "${self}/lib/shared/home-manager-packages.nix" {
-    inherit inputs pkgs;
+    inherit inputs pkgs username;
     desktop = false;
   };
 in

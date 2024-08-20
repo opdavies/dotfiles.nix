@@ -2,6 +2,7 @@
   desktop,
   inputs,
   pkgs,
+  username,
   ...
 }:
 let
@@ -12,7 +13,7 @@ let
 
   _timer = writeShellApplication (import ./scripts/_timer.nix);
   export-video-list = writeShellApplication (
-    import ./scripts/export-video-list.nix { inherit pkgs; }
+    import ./scripts/export-video-list.nix { inherit pkgs username; }
   );
   notetaker = writeShellApplication (import ./scripts/notetaker.nix);
   run = writeShellApplication (import ./scripts/run.nix { inherit pkgs; });

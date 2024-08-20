@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
   name = "export-video-list";
 
@@ -12,7 +12,7 @@
     device_name="/dev/sda2"
     device_label="UNTITLED"
 
-    source_path="/run/media/opdavies/$device_label"
+    source_path="/run/media/${username}/$device_label"
 
     # If the source path doesn't exist, try mounting the device.
     if [[ ! -d "$source_path" ]]; then
