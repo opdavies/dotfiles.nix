@@ -1,22 +1,23 @@
-{ inputs, pkgs, ... }:
+{
+  desktop,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   php = pkgs.php82;
   phpPackages = pkgs.php82Packages;
 
   inherit (pkgs) writeShellApplication;
 
-  scripts = {
-    notetaker = writeShellApplication (import ./scripts/notetaker.nix);
-    run = writeShellApplication (import ./scripts/run.nix { inherit pkgs; });
-    t = writeShellApplication (import ./scripts/t.nix { inherit pkgs; });
-  };
+  _timer = writeShellApplication (import ./scripts/_timer.nix);
+  notetaker = writeShellApplication (import ./scripts/notetaker.nix);
+  run = writeShellApplication (import ./scripts/run.nix { inherit pkgs; });
+  t = writeShellApplication (import ./scripts/t.nix { inherit pkgs; });
+  timer = writeShellApplication (import ./scripts/timer.nix);
 in
 with pkgs;
 [
-  scripts.notetaker
-  scripts.run
-  scripts.t
-
   age
   awscli2
   bitwarden-cli
@@ -58,4 +59,14 @@ with pkgs;
   xdg-utils
   xh
   yarn
+
+  # Scripts.
+  notetaker
+  run
+  t
+]
+++ pkgs.lib.optionals desktop [
+  # Scripts.
+  _timer
+  timer
 ]
