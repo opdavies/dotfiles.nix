@@ -78,7 +78,7 @@
         tmux new-session -d -c "$selected_path" -s "$session_name"
       fi
 
-      tmux switch-client -t "$session_name" || tmux attach-session -t "$session_name"
+      tmux switch-client -t "$session_name" 2>/dev/null || tmux attach-session -t "$session_name"
     }
 
     main "$@"
