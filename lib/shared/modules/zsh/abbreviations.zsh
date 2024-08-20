@@ -5,6 +5,9 @@ abbr daily="run create-daily next"
 abbr switch="run nixos nixedo switch"
 abbr sz="source ~/.config/zsh/.zshrc"
 
+abbr evl="export-video-list"
+abbr vv="cat ~/Documents/videos.json"
+
 abbr g="git"
 abbr ga="git add"
 abbr gap="git add -p"

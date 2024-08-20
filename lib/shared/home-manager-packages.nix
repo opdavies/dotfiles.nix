@@ -11,6 +11,9 @@ let
   inherit (pkgs) writeShellApplication;
 
   _timer = writeShellApplication (import ./scripts/_timer.nix);
+  export-video-list = writeShellApplication (
+    import ./scripts/export-video-list.nix { inherit pkgs; }
+  );
   notetaker = writeShellApplication (import ./scripts/notetaker.nix);
   run = writeShellApplication (import ./scripts/run.nix { inherit pkgs; });
   t = writeShellApplication (import ./scripts/t.nix { inherit pkgs; });
@@ -68,5 +71,6 @@ with pkgs;
 ++ pkgs.lib.optionals desktop [
   # Scripts.
   _timer
+  export-video-list
   timer
 ]
