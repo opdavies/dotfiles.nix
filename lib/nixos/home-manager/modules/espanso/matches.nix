@@ -39,6 +39,10 @@
       replace = "Great, thanks!";
     }
     {
+      trigger = ":guest";
+      replace = "If you'd like to be a guest on ${baseUrl}/podcast and talk about ..., I'd love to have you on the show.";
+    }
+    {
       trigger = ":lh";
       replace = "http://localhost";
     }
