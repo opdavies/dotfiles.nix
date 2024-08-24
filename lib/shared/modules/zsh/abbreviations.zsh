@@ -35,6 +35,12 @@ abbr ta="tmux attach"
 abbr tl="tmux list-sessions"
 abbr tk="tmux kill-session"
 
+# zellij
+abbr zj="zellij"
+abbr znt="zellij action new-tab"
+abbr zr="zellij run --"
+abbr zrf="zellij run --floating --"
+
 # Docker and Docker Compose.
 abbr dk="docker"
 abbr dkp="docker ps"
@@ -83,10 +89,6 @@ abbr rduli="run drush uli"
 abbr rdup="run drush updatedb -y"
 abbr rpub="run publish"
 abbr rt="run test"
-
-abbr clh="curl localhost:%"
-abbr clh3="curl localhost:3000%"
-abbr clh8="curl localhost:8000%"
 
 abbr -g A1="| awk '{print $1}'"
 abbr -g C="| xclip -sel clip"

@@ -28,6 +28,7 @@ in
     ./modules/ripgrep.nix
     ./modules/syncthing.nix
     ./modules/tmux.nix
+    ./modules/zellij.nix
     ./modules/zsh.nix
   ];
 }
