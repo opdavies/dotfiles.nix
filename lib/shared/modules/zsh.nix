@@ -48,6 +48,10 @@
         command ${pkgs.ttyper}/bin/ttyper --language english1000 --words 50 "''${@}"
       }
 
+      yt-dlp() {
+        command yt-dlp --paths ~/Videos "$@"
+      }
+
       # Case insensitive autocompletion.
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
       autoload -Uz compinit && compinit
