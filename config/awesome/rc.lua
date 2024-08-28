@@ -623,17 +623,11 @@ awful.rules.rules = {
   -- { rule = { class = "Firefox" },
   --   properties = { screen = 1, tag = "2" } },
 
-  -- Prevent Fireox from automaticaly being maximised when opened.
   { rule = { class = "firefox" }, properties = { opacity = 1, maximized = false, floating = false } },
-
   { rule = { class = "mpv" }, properties = { tag = "5", fullscreen = true } },
-
   { rule = { name = "Podcasts - Pocket Casts" }, properties = { tag = "6" } },
-
-  { rule = { class = "kdenlive" }, properties = { tag = "7", fullscreen = true } },
-
+  { rule = { class = "kdenlive" }, properties = { tag = "7" } },
   { rule = { class = "0ad" }, properties = { tag = "8", fullscreen = true } },
-
   { rule = { class = "Slack" }, properties = { tag = "9" } },
   { rule = { class = "discord" }, properties = { tag = "9" } },
 }
