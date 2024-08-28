@@ -6,6 +6,8 @@
     enable = true;
     enableCompletion = true;
 
+    cdpath = [ "~/Code" ];
+
     shellAliases = (import ./zsh/aliases.nix);
 
     localVariables = {
