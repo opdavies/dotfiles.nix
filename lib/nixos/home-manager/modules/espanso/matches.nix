@@ -63,6 +63,10 @@
       replace = "${baseUrl}";
     }
     {
+      trigger = ":zet";
+      replace = "https://zet.oliverdavies.uk";
+    }
+    {
       trigger = ":zoom";
       replace = "https://savvycal.com/opdavies/zoom";
     }
