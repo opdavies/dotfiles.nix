@@ -151,17 +151,13 @@ in
       bluetuith
       brightnessctl
       cpufrequtils
-      ffmpegthumbnailer
       libnotify
       pmutils
-      pocket-casts
+      ffmpegthumbnailer
       rclone
       rclone-browser
       shotwell
       slack
-      spotify
-      teams-for-linux
-      todoist-electron
       vscode
       xfce.thunar
       xfce.thunar-volman
