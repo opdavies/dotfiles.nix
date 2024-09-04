@@ -38,15 +38,15 @@
       if [[ $# -eq 1 ]]; then
         selected_path=$1
       else
-        items=$(find "$REPOS" ~/Documents \
-          -maxdepth 1 -mindepth 1 -type d \
-          ! -name "*-old" \
-          ! -name "*.bak" \
-          ! -name "*.old" \
-          ! -name "_archive"
-        )
-
-        selected_path=$(echo "''${items}" | sort | fzf --reverse)
+        selected_path="$REPOS/"
+        selected_path+=$(find "$REPOS" -maxdepth 1 -mindepth 1 -type d \
+            ! -name "*-old" \
+            ! -name "*.bak" \
+            ! -name "*.old" \
+            ! -name "_archive" \
+          | sed "s;$REPOS/;;" \
+          | sort \
+          | fzf --reverse)
       fi
 
       session_name=$(basename "$selected_path")
