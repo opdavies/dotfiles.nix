@@ -20,7 +20,6 @@ let
   );
   notetaker = writeShellApplication (import ./scripts/notetaker.nix);
   run = writeShellApplication (import ./scripts/run.nix { inherit pkgs; });
-  t = writeShellApplication (import ./scripts/t.nix { inherit pkgs; });
   timer = writeShellApplication (import ./scripts/timer.nix);
 in
 with pkgs;
