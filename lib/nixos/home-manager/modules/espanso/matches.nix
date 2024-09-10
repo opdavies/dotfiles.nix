@@ -20,7 +20,7 @@
     }
     {
       trigger = ":daily";
-      replace = "${baseUrl}/daily";
+      replace = "https://dailydrupaler.com";
     }
     {
       trigger = ":dotfiles";
@@ -40,7 +40,7 @@
     }
     {
       trigger = ":guest";
-      replace = "If you'd like to be a guest on ${baseUrl}/podcast and talk about ..., I'd love to have you on the show.";
+      replace = "If you'd like to be a guest on https://beyondblockspodcast.com and talk about ..., I'd love to have you on the show.";
     }
     {
       trigger = ":lh";
@@ -48,7 +48,7 @@
     }
     {
       trigger = ":podcast";
-      replace = "${baseUrl}/podcast";
+      replace = "https://beyondblockspodcast.com";
     }
     {
       trigger = ":pricing";
@@ -56,7 +56,7 @@
     }
     {
       trigger = ":talks";
-      replace = "${baseUrl}/talks";
+      replace = "${baseUrl}/presentations";
     }
     {
       trigger = ":website";
