@@ -5,6 +5,7 @@
     configs = {
       default = {
         show_notifications = false;
+        toggle_key = "LEFT_ALT";
       };
     };
 
