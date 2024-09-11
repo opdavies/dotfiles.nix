@@ -58,6 +58,10 @@ in
       replace = "${websiteUrl}/pricing";
     }
     {
+      trigger = ":record";
+      replace = "https://savvycal.com/opdavies/beyond-blocks";
+    }
+    {
       trigger = ":talks";
       replace = "${websiteUrl}/presentations";
     }
