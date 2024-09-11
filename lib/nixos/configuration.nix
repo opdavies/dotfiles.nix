@@ -138,6 +138,7 @@ in
     with pkgs;
     [
       ddev
+      fastfetch
       just
       mermaid-cli
       mkcert
