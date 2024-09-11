@@ -42,6 +42,11 @@
           desktop = true;
           hostname = "apollo";
         };
+
+        lemp11 = mkNixos {
+          desktop = true;
+          hostname = "lemp11";
+        };
       };
 
       homeConfigurations = {
