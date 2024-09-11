@@ -137,9 +137,7 @@ in
   environment.systemPackages =
     with pkgs;
     [
-      ddev
       fastfetch
-      just
       mermaid-cli
       mkcert
       ttyper
