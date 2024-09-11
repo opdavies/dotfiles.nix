@@ -1,26 +1,29 @@
-{ baseUrl }:
-
+let
+  websiteUrl = "https://www.oliverdavies.uk";
+  dailyUrl = "https://dailydrupaler.com";
+  podcastUrl = "https://beyondblockspodcast.com";
+in
 {
   matches = [
     {
       trigger = ":archive";
-      replace = "${baseUrl}/archive";
+      replace = "${websiteUrl}/archive";
     }
     {
       trigger = ":atdc";
-      replace = "${baseUrl}/atdc";
+      replace = "${websiteUrl}/atdc";
     }
     {
       trigger = ":call";
-      replace = "${baseUrl}/call";
+      replace = "${websiteUrl}/call";
     }
     {
       trigger = ":coaching";
-      replace = "${baseUrl}/team-coaching";
+      replace = "${websiteUrl}/team-coaching";
     }
     {
       trigger = ":daily";
-      replace = "https://dailydrupaler.com";
+      replace = "${dailyUrl}";
     }
     {
       trigger = ":dotfiles";
@@ -40,7 +43,7 @@
     }
     {
       trigger = ":guest";
-      replace = "If you'd like to be a guest on https://beyondblockspodcast.com and talk about ..., I'd love to have you on the show.";
+      replace = "If you'd like to be a guest on ${podcastUrl} and talk about ..., I'd love to have you on the show.";
     }
     {
       trigger = ":lh";
@@ -48,19 +51,19 @@
     }
     {
       trigger = ":podcast";
-      replace = "https://beyondblockspodcast.com";
+      replace = "${podcastUrl}";
     }
     {
       trigger = ":pricing";
-      replace = "${baseUrl}/pricing";
+      replace = "${websiteUrl}/pricing";
     }
     {
       trigger = ":talks";
-      replace = "${baseUrl}/presentations";
+      replace = "${websiteUrl}/presentations";
     }
     {
       trigger = ":website";
-      replace = "${baseUrl}";
+      replace = "${websiteUrl}";
     }
     {
       trigger = ":zet";

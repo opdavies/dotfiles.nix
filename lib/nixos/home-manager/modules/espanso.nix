@@ -1,6 +1,3 @@
-let
-  baseUrl = "https://www.oliverdavies.uk";
-in
 {
   services.espanso = {
     enable = true;
@@ -12,7 +9,7 @@ in
     };
 
     matches = {
-      base = import ./espanso/matches.nix { inherit baseUrl; };
+      base = import ./espanso/matches.nix;
     };
   };
 }
