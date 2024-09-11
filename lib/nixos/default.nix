@@ -34,7 +34,7 @@ inputs.nixpkgs.lib.nixosSystem {
         };
         useGlobalPkgs = true;
         useUserPackages = true;
-        users."${username}" = import ./home-manager;
+        users."${username}" = import "${self}/home/${username}";
       };
     }
 
