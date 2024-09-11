@@ -10,7 +10,7 @@
     };
 
     matches = {
-      base = import ./espanso/matches.nix;
+      base = import ./espanso/matches/base.nix;
     };
   };
 }
