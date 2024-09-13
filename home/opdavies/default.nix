@@ -57,6 +57,7 @@ in
       pkgs.pass
       pkgs.pavucontrol
       pkgs.pinentry
+      pkgs.pocket-casts
       pkgs.via
       pkgs.xcape
       pkgs.xsel

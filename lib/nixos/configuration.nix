@@ -11,7 +11,11 @@ let
   username = "opdavies";
 in
 {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+
+    permittedInsecurePackages = [ "electron-27.3.11" ];
+  };
 
   # Bootloader.
   boot = {
