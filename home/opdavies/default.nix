@@ -45,24 +45,27 @@ in
 
   home.packages =
     shared-packages
-    ++ pkgs.lib.optionals desktop [
-      pkgs.discord
-      pkgs.gimp
-      pkgs.gscan2pdf
-      pkgs.kdenlive
-      pkgs.meslo-lg
-      pkgs.obs-studio
-      pkgs.okular
-      pkgs.pamixer
-      pkgs.pass
-      pkgs.pavucontrol
-      pkgs.pinentry
-      pkgs.pocket-casts
-      pkgs.via
-      pkgs.xcape
-      pkgs.xsel
-      pkgs.zoom-us
-    ];
+    ++ pkgs.lib.optionals desktop (
+      with pkgs;
+      [
+        discord
+        gimp
+        gscan2pdf
+        kdenlive
+        meslo-lg
+        obs-studio
+        okular
+        pamixer
+        pass
+        pavucontrol
+        pinentry
+        via
+        pocket-casts
+        xcape
+        xsel
+        zoom-us
+      ]
+    );
 
   home.sessionVariables = {
     EDITOR = "nvim";
