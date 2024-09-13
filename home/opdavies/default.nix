@@ -48,6 +48,7 @@ in
     ++ pkgs.lib.optionals desktop (
       with pkgs;
       [
+        brave
         discord
         gimp
         gscan2pdf
