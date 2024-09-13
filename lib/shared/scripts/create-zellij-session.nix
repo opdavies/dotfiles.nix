@@ -38,13 +38,11 @@
       if [[ $# -eq 1 ]]; then
         selected_path=$1
       else
-        selected_path="$REPOS/"
-        selected_path+=$(find "$REPOS" -maxdepth 1 -mindepth 1 -type d \
+        selected_path=$(find "$REPOS" "$HOME/Documents" -maxdepth 1 -mindepth 1 -type d \
             ! -name "*-old" \
             ! -name "*.bak" \
             ! -name "*.old" \
             ! -name "_archive" \
-          | sed "s;$REPOS/;;" \
           | sort \
           | fzf --reverse)
       fi
