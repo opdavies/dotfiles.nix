@@ -1,5 +1,6 @@
 {
   inputs,
+  nixos-hardware,
   pkgs,
   self,
   username,
@@ -51,5 +52,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
     configuration
     hardwareConfiguration
+
+    nixos-hardware.nixosModules.system76
   ];
 }

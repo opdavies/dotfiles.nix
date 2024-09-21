@@ -3,6 +3,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -13,7 +15,13 @@
   };
 
   outputs =
-    { nixpkgs, self, ... }@inputs:
+    {
+      home-manager,
+      nixos-hardware,
+      nixpkgs,
+      self,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -23,6 +31,7 @@
       mkNixos = import ./lib/nixos {
         inherit
           inputs
+          nixos-hardware
           pkgs
           self
           username
