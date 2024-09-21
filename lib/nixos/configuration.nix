@@ -6,11 +6,11 @@
 }:
 { pkgs, ... }:
 let
-  theme = import "${self}/lib/theme" { inherit pkgs; };
-
   username = "opdavies";
 in
 {
+  imports = [ ../../modules/mixins/fonts.nix ];
+
   nixpkgs.config = {
     allowUnfree = true;
 
@@ -213,31 +213,6 @@ in
   programs.zsh.histSize = 5000;
 
   users.defaultUserShell = "/etc/profiles/per-user/${username}/bin/zsh";
-
-  fonts = {
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-        monospace = [ theme.fonts.monospace.name ];
-      };
-    };
-
-    packages =
-      with pkgs;
-      [
-        (nerdfonts.override {
-          fonts = [
-            "AnonymousPro"
-            "FiraCode"
-            "GeistMono"
-            "IntelOneMono"
-            "Iosevka"
-            "JetBrainsMono"
-          ];
-        })
-      ]
-      ++ [ theme.fonts.monospace.package ];
-  };
 
   zramSwap.enable = true;
 
