@@ -9,7 +9,10 @@ let
   username = "opdavies";
 in
 {
-  imports = [ ../../modules/mixins/fonts.nix ];
+  imports = [
+    ../../modules/mixins/docker.nix
+    ../../modules/mixins/fonts.nix
+  ];
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -199,15 +202,6 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
-  virtualisation.docker = {
-    enable = true;
-
-    autoPrune = {
-      enable = true;
-      dates = "weekly";
-    };
-  };
 
   programs.zsh.enable = true;
   programs.zsh.histSize = 5000;
