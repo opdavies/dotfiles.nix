@@ -372,7 +372,7 @@ globalkeys = gears.table.join(
   end, { description = "run prompt", group = "launcher" }),
 
   awful.key({ modkey, "Shift" }, "b", function()
-    awful.spawn "firefox"
+    awful.spawn "brave"
   end, { description = "run browser", group = "launcher" }),
 
   awful.key({ modkey, "Shift" }, "f", function()
@@ -623,7 +623,7 @@ awful.rules.rules = {
   -- { rule = { class = "Firefox" },
   --   properties = { screen = 1, tag = "2" } },
 
-  { rule = { class = "firefox" }, properties = { opacity = 1, maximized = false, floating = false } },
+  { rule = { class = "brave" }, properties = { opacity = 1, maximized = false, floating = false } },
   { rule = { class = "mpv" }, properties = { tag = "5", fullscreen = true } },
   { rule = { name = "Podcasts - Pocket Casts" }, properties = { tag = "6" } },
   { rule = { class = "kdenlive" }, properties = { tag = "7" } },
