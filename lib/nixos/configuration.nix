@@ -157,6 +157,7 @@ in
       libnotify
       pmutils
       ffmpegthumbnailer
+      logseq
       rclone
       rclone-browser
       shotwell
