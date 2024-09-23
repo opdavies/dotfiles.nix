@@ -47,11 +47,6 @@
       formatter.${system} = pkgs.nixfmt-rfc-style;
 
       nixosConfigurations = {
-        apollo = mkNixos {
-          desktop = true;
-          hostname = "apollo";
-        };
-
         lemp11 = mkNixos {
           desktop = true;
           hostname = "lemp11";
