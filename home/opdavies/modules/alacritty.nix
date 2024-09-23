@@ -1,10 +1,16 @@
-{ lib, pkgs, self, ... }:
+{
+  lib,
+  pkgs,
+  self,
+  ...
+}:
 let
   inherit (lib) strings;
   inherit (strings) toInt;
 
   theme = import "${self}/lib/theme" { inherit pkgs; };
-in {
+in
+{
   programs.alacritty = {
     enable = true;
 
@@ -30,7 +36,9 @@ in {
         glyph_offset.y = 6;
       };
 
-      shell = { program = "zsh"; };
+      shell = {
+        program = "zsh";
+      };
     };
   };
 }

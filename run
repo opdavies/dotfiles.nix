@@ -8,6 +8,10 @@ function check {
   nix flake check
 }
 
+function format {
+  nix fmt flake.nix home hosts lib modules
+}
+
 function help {
   printf "%s <task> [args]\n\nTasks:\n" "$0"
 
