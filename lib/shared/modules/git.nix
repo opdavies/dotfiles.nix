@@ -29,7 +29,7 @@
 
       includes = [
         {
-          condition = "gitdir:~/Code/bitbucket.org/transportforwales/";
+          condition = "gitdir:~/Code/tfw";
           contents.user.email = "oliver.davies@tfw.wales";
         }
       ];
