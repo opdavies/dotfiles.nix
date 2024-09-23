@@ -9,10 +9,7 @@ let
   username = "opdavies";
 in
 {
-  imports = [
-    ../../modules/mixins/docker.nix
-    ../../modules/mixins/fonts.nix
-  ];
+  imports = [ ../../modules/nixos/desktop ];
 
   nixpkgs.config = {
     allowUnfree = true;

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  theme = import ../../lib/theme { inherit pkgs; };
+  theme = import ../../../lib/theme { inherit pkgs; };
 in
 {
   fonts = {
