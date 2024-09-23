@@ -11,6 +11,9 @@ in
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
+  # Nicely reload system units when changing configs.
+  systemd.user.startServices = "sd-switch";
+
   home.stateVersion = "22.05";
 
   programs.home-manager.enable = true;
