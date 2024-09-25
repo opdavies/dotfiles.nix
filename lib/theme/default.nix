@@ -2,7 +2,7 @@
 {
   fonts = {
     monospace = {
-      name = "Terminus";
+      name = "MesloLGSDZ Nerd Font Mono";
       # fc-list : family | sort | grep "Nerd Font"
 
       package = pkgs.nerdfonts.override { fonts = [ "Meslo" ]; };

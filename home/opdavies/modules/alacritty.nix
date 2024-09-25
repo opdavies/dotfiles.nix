@@ -27,10 +27,8 @@ in
       font = {
         size = toInt "${theme.fonts.monospace.size}";
 
+        bold.style = "Regular";
         normal.family = "${theme.fonts.monospace.name}";
-
-        italic.style = "Bold";
-        normal.style = "Bold";
 
         offset.y = 12;
         glyph_offset.y = 6;
