@@ -32,6 +32,11 @@ abbr gs="git status"
 abbr gsh="git show"
 abbr gst="git status"
 
+# tmux
+abbr ta="tmux attach"
+abbr tl="tmux list-sessions"
+abbr tk="tmux kill-session"
+
 # zellij
 abbr czs="create-zellij-session"
 abbr z="zellij"
