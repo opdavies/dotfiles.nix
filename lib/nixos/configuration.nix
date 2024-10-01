@@ -144,6 +144,8 @@ in
       fastfetch
       mermaid-cli
       mkcert
+      taskwarrior3
+      taskwarrior-tui
       ttyper
       yt-dlp
     ]
