@@ -144,6 +144,7 @@ in
       fastfetch
       mermaid-cli
       mkcert
+      taskopen
       taskwarrior3
       taskwarrior-tui
       ttyper
