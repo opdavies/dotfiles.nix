@@ -160,6 +160,7 @@ in
       libnotify
       pmutils
       ffmpegthumbnailer
+      libreoffice
       logseq
       rclone
       rclone-browser
