@@ -27,7 +27,7 @@
 
             "HDMI-1" = {
               enable = true;
-              mode = "3840x2160";
+              mode = "2560x1440";
               primary = true;
               rate = "59.95";
             };
