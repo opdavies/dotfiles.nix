@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  pkgsUnstable,
+  ...
+}:
 
 let
   inherit (pkgs) fetchFromGitHub;
@@ -120,6 +125,8 @@ in
 {
   programs.neovim = {
     enable = true;
+
+    package = pkgsUnstable.neovim-unwrapped;
 
     plugins = with pkgs.vimPlugins; [
       comment-nvim
