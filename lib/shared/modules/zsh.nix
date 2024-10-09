@@ -56,7 +56,7 @@
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
       autoload -Uz compinit && compinit
 
-      bindkey -s ^f "create-zellij-session\n"
+      bindkey -s ^f "t\n"
       bindkey -s ^v "nvim\n"
 
       clear-ls-all() {
