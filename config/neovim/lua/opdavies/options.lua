@@ -5,7 +5,6 @@ local settings = {
   autoindent = true,
   backup = false,
   breakindent = true,
-  colorcolumn = "80",
   expandtab = true,
   foldlevel = 1,
   foldlevelstart = 99,
