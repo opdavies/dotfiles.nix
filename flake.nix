@@ -8,10 +8,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    opdavies-nvim.inputs.nixpkgs.follows = "nixpkgs";
-    opdavies-nvim.url = "github:opdavies/opdavies.nvim";
-    # opdavies-nvim.url = "path:/home/opdavies/Code/opdavies.nvim";
   };
 
   outputs =
@@ -40,9 +36,17 @@
       mkWsl = import ./lib/wsl2 { inherit inputs self username; };
 
       inherit (pkgs) mkShell;
+      inherit (pkgs.vimUtils) buildVimPlugin;
     in
     {
-      packages.${system}.default = mkShell { buildInputs = with pkgs; [ bashInteractive ]; };
+      packages.${system} = {
+        default = mkShell { buildInputs = with pkgs; [ bashInteractive ]; };
+
+        opdavies-nvim = buildVimPlugin {
+          name = "opdavies-nvim";
+          src = ./config/neovim;
+        };
+      };
 
       formatter.${system} = pkgs.nixfmt-rfc-style;
 
