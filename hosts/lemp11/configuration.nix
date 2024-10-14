@@ -89,6 +89,7 @@
     isNormalUser = true;
     description = "Oliver Davies";
     extraGroups = [
+      "jellyfin"
       "networkmanager"
       "wheel"
     ];

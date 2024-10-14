@@ -52,6 +52,7 @@ in
         discord
         gimp
         gscan2pdf
+        handbrake
         kdenlive
         meslo-lg
         obs-studio
