@@ -48,7 +48,21 @@ local servers = {
   },
 
   marksman = true,
-  nil_ls = true,
+
+  nixd = {
+    command = { "nixd" },
+    settings = {
+      nixd = {
+        nixpkgs = {
+          expr = "import <nixpkgs> { }",
+        },
+
+        formatting = {
+          command = "nix fmt",
+        },
+      },
+    },
+  },
 
   tailwindcss = {
     filetypes = { "html", "javascript", "twig", "typescript", "vue" },

@@ -17,6 +17,8 @@ in
     permittedInsecurePackages = [ "electron-27.3.11" ];
   };
 
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
   # Bootloader.
   boot = {
     loader = {

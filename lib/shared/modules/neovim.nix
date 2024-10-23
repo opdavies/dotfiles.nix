@@ -281,7 +281,7 @@ in
       lua-language-server
       lua54Packages.luacheck
       marksman
-      nil
+      nixd
       nodePackages."@tailwindcss/language-server"
       nodePackages.bash-language-server
       nodePackages.dockerfile-language-server-nodejs
