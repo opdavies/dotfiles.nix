@@ -20,7 +20,14 @@ in
 
   imports = [
     (import ./modules/git.nix { inherit inputs pkgs pkgsUnstable; })
-    (import ./modules/neovim.nix { inherit inputs pkgs pkgsUnstable; })
+    (import ./modules/neovim.nix {
+      inherit
+        inputs
+        self
+        pkgs
+        pkgsUnstable
+        ;
+    })
     ./modules/bat.nix
     ./modules/bin.nix
     ./modules/direnv.nix
