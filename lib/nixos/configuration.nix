@@ -11,10 +11,14 @@ in
 {
   imports = [ ../../modules/nixos/desktop ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
 
-    permittedInsecurePackages = [ "electron-27.3.11" ];
+      permittedInsecurePackages = [ "electron-27.3.11" ];
+    };
+
+    overlays = [ (import "${self}/overlays/vim-plugins-overlay.nix") ];
   };
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

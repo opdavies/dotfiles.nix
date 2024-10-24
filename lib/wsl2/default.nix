@@ -8,7 +8,9 @@
 let
   inherit (pkgs) lib;
 
-  pkgs = inputs.nixpkgs.legacyPackages.${system};
+  pkgs = import inputs.nixpkgs {
+    overlays = [ (import "${self}/overlays/vim-plugins-overlay.nix") ];
+  };
 
   shared-config = import "${self}/lib/shared/home-manager.nix" {
     inherit
