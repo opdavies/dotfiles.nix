@@ -151,6 +151,7 @@ in
       taskwarrior-tui
       ttyper
       yt-dlp
+      ytfzf
     ]
     ++ pkgs.lib.optionals desktop [
       acpi
