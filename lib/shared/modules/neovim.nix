@@ -31,6 +31,16 @@ let
       };
     };
 
+    nvim-tmux-navigation = buildVimPlugin {
+      name = "nvim-tmux-navigation";
+      src = fetchFromGitHub {
+        owner = "alexghergh";
+        repo = "nvim-tmux-navigation";
+        rev = "4898c98702954439233fdaf764c39636681e2861";
+        sha256 = "sha256-CxAgQSbOrg/SsQXupwCv8cyZXIB7tkWO+Y6FDtoR8xk=";
+      };
+    };
+
     standard-vim = buildVimPlugin {
       name = "standard-vim";
       src = fetchFromGitHub {
@@ -160,6 +170,7 @@ in
 
       customVim.conf-vim
       customVim.edit-alternate-vim
+      customVim.nvim-tmux-navigation
       customVim.standard-vim
       customVim.tabline-vim
       customVim.vim-autoread
