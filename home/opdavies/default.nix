@@ -70,6 +70,7 @@ in
     );
 
   home.sessionVariables = {
+    DIRENV_LOG_FORMAT = "";
     EDITOR = "nvim";
     LANG = "en_GB.UTF-8";
     LC_ALL = "en_GB.UTF-8";

@@ -36,6 +36,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
       home.packages = shared-packages ++ [ pkgs.wsl-open ];
 
       home.sessionVariables = {
+        DIRENV_LOG_FORMAT = "";
         EDITOR = "nvim";
         PATH = "$PATH:./vendor/bin:./node_modules/.bin";
         PULUMI_SKIP_UPDATE_CHECK = "true";
