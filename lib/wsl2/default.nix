@@ -6,6 +6,8 @@
 { system }:
 
 let
+  inherit (pkgs) lib;
+
   pkgs = inputs.nixpkgs.legacyPackages.${system};
 
   shared-config = import "${self}/lib/shared/home-manager.nix" {
@@ -38,7 +40,12 @@ inputs.home-manager.lib.homeManagerConfiguration {
       home.sessionVariables = {
         DIRENV_LOG_FORMAT = "";
         EDITOR = "nvim";
-        PATH = "$PATH:./vendor/bin:./node_modules/.bin";
+        PATH = lib.concatStringsSep ":" [
+          "$PATH"
+          "$HOME/go/bin"
+          "./vendor/bin"
+          "./node_modules/.bin"
+        ];
         PULUMI_SKIP_UPDATE_CHECK = "true";
         REPOS = "$HOME/Code";
         RIPGREP_CONFIG_PATH = "$HOME/.config/ripgrep/config";

@@ -8,6 +8,8 @@
   ...
 }:
 let
+  inherit (pkgs) lib;
+
   desktop-config = import ./desktop.nix {
     inherit
       config
@@ -75,7 +77,12 @@ in
     LANG = "en_GB.UTF-8";
     LC_ALL = "en_GB.UTF-8";
     LC_CTYPE = "en_GB.UTF-8";
-    PATH = "$PATH:./vendor/bin:./node_modules/.bin";
+    PATH = lib.concatStringsSep ":" [
+      "$PATH"
+      "$HOME/go/bin"
+      "./vendor/bin"
+      "./node_modules/.bin"
+    ];
     PULUMI_SKIP_UPDATE_CHECK = "true";
     REPOS = "$HOME/Code";
     RIPGREP_CONFIG_PATH = "$HOME/.config/ripgrep/config";
