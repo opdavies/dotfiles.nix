@@ -73,7 +73,6 @@
         sla = "log --oneline --decorate --graph --all -20";
         slap = "log --oneline --decorate --graph --all";
         slp = "log --oneline --decorate";
-        staged = "diff --staged";
         stash = "stash --included-untracked";
         unassume = "update-index --no-assume-unchanged";
         uncommit = "reset --soft HEAD^";
