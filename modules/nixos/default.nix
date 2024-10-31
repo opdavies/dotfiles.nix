@@ -1,1 +1,6 @@
-{ imports = [ ./docker.nix ]; }
+{
+  imports = [
+    ./docker.nix
+    ./kanata.nix
+  ];
+}
