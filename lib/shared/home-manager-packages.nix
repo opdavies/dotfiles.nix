@@ -48,8 +48,8 @@ with pkgs;
   inotify-tools
   jq
   lua
+  mariadb
   mob
-  mysql
   php
   phpPackages.composer
   pv
