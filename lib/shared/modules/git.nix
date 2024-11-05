@@ -1,4 +1,4 @@
-{ pkgs, pkgsUnstable, ... }:
+{ pkgs, ... }:
 
 {
   home.file.".gitmessage".text = ''
@@ -146,7 +146,7 @@
     };
   };
 
-  home.packages = with pkgsUnstable; [ git-instafix ];
+  home.packages = with pkgs.unstable; [ git-instafix ];
 
   home.sessionVariables = {
     GIT_INSTAFIX_UPSTREAM = "origin/main";

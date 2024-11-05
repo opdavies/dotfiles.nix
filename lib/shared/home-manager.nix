@@ -4,9 +4,6 @@
   username,
   self,
 }:
-let
-  pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
-in
 {
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -19,8 +16,8 @@ in
   programs.home-manager.enable = true;
 
   imports = [
-    (import ./modules/git.nix { inherit inputs pkgs pkgsUnstable; })
-    (import ./modules/neovim.nix { inherit inputs pkgs pkgsUnstable; })
+    (import ./modules/git.nix { inherit inputs pkgs; })
+    (import ./modules/neovim.nix { inherit inputs pkgs; })
     ./modules/bat.nix
     ./modules/bin.nix
     ./modules/direnv.nix

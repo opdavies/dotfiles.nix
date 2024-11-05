@@ -1,15 +1,10 @@
-{
-  inputs,
-  pkgs,
-  pkgsUnstable,
-  ...
-}:
+{ inputs, pkgs, ... }:
 
 {
   programs.neovim = {
     enable = true;
 
-    package = pkgsUnstable.neovim-unwrapped;
+    package = pkgs.unstable.neovim-unwrapped;
 
     plugins = with pkgs.vimPlugins; [
       comment-nvim
