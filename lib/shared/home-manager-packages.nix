@@ -19,7 +19,6 @@ let
   export-video-list = writeShellApplication (
     import ./scripts/export-video-list.nix { inherit pkgs username; }
   );
-  notetaker = writeShellApplication (import ./scripts/notetaker.nix);
   run = writeShellApplication (import ./scripts/run.nix { inherit pkgs; });
   t = writeShellApplication (import ./scripts/t.nix { inherit pkgs; });
   timer = writeShellApplication (import ./scripts/timer.nix);
@@ -72,7 +71,6 @@ with pkgs;
   # Scripts.
   create-zellij-session
   deliver
-  notetaker
   run
   t
 ]

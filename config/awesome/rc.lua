@@ -283,10 +283,6 @@ globalkeys = gears.table.join(
     awful.client.focus.byidx(1)
   end, { description = "focus next by index", group = "client" }),
 
-  awful.key({ modkey }, "n", function()
-    awful.util.spawn "alacritty --class notetaker_window --command notetaker"
-  end, { description = "open today's daily note", group = "client" }),
-
   awful.key({ modkey }, "w", function()
     mymainmenu:show()
   end, { description = "show main menu", group = "awesome" }),
@@ -594,7 +590,6 @@ awful.rules.rules = {
         "Sxiv",
         "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
         "Wpa_gui",
-        "notetaker_window",
         "veromix",
         "xtightvncviewer",
         "zoom",
