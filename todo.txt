@@ -1,0 +1,5 @@
+Add immich for photo hosting
+Use nginx for jellyfin, immich and gitea
+Add gitea for local Git hosting
+Add daily script
+Add create-podcast-tasks script
