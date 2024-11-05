@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   desktop ? false,
   hostname,
   self,
@@ -18,7 +19,11 @@ in
       permittedInsecurePackages = [ "electron-27.3.11" ];
     };
 
-    overlays = [ (import "${self}/overlays/vim-plugins-overlay.nix") ];
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
   };
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

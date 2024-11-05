@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   nixos-hardware,
   pkgs,
   self,
@@ -12,6 +13,7 @@
 let
   configuration = import ./configuration.nix {
     inherit
+      outputs
       desktop
       hostname
       inputs

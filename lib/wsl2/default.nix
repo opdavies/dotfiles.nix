@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   self,
   username,
 }:
@@ -9,7 +10,11 @@ let
   inherit (pkgs) lib;
 
   pkgs = import inputs.nixpkgs {
-    overlays = [ (import "${self}/overlays/vim-plugins-overlay.nix") ];
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
   };
 
   shared-config = import "${self}/lib/shared/home-manager.nix" {

@@ -19,6 +19,8 @@
       ...
     }@inputs:
     let
+      inherit (self) outputs;
+
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
 
@@ -27,13 +29,21 @@
       mkNixos = import ./lib/nixos {
         inherit
           inputs
+          outputs
           nixos-hardware
           pkgs
           self
           username
           ;
       };
-      mkWsl = import ./lib/wsl2 { inherit inputs self username; };
+      mkWsl = import ./lib/wsl2 {
+        inherit
+          inputs
+          outputs
+          self
+          username
+          ;
+      };
 
       inherit (pkgs) mkShell;
       inherit (pkgs.vimUtils) buildVimPlugin;
@@ -49,6 +59,8 @@
       };
 
       formatter.${system} = pkgs.nixfmt-rfc-style;
+
+      overlays = import ./overlays { inherit inputs; };
 
       nixosConfigurations = {
         lemp11 = mkNixos {
