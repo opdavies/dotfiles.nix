@@ -46,20 +46,6 @@ in
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = false;
 
-  services.tlp = {
-    enable = true;
-
-    settings = {
-      PCIE_ASPM_ON_BAT = "powersupersave";
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      CPU_MAX_PERF_ON_AC = "95";
-      CPU_MAX_PERF_ON_BAT = "50";
-      STOP_CHARGE_THRESH_BAT1 = "95";
-      STOP_CHARGE_THRESH_BAT0 = "95";
-    };
-  };
-
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
