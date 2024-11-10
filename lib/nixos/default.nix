@@ -41,7 +41,9 @@ inputs.nixpkgs.lib.nixosSystem {
       };
     }
 
-    (import ../../modules/nixos/awesome.nix {
+    (import ../../modules/nixos/autorandr.nix)
+    (import ../../modules/nixos/gnome.nix)
+    (import ../../modules/nixos/i3.nix {
       inherit
         inputs
         pkgs
@@ -49,8 +51,6 @@ inputs.nixpkgs.lib.nixosSystem {
         username
         ;
     })
-    (import ../../modules/nixos/autorandr.nix)
-    (import ../../modules/nixos/gnome.nix)
 
     configuration
     hardwareConfiguration

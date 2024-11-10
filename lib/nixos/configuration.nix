@@ -137,6 +137,7 @@ in
   environment.systemPackages =
     with pkgs;
     [
+      caffeine-ng
       gtypist
       fastfetch
       mermaid-cli
