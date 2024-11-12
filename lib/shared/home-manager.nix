@@ -26,6 +26,7 @@
     ../../modules/home-manager/pet.nix
     ../../modules/home-manager/phpactor.nix
     ../../modules/home-manager/ripgrep.nix
+    ../../modules/home-manager/starship.nix
     ../../modules/home-manager/syncthing.nix
     ../../modules/home-manager/tmux.nix
     ../../modules/home-manager/zellij.nix
