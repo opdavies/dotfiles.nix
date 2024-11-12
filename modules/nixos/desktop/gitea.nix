@@ -3,7 +3,6 @@
 {
   services.gitea = {
     enable = true;
-    package = pkgs.unstable.gitea;
 
     settings = {
       server = {

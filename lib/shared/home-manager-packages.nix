@@ -32,6 +32,7 @@ with pkgs;
   cachix
   ctop
   delta
+  devenv
   dog
   doppler
   entr
@@ -67,8 +68,6 @@ with pkgs;
   xdg-utils
   xh
   yarn
-
-  unstable.devenv
 
   # Scripts.
   create-zellij-session

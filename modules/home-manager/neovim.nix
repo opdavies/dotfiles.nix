@@ -4,8 +4,6 @@
   programs.neovim = {
     enable = true;
 
-    package = pkgs.unstable.neovim-unwrapped;
-
     plugins = with pkgs.vimPlugins; [
       comment-nvim
       dial-nvim
