@@ -42,7 +42,6 @@ inputs.nixpkgs.lib.nixosSystem {
     }
 
     (import ../../modules/nixos/autorandr.nix)
-    (import ../../modules/nixos/gnome.nix)
     (import ../../modules/nixos/i3.nix {
       inherit
         inputs
