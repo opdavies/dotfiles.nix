@@ -68,6 +68,8 @@ with pkgs;
   xh
   yarn
 
+  unstable.devenv
+
   # Scripts.
   create-zellij-session
   deliver
