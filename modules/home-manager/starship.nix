@@ -33,6 +33,7 @@ in
         "$character"
       ];
 
+      cmd_duration.disabled = true;
       direnv.disabled = false;
       directory.format = "in [$path]($style) ";
       git_status.disabled = true;
