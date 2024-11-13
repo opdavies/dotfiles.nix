@@ -34,7 +34,7 @@ in
         glyph_offset.y = 6;
       };
 
-      shell = {
+      terminal.shell = {
         program = "zsh";
       };
     };
