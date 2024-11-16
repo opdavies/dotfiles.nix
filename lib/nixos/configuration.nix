@@ -213,6 +213,10 @@ in
   zramSwap.enable = true;
 
   nix = {
+    extraOptions = ''
+      trusted-users = root ${username}
+    '';
+
     gc = {
       automatic = true;
       dates = "daily";
