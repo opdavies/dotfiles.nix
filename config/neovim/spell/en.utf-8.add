@@ -9,6 +9,7 @@ Behat
 Bluecheese
 CMSes
 CTI
+Cachix
 Centarro
 CiviCRM
 Configs
@@ -35,6 +36,7 @@ Lando
 Laravel
 Linode
 Magento
+MariaDB
 Microserve
 Mischa
 MySQL
@@ -82,6 +84,7 @@ assertSame
 autorandr
 bootcamp
 contrib
+devenv
 dotfiles
 drupal
 eCommerce
@@ -108,6 +111,7 @@ stylesheet
 stylesheets
 testbot
 tmux
+url
 wildcard
 worktree
 worktrees
