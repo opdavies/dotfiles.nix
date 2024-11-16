@@ -7,11 +7,12 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixpkgs-2405.url = "github:nixos/nixpkgs/nixos-24.05";
   };
 
   outputs =
     {
-      home-manager,
       nixos-hardware,
       nixpkgs,
       self,

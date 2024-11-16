@@ -67,7 +67,8 @@ in
         pocket-casts
         xcape
         xsel
-        zoom-us
+
+        pkgs.nixpkgs-2405.zoom-us
       ]
     );
 
