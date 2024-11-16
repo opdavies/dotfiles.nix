@@ -143,3 +143,10 @@ abbr overdue="task +OVERDUE"
 
 abbr nah="git reset --hard; git clean -fd"
 abbr wip="git commit -m wip"
+
+abbr dv="devenv"
+abbr dvi="devenv info"
+abbr dvp="devenv processes"
+abbr dvs="devenv shell"
+abbr dvt="devenv tasks"
+abbr dvu="devenv up"
