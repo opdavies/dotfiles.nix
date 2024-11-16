@@ -30,8 +30,8 @@ in
         bold.style = "Regular";
         normal.family = "${theme.fonts.monospace.name}";
 
-        offset.y = 12;
-        glyph_offset.y = 6;
+        offset.y = 6;
+        glyph_offset.y = 3;
       };
 
       terminal.shell = {
