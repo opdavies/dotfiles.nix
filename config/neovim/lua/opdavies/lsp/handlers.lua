@@ -50,7 +50,9 @@ M.on_publish_diagnostics = function(_, result, ctx, config)
 
     local messages_to_filter = {
       "Unknown at rule @apply",
+      "Unknown at rule @plugin",
       "Unknown at rule @tailwind",
+      "Unknown at rule @theme",
     }
 
     -- For each diagnostic, ensure its mesages doesn't match one I want to
