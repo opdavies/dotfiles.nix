@@ -77,7 +77,10 @@ local servers = {
   },
 
   terraformls = true,
-  tsserver = true,
+
+  -- TODO: make this work with Vue files.
+  ts_ls = true,
+
   vuels = true,
 
   yamlls = {
