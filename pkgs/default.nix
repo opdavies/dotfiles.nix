@@ -9,7 +9,6 @@ in
     edit-alternate-vim = callPackage ./vim-plugins/edit-alternate-vim.nix { };
     nvim-tmux-navigation = callPackage ./vim-plugins/nvim-tmux-navigation.nix { };
     standard-vim = callPackage ./vim-plugins/standard-vim.nix { };
-    tabline-vim = callPackage ./vim-plugins/tabline-vim.nix { };
     vim-autoread = callPackage ./vim-plugins/vim-autoread.nix { };
     vim-caser = callPackage ./vim-plugins/vim-caser.nix { };
     vim-heritage = callPackage ./vim-plugins/vim-heritage.nix { };

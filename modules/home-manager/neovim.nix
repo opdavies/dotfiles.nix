@@ -38,7 +38,6 @@
       edit-alternate-vim
       nvim-tmux-navigation
       standard-vim
-      tabline-vim
       vim-autoread
       vim-textobj-indent
       vim-textobj-xmlattr
