@@ -39,9 +39,5 @@
           };
         };
       };
-
-    hooks.postswitch = {
-      "reload-awesome" = ''echo 'awesome.restart()' | awesome-client'';
-    };
   };
 }
