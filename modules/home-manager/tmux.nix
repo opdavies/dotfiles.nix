@@ -42,12 +42,9 @@ in
 
       bind-key C-j choose-tree
 
-      # Use vim keybindings in copy mode
-      setw -g mode-keys vi
-
-      # Setup 'v' to begin selection as in Vim
-      bind-key -T copy-mode-vi 'v' send -X begin-selection
-      bind-key -T copy-mode-vi 'y' send -X copy-pipe wl-copy
+      set-window-option -g mode-keys vi
+      bind -T copy-mode-vi v send-keys -X begin-selection
+      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
 
       bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
 
