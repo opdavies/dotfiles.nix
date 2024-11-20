@@ -35,16 +35,12 @@ in
 
       cmd_duration.disabled = true;
       direnv.disabled = false;
-      directory.format = "in [$path]($style) ";
+      directory.format = "[$path]($style) ";
       git_status.disabled = true;
       nix_shell.disabled = true;
       nodejs.disabled = true;
       php.disabled = true;
-
-      username = {
-        format = "[$user]($style) ";
-        show_always = true;
-      };
+      username.disabled = true;
 
       custom = {
         mob = {
