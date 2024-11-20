@@ -3,7 +3,8 @@
     ../.
     ./fonts.nix
     ./gitea.nix
-    ./jellyfin.nix
     ./immich.nix
+    ./jellyfin.nix
+    ./xbanish.nix
   ];
 }
