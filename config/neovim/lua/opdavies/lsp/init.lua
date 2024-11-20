@@ -1,110 +1,108 @@
-local lspconfig = require "lspconfig"
-local nvim_status = require "lsp-status"
-
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
 local handlers = require "opdavies.lsp.handlers"
+local lspconfig = require "lspconfig"
 
 require("neodev").setup {}
 
-local servers = {
-  bashls = true,
+local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-  cssls = {
-    on_attach = function(client, bufnr)
-      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(handlers.on_publish_diagnostics, {})
-    end,
-  },
+lspconfig.bashls.setup {
+  capabilities = capabilities,
+}
 
-  gopls = true,
-  html = true,
+lspconfig.cssls.setup {
+  capabilities = capabilities,
+  on_attach = function(_, _)
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(handlers.on_publish_diagnostics, {})
+  end,
+}
 
-  intelephense = {
-    filetypes = { "php", "module", "test", "inc" },
-  },
+lspconfig.gopls.setup {
+  capabilities = capabilities,
+}
 
-  lua_ls = {
-    settings = {
-      Lua = {
-        completion = {
-          callSnippet = "Replace",
-        },
+lspconfig.html.setup {
+  capabilities = capabilities,
+}
 
-        diagnostics = {
-          globals = { "vim" },
-        },
+lspconfig.intelephense.setup {
+  capabilities = capabilities,
+}
 
-        runtime = {
-          version = "LuaJIT",
-        },
-
-        telemetry = {
-          enabled = false,
-        },
-
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
-        },
+lspconfig.lua_ls.setup {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace",
       },
-    },
-  },
-
-  marksman = true,
-
-  nixd = {
-    command = { "nixd" },
-    settings = {
-      nixd = {
-        nixpkgs = {
-          expr = "import <nixpkgs> { }",
-        },
-
-        formatting = {
-          command = "nix fmt",
-        },
+      diagnostics = {
+        globals = { "vim" },
       },
-    },
-  },
-
-  tailwindcss = {
-    filetypes = { "html", "javascript", "twig", "typescript", "vue" },
-
-    settings = {
-      init_options = {
-        userLanguages = {
-          ["html.twig"] = "html",
-        },
+      runtime = {
+        version = "LuaJIT",
       },
-    },
-  },
-
-  terraformls = true,
-
-  -- TODO: make this work with Vue files.
-  ts_ls = true,
-
-  vuels = true,
-
-  yamlls = {
-    settings = {
-      yaml = {
-        keyOrdering = false,
+      telemetry = {
+        enabled = false,
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
       },
     },
   },
 }
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+lspconfig.marksman.setup {
+  capabilities = capabilities,
+}
 
-for server_name, config in pairs(servers) do
-  if config == true then
-    config = {}
-  end
+lspconfig.nixd.setup {
+  capabilities = capabilities,
+  cmd = { "nixd" },
+  settings = {
+    nixd = {
+      nixpkgs = {
+        expr = "import <nixpkgs> { }",
+      },
+      formatting = {
+        command = "nix fmt",
+      },
+    },
+  },
+}
 
-  config = vim.tbl_deep_extend("force", {}, {
-    capabilities = capabilities,
-  }, config)
+lspconfig.tailwindcss.setup {
+  capabilities = capabilities,
+  filetypes = { "html", "javascript", "twig", "typescript", "vue" },
+  settings = {
+    init_options = {
+      userLanguages = {
+        ["html.twig"] = "html",
+      },
+    },
+  },
+}
 
-  lspconfig[server_name].setup(config)
-end
+lspconfig.terraformls.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.tsserver.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.vuels.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.yamlls.setup {
+  capabilities = capabilities,
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    },
+  },
+}
 
 vim.diagnostic.config {
   float = { source = true },
@@ -117,19 +115,6 @@ vim.diagnostic.config {
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function()
     local builtin = require "telescope.builtin"
-
-    -- buf_inoremap { "<C-k>", vim.lsp.buf.signature_help }
-    -- buf_nnoremap { "<leader>ca", vim.lsp.buf.code_action }
-    -- buf_nnoremap { "<leader>d", vim.diagnostic.open_float }
-    -- buf_nnoremap { "<leader>rn", vim.lsp.buf.rename }
-    -- buf_nnoremap { "<leader>rr", "<cmd>LspRestart<cr>" }
-    -- buf_nnoremap { "[d", vim.diagnostic.goto_prev }
-    -- buf_nnoremap { "]d", vim.diagnostic.goto_next }
-
-    -- buf_nnoremap { "gD", vim.lsp.buf.declaration }
-    -- buf_nnoremap { "gd", handlers.definition }
-    -- buf_nnoremap { "gi", vim.lsp.buf.implementation }
-    -- buf_nnoremap { "gT", vim.lsp.buf.type_definition }
 
     vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = 0 })
     vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = 0 })
