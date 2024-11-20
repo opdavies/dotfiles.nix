@@ -29,6 +29,8 @@ in
     };
   };
 
+  environment.systemPackages = [ pkgs.nitrogen ];
+
   home-manager.users.${username} = {
     xsession.windowManager.i3 = {
       enable = true;
@@ -92,6 +94,7 @@ in
         bindswitch --reload --locked lid:on output $laptop disable
         bindswitch --reload --locked lid:off output $laptop enable
 
+        exec_always --no-startup-id ${pkgs.nitrogen}/bin/nitrogen --restore &
         exec_always --no-startup-id caffeine
 
         default_border none
