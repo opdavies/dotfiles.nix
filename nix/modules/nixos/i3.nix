@@ -99,6 +99,7 @@ in
 
         exec_always --no-startup-id ${pkgs.nitrogen}/bin/nitrogen --restore &
         exec_always --no-startup-id caffeine
+        exec_always --no-startup-id ${pkgs.autorandr}/bin/autorandr --change
 
         default_border none
         default_floating_border none
