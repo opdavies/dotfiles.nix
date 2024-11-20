@@ -29,7 +29,10 @@ in
     };
   };
 
-  environment.systemPackages = [ pkgs.nitrogen ];
+  environment.systemPackages = with pkgs; [
+    dunst
+    nitrogen
+  ];
 
   home-manager.users.${username} = {
     xsession.windowManager.i3 = {
