@@ -17,7 +17,7 @@ let
     ];
   };
 
-  shared-config = import "${self}/lib/shared/home-manager.nix" {
+  shared-config = import "${self}/nix/lib/shared/home-manager.nix" {
     inherit
       inputs
       pkgs
@@ -26,7 +26,7 @@ let
       ;
   };
 
-  shared-packages = import "${self}/lib/shared/home-manager-packages.nix" {
+  shared-packages = import "${self}/nix/lib/shared/home-manager-packages.nix" {
     inherit inputs pkgs username;
     desktop = false;
   };

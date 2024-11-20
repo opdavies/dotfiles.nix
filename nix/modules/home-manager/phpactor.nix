@@ -1,7 +1,7 @@
 { self, ... }:
 {
   xdg.configFile.phpactor = {
-    source = "${self}/config/phpactor";
+    source = "${self}/phpactor";
     recursive = true;
   };
 }

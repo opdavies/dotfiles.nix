@@ -26,7 +26,7 @@
 
       username = "opdavies";
 
-      mkNixos = import ./lib/nixos {
+      mkNixos = import ./nix/lib/nixos {
         inherit
           inputs
           outputs
@@ -36,7 +36,7 @@
           username
           ;
       };
-      mkWsl = import ./lib/wsl2 {
+      mkWsl = import ./nix/lib/wsl2 {
         inherit
           inputs
           outputs
@@ -54,13 +54,13 @@
 
         opdavies-nvim = buildVimPlugin {
           name = "opdavies-nvim";
-          src = ./config/neovim;
+          src = ./nvim;
         };
       };
 
       formatter.${system} = pkgs.nixfmt-rfc-style;
 
-      overlays = import ./overlays { inherit inputs; };
+      overlays = import ./nix/overlays { inherit inputs; };
 
       nixosConfigurations = {
         lemp11 = mkNixos {
