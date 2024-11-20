@@ -124,19 +124,12 @@ in
     programs.i3status = {
       enable = true;
 
-      general = {
-        colors = true;
-
-        color_bad = "#f7768e";
-        color_degraded = "#ff9e64";
-        color_good = "#c0caf5";
-      };
+      general.colors = false;
 
       modules = {
         "battery all".settings.last_full_capacity = true;
 
         "tztime local".settings.format = "%d-%m-%Y %H:%M:%S";
-
         cpu_temperature.enable = false;
         ipv6.enable = false;
         load.enable = false;
