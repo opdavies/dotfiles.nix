@@ -65,13 +65,11 @@ in
 
       bind-key -r f run-shell "tmux new-window t"
 
-      set -g @resurrect-strategy-nvim 'session'
 
       if-shell "[ -f ~/.tmux.conf.local ]" 'source ~/.tmux.conf.local'
     '';
 
     plugins = [
-      tmuxPlugins.resurrect
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank
     ];
