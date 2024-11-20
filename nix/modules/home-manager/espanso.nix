@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   services.espanso = {
     enable = true;
@@ -10,7 +12,7 @@
     };
 
     matches = {
-      base = import ./espanso/matches/base.nix;
+      base = import ./espanso/matches/base.nix { inherit lib; };
     };
   };
 }

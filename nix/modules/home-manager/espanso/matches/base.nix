@@ -1,10 +1,19 @@
+{ lib, ... }:
+
 let
+  inherit (lib) removePrefix;
+
   websiteUrl = "https://www.oliverdavies.uk";
   dailyUrl = "https://dailydrupaler.com";
+  githubUrl = "https://github.com/opdavies";
   podcastUrl = "https://beyondblockspodcast.com";
 in
 {
   matches = [
+    {
+      trigger = ":email";
+      replace = "oliver@${removePrefix "https://www." websiteUrl}";
+    }
     {
       trigger = ":archive";
       replace = "${websiteUrl}/archive";
@@ -26,16 +35,12 @@ in
       replace = "${dailyUrl}";
     }
     {
-      trigger = ":dotfiles";
-      replace = "https://github.com/opdavies/dotfiles.nix";
+      trigger = ":dot";
+      replace = "${githubUrl}/dotfiles";
     }
     {
-      trigger = ":dc";
-      replace = "Drupal Commerce";
-    }
-    {
-      trigger = ":dr";
-      replace = "Drupal";
+      trigger = ":gh";
+      replace = "${githubUrl}";
     }
     {
       trigger = ":gt";
