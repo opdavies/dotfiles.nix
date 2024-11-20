@@ -46,6 +46,7 @@ with pkgs;
   go
   inotify-tools
   jq
+  killall
   lua
   mariadb
   mob
