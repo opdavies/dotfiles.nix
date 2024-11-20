@@ -44,7 +44,6 @@ with pkgs;
   git-crypt
   gnupg
   go
-  htop
   inotify-tools
   jq
   lua

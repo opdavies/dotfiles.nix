@@ -33,6 +33,7 @@
     ../../modules/home-manager/bin.nix
     ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/fzf.nix
+    ../../modules/home-manager/htop.nix
     ../../modules/home-manager/lsd.nix
     ../../modules/home-manager/pet.nix
     ../../modules/home-manager/phpactor.nix
