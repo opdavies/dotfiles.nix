@@ -3,12 +3,12 @@
   outputs,
   desktop ? false,
   hostname,
+  username,
   self,
 }:
+
 { pkgs, ... }:
-let
-  username = "opdavies";
-in
+
 {
   imports = [ ../../modules/nixos/desktop ];
 

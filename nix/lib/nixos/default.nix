@@ -16,6 +16,7 @@ let
       outputs
       desktop
       hostname
+      username
       inputs
       self
       ;
