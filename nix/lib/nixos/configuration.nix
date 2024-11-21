@@ -12,6 +12,10 @@ in
 {
   imports = [ ../../modules/nixos/desktop ];
 
+  _module.args = {
+    inherit inputs self username;
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;

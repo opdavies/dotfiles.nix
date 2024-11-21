@@ -41,16 +41,6 @@ inputs.nixpkgs.lib.nixosSystem {
       };
     }
 
-    (import ../../modules/nixos/autorandr.nix)
-    (import ../../modules/nixos/i3.nix {
-      inherit
-        inputs
-        pkgs
-        self
-        username
-        ;
-    })
-
     configuration
     hardwareConfiguration
 
