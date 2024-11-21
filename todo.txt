@@ -1,6 +1,4 @@
 Use nixosModules and homeManagerModules outputs in flake.nix to simplify importing modules
-Add immich for photo hosting
 Use nginx for jellyfin, immich and gitea
-Add gitea for local Git hosting
 Add daily script
 Add create-podcast-tasks script
