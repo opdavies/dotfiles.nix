@@ -146,7 +146,7 @@
     };
   };
 
-  home.packages = with pkgs.unstable; [ git-instafix ];
+  home.packages = [ pkgs.git-instafix ];
 
   home.sessionVariables = {
     GIT_INSTAFIX_UPSTREAM = "origin/main";

@@ -6,8 +6,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
     nixpkgs-2405.url = "github:nixos/nixpkgs/nixos-24.05";
   };
 

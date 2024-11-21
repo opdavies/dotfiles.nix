@@ -17,11 +17,4 @@
       system = final.system;
     };
   };
-
-  unstable-packages = final: _prev: {
-    unstable = import inputs.nixpkgs-unstable {
-      config.allowUnfree = true;
-      system = final.system;
-    };
-  };
 }
