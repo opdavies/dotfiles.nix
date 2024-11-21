@@ -4,6 +4,8 @@ let
   inherit (pkgs) callPackage;
 in
 {
+  build-glove80 = callPackage ./build-glove80.nix { };
+
   vimPlugins = prev.vimPlugins // {
     conf-vim = callPackage ./vim-plugins/conf-vim.nix { };
     edit-alternate-vim = callPackage ./vim-plugins/edit-alternate-vim.nix { };

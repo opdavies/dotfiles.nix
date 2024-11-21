@@ -51,6 +51,7 @@ in
       with pkgs;
       [
         brave
+        build-glove80
         discord
         gimp
         gscan2pdf
