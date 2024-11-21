@@ -7,6 +7,7 @@
     ./i3.nix
     ./immich.nix
     ./jellyfin.nix
+    ./screenkey.nix
     ./xbanish.nix
   ];
 }
