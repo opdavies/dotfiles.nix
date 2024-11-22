@@ -9,6 +9,7 @@
 {
   desktop ? false,
   hostname,
+  modules ? [ ],
 }:
 let
   configuration = import ./configuration.nix {
@@ -44,12 +45,5 @@ inputs.nixpkgs.lib.nixosSystem {
 
     configuration
     hardwareConfiguration
-
-    # TODO: only for "lemp11".
-    nixos-hardware.nixosModules.common-cpu-intel
-    nixos-hardware.nixosModules.common-gpu-intel
-    nixos-hardware.nixosModules.common-pc-laptop
-    nixos-hardware.nixosModules.common-pc-laptop-hdd
-    nixos-hardware.nixosModules.system76
-  ];
+  ] ++ modules;
 }

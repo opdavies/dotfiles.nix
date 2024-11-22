@@ -64,6 +64,15 @@
         lemp11 = mkNixos {
           desktop = true;
           hostname = "lemp11";
+
+          # TODO: move the rest of the modules here.
+          modules = [
+            nixos-hardware.nixosModules.common-cpu-intel
+            nixos-hardware.nixosModules.common-gpu-intel
+            nixos-hardware.nixosModules.common-pc-laptop
+            nixos-hardware.nixosModules.common-pc-laptop-hdd
+            nixos-hardware.nixosModules.system76
+          ];
         };
       };
 
