@@ -93,7 +93,6 @@
           yaml
         ]
       ))
-      nvim-treesitter-context
       nvim-treesitter-textobjects
 
       # LSP, linting and formatting

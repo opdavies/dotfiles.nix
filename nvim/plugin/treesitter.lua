@@ -1,5 +1,4 @@
 local configs = require "nvim-treesitter.configs"
-local context = require "treesitter-context"
 local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
 
 configs.setup {
@@ -132,5 +131,3 @@ set({ "n", "o", "x" }, "f", ts_repeat_move.builtin_f)
 set({ "n", "o", "x" }, "F", ts_repeat_move.builtin_F)
 set({ "n", "o", "x" }, "t", ts_repeat_move.builtin_t)
 set({ "n", "o", "x" }, "T", ts_repeat_move.builtin_T)
-
-context.setup { enable = true }
