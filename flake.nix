@@ -10,12 +10,7 @@
   };
 
   outputs =
-    {
-      nixos-hardware,
-      nixpkgs,
-      self,
-      ...
-    }@inputs:
+    { nixpkgs, self, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -24,16 +19,6 @@
 
       username = "opdavies";
 
-      mkNixos = import ./nix/lib/nixos {
-        inherit
-          inputs
-          outputs
-          nixos-hardware
-          pkgs
-          self
-          username
-          ;
-      };
       mkWsl = import ./nix/lib/wsl2 {
         inherit
           inputs
@@ -61,18 +46,19 @@
       overlays = import ./nix/overlays { inherit inputs; };
 
       nixosConfigurations = {
-        lemp11 = mkNixos {
-          desktop = true;
-          hostname = "lemp11";
+        lemp11 = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit
+              inputs
+              outputs
+              self
+              username
+              ;
 
-          # TODO: move the rest of the modules here.
-          modules = [
-            nixos-hardware.nixosModules.common-cpu-intel
-            nixos-hardware.nixosModules.common-gpu-intel
-            nixos-hardware.nixosModules.common-pc-laptop
-            nixos-hardware.nixosModules.common-pc-laptop-hdd
-            nixos-hardware.nixosModules.system76
-          ];
+            desktop = true;
+          };
+
+          modules = [ ./nix/hosts/lemp11 ];
         };
       };
 

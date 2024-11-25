@@ -1,23 +1,86 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  desktop ? false,
+  self,
+  username,
+  ...
+}:
 
 {
   imports = [
-    # Include the results of the hardware scan.
+    inputs.home-manager.nixosModules.home-manager
+
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.common-gpu-intel
+    inputs.nixos-hardware.nixosModules.common-pc-laptop
+    inputs.nixos-hardware.nixosModules.common-pc-laptop-hdd
+    inputs.nixos-hardware.nixosModules.system76
+
     ./hardware-configuration.nix
+
+    ../../modules/nixos/desktop
   ];
 
+  home-manager = {
+    extraSpecialArgs = {
+      inherit
+        inputs
+        desktop
+        self
+        username
+        ;
+    };
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users."${username}" = import "${self}/nix/home/${username}";
+  };
+
+  _module.args = {
+    inherit inputs self username;
+  };
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+
+      permittedInsecurePackages = [ "electron-27.3.11" ];
+    };
+
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
+    ];
+  };
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
+  };
 
-  networking.hostName = "lemp11"; # Define your hostname.
+  services.thermald.enable = true;
+  services.power-profiles-daemon.enable = false;
+
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
+
+  networking.hostName = "lemp11";
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -48,66 +111,98 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
   services.xserver = {
-    layout = "gb";
-    xkbVariant = "";
+    xkb = {
+      layout = "gb";
+      variant = "";
+    };
   };
 
   # Configure console keymap
   console.keyMap = "uk";
 
-  # Enable CUPS to print documents.
+  services.avahi.enable = true;
+  services.avahi.nssmdns4 = true;
+  services.avahi.openFirewall = true;
   services.printing.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+
+  hardware.bluetooth.enable = true;
+
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+  };
+
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+
+    pulse.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.opdavies = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "Oliver Davies";
     extraGroups = [
-      "jellyfin"
+      "docker"
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-      firefox
-      kate
-      #  thunderbird
-    ];
+    packages = [ ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  security.sudo.wheelNeedsPassword = false;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      caffeine-ng
+      gtypist
+      fastfetch
+      mermaid-cli
+      mkcert
+      taskopen
+      taskwarrior3
+      taskwarrior-tui
+      ttyper
+      yt-dlp
+      ytfzf
+    ]
+    ++ pkgs.lib.optionals desktop [
+      acpi
+      arandr
+      bluetuith
+      brightnessctl
+      cpufrequtils
+      libnotify
+      pmutils
+      ffmpegthumbnailer
+      libreoffice
+      logseq
+      rclone
+      rclone-browser
+      shotwell
+      slack
+      vscode
+      xfce.thunar
+      xfce.thunar-volman
+      xfce.tumbler
+
+      # Games.
+      zeroad
+    ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -120,10 +215,12 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    9003 # xdebug
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
@@ -136,4 +233,91 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
 
+  programs.dconf.enable = true;
+
+  programs.zsh.enable = true;
+  programs.zsh.histSize = 5000;
+
+  users.defaultUserShell = "/etc/profiles/per-user/${username}/bin/zsh";
+
+  zramSwap.enable = true;
+
+  nix = {
+    extraOptions = ''
+      trusted-users = root ${username}
+    '';
+
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 7d";
+    };
+
+    optimise.automatic = true;
+
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      warn-dirty = false;
+    };
+  };
+
+  # Make Caps lock work as an Escape key on press and Ctrl on hold.
+  services.interception-tools =
+    let
+      dfkConfig = pkgs.writeText "dual-function-keys.yaml" ''
+        MAPPINGS:
+          - KEY: KEY_CAPSLOCK
+            TAP: KEY_ESC
+            HOLD: KEY_LEFTCTRL
+      '';
+    in
+    {
+      enable = true;
+      plugins = pkgs.lib.mkForce [ pkgs.interception-tools-plugins.dual-function-keys ];
+      udevmonConfig = ''
+        - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
+          DEVICE:
+            NAME: "AT Translated Set 2 keyboard"
+            EVENTS:
+              EV_KEY: [[KEY_CAPSLOCK, KEY_ESC, KEY_LEFTCTRL]]
+      '';
+    };
+
+  services.gvfs.enable = true;
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
+
+  programs.firefox = {
+    enable = true;
+    languagePacks = [ "en-GB" ];
+    preferences = {
+      "intl.accept_languages" = "en-GB, en";
+      "intl.regional_prefs.use_os_locales" = true;
+    };
+  };
+
+  services.blueman.enable = true;
+
+  services.cron = {
+    enable = true;
+
+    systemCronJobs = [ "* * * * * opdavies /home/${username}/.local/bin/notify-battery" ];
+  };
+
+  services.auto-cpufreq.enable = true;
+
+  services.udev = {
+    enable = true;
+    extraRules = ''
+      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+    '';
+  };
 }
