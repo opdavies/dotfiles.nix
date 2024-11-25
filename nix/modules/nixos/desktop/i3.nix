@@ -85,11 +85,6 @@ in
         };
 
         terminal = "alacritty";
-
-        window = {
-          border = 0;
-          hideEdgeBorders = "none";
-        };
       };
 
       extraConfig = ''
@@ -101,8 +96,6 @@ in
         exec_always --no-startup-id caffeine
         exec_always --no-startup-id ${pkgs.autorandr}/bin/autorandr --change
 
-        default_border none
-        default_floating_border none
         smart_borders on
         smart_gaps on
 
