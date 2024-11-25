@@ -156,7 +156,6 @@
     ++ pkgs.lib.optionals desktop [
       acpi
       arandr
-      backintime
       bluetuith
       brightnessctl
       cpufrequtils
