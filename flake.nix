@@ -10,7 +10,12 @@
   };
 
   outputs =
-    { nixpkgs, self, ... }@inputs:
+    {
+      home-manager,
+      nixpkgs,
+      self,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
 
@@ -19,7 +24,7 @@
 
       username = "opdavies";
 
-      mkWsl = import ./nix/lib/wsl2 {
+      specialArgs = {
         inherit
           inputs
           outputs
@@ -47,14 +52,7 @@
 
       nixosConfigurations = {
         lemp11 = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit
-              inputs
-              outputs
-              self
-              username
-              ;
-
+          specialArgs = specialArgs // {
             desktop = true;
           };
 
@@ -63,7 +61,16 @@
       };
 
       homeConfigurations = {
-        wsl2 = mkWsl { system = "x86_64-linux"; };
+        "${username}@PW05CH3L" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          extraSpecialArgs = specialArgs // {
+            desktop = false;
+            hostname = "PW05CH3L";
+          };
+
+          modules = [ ./nix/home/opdavies ];
+        };
       };
     };
 }

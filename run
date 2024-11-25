@@ -57,7 +57,7 @@ function _home {
   NIXPKGS_ALLOW_UNFREE=1 home-manager "$command" \
     --extra-experimental-features flakes \
     --extra-experimental-features nix-command \
-    --flake ".#$flake" \
+    --flake ".#$(whoami)@$(hostname)" \
     --impure "$@"
 }
 

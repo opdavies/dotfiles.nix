@@ -2,12 +2,19 @@
   config,
   desktop,
   inputs,
-  pkgs,
+  outputs,
   self,
   username,
   ...
 }:
 let
+  pkgs = import inputs.nixpkgs {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+    ];
+  };
+
   inherit (pkgs) lib;
 
   desktop-config = import ./desktop.nix {
@@ -18,6 +25,7 @@ let
       username
       ;
   };
+
   shared-config = import "${self}/nix/lib/shared/home-manager.nix" {
     inherit
       inputs
@@ -26,6 +34,7 @@ let
       username
       ;
   };
+
   shared-packages = import "${self}/nix/lib/shared/home-manager-packages.nix" {
     inherit
       desktop
