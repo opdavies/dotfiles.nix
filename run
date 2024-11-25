@@ -8,6 +8,11 @@ function check {
   nix flake check
 }
 
+function collect-garbage {
+  nix-collect-garbage -d
+  sudo nix-collect-garbage -d
+}
+
 function format {
   nix fmt flake.nix home hosts lib modules
 }
