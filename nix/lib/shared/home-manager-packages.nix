@@ -12,9 +12,6 @@ let
   inherit (pkgs) writeShellApplication;
 
   _timer = writeShellApplication (import ./scripts/_timer.nix);
-  create-zellij-session = writeShellApplication (
-    import ./scripts/create-zellij-session.nix { inherit pkgs; }
-  );
   deliver = writeShellApplication (import ./scripts/deliver.nix { inherit pkgs; });
   export-video-list = writeShellApplication (
     import ./scripts/export-video-list.nix { inherit pkgs username; }
@@ -70,7 +67,6 @@ with pkgs;
   yarn
 
   # Scripts.
-  create-zellij-session
   deliver
   run
   t
