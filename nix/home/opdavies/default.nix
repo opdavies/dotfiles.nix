@@ -4,14 +4,26 @@
   inputs,
   outputs,
   self,
+  system,
   username,
   ...
 }:
 let
   pkgs = import inputs.nixpkgs {
+    inherit system;
+
+    config = {
+      allowUnfree = true;
+
+      permittedInsecurePackages = [
+        "electron-27.3.11"
+      ];
+    };
+
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
+      outputs.overlays.stable-packages
     ];
   };
 

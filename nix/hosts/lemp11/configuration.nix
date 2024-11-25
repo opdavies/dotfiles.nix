@@ -4,6 +4,7 @@
   pkgs,
   desktop ? false,
   self,
+  system,
   username,
   ...
 }:
@@ -27,18 +28,17 @@
     extraSpecialArgs = {
       inherit
         inputs
+        outputs
         desktop
         self
+        system
         username
         ;
     };
     useGlobalPkgs = true;
     useUserPackages = true;
-    users."${username}" = import "${self}/nix/home/${username}";
-  };
 
-  _module.args = {
-    inherit inputs self username;
+    users."${username}" = import "${self}/nix/home/${username}";
   };
 
   nixpkgs = {
