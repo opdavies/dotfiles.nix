@@ -1,6 +1,7 @@
 {
   config,
   desktop,
+  hostname,
   inputs,
   outputs,
   self,
@@ -41,6 +42,7 @@ let
   shared-config = import "${self}/nix/lib/shared/home-manager.nix" {
     inherit
       config
+      hostname
       inputs
       lib
       pkgs

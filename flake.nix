@@ -55,6 +55,7 @@
         lemp11 = nixpkgs.lib.nixosSystem {
           specialArgs = specialArgs // {
             desktop = true;
+            hostname = "lemp11";
           };
 
           modules = [ ./nix/hosts/lemp11 ];
@@ -72,16 +73,6 @@
 
           modules = [
             ./nix/home/opdavies
-
-            {
-              features = {
-                cli = { };
-
-                desktop = {
-                  alacritty.enable = false;
-                };
-              };
-            }
           ];
         };
       };

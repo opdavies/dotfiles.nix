@@ -1,4 +1,5 @@
 {
+  hostname,
   inputs,
   outputs,
   pkgs,
@@ -27,6 +28,7 @@
   home-manager = {
     extraSpecialArgs = {
       inherit
+        hostname
         inputs
         outputs
         desktop
@@ -79,7 +81,7 @@
     DefaultTimeoutStopSec=10s
   '';
 
-  networking.hostName = "lemp11";
+  networking.hostName = hostname;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

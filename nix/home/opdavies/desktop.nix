@@ -1,9 +1,5 @@
-{
-  config,
-  inputs,
-  pkgs,
-  username,
-}:
+{ ... }:
+
 {
   imports = [
     ../../modules/home-manager/copyq.nix

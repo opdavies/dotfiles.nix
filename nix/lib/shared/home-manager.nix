@@ -1,5 +1,6 @@
 {
   config,
+  hostname,
   inputs,
   lib,
   pkgs,
@@ -40,6 +41,8 @@
   };
 
   imports = [
+    ../../home/${username}/hosts/${hostname}.nix
+
     (import ../../modules/home-manager/git.nix { inherit inputs pkgs; })
     (import ../../modules/home-manager/neovim.nix {
       inherit
