@@ -13,6 +13,14 @@ let
 in
 {
   services = {
+    cron = {
+      enable = true;
+
+      systemCronJobs = [
+        "* * * * * opdavies /home/opdavies/bin/notify-battery"
+      ];
+    };
+
     displayManager.defaultSession = "none+i3";
 
     xserver = {
@@ -30,7 +38,8 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    dunst
+    acpi
+    libnotify
     nitrogen
   ];
 
@@ -134,6 +143,12 @@ in
         ipv6.enable = false;
         load.enable = false;
       };
+    };
+
+    services.dunst = {
+      enable = true;
+
+      settings.global.follow = "keyboard";
     };
   };
 }
