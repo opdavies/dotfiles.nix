@@ -112,6 +112,7 @@
           tags = [ "from:oh-my-zsh" ];
         }
 
+        { name = "Aloxaf/fzf-tab"; }
         { name = "olets/zsh-abbr"; }
 
         { name = "zsh-users/zsh-completions"; }
