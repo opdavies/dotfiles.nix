@@ -1,9 +1,9 @@
 { self, ... }:
 {
-  home.sessionPath = [ "$HOME/.local/bin" ];
+  home.sessionPath = [ "$HOME/bin" ];
 
-  home.file.".local/bin" = {
-    source = "${self}/nix/bin";
+  home.file."bin" = {
+    source = "${self}/bin";
     recursive = true;
   };
 }
