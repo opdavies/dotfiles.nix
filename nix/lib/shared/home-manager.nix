@@ -41,10 +41,7 @@
   };
 
   imports = [
-    ../../home/${username}/hosts/${hostname}.nix
-
-    (import ../../modules/home-manager/git.nix { inherit inputs pkgs; })
-    (import ../../modules/home-manager/neovim.nix {
+    (import ../../modules/home-manager {
       inherit
         config
         inputs
@@ -53,20 +50,6 @@
         ;
     })
 
-    ../../modules/home-manager/alacritty.nix
-    ../../modules/home-manager/bat.nix
-    ../../modules/home-manager/bin.nix
-    ../../modules/home-manager/direnv.nix
-    ../../modules/home-manager/fzf.nix
-    ../../modules/home-manager/htop.nix
-    ../../modules/home-manager/lsd.nix
-    ../../modules/home-manager/mpv.nix
-    ../../modules/home-manager/pet.nix
-    ../../modules/home-manager/phpactor.nix
-    ../../modules/home-manager/ripgrep.nix
-    ../../modules/home-manager/starship.nix
-    ../../modules/home-manager/syncthing.nix
-    ../../modules/home-manager/tmux.nix
-    ../../modules/home-manager/zsh.nix
+    ../../home/${username}/hosts/${hostname}.nix
   ];
 }
