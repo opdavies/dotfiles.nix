@@ -20,9 +20,9 @@
     inputs.nixos-hardware.nixosModules.common-pc-laptop-hdd
     inputs.nixos-hardware.nixosModules.system76
 
-    ./hardware-configuration.nix
+    outputs.nixosModules.default
 
-    ../../modules/nixos/desktop
+    ./hardware-configuration.nix
   ];
 
   home-manager = {

@@ -51,6 +51,8 @@
 
       overlays = import ./nix/overlays { inherit inputs; };
 
+      nixosModules.default = ./nix/modules/nixos;
+
       nixosConfigurations = {
         lemp11 = nixpkgs.lib.nixosSystem {
           specialArgs = specialArgs // {
