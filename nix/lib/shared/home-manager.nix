@@ -29,16 +29,18 @@
 
   programs.home-manager.enable = true;
 
-  features = {
-    cli = {
-      neovim.enable = lib.mkDefault true;
-      tmux.enable = lib.mkDefault true;
-    };
+  features = lib.mkMerge [
+    {
+      cli = {
+        neovim.enable = lib.mkDefault true;
+        tmux.enable = lib.mkDefault true;
+      };
 
-    desktop = {
-      alacritty.enable = lib.mkDefault true;
-    };
-  };
+      desktop = {
+        alacritty.enable = lib.mkDefault true;
+      };
+    }
+  ];
 
   imports = [
     (import ../../modules/home-manager {
