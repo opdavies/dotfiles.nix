@@ -70,7 +70,19 @@
             hostname = "PW05CH3L";
           };
 
-          modules = [ ./nix/home/opdavies ];
+          modules = [
+            ./nix/home/opdavies
+
+            {
+              features = {
+                cli = { };
+
+                desktop = {
+                  alacritty.enable = false;
+                };
+              };
+            }
+          ];
         };
       };
     };

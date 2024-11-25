@@ -1,5 +1,7 @@
 {
+  config,
   inputs,
+  lib,
   pkgs,
   username,
   self,
@@ -26,15 +28,36 @@
 
   programs.home-manager.enable = true;
 
+  features = {
+    cli = {
+      neovim.enable = lib.mkDefault true;
+      tmux.enable = lib.mkDefault true;
+    };
+
+    desktop = {
+      alacritty.enable = lib.mkDefault true;
+    };
+  };
+
   imports = [
     (import ../../modules/home-manager/git.nix { inherit inputs pkgs; })
-    (import ../../modules/home-manager/neovim.nix { inherit inputs pkgs; })
+    (import ../../modules/home-manager/neovim.nix {
+      inherit
+        config
+        inputs
+        lib
+        pkgs
+        ;
+    })
+
+    ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/bat.nix
     ../../modules/home-manager/bin.nix
     ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/fzf.nix
     ../../modules/home-manager/htop.nix
     ../../modules/home-manager/lsd.nix
+    ../../modules/home-manager/mpv.nix
     ../../modules/home-manager/pet.nix
     ../../modules/home-manager/phpactor.nix
     ../../modules/home-manager/ripgrep.nix

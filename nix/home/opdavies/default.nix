@@ -40,7 +40,9 @@ let
 
   shared-config = import "${self}/nix/lib/shared/home-manager.nix" {
     inherit
+      config
       inputs
+      lib
       pkgs
       self
       username
