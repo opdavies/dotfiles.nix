@@ -5,7 +5,6 @@ let
 in
 {
   build-glove80 = callPackage ./build-glove80.nix { };
-  git-squash-merge = callPackage ./git-squash-merge.nix { };
 
   vimPlugins = prev.vimPlugins // {
     conf-vim = callPackage ./vim-plugins/conf-vim.nix { };

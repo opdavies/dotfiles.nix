@@ -146,10 +146,7 @@
     };
   };
 
-  home.packages = with pkgs; [
-    git-instafix
-    git-squash-merge
-  ];
+  home.packages = [ pkgs.git-instafix ];
 
   home.sessionVariables = {
     GIT_INSTAFIX_UPSTREAM = "origin/main";
