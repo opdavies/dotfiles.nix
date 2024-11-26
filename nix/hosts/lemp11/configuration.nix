@@ -185,7 +185,6 @@
     ++ pkgs.lib.optionals desktop [
       acpi
       arandr
-      bluetuith
       brightnessctl
       cpufrequtils
       libnotify

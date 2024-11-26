@@ -30,15 +30,6 @@ let
 
   inherit (pkgs) lib;
 
-  desktop-config = import ./desktop.nix {
-    inherit
-      config
-      inputs
-      pkgs
-      username
-      ;
-  };
-
   shared-config = import "${self}/nix/lib/shared/home-manager.nix" {
     inherit
       config
@@ -61,14 +52,7 @@ let
   };
 in
 {
-  imports =
-    if desktop then
-      [
-        desktop-config
-        shared-config
-      ]
-    else
-      [ shared-config ];
+  imports = [ shared-config ];
 
   home.packages =
     shared-packages

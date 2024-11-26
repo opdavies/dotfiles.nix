@@ -20,9 +20,14 @@
     ./alacritty.nix
     ./bat.nix
     ./bin.nix
+    ./bluetuith.nix
+    ./copyq.nix
     ./direnv.nix
+    ./espanso.nix
+    ./flameshot.nix
     ./fzf.nix
     ./git.nix
+    ./gtk.nix
     ./htop.nix
     ./lsd.nix
     ./mpv.nix
