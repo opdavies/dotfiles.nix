@@ -1,7 +1,8 @@
 {
   imports = [
     ./autorandr.nix
-    ./docker.nix
+    ./features/cli
+    ./features/desktop
     ./features/gaming.nix
     ./features/homelab
     ./fonts.nix
@@ -9,7 +10,6 @@
     ./kanata.nix
     ./rofi.nix
     ./rsnapshot.nix
-    ./screenkey.nix
     ./xbanish.nix
   ];
 }

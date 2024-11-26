@@ -1,5 +1,9 @@
 {
   features = {
+    cli = {
+      docker.enable = true;
+    };
+
     desktop = {
       gaming.enable = true;
 
