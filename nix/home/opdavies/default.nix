@@ -59,7 +59,6 @@ in
     ++ pkgs.lib.optionals desktop (
       with pkgs;
       [
-        brave
         build-glove80
         gscan2pdf
         handbrake
@@ -67,10 +66,7 @@ in
         obs-studio
         okular
         pamixer
-        pass
         pavucontrol
-        pinentry
-        via
         xcape
         xsel
       ]
