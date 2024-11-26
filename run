@@ -25,6 +25,14 @@ function help {
   printf "\nExtended help:\n  Each task has comments for general usage\n"
 }
 
+function home-manager:build {
+  _home build "$@"
+}
+
+function home-manager:switch {
+  _home switch "$@"
+}
+
 function nixos:build {
   _nixos build "$@"
 }
@@ -41,23 +49,14 @@ function update {
   nix flake update
 }
 
-function wsl:build {
-  _home build wsl2 "$@"
-}
-
-function wsl:switch {
-  _home switch wsl2 "$@"
-}
-
 function _home {
   local command="$1"
-  local flake="$2"
-  shift 2
+  shift 1
 
   NIXPKGS_ALLOW_UNFREE=1 home-manager "$command" \
     --extra-experimental-features flakes \
     --extra-experimental-features nix-command \
-    --flake ".#$flake" \
+    --flake ".#$(whoami)@$(hostname)" \
     --impure "$@"
 }
 

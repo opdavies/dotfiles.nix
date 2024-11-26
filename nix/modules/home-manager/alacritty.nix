@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   self,
@@ -11,31 +12,35 @@ let
   theme = import "${self}/nix/lib/theme" { inherit pkgs; };
 in
 {
-  programs.alacritty = {
-    enable = true;
+  options.features.desktop.alacritty.enable = lib.mkEnableOption "Enable Alacritty";
 
-    settings = {
-      env = {
-        TERM = "screen-256color";
-      };
+  config = lib.mkIf config.features.desktop.alacritty.enable {
+    programs.alacritty = {
+      enable = true;
 
-      window.padding = {
-        x = 15;
-        y = 15;
-      };
+      settings = {
+        env = {
+          TERM = "screen-256color";
+        };
 
-      font = {
-        size = toInt "${theme.fonts.monospace.size}";
+        window.padding = {
+          x = 15;
+          y = 15;
+        };
 
-        bold.style = "Regular";
-        normal.family = "${theme.fonts.monospace.name}";
+        font = {
+          size = toInt "${theme.fonts.monospace.size}";
 
-        offset.y = 6;
-        glyph_offset.y = 3;
-      };
+          bold.style = "Regular";
+          normal.family = "${theme.fonts.monospace.name}";
 
-      terminal.shell = {
-        program = "zsh";
+          offset.y = 6;
+          glyph_offset.y = 3;
+        };
+
+        terminal.shell = {
+          program = "zsh";
+        };
       };
     };
   };

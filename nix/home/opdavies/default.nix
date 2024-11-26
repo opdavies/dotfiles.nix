@@ -1,13 +1,33 @@
 {
   config,
   desktop,
+  hostname,
   inputs,
-  pkgs,
+  outputs,
   self,
+  system,
   username,
   ...
 }:
 let
+  pkgs = import inputs.nixpkgs {
+    inherit system;
+
+    config = {
+      allowUnfree = true;
+
+      permittedInsecurePackages = [
+        "electron-27.3.11"
+      ];
+    };
+
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
+    ];
+  };
+
   inherit (pkgs) lib;
 
   desktop-config = import ./desktop.nix {
@@ -18,14 +38,19 @@ let
       username
       ;
   };
+
   shared-config = import "${self}/nix/lib/shared/home-manager.nix" {
     inherit
+      config
+      hostname
       inputs
+      lib
       pkgs
       self
       username
       ;
   };
+
   shared-packages = import "${self}/nix/lib/shared/home-manager-packages.nix" {
     inherit
       desktop

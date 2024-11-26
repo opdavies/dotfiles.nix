@@ -11,7 +11,7 @@
 
   outputs =
     {
-      nixos-hardware,
+      home-manager,
       nixpkgs,
       self,
       ...
@@ -24,21 +24,12 @@
 
       username = "opdavies";
 
-      mkNixos = import ./nix/lib/nixos {
-        inherit
-          inputs
-          outputs
-          nixos-hardware
-          pkgs
-          self
-          username
-          ;
-      };
-      mkWsl = import ./nix/lib/wsl2 {
+      specialArgs = {
         inherit
           inputs
           outputs
           self
+          system
           username
           ;
       };
@@ -60,24 +51,32 @@
 
       overlays = import ./nix/overlays { inherit inputs; };
 
-      nixosConfigurations = {
-        lemp11 = mkNixos {
-          desktop = true;
-          hostname = "lemp11";
+      nixosModules.default = ./nix/modules/nixos;
 
-          # TODO: move the rest of the modules here.
-          modules = [
-            nixos-hardware.nixosModules.common-cpu-intel
-            nixos-hardware.nixosModules.common-gpu-intel
-            nixos-hardware.nixosModules.common-pc-laptop
-            nixos-hardware.nixosModules.common-pc-laptop-hdd
-            nixos-hardware.nixosModules.system76
-          ];
+      nixosConfigurations = {
+        lemp11 = nixpkgs.lib.nixosSystem {
+          specialArgs = specialArgs // {
+            desktop = true;
+            hostname = "lemp11";
+          };
+
+          modules = [ ./nix/hosts/lemp11 ];
         };
       };
 
       homeConfigurations = {
-        wsl2 = mkWsl { system = "x86_64-linux"; };
+        "${username}@PW05CH3L" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          extraSpecialArgs = specialArgs // {
+            desktop = false;
+            hostname = "PW05CH3L";
+          };
+
+          modules = [
+            ./nix/home/opdavies
+          ];
+        };
       };
     };
 }
