@@ -195,14 +195,10 @@
       rclone
       rclone-browser
       shotwell
-      slack
       vscode
       xfce.thunar
       xfce.thunar-volman
       xfce.tumbler
-
-      # Games.
-      zeroad
     ];
 
   # Some programs need SUID wrappers, can be configured further or are

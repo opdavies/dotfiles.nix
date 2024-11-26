@@ -2,11 +2,10 @@
   imports = [
     ./autorandr.nix
     ./docker.nix
+    ./features/gaming.nix
+    ./features/homelab
     ./fonts.nix
-    ./gitea.nix
     ./i3.nix
-    ./immich.nix
-    ./jellyfin.nix
     ./kanata.nix
     ./rofi.nix
     ./rsnapshot.nix

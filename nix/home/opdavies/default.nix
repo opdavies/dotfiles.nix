@@ -61,11 +61,8 @@ in
       [
         brave
         build-glove80
-        discord
-        gimp
         gscan2pdf
         handbrake
-        kdenlive
         meslo-lg
         obs-studio
         okular
@@ -74,11 +71,8 @@ in
         pavucontrol
         pinentry
         via
-        pocket-casts
         xcape
         xsel
-
-        pkgs.nixpkgs-2405.zoom-us
       ]
     );
 

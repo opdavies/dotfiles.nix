@@ -9,10 +9,20 @@
 
     desktop = {
       copyq.enable = true;
+      discord.enable = true;
       espanso.enable = true;
       flameshot.enable = true;
       gtk.enable = true;
-      mpv.enable = true;
+      slack.enable = true;
+
+      media = {
+        gimp.enable = true;
+        kdenlive.enable = true;
+        pocket-casts.enable = true;
+        mpv.enable = true;
+      };
+
+      zoom.enable = true;
     };
   };
 }

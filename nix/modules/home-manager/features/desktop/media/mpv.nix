@@ -1,9 +1,9 @@
 { config, lib, ... }:
 
 {
-  options.features.desktop.mpv.enable = lib.mkEnableOption "Enable mpv media player";
+  options.features.desktop.media.mpv.enable = lib.mkEnableOption "Enable mpv media player";
 
-  config = lib.mkIf config.features.desktop.mpv.enable {
+  config = lib.mkIf config.features.desktop.media.mpv.enable {
     programs.mpv = {
       enable = true;
 
