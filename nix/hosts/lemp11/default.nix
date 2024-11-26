@@ -6,12 +6,12 @@
 
     desktop = {
       gaming.enable = true;
+    };
 
-      homelab = {
-        gitea.enable = true;
-        immich.enable = true;
-        jellyfin.enable = true;
-      };
+    homelab = {
+      gitea.enable = true;
+      immich.enable = true;
+      jellyfin.enable = true;
     };
   };
 

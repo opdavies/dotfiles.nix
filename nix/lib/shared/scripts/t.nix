@@ -23,7 +23,7 @@
         ! -name "*.old"
       )
 
-      selected_path=$(echo "''${items}" | sort | fzf --reverse)
+      selected_path=$(echo "''${items}" | sort | fzf)
     fi
 
     session_name=$(basename "$selected_path" | sed 's/\./_/g')
