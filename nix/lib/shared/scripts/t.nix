@@ -20,7 +20,8 @@
         -maxdepth 1 -mindepth 1 -type d \
         ! -name "_archive" \
         ! -name "*-old" \
-        ! -name "*.old"
+        ! -name "*.old" \
+        2>/dev/null
       )
 
       selected_path=$(echo "''${items}" | sort | fzf)
