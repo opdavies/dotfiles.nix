@@ -17,7 +17,7 @@ in
       enable = true;
 
       systemCronJobs = [
-        "* * * * * opdavies /home/opdavies/bin/notify-battery"
+        "* * * * * opdavies ${pkgs.notify-battery}/bin/notify-battery"
       ];
     };
 

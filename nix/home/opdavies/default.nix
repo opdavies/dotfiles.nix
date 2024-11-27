@@ -63,6 +63,7 @@ in
         gscan2pdf
         handbrake
         meslo-lg
+        notify-battery
         obs-studio
         okular
         pamixer

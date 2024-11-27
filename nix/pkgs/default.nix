@@ -5,6 +5,7 @@ let
 in
 {
   build-glove80 = callPackage ./build-glove80.nix { };
+  notify-battery = callPackage ./notify-battery.nix { };
 
   vimPlugins = prev.vimPlugins // {
     conf-vim = callPackage ./vim-plugins/conf-vim.nix { };
