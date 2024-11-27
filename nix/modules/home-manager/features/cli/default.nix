@@ -3,19 +3,21 @@
   inputs,
   lib,
   pkgs,
+  self,
   ...
 }:
 
 {
   imports = [
-    # (import ./neovim.nix {
-    #   inherit
-    #     config
-    #     inputs
-    #     lib
-    #     pkgs
-    #     ;
-    # })
+    (import ./neovim.nix {
+      inherit
+        config
+        inputs
+        lib
+        pkgs
+        self
+        ;
+    })
 
     ./bat.nix
     ./bin.nix
@@ -25,7 +27,6 @@
     ./git.nix
     ./htop.nix
     ./lsd.nix
-    ./neovim.nix
     ./pet.nix
     ./phpactor.nix
     ./ripgrep.nix

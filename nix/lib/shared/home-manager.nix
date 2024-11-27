@@ -48,6 +48,7 @@
         config
         inputs
         lib
+        self
         pkgs
         ;
     })
