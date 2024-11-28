@@ -5,12 +5,18 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    disko = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/disko";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-2405.url = "github:nixos/nixpkgs/nixos-24.05";
   };
 
   outputs =
     {
+      disko,
       home-manager,
       nixpkgs,
       self,
@@ -61,6 +67,15 @@
           };
 
           modules = [ ./nix/hosts/lemp11 ];
+        };
+
+        hetznix = nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          modules = [
+            disko.nixosModules.disko
+            ./nix/hosts/hetznix/configuration.nix
+          ];
         };
       };
 
