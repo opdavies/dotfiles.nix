@@ -59,8 +59,6 @@ in
 
         defaultWorkspace = "workspace number 1";
 
-        focus.followMouse = false;
-
         modifier = modifier;
 
         keybindings = inputs.nixpkgs.lib.mkOptionDefault {
