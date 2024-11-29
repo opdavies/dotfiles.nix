@@ -106,6 +106,7 @@ in
         smart_borders on
         smart_gaps on
 
+        for_window [class="copyq"] floating enable
         for_window [class="zoom"] floating enable
         # xprop | grep -i class
       '';
