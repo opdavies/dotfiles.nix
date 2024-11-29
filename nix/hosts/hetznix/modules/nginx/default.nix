@@ -15,6 +15,7 @@
     ./vhosts/rebuilding-symfony.oliverdavies.uk.nix
     ./vhosts/tailwindcss-demo.oliverdavies.uk.nix
     ./vhosts/talking-drupal-tailwindcss.oliverdavies.uk.nix
+    ./vhosts/tome.oliverdavies.uk.nix
     ./vhosts/wp-tailwind.oliverdavies.uk.nix
     ./vhosts/www.oliverdavies.uk.nix
     ./vhosts/zet.oliverdavies.uk.nix
