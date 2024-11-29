@@ -31,6 +31,9 @@
   environment.systemPackages = map lib.lowPrio [
     pkgs.curl
     pkgs.gitMinimal
+    pkgs.tree
+    pkgs.vim
+    pkgs.wget
   ];
 
   users.users.root.openssh.authorizedKeys.keys = [
