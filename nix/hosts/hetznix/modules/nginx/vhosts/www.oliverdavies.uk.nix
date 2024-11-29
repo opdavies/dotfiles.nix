@@ -3,7 +3,7 @@
     "www.oliverdavies.uk" = {
       useACMEHost = "oliverdavies.uk";
       forceSSL = true;
-      root = "/var/www/vhosts/www.oliverdavies.uk/output_prod";
+      root = "/var/www/vhosts/www.oliverdavies.uk-sculpin/output_prod";
       extraConfig = ''
         error_page 404 /404;
 
