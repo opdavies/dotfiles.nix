@@ -2,3 +2,5 @@ Use nixosModules and homeManagerModules outputs in flake.nix to simplify importi
 Use nginx for jellyfin, immich and gitea
 Add daily script
 Add create-podcast-tasks script
+Add vaultwarden for password management
+Replace doppler with agenix
