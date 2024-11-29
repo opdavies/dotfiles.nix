@@ -12,15 +12,9 @@
     ./disks.nix
     ./hardware-configuration.nix
 
-    ./modules/2020.oliverdavies.uk.nix
+    ./modules/acme.nix
+    ./modules/nginx
   ];
-
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "oliver@oliverdavies.uk";
-  };
-
-  services.nginx.enable = true;
 
   networking.firewall.allowedTCPPorts = [
     80

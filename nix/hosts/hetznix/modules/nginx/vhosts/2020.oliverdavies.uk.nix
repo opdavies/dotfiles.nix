@@ -1,6 +1,6 @@
 {
   services.nginx.virtualHosts."2020.oliverdavies.uk" = {
-    enableACME = true;
+    useACMEHost = "oliverdavies.uk";
     forceSSL = true;
     root = "/var/www/vhosts/2020.oliverdavies.uk";
     extraConfig = ''
