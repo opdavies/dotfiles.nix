@@ -7,7 +7,6 @@
     ./features/homelab
     ./fonts.nix
     ./i3.nix
-    ./kanata.nix
     ./rofi.nix
     ./rsnapshot.nix
     ./xbanish.nix
