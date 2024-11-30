@@ -61,7 +61,6 @@ in
       [
         build-glove80
         gscan2pdf
-        handbrake
         meslo-lg
         notify-battery
         obs-studio

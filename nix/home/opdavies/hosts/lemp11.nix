@@ -17,6 +17,7 @@
 
       media = {
         gimp.enable = true;
+        handbrake.enable = true;
         kdenlive.enable = true;
         pocket-casts.enable = true;
         mpv.enable = true;
