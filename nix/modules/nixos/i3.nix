@@ -57,6 +57,48 @@ in
           ];
         };
 
+        colors = {
+          focused = {
+            border = "#444444";
+            background = "#555555";
+            text = "#ffffff";
+            indicator = "#dddddd";
+            childBorder = "#444444";
+          };
+
+          focusedInactive = {
+            border = "#222222";
+            background = "#333333";
+            text = "#888888";
+            indicator = "#292d2e";
+            childBorder = "#222222";
+          };
+
+          placeholder = {
+            border = "#000000";
+            background = "#0c0c0c";
+            text = "#ffffff";
+            indicator = "#000000";
+            childBorder = "#0c0c0c";
+          };
+
+          unfocused = {
+            border = "#222222";
+            background = "#111111";
+            text = "#888888";
+            indicator = "#292d2e";
+            childBorder = "#222222";
+          };
+
+          urgent = {
+            border = "#2f343a";
+            background = "#900000";
+            text = "#ffffff";
+            indicator = "#900000";
+            childBorder = "#900000";
+          };
+        };
+
         defaultWorkspace = "workspace number 1";
 
         modifier = modifier;
@@ -114,6 +156,36 @@ in
       config = {
         bars = [
           {
+            colors = {
+              background = "#222222";
+              separator = "#333333";
+              statusline = "#ffffff";
+
+              bindingMode = {
+                background = "#900000";
+                border = "#2f343a";
+                text = "#ffffff";
+              };
+
+              focusedWorkspace = {
+                background = "#555555";
+                border = "#444444";
+                text = "#ffffff";
+              };
+
+              inactiveWorkspace = {
+                background = "#333333";
+                border = "#222222";
+                text = "#888888";
+              };
+
+              urgentWorkspace = {
+                background = "#900000";
+                border = "#2f343a";
+                text = "#ffffff";
+              };
+            };
+
             position = "bottom";
             statusCommand = "${pkgs.i3status}/bin/i3status";
             trayOutput = "none";
