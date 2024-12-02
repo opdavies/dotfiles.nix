@@ -10,6 +10,7 @@
         "2020.oliverdavies.uk"
         "bootstrap-with-tailwind.oliverdavies.uk"
         "florida-drupalcamp-tailwind-css.oliverdavies.uk"
+        "luke.oliverdavies.uk"
         "phpsw-sculpin-demo.oliverdavies.uk"
         "rebuilding-acquia.oliverdavies.uk"
         "rebuilding-bartik.oliverdavies.uk"

@@ -8,6 +8,7 @@
     ./vhosts/2020.oliverdavies.uk.nix
     ./vhosts/bootstrap-with-tailwind.oliverdavies.uk.nix
     ./vhosts/florida-drupalcamp-tailwind-css.oliverdavies.uk.nix
+    ./vhosts/luke.oliverdavies.uk.nix
     ./vhosts/phpsw-sculpin-demo.oliverdavies.uk.nix
     ./vhosts/rebuilding-acquia.oliverdavies.uk.nix
     ./vhosts/rebuilding-bartik.oliverdavies.uk.nix
