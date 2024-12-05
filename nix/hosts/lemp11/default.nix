@@ -6,6 +6,7 @@
 
     desktop = {
       gaming.enable = true;
+      peek.enable = true;
     };
 
     homelab = {

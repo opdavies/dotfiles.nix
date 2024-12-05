@@ -1,3 +1,6 @@
 {
-  imports = [ ./screenkey.nix ];
+  imports = [
+    ./peek.nix
+    ./screenkey.nix
+  ];
 }
