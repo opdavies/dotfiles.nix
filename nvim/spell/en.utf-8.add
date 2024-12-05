@@ -32,9 +32,12 @@ Gitea
 HDN
 HashiCorp
 Hetzner
+Homelab
+Immich
 InvalidArgumentException
 Inviqa
 JSON
+Jellyfin
 Kickstart
 Lando
 Laravel
@@ -74,9 +77,11 @@ Symfony
 TODO
 TermInterface
 Themers
+Traefik
 TypeScript
 Ubercart
 VSCode
+Vaultwarden
 WCAG
 WSL
 Wellbeing
