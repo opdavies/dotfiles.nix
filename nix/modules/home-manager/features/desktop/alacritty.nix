@@ -1,16 +1,9 @@
 {
   config,
   lib,
-  pkgs,
-  self,
   ...
 }:
-let
-  inherit (lib) strings;
-  inherit (strings) toInt;
 
-  theme = import "${self}/nix/lib/theme" { inherit pkgs; };
-in
 {
   options.features.desktop.alacritty.enable = lib.mkEnableOption "Enable Alacritty";
 
@@ -29,11 +22,10 @@ in
         };
 
         font = {
-          size = toInt "${theme.fonts.monospace.size}";
+          size = 14;
 
           bold.style = "Regular";
-          normal.family = "${theme.fonts.monospace.name}";
-
+          normal.family = "JetBrainsMono Nerd Font Mono";
         };
 
         terminal.shell = {

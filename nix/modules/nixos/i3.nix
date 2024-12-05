@@ -192,8 +192,6 @@ in
           }
         ];
 
-        fonts.names = [ "${theme.fonts.monospace.name}" ];
-
         gaps = {
           smartBorders = "on";
           smartGaps = true;
