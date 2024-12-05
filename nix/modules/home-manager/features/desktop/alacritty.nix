@@ -24,8 +24,8 @@ in
         };
 
         window.padding = {
-          x = 15;
-          y = 15;
+          x = 10;
+          y = 10;
         };
 
         font = {
@@ -34,8 +34,6 @@ in
           bold.style = "Regular";
           normal.family = "${theme.fonts.monospace.name}";
 
-          offset.y = 6;
-          glyph_offset.y = 3;
         };
 
         terminal.shell = {
