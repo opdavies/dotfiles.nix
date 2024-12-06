@@ -3,37 +3,57 @@
 {
   name = "t";
 
-  runtimeInputs = with pkgs; [
-    openssl
-    tmux
-  ];
+  runtimeInputs = with pkgs; [ tmux ];
 
   text = ''
-    # Based on similar scripts by ThePrimeagen and Jess Archer.
+    # https://github.com/ThePrimeagen/tmux-sessionizer.
+
+    switch_to() {
+      if [[ -z $TMUX ]]; then
+        tmux attach-session -t "$1"
+      else
+        tmux switch-client -t "$1"
+      fi
+    }
+
+    has_session() {
+      tmux list-sessions | grep -q "^$1:"
+    }
+
+    hydrate() {
+      if [ -f "$2/.tmux" ]; then
+        tmux send-keys -t "$1" "source $2/.tmux" Enter
+      elif [ -f "$2/.tmux-sessionizer" ]; then
+        tmux send-keys -t "$1" "source $2/.tmux-sessionizer" Enter
+      elif [ -f "$HOME/.tmux-sessionizer" ]; then
+        tmux send-keys -t "$1" "source $HOME/.tmux-sessionizer" Enter
+      fi
+    }
 
     if [[ $# -eq 1 ]]; then
-      selected_path=$1
+      selected=$1
     else
-      # Get the session name from fuzzy-finding list of directories and generating a
-      # tmux-safe version.
-      items=$(find "$REPOS" "$REPOS/personal" "$REPOS/os" ~/Documents \
-        -maxdepth 1 -mindepth 1 -type d \
-        ! -name "_archive" \
-        ! -name "*-old" \
-        ! -name "*.old" \
-        2>/dev/null
-      )
-
-      selected_path=$(echo "''${items}" | sort | fzf)
+      selected=$(find ~/ ~/Code ~/Code/personal ~/Code/os ~/Documents -mindepth 1 -maxdepth 1 -type d | fzf)
     fi
 
-    session_name=$(basename "$selected_path" | sed 's/\./_/g')
-
-    if tmux switch-client -t="$session_name" 2>/dev/null; then
+    if [[ -z "$selected" ]]; then
       exit 0
     fi
 
-    ( (tmux new-session -c "$selected_path" -d -s "$session_name" && tmux switch-client -t "$session_name") 2>/dev/null ) ||
-      tmux new-session -c "$selected_path" -A -s "$session_name"
+    selected_name="$(basename "$selected" | tr . _)"
+    tmux_running="$(pgrep tmux)"
+
+    if [[ -z $TMUX ]] && [[ -z "$tmux_running" ]]; then
+      tmux new-session -s "$selected_name" -c "$selected"
+      hydrate "$selected_name" "$selected"
+      exit 0
+    fi
+
+    if ! has_session "$selected_name"; then
+      tmux new-session -ds "$selected_name" -c "$selected"
+      hydrate "$selected_name" "$selected"
+    fi
+
+    switch_to "$selected_name"
   '';
 }
