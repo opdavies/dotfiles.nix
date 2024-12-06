@@ -1,12 +1,14 @@
 { pkgs }:
 
-{
-  name = "t";
+pkgs.writeShellApplication {
+  name = "custom-tmux-sessionizer";
 
   runtimeInputs = with pkgs; [ tmux ];
 
   text = ''
-    # https://github.com/ThePrimeagen/tmux-sessionizer.
+    set +o nounset
+
+    # Based on https://github.com/ThePrimeagen/tmux-sessionizer.
 
     switch_to() {
       if [[ -z $TMUX ]]; then

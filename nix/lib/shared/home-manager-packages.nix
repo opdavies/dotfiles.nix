@@ -17,7 +17,6 @@ let
     import ./scripts/export-video-list.nix { inherit pkgs username; }
   );
   run = writeShellApplication (import ./scripts/run.nix { inherit pkgs; });
-  t = writeShellApplication (import ./scripts/t.nix { inherit pkgs; });
   timer = writeShellApplication (import ./scripts/timer.nix);
 in
 with pkgs;
@@ -69,7 +68,6 @@ with pkgs;
   # Scripts.
   deliver
   run
-  t
 ]
 ++ pkgs.lib.optionals desktop [
   # Scripts.

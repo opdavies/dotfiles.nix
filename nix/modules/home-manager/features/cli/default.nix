@@ -19,6 +19,15 @@
         ;
     })
 
+    (import ./tmux-sessionizer.nix {
+      inherit
+        config
+        lib
+        pkgs
+        self
+        ;
+    })
+
     ./bat.nix
     ./bin.nix
     ./bluetuith.nix
