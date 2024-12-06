@@ -41,16 +41,10 @@
       };
 
       inherit (pkgs) mkShell;
-      inherit (pkgs.vimUtils) buildVimPlugin;
     in
     {
       packages.${system} = {
         default = mkShell { buildInputs = with pkgs; [ bashInteractive ]; };
-
-        opdavies-nvim = buildVimPlugin {
-          name = "opdavies-nvim";
-          src = ./nvim;
-        };
       };
 
       formatter.${system} = pkgs.nixfmt-rfc-style;

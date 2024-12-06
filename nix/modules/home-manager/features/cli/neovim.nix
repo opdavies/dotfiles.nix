@@ -1,8 +1,8 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
+  self,
   ...
 }:
 
@@ -141,18 +141,7 @@
 
         # Themes
         catppuccin-nvim
-
-        # Configuration.
-        inputs.self.packages.${pkgs.system}.opdavies-nvim
       ];
-
-      extraLuaConfig = ''
-        if vim.loader then
-          vim.loader.enable()
-        end
-
-        require "opdavies"
-      '';
 
       extraPackages = with pkgs; [
         # Languages
@@ -197,6 +186,11 @@
         shellcheck
         yamllint
       ];
+    };
+
+    xdg.configFile.nvim = {
+      source = "${self}/nvim";
+      recursive = true;
     };
 
     home.file.".markdownlint.yaml".text = ''
