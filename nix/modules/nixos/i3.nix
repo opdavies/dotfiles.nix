@@ -40,7 +40,6 @@ in
   environment.systemPackages = with pkgs; [
     acpi
     libnotify
-    nitrogen
   ];
 
   home-manager.users.${username} = {
@@ -99,7 +98,6 @@ in
         bindswitch --reload --locked lid:on output $laptop disable
         bindswitch --reload --locked lid:off output $laptop enable
 
-        exec_always --no-startup-id ${pkgs.nitrogen}/bin/nitrogen --restore &
         exec_always --no-startup-id caffeine
         exec_always --no-startup-id ${pkgs.autorandr}/bin/autorandr --change
 
