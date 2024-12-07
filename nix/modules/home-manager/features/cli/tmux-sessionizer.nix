@@ -28,7 +28,7 @@
             return
           fi
 
-          tmux new-window -d -n scratch
+          tmux new-window -d -n shell
           nvim
           clear
         '';
