@@ -22,6 +22,12 @@
         text = ''
           set +o nounset
 
+          if [[ "$PWD" == "$REPOS/os" || "$PWD" == "$REPOS/personal" ]]; then
+            clear
+
+            return
+          fi
+
           tmux new-window -d -n scratch
           nvim
           clear
