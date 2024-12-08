@@ -22,10 +22,10 @@
         };
 
         font = {
-          size = 12;
+          size = 10;
 
           bold.style = "Regular";
-          normal.family = "Terminess Nerd Font Mono";
+          normal.family = "JetBrainsMono Nerd Font Mono";
         };
 
         terminal.shell = {

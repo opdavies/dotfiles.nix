@@ -5,7 +5,7 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Terminess Nerd Font" ];
+        monospace = [ "JetBrainsMono Nerd Font Mono" ];
       };
     };
 
