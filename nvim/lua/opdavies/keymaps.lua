@@ -106,7 +106,7 @@ set("n", "<leader>et", function()
   end
 end)
 
-set("n", "<leader>ec", ":edit composer.json")
+set("n", "<leader>ec", ":edit composer.json<CR>")
 
 -- These mappings control the size of splits (height/width).
 set("n", "<M-,>", "<c-w>5<")
