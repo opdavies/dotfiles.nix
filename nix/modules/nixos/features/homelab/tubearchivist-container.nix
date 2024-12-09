@@ -29,12 +29,15 @@ in
       image = "bbilly1/tubearchivist-es";
 
       environment = {
-        "ELASTIC_PASSWORD" = "verysecret";
         "ES_JAVA_OPTS" = "-Xms1g -Xmx1g";
         "discovery.type" = "single-node";
         "path.repo" = "/usr/share/elasticsearch/data/snapshot";
         "xpack.security.enabled" = "true";
       };
+
+      environmentFiles = [
+        config.age.secrets.tubearchivist.path
+      ];
 
       volumes = [
         "tubearchivist_es:/usr/share/elasticsearch/data:rw"
@@ -125,16 +128,17 @@ in
       image = "bbilly1/tubearchivist";
 
       environment = {
-        "ELASTIC_PASSWORD" = "verysecret";
         "ES_URL" = "http://archivist-es:9200";
         "HOST_GID" = "1000";
         "HOST_UID" = "1000";
         "REDIS_HOST" = "archivist-redis";
         "TA_HOST" = "tubearchivist.local";
-        "TA_PASSWORD" = "verysecret";
-        "TA_USERNAME" = "tubearchivist";
-        "TZ" = "America/New_York";
+        "TZ" = "Europe/London";
       };
+
+      environmentFiles = [
+        config.age.secrets.tubearchivist.path
+      ];
 
       volumes = [
         "tubearchivist_cache:/cache:rw"

@@ -1,3 +1,5 @@
+{ inputs, ... }:
+
 {
   features = {
     cli = {
@@ -17,5 +19,9 @@
     };
   };
 
-  imports = [ ./configuration.nix ];
+  imports = [
+    inputs.agenix.nixosModules.default
+    ./configuration.nix
+    ./secrets.nix
+  ];
 }

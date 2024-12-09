@@ -5,6 +5,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    agenix.url = "github:ryantm/agenix";
+
     disko = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";
