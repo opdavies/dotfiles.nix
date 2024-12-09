@@ -13,6 +13,7 @@
       gitea.enable = true;
       immich.enable = true;
       jellyfin.enable = true;
+      tubearchivist-container.enable = true;
     };
   };
 
