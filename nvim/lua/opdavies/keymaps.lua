@@ -6,8 +6,10 @@ set("n", "<Leader>so", ":call opdavies#save_and_exec()<CR>")
 set("n", "<Leader>g", "gqap")
 set("x", "<Leader>g", "gqa")
 
--- Make the current file executable
-set("n", "<Leader>x", ":!chmod +x %<Cr>")
+-- Execute Lua in the current file, line or range.
+set("n", "<leader><leader>x", "<cmd>source %<CR>")
+set("n", "<leader>x", ":.lua<CR>")
+set("v", "<leader>x", ":lua<CR>")
 
 -- Yank from the current column to the end of the line
 set("n", "Y", "yg$")
