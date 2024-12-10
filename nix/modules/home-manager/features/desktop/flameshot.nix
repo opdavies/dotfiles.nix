@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.flameshot.enable = lib.mkEnableOption "Enable flameshot";
+with lib;
 
-  config = lib.mkIf config.features.desktop.flameshot.enable {
+{
+  options.features.desktop.flameshot.enable = mkEnableOption "Enable flameshot";
+
+  config = mkIf config.features.desktop.flameshot.enable {
     services.flameshot = {
       enable = true;
 

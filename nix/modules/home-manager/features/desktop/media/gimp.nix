@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.media.gimp.enable = lib.mkEnableOption "Enable gimp";
+with lib;
 
-  config = lib.mkIf config.features.desktop.media.gimp.enable {
+{
+  options.features.desktop.media.gimp.enable = mkEnableOption "Enable gimp";
+
+  config = mkIf config.features.desktop.media.gimp.enable {
     home.packages = with pkgs; [ gimp ];
   };
 }

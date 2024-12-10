@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.media.kdenlive.enable = lib.mkEnableOption "Enable kdenlive";
+with lib;
 
-  config = lib.mkIf config.features.desktop.media.kdenlive.enable {
+{
+  options.features.desktop.media.kdenlive.enable = mkEnableOption "Enable kdenlive";
+
+  config = mkIf config.features.desktop.media.kdenlive.enable {
     home.packages = with pkgs; [ kdenlive ];
   };
 }

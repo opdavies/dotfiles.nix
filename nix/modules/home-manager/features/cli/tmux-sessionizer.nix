@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.cli.tmux-sessionizer.enable = lib.mkEnableOption "Enable tmux-sessionizer";
+with lib;
 
-  config = lib.mkIf config.features.cli.tmux-sessionizer.enable {
+{
+  options.features.cli.tmux-sessionizer.enable = mkEnableOption "Enable tmux-sessionizer";
+
+  config = mkIf config.features.cli.tmux-sessionizer.enable {
     home.packages = with pkgs; [ custom-tmux-sessionizer ];
 
     home.file.".tmux-sessionizer".source = "${

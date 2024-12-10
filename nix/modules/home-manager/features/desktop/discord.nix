@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.discord.enable = lib.mkEnableOption "Enable Discord";
+with lib;
 
-  config = lib.mkIf config.features.desktop.discord.enable {
+{
+  options.features.desktop.discord.enable = mkEnableOption "Enable Discord";
+
+  config = mkIf config.features.desktop.discord.enable {
     home.packages = with pkgs; [ discord ];
   };
 }

@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.homelab.immich.enable = lib.mkEnableOption "Enable immich";
+with lib;
 
-  config = lib.mkIf config.features.homelab.immich.enable {
+{
+  options.features.homelab.immich.enable = mkEnableOption "Enable immich";
+
+  config = mkIf config.features.homelab.immich.enable {
     services.immich.enable = true;
 
     environment.systemPackages = [ pkgs.immich-cli ];

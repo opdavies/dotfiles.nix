@@ -1,9 +1,11 @@
 { config, lib, ... }:
 
-{
-  options.features.homelab.gitea.enable = lib.mkEnableOption "Enable gitea";
+with lib;
 
-  config = lib.mkIf config.features.homelab.gitea.enable {
+{
+  options.features.homelab.gitea.enable = mkEnableOption "Enable gitea";
+
+  config = mkIf config.features.homelab.gitea.enable {
     services.gitea = {
       enable = true;
 

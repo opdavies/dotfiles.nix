@@ -1,9 +1,11 @@
 { config, lib, ... }:
 
-{
-  options.features.homelab.jellyfin.enable = lib.mkEnableOption "Enable jellyfin";
+with lib;
 
-  config = lib.mkIf config.features.homelab.jellyfin.enable {
+{
+  options.features.homelab.jellyfin.enable = mkEnableOption "Enable jellyfin";
+
+  config = mkIf config.features.homelab.jellyfin.enable {
     services.jellyfin = {
       enable = true;
       openFirewall = true;

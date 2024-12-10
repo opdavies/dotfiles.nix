@@ -1,9 +1,11 @@
 { lib, config, ... }:
 
-{
-  options.features.cli.docker.enable = lib.mkEnableOption "Enable Docker";
+with lib;
 
-  config = lib.mkIf config.features.cli.docker.enable {
+{
+  options.features.cli.docker.enable = mkEnableOption "Enable Docker";
+
+  config = mkIf config.features.cli.docker.enable {
     virtualisation.docker = {
       enable = true;
 

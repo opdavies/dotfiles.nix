@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.zoom.enable = lib.mkEnableOption "Enable zoom";
+with lib;
 
-  config = lib.mkIf config.features.desktop.zoom.enable {
+{
+  options.features.desktop.zoom.enable = mkEnableOption "Enable zoom";
+
+  config = mkIf config.features.desktop.zoom.enable {
     home.packages = with pkgs; [ nixpkgs-2405.zoom-us ];
   };
 }

@@ -5,13 +5,15 @@
   ...
 }:
 
+with lib;
+
 let
   inherit (pkgs) tmuxPlugins;
 in
 {
-  options.features.cli.tmux.enable = lib.mkEnableOption "Enable tmux";
+  options.features.cli.tmux.enable = mkEnableOption "Enable tmux";
 
-  config = lib.mkIf config.features.cli.tmux.enable {
+  config = mkIf config.features.cli.tmux.enable {
     programs.tmux = {
       enable = true;
 

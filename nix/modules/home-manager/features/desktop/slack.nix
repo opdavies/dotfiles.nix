@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.slack.enable = lib.mkEnableOption "Enable Slack";
+with lib;
 
-  config = lib.mkIf config.features.desktop.slack.enable {
+{
+  options.features.desktop.slack.enable = mkEnableOption "Enable Slack";
+
+  config = mkIf config.features.desktop.slack.enable {
     home.packages = with pkgs; [ slack ];
   };
 }

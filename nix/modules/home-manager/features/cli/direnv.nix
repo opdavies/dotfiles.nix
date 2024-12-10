@@ -1,9 +1,11 @@
 { config, lib, ... }:
 
-{
-  options.features.cli.direnv.enable = lib.mkEnableOption "Enable direnv";
+with lib;
 
-  config = lib.mkIf config.features.cli.direnv.enable {
+{
+  options.features.cli.direnv.enable = mkEnableOption "Enable direnv";
+
+  config = mkIf config.features.cli.direnv.enable {
     programs.direnv = {
       enable = true;
       enableZshIntegration = true;

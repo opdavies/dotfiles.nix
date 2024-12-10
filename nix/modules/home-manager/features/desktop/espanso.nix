@@ -1,9 +1,11 @@
 { config, lib, ... }:
 
-{
-  options.features.desktop.espanso.enable = lib.mkEnableOption "Enable espanso";
+with lib;
 
-  config = lib.mkIf config.features.desktop.espanso.enable {
+{
+  options.features.desktop.espanso.enable = mkEnableOption "Enable espanso";
+
+  config = mkIf config.features.desktop.espanso.enable {
     services.espanso = {
       enable = true;
 

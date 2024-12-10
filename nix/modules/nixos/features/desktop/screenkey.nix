@@ -6,10 +6,12 @@
   ...
 }:
 
-{
-  options.features.desktop.screenkey.enable = lib.mkEnableOption "Enable screenkey";
+with lib;
 
-  config = lib.mkIf config.features.desktop.screenkey.enable {
+{
+  options.features.desktop.screenkey.enable = mkEnableOption "Enable screenkey";
+
+  config = mkIf config.features.desktop.screenkey.enable {
     environment.systemPackages = with pkgs; [ screenkey ];
 
     home-manager.users.${username}.xdg.configFile."screenkey.json".text = builtins.toJSON {

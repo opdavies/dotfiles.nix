@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.cli.bluetuith.enable = lib.mkEnableOption "Enable bluetuith";
+with lib;
 
-  config = lib.mkIf config.features.cli.bluetuith.enable {
+{
+  options.features.cli.bluetuith.enable = mkEnableOption "Enable bluetuith";
+
+  config = mkIf config.features.cli.bluetuith.enable {
     home.packages = with pkgs; [
       bluetuith
     ];

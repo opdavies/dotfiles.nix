@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.media.handbrake.enable = lib.mkEnableOption "Enable handbrake";
+with lib;
 
-  config = lib.mkIf config.features.desktop.media.handbrake.enable {
+{
+  options.features.desktop.media.handbrake.enable = mkEnableOption "Enable handbrake";
+
+  config = mkIf config.features.desktop.media.handbrake.enable {
     home.packages = with pkgs; [ handbrake ];
   };
 }

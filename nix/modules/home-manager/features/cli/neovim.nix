@@ -6,10 +6,12 @@
   ...
 }:
 
-{
-  options.features.cli.neovim.enable = lib.mkEnableOption "Enable neovim";
+with lib;
 
-  config = lib.mkIf config.features.cli.neovim.enable {
+{
+  options.features.cli.neovim.enable = mkEnableOption "Enable neovim";
+
+  config = mkIf config.features.cli.neovim.enable {
     programs.neovim = {
       enable = true;
 

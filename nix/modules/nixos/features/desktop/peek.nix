@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.peek.enable = lib.mkEnableOption "Enable peek";
+with lib;
 
-  config = lib.mkIf config.features.desktop.peek.enable {
+{
+  options.features.desktop.peek.enable = mkEnableOption "Enable peek";
+
+  config = mkIf config.features.desktop.peek.enable {
     environment.systemPackages = with pkgs; [ peek ];
   };
 }

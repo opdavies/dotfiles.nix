@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.gaming.enable = lib.mkEnableOption "Enable games";
+with lib;
 
-  config = lib.mkIf config.features.desktop.gaming.enable {
+{
+  options.features.desktop.gaming.enable = mkEnableOption "Enable games";
+
+  config = mkIf config.features.desktop.gaming.enable {
     programs.steam.enable = true;
 
     environment.systemPackages = with pkgs; [ zeroad ];

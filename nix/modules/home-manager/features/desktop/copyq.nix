@@ -1,9 +1,11 @@
 { config, lib, ... }:
 
-{
-  options.features.desktop.copyq.enable = lib.mkEnableOption "Enable copyq";
+with lib;
 
-  config = lib.mkIf config.features.desktop.copyq.enable {
+{
+  options.features.desktop.copyq.enable = mkEnableOption "Enable copyq";
+
+  config = mkIf config.features.desktop.copyq.enable {
     services.copyq.enable = true;
   };
 }

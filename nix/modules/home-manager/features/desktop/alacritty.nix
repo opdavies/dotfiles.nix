@@ -4,10 +4,12 @@
   ...
 }:
 
-{
-  options.features.desktop.alacritty.enable = lib.mkEnableOption "Enable Alacritty";
+with lib;
 
-  config = lib.mkIf config.features.desktop.alacritty.enable {
+{
+  options.features.desktop.alacritty.enable = mkEnableOption "Enable Alacritty";
+
+  config = mkIf config.features.desktop.alacritty.enable {
     programs.alacritty = {
       enable = true;
 

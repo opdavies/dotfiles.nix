@@ -5,10 +5,12 @@
   ...
 }:
 
-{
-  options.features.desktop.gtk.enable = lib.mkEnableOption "Enable gtk";
+with lib;
 
-  config = lib.mkIf config.features.desktop.gtk.enable {
+{
+  options.features.desktop.gtk.enable = mkEnableOption "Enable gtk";
+
+  config = mkIf config.features.desktop.gtk.enable {
     gtk = {
       enable = true;
 
