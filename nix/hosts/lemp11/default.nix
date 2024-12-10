@@ -21,7 +21,10 @@
 
   imports = [
     inputs.agenix.nixosModules.default
+
     ./configuration.nix
     ./secrets.nix
+
+    ./modules/nginx.nix
   ];
 }

@@ -132,7 +132,7 @@ in
         "HOST_GID" = "1000";
         "HOST_UID" = "1000";
         "REDIS_HOST" = "archivist-redis";
-        "TA_HOST" = "tubearchivist.local";
+        "TA_HOST" = "tubearchivist.localhost";
         "TZ" = "Europe/London";
       };
 
