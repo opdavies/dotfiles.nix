@@ -171,6 +171,7 @@
     with pkgs;
     [
       caffeine-ng
+      cryptsetup
       gtypist
       fastfetch
       mermaid-cli
