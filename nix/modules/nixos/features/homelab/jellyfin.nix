@@ -9,6 +9,8 @@ with lib;
     services.jellyfin = {
       enable = true;
       openFirewall = true;
+      group = "media";
+      configDir = "/media/jellyfin";
     };
   };
 }

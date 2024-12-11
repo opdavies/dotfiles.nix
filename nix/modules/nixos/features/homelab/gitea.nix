@@ -8,6 +8,8 @@ with lib;
   config = mkIf config.features.homelab.gitea.enable {
     services.gitea = {
       enable = true;
+      group = "media";
+      stateDir = "/media/gitea";
 
       settings = {
         server = {
