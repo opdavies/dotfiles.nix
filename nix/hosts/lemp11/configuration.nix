@@ -157,11 +157,14 @@
     description = "Oliver Davies";
     extraGroups = [
       "docker"
+      "media"
       "networkmanager"
       "wheel"
     ];
     packages = [ ];
   };
+
+  users.groups.media = { };
 
   security.sudo.wheelNeedsPassword = false;
 
