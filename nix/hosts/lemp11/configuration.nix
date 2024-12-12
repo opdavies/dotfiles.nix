@@ -318,4 +318,16 @@
       KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
     '';
   };
+
+  fileSystems."/media" = {
+    device = "/dev/mapper/media";
+    fsType = "ext4";
+    options = [ "defaults" ];
+    neededForBoot = false;
+  };
+
+  boot.initrd.luks.devices.secure_drive = {
+    device = "/dev/disk/by-uuid/debb07aa-4c3e-420c-852a-d4f3c417d27f";
+    preLVM = true;
+  };
 }
