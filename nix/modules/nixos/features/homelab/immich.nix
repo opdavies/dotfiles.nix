@@ -14,7 +14,7 @@ with lib;
     services.immich = {
       enable = true;
       group = "media";
-      mediaLocation = "/media/immich";
+      mediaLocation = "/mnt/media/immich";
     };
 
     environment.systemPackages = [ pkgs.immich-cli ];

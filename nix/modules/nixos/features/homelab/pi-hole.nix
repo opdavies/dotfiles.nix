@@ -28,8 +28,8 @@ with lib;
           };
 
           volumes = [
-            "/media/pihole/etc-dnsmasq.d:/etc/dnsmasq.d:rw"
-            "/media/pihole/etc-pihole:/etc/pihole:rw"
+            "/mnt/media/pihole/etc-dnsmasq.d:/etc/dnsmasq.d:rw"
+            "/mnt/media/pihole/etc-pihole:/etc/pihole:rw"
           ];
 
           ports = [

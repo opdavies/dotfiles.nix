@@ -9,7 +9,7 @@ with lib;
     services.gitea = {
       enable = true;
       group = "media";
-      stateDir = "/media/gitea";
+      stateDir = "/mnt/media/gitea";
 
       settings = {
         server = {

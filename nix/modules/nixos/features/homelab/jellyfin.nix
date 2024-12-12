@@ -10,7 +10,7 @@ with lib;
       enable = true;
       openFirewall = true;
       group = "media";
-      configDir = "/media/jellyfin";
+      configDir = "/mnt/media/jellyfin";
     };
   };
 }
