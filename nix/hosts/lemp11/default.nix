@@ -15,6 +15,7 @@
       gitea.enable = true;
       immich.enable = true;
       jellyfin.enable = true;
+      paperless.enable = true;
       pihole.enable = true;
       tubearchivist-container.enable = true;
     };
