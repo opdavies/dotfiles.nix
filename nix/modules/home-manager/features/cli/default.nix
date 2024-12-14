@@ -36,6 +36,7 @@
     ./git.nix
     ./htop.nix
     ./lsd.nix
+    ./notes.nix
     ./pet.nix
     ./phpactor.nix
     ./ripgrep.nix
