@@ -7,6 +7,9 @@
 
 with lib;
 
+let
+  port = 8082;
+in
 {
   options.features.homelab.pihole.enable = mkEnableOption "Enable pihole";
 
@@ -36,7 +39,7 @@ with lib;
             "53:53/tcp"
             "53:53/udp"
             "67:67/udp"
-            "8082:80/tcp"
+            "${toString port}:80/tcp"
           ];
 
           log-driver = "journald";
@@ -94,7 +97,7 @@ with lib;
     };
 
     services.nginx.virtualHosts."pihole.localhost" = {
-      locations."/".proxyPass = "http://localhost:8082/";
+      locations."/".proxyPass = "http://localhost:${toString port}/";
     };
   };
 }

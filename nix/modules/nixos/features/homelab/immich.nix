@@ -18,5 +18,11 @@ with lib;
     };
 
     environment.systemPackages = [ pkgs.immich-cli ];
+
+    services.nginx = {
+      enable = true;
+
+      virtualHosts."immich.davies.home".locations."/".proxyPass = "http://localhost:${toString config.services.immich.port}/";
+    };
   };
 }

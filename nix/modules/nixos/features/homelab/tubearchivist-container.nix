@@ -229,6 +229,7 @@ in
       wantedBy = [ "docker-compose-tubearchivist-root.target" ];
 
     };
+
     systemd.services."docker-volume-tubearchivist_es" = {
       path = [ pkgs.docker ];
 
@@ -283,6 +284,12 @@ in
       };
 
       wantedBy = [ "multi-user.target" ];
+    };
+
+    services.nginx = {
+      enable = true;
+
+      virtualHosts."tubearchivist.davies.home".locations."/".proxyPass = "http://localhost:${toString port}/";
     };
   };
 }
