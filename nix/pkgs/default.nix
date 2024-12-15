@@ -7,9 +7,9 @@ let
 in
 {
   build-glove80 = callPackage ./build-glove80.nix { };
-  custom-tmux-sessionizer = callPackage ./tmux-sessionizer.nix { };
   notes = callPackage ./notes.nix { };
   notify-battery = callPackage ./notify-battery.nix { };
+  tmux-sessionizer = callPackage ./tmux-sessionizer.nix { };
 
   vimPlugins = prev.vimPlugins // vimPlugins;
 }

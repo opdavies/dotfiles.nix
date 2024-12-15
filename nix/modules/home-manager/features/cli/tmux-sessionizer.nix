@@ -11,7 +11,7 @@ with lib;
   options.features.cli.tmux-sessionizer.enable = mkEnableOption "Enable tmux-sessionizer";
 
   config = mkIf config.features.cli.tmux-sessionizer.enable {
-    home.packages = with pkgs; [ custom-tmux-sessionizer ];
+    home.packages = with pkgs; [ tmux-sessionizer ];
 
     home.file.".tmux-sessionizer".source = "${
       pkgs.writeShellApplication {

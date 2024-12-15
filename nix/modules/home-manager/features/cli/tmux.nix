@@ -74,7 +74,7 @@ in
         set-option -g pane-active-border-style "fg=#1f2335"
         set-option -g pane-border-style "fg=#1f2335"
 
-        bind-key -r f run-shell "tmux new-window custom-tmux-sessionizer"
+        bind-key -r f run-shell "tmux new-window tmux-sessionizer"
 
         if-shell "[ -f ~/.tmux.conf.local ]" 'source ~/.tmux.conf.local'
       '';

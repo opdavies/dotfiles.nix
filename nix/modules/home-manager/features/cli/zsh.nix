@@ -56,7 +56,7 @@
       zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
       autoload -Uz compinit && compinit
 
-      bindkey -s ^f "custom-tmux-sessionizer\n"
+      bindkey -s ^f "tmux-sessionizer\n"
       bindkey -s ^v "nvim\n"
 
       clear-ls-all() {
