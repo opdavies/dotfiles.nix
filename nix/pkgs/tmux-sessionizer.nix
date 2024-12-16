@@ -35,7 +35,7 @@ pkgs.writeShellApplication {
     if [[ $# -eq 1 ]]; then
       selected=$1
     else
-      selected=$(find ~/ ~/Code ~/Code/personal ~/Code/os ~/Documents -mindepth 1 -maxdepth 1 -type d | fzf)
+      selected=$(find ~/ ~/Code ~/Code/personal ~/Code/os ~/Documents -mindepth 1 -maxdepth 1 -type d ! -name "*.old" | fzf)
     fi
 
     if [[ -z "$selected" ]]; then
