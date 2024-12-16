@@ -5,7 +5,7 @@
     packages = with pkgs; [ notes ];
 
     sessionVariables = {
-      NOTES_DIRECTORY = "$WIKI_DIRECTORY/notes";
+      NOTES_DIRECTORY = "$DOCUMENTS/wiki/notes";
       WIKI_DIRECTORY = "$DOCUMENTS/wiki";
     };
   };
