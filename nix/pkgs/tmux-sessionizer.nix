@@ -23,9 +23,7 @@ pkgs.writeShellApplication {
     }
 
     hydrate() {
-      if [ -f "$2/.tmux" ]; then
-        tmux send-keys -t "$1" "source $2/.tmux" Enter
-      elif [ -f "$2/.tmux-sessionizer" ]; then
+      if [ -f "$2/.tmux-sessionizer" ]; then
         tmux send-keys -t "$1" "source $2/.tmux-sessionizer" Enter
       elif [ -f "$HOME/.tmux-sessionizer" ]; then
         tmux send-keys -t "$1" "source $HOME/.tmux-sessionizer" Enter
