@@ -20,4 +20,8 @@
     })
     ./features/desktop
   ];
+
+  home.sessionVariables = {
+    DOCUMENTS = "$HOME/Documents";
+  };
 }

@@ -25,7 +25,7 @@
       exit 1
     fi
 
-    output_file="$HOME/Documents/videos.json"
+    output_file="''${DOCUMENTS}/videos.json"
 
     ${pkgs.tree}/bin/tree -J "$source_path/Videos" | ${pkgs.jq}/bin/jq . > "$output_file"
     ${pkgs.jq}/bin/jq . < "$output_file"
