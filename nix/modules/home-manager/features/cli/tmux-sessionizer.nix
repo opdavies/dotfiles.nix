@@ -22,6 +22,7 @@ with lib;
         ];
 
         text = ''
+          set +o errexit
           set +o nounset
 
           if [[ "$PWD" == "$REPOS/os" || "$PWD" == "$REPOS/personal" ]]; then
