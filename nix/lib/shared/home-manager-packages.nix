@@ -57,6 +57,7 @@ with pkgs;
   tree-sitter
   unzip
   virtualenv
+  w3m
   watchexec
   wget
   xclip
