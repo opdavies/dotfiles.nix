@@ -20,6 +20,7 @@
     {
       disko,
       home-manager,
+      nixos-hardware,
       nixpkgs,
       self,
       ...
@@ -63,6 +64,20 @@
           };
 
           modules = [ ./nix/hosts/lemp11 ];
+        };
+
+        t490 = nixpkgs.lib.nixosSystem {
+          specialArgs = specialArgs // {
+            desktop = true;
+            hostname = "t490";
+          };
+
+          modules = [
+            ./nix/hosts/t490
+
+            nixos-hardware.nixosModules.common-gpu-intel
+            nixos-hardware.nixosModules.lenovo-thinkpad-t490
+          ];
         };
 
         hetznix = nixpkgs.lib.nixosSystem {
