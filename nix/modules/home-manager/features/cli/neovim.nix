@@ -162,12 +162,11 @@ with lib;
         nodePackages.dockerfile-language-server-nodejs
         nodePackages.intelephense
         nodePackages.typescript-language-server
-        nodePackages.vls
         nodePackages.vscode-langservers-extracted
-        nodePackages.vue-language-server
         nodePackages.yaml-language-server
         phpactor
         terraform-ls
+        vue-language-server
 
         # Formatters
         black
