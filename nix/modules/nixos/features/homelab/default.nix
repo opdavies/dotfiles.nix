@@ -1,6 +1,7 @@
 {
   imports = [
     ./audiobookshelf.nix
+    ./forgejo.nix
     ./gitea.nix
     ./immich.nix
     ./jellyfin.nix
