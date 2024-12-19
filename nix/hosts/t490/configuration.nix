@@ -12,10 +12,6 @@
 
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
-
-    outputs.nixosModules.default
-
     ./hardware-configuration.nix
   ];
 
@@ -73,8 +69,6 @@
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
-
-  networking.hostName = hostname;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
