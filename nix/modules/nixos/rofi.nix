@@ -9,6 +9,7 @@
   home-manager.users.${username}.programs.rofi = {
     enable = true;
     cycle = true;
+    theme = "Arc-Dark";
 
     extraConfig = {
       modi = "run,drun,emoji,calc";
