@@ -1,4 +1,5 @@
 {
+  inputs,
   modulesPath,
   lib,
   pkgs,
@@ -15,6 +16,8 @@
     ./modules/acme.nix
     ./modules/nginx
   ];
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs-2405}" ];
 
   networking.firewall.allowedTCPPorts = [
     80

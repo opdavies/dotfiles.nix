@@ -66,7 +66,7 @@
         };
 
         hetznix = nixpkgs.lib.nixosSystem {
-          inherit system;
+          inherit specialArgs system;
 
           modules = [
             disko.nixosModules.disko
