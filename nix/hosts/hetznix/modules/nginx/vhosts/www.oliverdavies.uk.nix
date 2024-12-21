@@ -7,7 +7,6 @@
       extraConfig = ''
         error_page 404 /404;
 
-        # rewrite ^/archive/(.*)/?$ /daily/$1 permanent;
         rewrite ^/10-useful-drupal-6-modules-i-use-every-project/?$ /blog/10-useful-drupal-6-modules permanent;
         rewrite ^/2010/04/05/styling-drupal-6s-taxonomy-lists-with-php-css-and-jquery/?$ /blog/style-drupal-6s-taxonomy-lists-php-css-jquery permanent;
         rewrite ^/2010/04/28/using-imagecache-and-imagecrop-for-my-portfolio/?$ /blog/using-imagecache-imagecrop-my-portfolio permanent;
@@ -254,6 +253,7 @@
         rewrite ^/code-enigma-interview/?$ https://blog.codeenigma.com/interview-with-a-drupal-expert-9fcd8e0fad28 permanent;
         rewrite ^/consulting/?$ / permanent;
         rewrite ^/contrib-half-hour/?$ https://www.youtube.com/playlist?list=PLu-MxhbnjI9rHroPvZO5LEUhr58Yl0j_F permanent;
+        rewrite ^/cv/?$ /cv.txt permanent;
         rewrite ^/d0P5z/?$ /talks/drupal-8-php-libraries-drupalorg-api permanent;
         rewrite ^/d7/?$ /drupal7 permanent;
         rewrite ^/dcbristol-cfp/?$ https://www.papercall.io/drupalcamp-bristol-2019 permanent;
@@ -418,6 +418,8 @@
         rewrite ^/talks/archive/?$ /talks permanent;
         rewrite ^/talks/(.*)$ /presentations/$1 permanent;
         rewrite ^/talks/?$ /presentations permanent;
+
+        rewrite ^/archive/(.*)$ /daily/$1 permanent;
 
         # Remove trailing slashes.
         rewrite ^/(.*)/$ /$1 permanent;
