@@ -159,6 +159,7 @@
       "docker"
       "media"
       "networkmanager"
+      "scanner"
       "wheel"
     ];
     packages = [ ];
@@ -318,4 +319,6 @@
       KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
     '';
   };
+
+  hardware.sane.enable = true;
 }
